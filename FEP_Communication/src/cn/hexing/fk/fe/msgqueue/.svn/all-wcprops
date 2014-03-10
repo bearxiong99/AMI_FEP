@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/ami3.0/!svn/ver/15549/trunk/fep/FEP_Communication/src/cn/hexing/fk/fe/msgqueue
+END
+FEMessageQueue.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ami3.0/!svn/ver/19969/trunk/fep/FEP_Communication/src/cn/hexing/fk/fe/msgqueue/FEMessageQueue.java
+END
+Msg2BpByMod.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ami3.0/!svn/ver/20502/trunk/fep/FEP_Communication/src/cn/hexing/fk/fe/msgqueue/Msg2BpByMod.java
+END
+BpBalanceFactor.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ami3.0/!svn/ver/992/trunk/fep/FEP_Communication/src/cn/hexing/fk/fe/msgqueue/BpBalanceFactor.java
+END
+MessageDispatch2Bp.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ami3.0/!svn/ver/19969/trunk/fep/FEP_Communication/src/cn/hexing/fk/fe/msgqueue/MessageDispatch2Bp.java
+END

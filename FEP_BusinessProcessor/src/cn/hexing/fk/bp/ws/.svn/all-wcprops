@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/ws
+END
+UserControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/ws/UserControl.java
+END
+HsmService.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/ws/HsmService.java
+END
+IdentifyAuthentication.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/ws/IdentifyAuthentication.java
+END
+KeyUpdate.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/ws/KeyUpdate.java
+END
+XmlParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/ws/XmlParser.java
+END

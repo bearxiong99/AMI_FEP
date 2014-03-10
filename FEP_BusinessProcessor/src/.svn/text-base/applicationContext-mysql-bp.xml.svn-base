@@ -1,0 +1,1958 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Application context definition for ...
+-->
+<beans 	xmlns="http://www.springframework.org/schema/beans" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:p="http://www.springframework.org/schema/p" 
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:context="http://www.springframework.org/schema/context" 
+		xmlns:jee="http://www.springframework.org/schema/jee"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xmlns:jaxws="http://cxf.apache.org/jaxws"
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+			http://cxf.apache.org/jaxws http://cxf.apache.org/schema/jaxws.xsd">
+	<!-- ========================= 业务处理器对象定义 ========================= -->
+	
+	<!-- ========================= 业务处理器与营销加密机webservice接口 ========================= -->
+	<!--
+	<bean id="bp.hsmService"
+		class="org.springframework.remoting.jaxrpc.JaxRpcPortProxyFactoryBean">
+		<property name="serviceFactoryClass">
+			<value>org.apache.axis.client.ServiceFactory</value>
+		</property>
+		<property name="serviceInterface" value="cn.hexing.fk.bp.ws.HsmService" />
+		<property name="wsdlDocumentUrl" value="${bp.ws.server}/web/services/HsmService?wsdl" />
+		<property name="namespaceUri" value="${bp.ws.server}/web/services/HsmService" />
+		<property name="serviceName" value="HsmServiceService" />
+		<property name="portName" value="HsmService" />
+	</bean>
+	-->
+	<!-- ========================= 业务处理器的上行消息队列 ========================= -->
+	<bean id="bp.msgqueue.cachequeue" class="cn.hexing.fk.common.queue.CacheQueue">
+		<property name="maxSize" value="51200"/>
+		<property name="minSize" value="5120"/>
+		<property name="maxFileSize" value="100"/>
+		<property name="key" value="bp.msgqueue"/>
+		<property name="messageLoader" ref="messageLoader.MultiProtoMessageLoader"/>
+	</bean>
+	<bean id="bp.msgqueue" class="cn.hexing.fk.bp.msgqueue.BPMessageQueue">
+		<property name="cacheQueue" ref="bp.msgqueue.cachequeue"/>
+		<property name="dataSource" ref="dataSource"/>
+		<property name="client" ref="bp.com.client"/>
+	</bean>
+
+	<!-- =========================通讯前置机客户端收发消息事件处理器 ========================= -->
+	<bean id="bp.event.handle.fe" class="cn.hexing.fk.bp.feclient.FEMessageEventHandler">
+		<property name="msgQueue" ref="bp.msgqueue"/>
+	</bean>
+
+	<!-- ========================= 通讯前置机客户端对象 ========================= -->			
+	<bean id="bp.com.client" class="cn.hexing.fk.clientmod.ClusterClientModule">
+		<property name="clientsUrl" value="${bp.fe.client.url}"/>
+		<property name="heartInterval" value="1000"/>
+		<property name="eventHandler" ref="bp.event.handle.fe"/>
+	</bean>
+	
+	<!-- =========================业务处理器报文处理器========================= -->
+	<bean id="bp.msg.processor" class="cn.hexing.fk.bp.businessprocess.BProcessor">
+		<property name="msgQueue" ref="bp.msgqueue"/>
+		<property name="asycService" ref="bp.asyncService"/>
+		<property name="masterDbService" ref="master.dbservice"/>
+		<property name="manageRtu" ref="manageRtu"/>	
+	</bean>
+	<bean id="bp.msg.filetransfer" class="cn.hexing.fk.bp.webapi.WebMessageFileTransfer"
+		factory-method="getInstance" init-method="init">
+		<property name="msgQueue" ref="bp.msgqueue"/>
+		<property name="masterDbService" ref="master.dbservice"/>
+		<property name="manageRtu" ref="manageRtu"/>	
+	</bean>
+	
+	<!-- =========================业务处理器dlms报文处理器========================= -->
+	<bean id="bp.dlms.processor" class="cn.hexing.fk.bp.dlms.DlmsEventProcessor"
+		factory-method="getInstance" init-method="init">
+		<property name="messageQueue" ref="bp.msgqueue"/>
+		<property name="asycService" ref="bp.asyncService"/>
+		<property name="gwRelayNeedAuth" value="false"></property>
+		<property name="resendInterval" value="15"></property> <!-- second -->
+		<property name="relayResendInterval" value="45"></property><!-- second -->
+		<property name="sessionTimeout" value="0"></property> <!-- mininute -->
+		<property name="maxResend" value="0"></property>  <!-- resend time -->
+	</bean>
+
+	<!-- ========================= 主站web服务端对象 ========================= -->
+	<bean id="messageCreator.Web" class="cn.hexing.fk.bp.webapi.MessageWebCreator"/>
+	<bean id="bp.server.web" class="cn.hexing.fk.sockserver.TcpSocketServer"
+		parent="ISocketServer">
+		<property name="name" value="webServer"/>
+		<property name="port"><value>${bp.web.server.port}</value></property>
+		<property name="bufLength" value="20480"/>
+		<property name="ioThreadSize" value="2"/>
+		<property name="messageCreator" ref="messageCreator.Web"/>
+		<property name="writeFirstCount" value="100"/>
+		<property name="maxContinueRead" value="10"/>
+		<property name="timeout" value="36000"/>		
+	</bean>
+	<bean id="webserver.event.hook" class="cn.hexing.fk.bp.webapi.WebAPIServerEventHandler"
+		parent="SimpleEventHandler" >
+		<property name="name" value="web.EventHook" />
+		<property name="source" ref="bp.server.web"/>
+		<property name="msgQueue" ref="bp.msgqueue"/>
+		<property name="masterDbService" ref="master.dbservice"/>	
+		<!--<property name="hsmService" ref="bp.hsmService"/>-->	
+		<property name="manageRtu" ref="manageRtu"/>
+		<property name="timeoutAlarm"><value>1</value></property>
+		<property name="minSize"><value>2</value></property>
+		<property name="maxSize"><value>4</value></property>
+	</bean>	
+	
+	<!-- ========================= 漏点补招接口客户端对象 ========================= -->			
+	<bean id="bp.rereadTask.client" class="cn.hexing.fk.clientmod.ClientModule"
+		parent="JSocket">
+		<property name="moduleType" value="rereadTaskClient"/>
+		<property name="name" value="rereadTaskClient"/>
+		<property name="hostIp"><value>${bp.rereadTask.client.hostIp}</value></property>
+		<property name="hostPort"><value>${bp.rereadTask.client.hostPort}</value></property>
+		<property name="bufLength" value="20480"/>
+		<property name="messageCreator" ref="messageCreator.Web"/>
+		<property name="timeout" value="2"/>
+		<property name="txfs" value="02"/>
+		<property name="heartInterval" value="10"/>
+		<property name="requestNum" value="500"/>
+		<property name="eventHandler" ref="webserver.event.hook"/>
+	</bean>
+	<bean id="bp.rereadTaskClientManage" class="cn.hexing.fk.bp.feclient.RereadTaskChannelManage">
+		<property name="client" ref="bp.rereadTask.client"/>
+	</bean>
+	
+	<!-- ========================= 批量保存服务对象 ========================= -->
+	<!--
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>jdbc.properties</value>
+				<value>application.properties</value>
+			</list>
+		</property>
+	</bean>-->
+	
+	<bean id="propertyConfigurer" class="cn.hexing.fk.utils.EncryptPlaceholderConfigurer">
+		<property name="encryptFileName" value="jdbc.properties"/>
+		<property name="encryptPropNames">
+			<list>
+				<value>master.jdbc.username</value>
+				<value>master.jdbc.password</value>
+				<value>rz.jdbc.username</value>
+				<value>rz.jdbc.password</value>
+			</list>
+		</property>
+		<property name="locations">
+			<list>
+				<value>application.properties</value>
+				<value>jdbc.properties</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 业务处理器短表任务插入 -->	
+	<bean id="bp.batchDao.insertTaskData" class="cn.hexing.db.batch.dao.jdbc.JdbcBatchDao">
+		<property name="key" value="1000"/>
+		<property name="batchSize"><value>${bp.batchSize}</value></property>
+		<property name="delaySecond"><value>${bp.delaySecond}</value></property>
+		<property name="dataSource" ref="dataSource"/>
+		<property name="sql">
+			<value>
+				<![CDATA[
+				INSERT INTO SB_SJMXB(SJID,SJSJ,SJBH,SJZ,CT,PT)
+				VALUES(:SJID,:SJSJ,:SJBH,:SJZ,:CT,:PT)
+				]]>
+			</value>
+		</property>
+	</bean>
+		
+	<!-- 业务处理器专变任务电量数据临时表插入 -->		
+	<bean id="bp.batchDao.insertTaskDlsj" class="cn.hexing.db.batch.dao.jdbc.JdbcBatchDao4Mysql">
+		<property name="key" value="1000"/>
+		<property name="batchSize"><value>${bp.batchSize}</value></property>
+		<property name="delaySecond"><value>${bp.delaySecond}</value></property>
+		<property name="dataSource" ref="dataSource"/>
+		<property name="sql">
+			<value>
+				<![CDATA[
+			 	 SELECT FXYGZ2,FXYGZ3,FXYGZ4,ZXWGZ,ZXWGZ1,ZXWGZ2,ZXWGZ3,ZXWGZ4,FXWGZ,FXWGZ1,FXWGZ2,FXWGZ3,FXWGZ4,ZXYGZDXL,ZXYGZDXLFSSJ,ZXYGZDXL1,ZXYGZDXL1FSSJ,ZXYGZDXL2,ZXYGZDXL2FSSJ,ZXYGZDXL3,ZXYGZDXL3FSSJ,ZXYGZDXL4,ZXYGZDXL4FSSJ,FXYGZDXL,FXYGZDXLFSSJ,ZXWGZDXL,ZXWGZDXLFSSJ,ZXWGZDXL1,ZXWGZDXL1FSSJ,ZXWGZDXL2,ZXWGZDXL2FSSJ,ZXWGZDXL3,ZXWGZDXL3FSSJ,ZXWGZDXL4,ZXWGZDXL4FSSJ,FXWGZDXL,FXWGZDXLFSSJ,WGZXX1,WGZXX2,WGZXX3,WGZXX4,FXWGZXX1,FXWGZXX2,FXWGZXX3,FXWGZXX4,ZXYGZXL,ZXYGZXLFSSJ,ZXYGZXL1,ZXYGZXL1FSSJ,ZXYGZXL2,ZXYGZXL2FSSJ,ZXYGZXL3,ZXYGZXL3FSSJ,ZXYGZXL4,ZXYGZXL4FSSJ,ZXYGSZZXL,ZXYGSZZXLFSSJ,ZXYGSZZXL1,ZXYGSZZXL1FSSJ,ZXYGSZZXL2,ZXYGSZZXL2FSSJ,ZXYGSZZXL3,ZXYGSZZXL3FSSJ,ZXYGSZZXL4,ZXYGSZZXL4FSSJ,SYXLJGSJ,XLZQS,ZXYGLJZDXL,ZXYGLJZDXL1,ZXYGLJZDXL2,ZXYGLJZDXL3,ZXYGLJZDXL4,ZJYCXLFWSJ,XLFWCS,ZJHGS,ZXYGZ,ZXYGZ1,ZXYGZ2,ZXYGZ3,ZXYGZ4,FXYGZ,FXYGZ1
+  				 FROM SB_DLSJ
+  				 WHERE SJID=? AND SJSJ =?
+				]]>
+			</value>
+		</property>
+		<property name="mapperLoadTaskData">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.bp.model.TaskDLSJ"/>
+				<property name="columnMapper">
+					<list>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXYGZ2"/>
+						<property name="index" value="1"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXYGZ3"/>
+						<property name="index" value="2"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXYGZ4"/>
+						<property name="index" value="3"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZ"/>
+						<property name="index" value="4"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZ1"/>
+						<property name="index" value="5"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZ2"/>
+						<property name="index" value="6"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZ3"/>
+						<property name="index" value="7"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZ4"/>
+						<property name="index" value="8"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXWGZ"/>
+						<property name="index" value="9"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXWGZ1"/>
+						<property name="index" value="10"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXWGZ2"/>
+						<property name="index" value="11"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXWGZ3"/>
+						<property name="index" value="12"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXWGZ4"/>
+						<property name="index" value="13"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZDXL"/>
+						<property name="index" value="14"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZDXLFSSJ"/>
+						<property name="index" value="15"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZDXL1"/>
+						<property name="index" value="16"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZDXL1FSSJ"/>
+						<property name="index" value="17"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZDXL2"/>
+						<property name="index" value="18"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZDXL2FSSJ"/>
+						<property name="index" value="19"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZDXL3"/>
+						<property name="index" value="20"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZDXL3FSSJ"/>
+						<property name="index" value="21"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZDXL4"/>
+						<property name="index" value="22"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZDXL4FSSJ"/>
+						<property name="index" value="23"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXYGZDXL"/>
+						<property name="index" value="24"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXYGZDXLFSSJ"/>
+						<property name="index" value="25"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZDXL"/>
+						<property name="index" value="26"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZDXLFSSJ"/>
+						<property name="index" value="27"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZDXL1"/>
+						<property name="index" value="28"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZDXL1FSSJ"/>
+						<property name="index" value="29"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZDXL2"/>
+						<property name="index" value="30"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZDXL2FSSJ"/>
+						<property name="index" value="31"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZDXL3"/>
+						<property name="index" value="32"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZDXL3FSSJ"/>
+						<property name="index" value="33"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZDXL4"/>
+						<property name="index" value="34"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZDXL4FSSJ"/>
+						<property name="index" value="35"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXWGZDXL"/>
+						<property name="index" value="36"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXWGZDXLFSSJ"/>
+						<property name="index" value="37"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="WGZXX1"/>
+						<property name="index" value="38"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="WGZXX2"/>
+						<property name="index" value="39"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="WGZXX3"/>
+						<property name="index" value="40"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="WGZXX4"/>
+						<property name="index" value="41"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXWGZXX1"/>
+						<property name="index" value="42"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXWGZXX2"/>
+						<property name="index" value="43"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXWGZXX3"/>
+						<property name="index" value="44"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXWGZXX4"/>
+						<property name="index" value="45"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZXL"/>
+						<property name="index" value="46"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZXLFSSJ"/>
+						<property name="index" value="47"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZXL1"/>
+						<property name="index" value="48"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZXL1FSSJ"/>
+						<property name="index" value="49"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZXL2"/>
+						<property name="index" value="50"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZXL2FSSJ"/>
+						<property name="index" value="51"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZXL3"/>
+						<property name="index" value="52"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZXL3FSSJ"/>
+						<property name="index" value="53"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZXL4"/>
+						<property name="index" value="54"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZXL4FSSJ"/>
+						<property name="index" value="55"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGSZZXL"/>
+						<property name="index" value="56"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGSZZXLFSSJ"/>
+						<property name="index" value="57"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGSZZXL1"/>
+						<property name="index" value="58"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGSZZXL1FSSJ"/>
+						<property name="index" value="59"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGSZZXL2"/>
+						<property name="index" value="60"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGSZZXL2FSSJ"/>
+						<property name="index" value="61"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGSZZXL3"/>
+						<property name="index" value="62"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGSZZXL3FSSJ"/>
+						<property name="index" value="63"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGSZZXL4"/>
+						<property name="index" value="64"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGSZZXL4FSSJ"/>
+						<property name="index" value="65"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="SYXLJGSJ"/>
+						<property name="index" value="66"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="XLZQS"/>
+						<property name="index" value="67"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGLJZDXL"/>
+						<property name="index" value="68"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGLJZDXL1"/>
+						<property name="index" value="69"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGLJZDXL2"/>
+						<property name="index" value="70"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGLJZDXL3"/>
+						<property name="index" value="71"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGLJZDXL4"/>
+						<property name="index" value="72"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZJYCXLFWSJ"/>
+						<property name="index" value="73"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="XLFWCS"/>
+						<property name="index" value="74"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZJHGS"/>
+						<property name="index" value="75"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZ"/>
+						<property name="index" value="76"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZ1"/>
+						<property name="index" value="77"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZ2"/>
+						<property name="index" value="78"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZ3"/>
+						<property name="index" value="79"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZ4"/>
+						<property name="index" value="80"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXYGZ"/>
+						<property name="index" value="81"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXYGZ1"/>
+						<property name="index" value="82"/>
+					</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+		<property name="additiveSql">
+			<value>
+				<![CDATA[
+		 		 INSERT INTO SB_DLSJ
+				(SJID,SJSJ,JSSJ,CT,PT,ZHBL,BQBJ,FXYGZ2,FXYGZ3,FXYGZ4,ZXWGZ,ZXWGZ1,ZXWGZ2,ZXWGZ3,ZXWGZ4,FXWGZ,FXWGZ1,FXWGZ2,FXWGZ3,FXWGZ4,ZXYGZDXL,ZXYGZDXLFSSJ,ZXYGZDXL1,ZXYGZDXL1FSSJ,ZXYGZDXL2,ZXYGZDXL2FSSJ,ZXYGZDXL3,ZXYGZDXL3FSSJ,ZXYGZDXL4,ZXYGZDXL4FSSJ,FXYGZDXL,FXYGZDXLFSSJ,ZXWGZDXL,ZXWGZDXLFSSJ,ZXWGZDXL1,ZXWGZDXL1FSSJ,ZXWGZDXL2,ZXWGZDXL2FSSJ,ZXWGZDXL3,ZXWGZDXL3FSSJ,ZXWGZDXL4,ZXWGZDXL4FSSJ,FXWGZDXL,FXWGZDXLFSSJ,WGZXX1,WGZXX2,WGZXX3,WGZXX4,FXWGZXX1,FXWGZXX2,FXWGZXX3,FXWGZXX4,ZXYGZXL,ZXYGZXLFSSJ,ZXYGZXL1,ZXYGZXL1FSSJ,ZXYGZXL2,ZXYGZXL2FSSJ,ZXYGZXL3,ZXYGZXL3FSSJ,ZXYGZXL4,ZXYGZXL4FSSJ,ZXYGSZZXL,ZXYGSZZXLFSSJ,ZXYGSZZXL1,ZXYGSZZXL1FSSJ,ZXYGSZZXL2,ZXYGSZZXL2FSSJ,ZXYGSZZXL3,ZXYGSZZXL3FSSJ,ZXYGSZZXL4,ZXYGSZZXL4FSSJ,SYXLJGSJ,XLZQS,ZXYGLJZDXL,ZXYGLJZDXL1,ZXYGLJZDXL2,ZXYGLJZDXL3,ZXYGLJZDXL4,ZJYCXLFWSJ,XLFWCS,ZJHGS,ZXYGZ,ZXYGZ1,ZXYGZ2,ZXYGZ3,ZXYGZ4,FXYGZ,FXYGZ1)
+				VALUES
+				(:SJID, :SJSJ, now(), :CT, :PT, :ZHBL, :BQBJ, :FXYGZ2, :FXYGZ3, :FXYGZ4, :ZXWGZ, :ZXWGZ1, :ZXWGZ2, :ZXWGZ3, :ZXWGZ4, :FXWGZ, :FXWGZ1, :FXWGZ2, :FXWGZ3, :FXWGZ4, :ZXYGZDXL, :ZXYGZDXLFSSJ, :ZXYGZDXL1, :ZXYGZDXL1FSSJ, :ZXYGZDXL2, :ZXYGZDXL2FSSJ, :ZXYGZDXL3, :ZXYGZDXL3FSSJ, :ZXYGZDXL4, :ZXYGZDXL4FSSJ, :FXYGZDXL, :FXYGZDXLFSSJ, :ZXWGZDXL, :ZXWGZDXLFSSJ, :ZXWGZDXL1, :ZXWGZDXL1FSSJ, :ZXWGZDXL2, :ZXWGZDXL2FSSJ, :ZXWGZDXL3, :ZXWGZDXL3FSSJ, :ZXWGZDXL4, :ZXWGZDXL4FSSJ, :FXWGZDXL, :FXWGZDXLFSSJ, :WGZXX1, :WGZXX2, :WGZXX3, :WGZXX4, :FXWGZXX1, :FXWGZXX2, :FXWGZXX3, :FXWGZXX4, :ZXYGZXL, :ZXYGZXLFSSJ, :ZXYGZXL1, :ZXYGZXL1FSSJ, :ZXYGZXL2, :ZXYGZXL2FSSJ, :ZXYGZXL3, :ZXYGZXL3FSSJ, :ZXYGZXL4, :ZXYGZXL4FSSJ, :ZXYGSZZXL, :ZXYGSZZXLFSSJ, :ZXYGSZZXL1, :ZXYGSZZXL1FSSJ, :ZXYGSZZXL2, :ZXYGSZZXL2FSSJ, :ZXYGSZZXL3, :ZXYGSZZXL3FSSJ, :ZXYGSZZXL4, :ZXYGSZZXL4FSSJ, :SYXLJGSJ, :XLZQS, :ZXYGLJZDXL, :ZXYGLJZDXL1, :ZXYGLJZDXL2, :ZXYGLJZDXL3, :ZXYGLJZDXL4, :ZJYCXLFWSJ, :XLFWCS, :ZJHGS, :ZXYGZ, :ZXYGZ1, :ZXYGZ2, :ZXYGZ3, :ZXYGZ4, :FXYGZ, :FXYGZ1 )
+				ON DUPLICATE KEY UPDATE
+				JSSJ=now(),FXYGZ2=:FXYGZ2, FXYGZ3=:FXYGZ3, FXYGZ4=:FXYGZ4, ZXWGZ=:ZXWGZ, ZXWGZ1=:ZXWGZ1, ZXWGZ2=:ZXWGZ2, ZXWGZ3=:ZXWGZ3, ZXWGZ4=:ZXWGZ4, FXWGZ=:FXWGZ, FXWGZ1=:FXWGZ1, FXWGZ2=:FXWGZ2, FXWGZ3=:FXWGZ3, FXWGZ4=:FXWGZ4, ZXYGZDXL=:ZXYGZDXL, ZXYGZDXLFSSJ=:ZXYGZDXLFSSJ, ZXYGZDXL1=:ZXYGZDXL1, ZXYGZDXL1FSSJ=:ZXYGZDXL1FSSJ, ZXYGZDXL2=:ZXYGZDXL2, ZXYGZDXL2FSSJ=:ZXYGZDXL2FSSJ, ZXYGZDXL3=:ZXYGZDXL3, ZXYGZDXL3FSSJ=:ZXYGZDXL3FSSJ, ZXYGZDXL4=:ZXYGZDXL4, ZXYGZDXL4FSSJ=:ZXYGZDXL4FSSJ, FXYGZDXL=:FXYGZDXL, FXYGZDXLFSSJ=:FXYGZDXLFSSJ, ZXWGZDXL=:ZXWGZDXL, ZXWGZDXLFSSJ=:ZXWGZDXLFSSJ, ZXWGZDXL1=:ZXWGZDXL1, ZXWGZDXL1FSSJ=:ZXWGZDXL1FSSJ, ZXWGZDXL2=:ZXWGZDXL2, ZXWGZDXL2FSSJ=:ZXWGZDXL2FSSJ, ZXWGZDXL3=:ZXWGZDXL3, ZXWGZDXL3FSSJ=:ZXWGZDXL3FSSJ, ZXWGZDXL4=:ZXWGZDXL4, ZXWGZDXL4FSSJ=:ZXWGZDXL4FSSJ, FXWGZDXL=:FXWGZDXL, FXWGZDXLFSSJ=:FXWGZDXLFSSJ, WGZXX1=:WGZXX1, WGZXX2=:WGZXX2, WGZXX3=:WGZXX3, WGZXX4=:WGZXX4, FXWGZXX1=:FXWGZXX1, FXWGZXX2=:FXWGZXX2, FXWGZXX3=:FXWGZXX3, FXWGZXX4=:FXWGZXX4, ZXYGZXL=:ZXYGZXL, ZXYGZXLFSSJ=:ZXYGZXLFSSJ, ZXYGZXL1=:ZXYGZXL1, ZXYGZXL1FSSJ=:ZXYGZXL1FSSJ, ZXYGZXL2=:ZXYGZXL2, ZXYGZXL2FSSJ=:ZXYGZXL2FSSJ, ZXYGZXL3=:ZXYGZXL3, ZXYGZXL3FSSJ=:ZXYGZXL3FSSJ, ZXYGZXL4=:ZXYGZXL4, ZXYGZXL4FSSJ=:ZXYGZXL4FSSJ, ZXYGSZZXL=:ZXYGSZZXL, ZXYGSZZXLFSSJ=:ZXYGSZZXLFSSJ, ZXYGSZZXL1=:ZXYGSZZXL1, ZXYGSZZXL1FSSJ=:ZXYGSZZXL1FSSJ, ZXYGSZZXL2=:ZXYGSZZXL2, ZXYGSZZXL2FSSJ=:ZXYGSZZXL2FSSJ, ZXYGSZZXL3=:ZXYGSZZXL3, ZXYGSZZXL3FSSJ=:ZXYGSZZXL3FSSJ, ZXYGSZZXL4=:ZXYGSZZXL4, ZXYGSZZXL4FSSJ=:ZXYGSZZXL4FSSJ, SYXLJGSJ=:SYXLJGSJ, XLZQS=:XLZQS, ZXYGLJZDXL=:ZXYGLJZDXL, ZXYGLJZDXL1=:ZXYGLJZDXL1, ZXYGLJZDXL2=:ZXYGLJZDXL2, ZXYGLJZDXL3=:ZXYGLJZDXL3, ZXYGLJZDXL4=:ZXYGLJZDXL4, ZJYCXLFWSJ=:ZJYCXLFWSJ, XLFWCS=:XLFWCS, ZJHGS=:ZJHGS, ZXYGZ=:ZXYGZ, ZXYGZ1=:ZXYGZ1, ZXYGZ2=:ZXYGZ2, ZXYGZ3=:ZXYGZ3, ZXYGZ4=:ZXYGZ4, FXYGZ=:FXYGZ, FXYGZ1=:FXYGZ1				]]>
+			</value>
+		</property>
+	</bean>
+		<!-- 业务处理器月冻结数据临时表插入 -->
+	<bean id="bp.batchDao.insertFreezeMonth" class="cn.hexing.db.batch.dao.jdbc.JdbcBatchDao4Mysql">
+	<property name="key" value="1002"/>
+		<property name="batchSize"><value>${bp.batchSize}</value></property>
+		<property name="delaySecond"><value>${bp.delaySecond}</value></property>
+		<property name="dataSource" ref="dataSource"/>
+		<property name="sql">
+			<value>
+				<![CDATA[
+			 	 SELECT FXYGZ2,FXYGZ3,FXYGZ4,ZXWGZ,ZXWGZ1,ZXWGZ2,ZXWGZ3,ZXWGZ4,FXWGZ,FXWGZ1,FXWGZ2,FXWGZ3,FXWGZ4,ZXYGZDXL,ZXYGZDXLFSSJ,ZXYGZDXL1,ZXYGZDXL1FSSJ,ZXYGZDXL2,ZXYGZDXL2FSSJ,ZXYGZDXL3,ZXYGZDXL3FSSJ,ZXYGZDXL4,ZXYGZDXL4FSSJ,FXYGZDXL,FXYGZDXLFSSJ,ZXWGZDXL,ZXWGZDXLFSSJ,ZXWGZDXL1,ZXWGZDXL1FSSJ,ZXWGZDXL2,ZXWGZDXL2FSSJ,ZXWGZDXL3,ZXWGZDXL3FSSJ,ZXWGZDXL4,ZXWGZDXL4FSSJ,FXWGZDXL,FXWGZDXLFSSJ,WGZXX1,WGZXX2,WGZXX3,WGZXX4,FXWGZXX1,FXWGZXX2,FXWGZXX3,FXWGZXX4,ZXYGZXL,ZXYGZXLFSSJ,ZXYGZXL1,ZXYGZXL1FSSJ,ZXYGZXL2,ZXYGZXL2FSSJ,ZXYGZXL3,ZXYGZXL3FSSJ,ZXYGZXL4,ZXYGZXL4FSSJ,ZXYGSZZXL,ZXYGSZZXLFSSJ,ZXYGSZZXL1,ZXYGSZZXL1FSSJ,ZXYGSZZXL2,ZXYGSZZXL2FSSJ,ZXYGSZZXL3,ZXYGSZZXL3FSSJ,ZXYGSZZXL4,ZXYGSZZXL4FSSJ,SYXLJGSJ,XLZQS,ZXYGLJZDXL,ZXYGLJZDXL1,ZXYGLJZDXL2,ZXYGLJZDXL3,ZXYGLJZDXL4,ZJYCXLFWSJ,XLFWCS,ZJHGS,ZXYGZ,ZXYGZ1,ZXYGZ2,ZXYGZ3,ZXYGZ4,FXYGZ,FXYGZ1
+  				 FROM SB_DLSJ_YDJ
+  				 WHERE SJID=? AND SJSJ =?
+				]]>
+			</value>
+		</property>
+		<property name="mapperLoadTaskData">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.bp.model.TaskDLSJYDJ"/>
+				<property name="columnMapper">
+					<list>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXYGZ2"/>
+						<property name="index" value="1"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXYGZ3"/>
+						<property name="index" value="2"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXYGZ4"/>
+						<property name="index" value="3"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZ"/>
+						<property name="index" value="4"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZ1"/>
+						<property name="index" value="5"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZ2"/>
+						<property name="index" value="6"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZ3"/>
+						<property name="index" value="7"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZ4"/>
+						<property name="index" value="8"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXWGZ"/>
+						<property name="index" value="9"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXWGZ1"/>
+						<property name="index" value="10"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXWGZ2"/>
+						<property name="index" value="11"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXWGZ3"/>
+						<property name="index" value="12"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXWGZ4"/>
+						<property name="index" value="13"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZDXL"/>
+						<property name="index" value="14"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZDXLFSSJ"/>
+						<property name="index" value="15"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZDXL1"/>
+						<property name="index" value="16"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZDXL1FSSJ"/>
+						<property name="index" value="17"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZDXL2"/>
+						<property name="index" value="18"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZDXL2FSSJ"/>
+						<property name="index" value="19"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZDXL3"/>
+						<property name="index" value="20"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZDXL3FSSJ"/>
+						<property name="index" value="21"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZDXL4"/>
+						<property name="index" value="22"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZDXL4FSSJ"/>
+						<property name="index" value="23"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXYGZDXL"/>
+						<property name="index" value="24"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXYGZDXLFSSJ"/>
+						<property name="index" value="25"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZDXL"/>
+						<property name="index" value="26"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZDXLFSSJ"/>
+						<property name="index" value="27"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZDXL1"/>
+						<property name="index" value="28"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZDXL1FSSJ"/>
+						<property name="index" value="29"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZDXL2"/>
+						<property name="index" value="30"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZDXL2FSSJ"/>
+						<property name="index" value="31"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZDXL3"/>
+						<property name="index" value="32"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZDXL3FSSJ"/>
+						<property name="index" value="33"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZDXL4"/>
+						<property name="index" value="34"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXWGZDXL4FSSJ"/>
+						<property name="index" value="35"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXWGZDXL"/>
+						<property name="index" value="36"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXWGZDXLFSSJ"/>
+						<property name="index" value="37"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="WGZXX1"/>
+						<property name="index" value="38"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="WGZXX2"/>
+						<property name="index" value="39"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="WGZXX3"/>
+						<property name="index" value="40"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="WGZXX4"/>
+						<property name="index" value="41"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXWGZXX1"/>
+						<property name="index" value="42"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXWGZXX2"/>
+						<property name="index" value="43"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXWGZXX3"/>
+						<property name="index" value="44"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXWGZXX4"/>
+						<property name="index" value="45"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZXL"/>
+						<property name="index" value="46"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZXLFSSJ"/>
+						<property name="index" value="47"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZXL1"/>
+						<property name="index" value="48"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZXL1FSSJ"/>
+						<property name="index" value="49"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZXL2"/>
+						<property name="index" value="50"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZXL2FSSJ"/>
+						<property name="index" value="51"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZXL3"/>
+						<property name="index" value="52"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZXL3FSSJ"/>
+						<property name="index" value="53"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZXL4"/>
+						<property name="index" value="54"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZXL4FSSJ"/>
+						<property name="index" value="55"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGSZZXL"/>
+						<property name="index" value="56"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGSZZXLFSSJ"/>
+						<property name="index" value="57"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGSZZXL1"/>
+						<property name="index" value="58"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGSZZXL1FSSJ"/>
+						<property name="index" value="59"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGSZZXL2"/>
+						<property name="index" value="60"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGSZZXL2FSSJ"/>
+						<property name="index" value="61"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGSZZXL3"/>
+						<property name="index" value="62"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGSZZXL3FSSJ"/>
+						<property name="index" value="63"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGSZZXL4"/>
+						<property name="index" value="64"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGSZZXL4FSSJ"/>
+						<property name="index" value="65"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="SYXLJGSJ"/>
+						<property name="index" value="66"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="XLZQS"/>
+						<property name="index" value="67"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGLJZDXL"/>
+						<property name="index" value="68"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGLJZDXL1"/>
+						<property name="index" value="69"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGLJZDXL2"/>
+						<property name="index" value="70"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGLJZDXL3"/>
+						<property name="index" value="71"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGLJZDXL4"/>
+						<property name="index" value="72"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZJYCXLFWSJ"/>
+						<property name="index" value="73"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="XLFWCS"/>
+						<property name="index" value="74"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZJHGS"/>
+						<property name="index" value="75"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZ"/>
+						<property name="index" value="76"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZ1"/>
+						<property name="index" value="77"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZ2"/>
+						<property name="index" value="78"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZ3"/>
+						<property name="index" value="79"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ZXYGZ4"/>
+						<property name="index" value="80"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXYGZ"/>
+						<property name="index" value="81"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="FXYGZ1"/>
+						<property name="index" value="82"/>
+					</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+		<property name="additiveSql">
+			<value>
+				<![CDATA[
+				 INSERT INTO SB_DLSJ_YDJ
+				(SJID,SJSJ,JSSJ,CT,PT,ZHBL,BQBJ,FXYGZ2,FXYGZ3,FXYGZ4,ZXWGZ,ZXWGZ1,ZXWGZ2,ZXWGZ3,ZXWGZ4,FXWGZ,FXWGZ1,FXWGZ2,FXWGZ3,FXWGZ4,ZXYGZDXL,ZXYGZDXLFSSJ,ZXYGZDXL1,ZXYGZDXL1FSSJ,ZXYGZDXL2,ZXYGZDXL2FSSJ,ZXYGZDXL3,ZXYGZDXL3FSSJ,ZXYGZDXL4,ZXYGZDXL4FSSJ,FXYGZDXL,FXYGZDXLFSSJ,ZXWGZDXL,ZXWGZDXLFSSJ,ZXWGZDXL1,ZXWGZDXL1FSSJ,ZXWGZDXL2,ZXWGZDXL2FSSJ,ZXWGZDXL3,ZXWGZDXL3FSSJ,ZXWGZDXL4,ZXWGZDXL4FSSJ,FXWGZDXL,FXWGZDXLFSSJ,WGZXX1,WGZXX2,WGZXX3,WGZXX4,FXWGZXX1,FXWGZXX2,FXWGZXX3,FXWGZXX4,ZXYGZXL,ZXYGZXLFSSJ,ZXYGZXL1,ZXYGZXL1FSSJ,ZXYGZXL2,ZXYGZXL2FSSJ,ZXYGZXL3,ZXYGZXL3FSSJ,ZXYGZXL4,ZXYGZXL4FSSJ,ZXYGSZZXL,ZXYGSZZXLFSSJ,ZXYGSZZXL1,ZXYGSZZXL1FSSJ,ZXYGSZZXL2,ZXYGSZZXL2FSSJ,ZXYGSZZXL3,ZXYGSZZXL3FSSJ,ZXYGSZZXL4,ZXYGSZZXL4FSSJ,SYXLJGSJ,XLZQS,ZXYGLJZDXL,ZXYGLJZDXL1,ZXYGLJZDXL2,ZXYGLJZDXL3,ZXYGLJZDXL4,ZJYCXLFWSJ,XLFWCS,ZJHGS,ZXYGZ,ZXYGZ1,ZXYGZ2,ZXYGZ3,ZXYGZ4,FXYGZ,FXYGZ1)
+				VALUES
+				(:SJID, :SJSJ, now(), :CT, :PT, :ZHBL, :BQBJ, :FXYGZ2, :FXYGZ3, :FXYGZ4, :ZXWGZ, :ZXWGZ1, :ZXWGZ2, :ZXWGZ3, :ZXWGZ4, :FXWGZ, :FXWGZ1, :FXWGZ2, :FXWGZ3, :FXWGZ4, :ZXYGZDXL, :ZXYGZDXLFSSJ, :ZXYGZDXL1, :ZXYGZDXL1FSSJ, :ZXYGZDXL2, :ZXYGZDXL2FSSJ, :ZXYGZDXL3, :ZXYGZDXL3FSSJ, :ZXYGZDXL4, :ZXYGZDXL4FSSJ, :FXYGZDXL, :FXYGZDXLFSSJ, :ZXWGZDXL, :ZXWGZDXLFSSJ, :ZXWGZDXL1, :ZXWGZDXL1FSSJ, :ZXWGZDXL2, :ZXWGZDXL2FSSJ, :ZXWGZDXL3, :ZXWGZDXL3FSSJ, :ZXWGZDXL4, :ZXWGZDXL4FSSJ, :FXWGZDXL, :FXWGZDXLFSSJ, :WGZXX1, :WGZXX2, :WGZXX3, :WGZXX4, :FXWGZXX1, :FXWGZXX2, :FXWGZXX3, :FXWGZXX4, :ZXYGZXL, :ZXYGZXLFSSJ, :ZXYGZXL1, :ZXYGZXL1FSSJ, :ZXYGZXL2, :ZXYGZXL2FSSJ, :ZXYGZXL3, :ZXYGZXL3FSSJ, :ZXYGZXL4, :ZXYGZXL4FSSJ, :ZXYGSZZXL, :ZXYGSZZXLFSSJ, :ZXYGSZZXL1, :ZXYGSZZXL1FSSJ, :ZXYGSZZXL2, :ZXYGSZZXL2FSSJ, :ZXYGSZZXL3, :ZXYGSZZXL3FSSJ, :ZXYGSZZXL4, :ZXYGSZZXL4FSSJ, :SYXLJGSJ, :XLZQS, :ZXYGLJZDXL, :ZXYGLJZDXL1, :ZXYGLJZDXL2, :ZXYGLJZDXL3, :ZXYGLJZDXL4, :ZJYCXLFWSJ, :XLFWCS, :ZJHGS, :ZXYGZ, :ZXYGZ1, :ZXYGZ2, :ZXYGZ3, :ZXYGZ4, :FXYGZ, :FXYGZ1 )
+				ON DUPLICATE KEY UPDATE
+				JSSJ=now(),FXYGZ2=:FXYGZ2, FXYGZ3=:FXYGZ3, FXYGZ4=:FXYGZ4, ZXWGZ=:ZXWGZ, ZXWGZ1=:ZXWGZ1, ZXWGZ2=:ZXWGZ2, ZXWGZ3=:ZXWGZ3, ZXWGZ4=:ZXWGZ4, FXWGZ=:FXWGZ, FXWGZ1=:FXWGZ1, FXWGZ2=:FXWGZ2, FXWGZ3=:FXWGZ3, FXWGZ4=:FXWGZ4, ZXYGZDXL=:ZXYGZDXL, ZXYGZDXLFSSJ=:ZXYGZDXLFSSJ, ZXYGZDXL1=:ZXYGZDXL1, ZXYGZDXL1FSSJ=:ZXYGZDXL1FSSJ, ZXYGZDXL2=:ZXYGZDXL2, ZXYGZDXL2FSSJ=:ZXYGZDXL2FSSJ, ZXYGZDXL3=:ZXYGZDXL3, ZXYGZDXL3FSSJ=:ZXYGZDXL3FSSJ, ZXYGZDXL4=:ZXYGZDXL4, ZXYGZDXL4FSSJ=:ZXYGZDXL4FSSJ, FXYGZDXL=:FXYGZDXL, FXYGZDXLFSSJ=:FXYGZDXLFSSJ, ZXWGZDXL=:ZXWGZDXL, ZXWGZDXLFSSJ=:ZXWGZDXLFSSJ, ZXWGZDXL1=:ZXWGZDXL1, ZXWGZDXL1FSSJ=:ZXWGZDXL1FSSJ, ZXWGZDXL2=:ZXWGZDXL2, ZXWGZDXL2FSSJ=:ZXWGZDXL2FSSJ, ZXWGZDXL3=:ZXWGZDXL3, ZXWGZDXL3FSSJ=:ZXWGZDXL3FSSJ, ZXWGZDXL4=:ZXWGZDXL4, ZXWGZDXL4FSSJ=:ZXWGZDXL4FSSJ, FXWGZDXL=:FXWGZDXL, FXWGZDXLFSSJ=:FXWGZDXLFSSJ, WGZXX1=:WGZXX1, WGZXX2=:WGZXX2, WGZXX3=:WGZXX3, WGZXX4=:WGZXX4, FXWGZXX1=:FXWGZXX1, FXWGZXX2=:FXWGZXX2, FXWGZXX3=:FXWGZXX3, FXWGZXX4=:FXWGZXX4, ZXYGZXL=:ZXYGZXL, ZXYGZXLFSSJ=:ZXYGZXLFSSJ, ZXYGZXL1=:ZXYGZXL1, ZXYGZXL1FSSJ=:ZXYGZXL1FSSJ, ZXYGZXL2=:ZXYGZXL2, ZXYGZXL2FSSJ=:ZXYGZXL2FSSJ, ZXYGZXL3=:ZXYGZXL3, ZXYGZXL3FSSJ=:ZXYGZXL3FSSJ, ZXYGZXL4=:ZXYGZXL4, ZXYGZXL4FSSJ=:ZXYGZXL4FSSJ, ZXYGSZZXL=:ZXYGSZZXL, ZXYGSZZXLFSSJ=:ZXYGSZZXLFSSJ, ZXYGSZZXL1=:ZXYGSZZXL1, ZXYGSZZXL1FSSJ=:ZXYGSZZXL1FSSJ, ZXYGSZZXL2=:ZXYGSZZXL2, ZXYGSZZXL2FSSJ=:ZXYGSZZXL2FSSJ, ZXYGSZZXL3=:ZXYGSZZXL3, ZXYGSZZXL3FSSJ=:ZXYGSZZXL3FSSJ, ZXYGSZZXL4=:ZXYGSZZXL4, ZXYGSZZXL4FSSJ=:ZXYGSZZXL4FSSJ, SYXLJGSJ=:SYXLJGSJ, XLZQS=:XLZQS, ZXYGLJZDXL=:ZXYGLJZDXL, ZXYGLJZDXL1=:ZXYGLJZDXL1, ZXYGLJZDXL2=:ZXYGLJZDXL2, ZXYGLJZDXL3=:ZXYGLJZDXL3, ZXYGLJZDXL4=:ZXYGLJZDXL4, ZJYCXLFWSJ=:ZJYCXLFWSJ, XLFWCS=:XLFWCS, ZJHGS=:ZJHGS, ZXYGZ=:ZXYGZ, ZXYGZ1=:ZXYGZ1, ZXYGZ2=:ZXYGZ2, ZXYGZ3=:ZXYGZ3, ZXYGZ4=:ZXYGZ4, FXYGZ=:FXYGZ, FXYGZ1=:FXYGZ1				]]>
+			</value>
+		</property>
+	</bean>
+	<!-- 预付费月冻结 -->
+	<bean id="bp.batchDao.insertPrepayFreezeMonth" class="cn.hexing.db.batch.dao.jdbc.JdbcBatchDao4Mysql">
+		<property name="key" value="1004"/>
+		<property name="batchSize"><value>${bp.batchSize}</value></property>
+		<property name="delaySecond"><value>${bp.delaySecond}</value></property>
+		<property name="dataSource" ref="dataSource"/>
+		<property name="sql">
+			<value>
+				<![CDATA[
+				SELECT YE,ZJDQZT,ZJDQCZYY,ZJDQMS,DBMS,JSDYEZT,LJYQL,ZXYGZ
+				FROM SB_YFFSJ_YDJ
+				WHERE SJID=? AND SJSJ=?
+				]]>
+			</value>
+		</property>
+		<property name="mapperLoadTaskData">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.bp.model.TaskYFFSJYDJ"/>
+				<property name="columnMapper">
+					<list>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="YE"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="ZJDQZT"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="ZJDQCZYY"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="ZJDQMS"/>
+							<property name="index" value="4"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="DBMS"/>
+							<property name="index" value="5"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="JSDYEZT"/>
+							<property name="index" value="6"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="LJYQL"/>
+							<property name="index" value="7"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="ZXYGZ"/>
+							<property name="index" value="8"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+		<property name="additiveSql">
+			<value>
+				<![CDATA[
+			INSERT INTO SB_YFFSJ_YDJ(SJID, SJSJ, JSSJ, CT, PT, ZHBL, BQBJ,  YE, ZJDQZT, ZJDQCZYY, ZJDQMS, DBMS, JSDYEZT, LJYQL,ZXYGZ)
+			VALUES(:SJID, :SJSJ, now(), :CT, :PT, :ZHBL, :BQBJ, :YE, :ZJDQZT, :ZJDQCZYY, :ZJDQMS, :DBMS, :JSDYEZT, :LJYQL,:ZXYGZ)
+			ON DUPLICATE KEY UPDATE
+			JSSJ=now(),YE=:YE, ZJDQZT=:ZJDQZT, ZJDQCZYY=:ZJDQCZYY, ZJDQMS=:ZJDQMS, DBMS=:DBMS, JSDYEZT=:JSDYEZT, LJYQL=:LJYQL,ZXYGZ=:ZXYGZ			
+			 ]]>
+			</value>
+		</property>
+	</bean>
+	<!-- 预付费日冻结 -->
+	<bean id="bp.batchDao.insertPrepay" class="cn.hexing.db.batch.dao.jdbc.JdbcBatchDao4Mysql">
+		<property name="key" value="1003"/>
+		<property name="batchSize"><value>${bp.batchSize}</value></property>
+		<property name="delaySecond"><value>${bp.delaySecond}</value></property>
+		<property name="dataSource" ref="dataSource"/>
+		<property name="sql">
+			<value>
+				<![CDATA[
+				SELECT YE,ZJDQZT,ZJDQCZYY,ZJDQMS,DBMS,JSDYEZT,LJYQL,ZXYGZ
+				FROM SB_YFFSJ
+				WHERE SJID=? AND SJSJ=?
+				]]>
+			</value>
+		</property>
+		<property name="mapperLoadTaskData">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.bp.model.TaskYFFSJ"/>
+				<property name="columnMapper">
+					<list>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="YE"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="ZJDQZT"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="ZJDQCZYY"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="ZJDQMS"/>
+							<property name="index" value="4"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="DBMS"/>
+							<property name="index" value="5"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="JSDYEZT"/>
+							<property name="index" value="6"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="LJYQL"/>
+							<property name="index" value="7"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="ZXYGZ"/>
+							<property name="index" value="8"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+		<property name="additiveSql">
+			<value>
+				<![CDATA[
+			INSERT INTO SB_YFFSJ(SJID, SJSJ, JSSJ, CT, PT, ZHBL, BQBJ,  YE, ZJDQZT, ZJDQCZYY, ZJDQMS, DBMS, JSDYEZT, LJYQL,ZXYGZ)
+			VALUES(:SJID, :SJSJ, now(), :CT, :PT, :ZHBL, :BQBJ, :YE, :ZJDQZT, :ZJDQCZYY, :ZJDQMS, :DBMS, :JSDYEZT, :LJYQL,:ZXYGZ)
+			ON DUPLICATE KEY UPDATE
+			JSSJ=now(),YE=:YE, ZJDQZT=:ZJDQZT, ZJDQCZYY=:ZJDQCZYY, ZJDQMS=:ZJDQMS, DBMS=:DBMS, JSDYEZT=:JSDYEZT, LJYQL=:LJYQL,ZXYGZ=:ZXYGZ				
+			 ]]>
+			</value>
+		</property>
+	</bean>
+	<!-- 抄表日数据插入 -->
+	<bean id="bp.batchDao.insertReadDay" class="cn.hexing.db.batch.dao.jdbc.JdbcBatchDao4Mysql">
+	<property name="key" value="1001"/>
+		<property name="batchSize"><value>${bp.batchSize}</value></property>
+		<property name="delaySecond"><value>${bp.delaySecond}</value></property>
+		<property name="dataSource" ref="dataSource"/>
+		<property name="sql">
+			<value>
+				<![CDATA[
+			 	 SELECT ZXYGZ,ZXYGZ1,ZXYGZ2,ZXYGZ3,ZXYGZ4,FXYGZ,FXYGZ1,FXYGZ2,FXYGZ3,FXYGZ4,ZXWGZ,ZXWGZ1,ZXWGZ2,ZXWGZ3,ZXWGZ4,FXWGZ,FXWGZ1,FXWGZ2,FXWGZ3,FXWGZ4,ZXYGZDXL,ZXYGZDXLFSSJ,FXYGZDXL,FXYGZDXLFSSJ,WGZXX1,WGZXX2,WGZXX3,WGZXX4,FXWGZXX1,FXWGZXX2,FXWGZXX3,FXWGZXX4,DATE_FORMAT( BILLING_DATE,'%Y-%m-%d %H:%i:%s')
+  				 FROM SB_DLSJ_CBR
+				 WHERE SJID=? AND SJSJ=?
+				]]>
+			</value>
+		</property>
+		<property name="mapperLoadTaskData">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.bp.model.TaskDLSJCBR"/>
+				<property name="columnMapper">
+				<list>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="ZXYGZ"/>
+					<property name="index" value="1"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="ZXYGZ1"/>
+					<property name="index" value="2"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="ZXYGZ2"/>
+					<property name="index" value="3"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="ZXYGZ3"/>
+					<property name="index" value="4"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="ZXYGZ4"/>
+					<property name="index" value="5"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="FXYGZ"/>
+					<property name="index" value="6"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="FXYGZ1"/>
+					<property name="index" value="7"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="FXYGZ2"/>
+					<property name="index" value="8"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="FXYGZ3"/>
+					<property name="index" value="9"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="FXYGZ4"/>
+					<property name="index" value="10"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="ZXWGZ"/>
+					<property name="index" value="11"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="ZXWGZ1"/>
+					<property name="index" value="12"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="ZXWGZ2"/>
+					<property name="index" value="13"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="ZXWGZ3"/>
+					<property name="index" value="14"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="ZXWGZ4"/>
+					<property name="index" value="15"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="FXWGZ"/>
+					<property name="index" value="16"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="FXWGZ1"/>
+					<property name="index" value="17"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="FXWGZ2"/>
+					<property name="index" value="18"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="FXWGZ3"/>
+					<property name="index" value="19"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="FXWGZ4"/>
+					<property name="index" value="20"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="ZXYGZDXL"/>
+					<property name="index" value="21"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="ZXYGZDXLFSSJ"/>
+					<property name="index" value="22"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="FXYGZDXL"/>
+					<property name="index" value="23"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="FXYGZDXLFSSJ"/>
+					<property name="index" value="24"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="WGZXX1"/>
+					<property name="index" value="25"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="WGZXX2"/>
+					<property name="index" value="26"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="WGZXX3"/>
+					<property name="index" value="27"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="WGZXX4"/>
+					<property name="index" value="28"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="FXWGZXX1"/>
+					<property name="index" value="29"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="FXWGZXX2"/>
+					<property name="index" value="30"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="FXWGZXX3"/>
+					<property name="index" value="31"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="FXWGZXX4"/>
+					<property name="index" value="32"/>
+				</bean>
+				<bean class="cn.hexing.db.resultmap.ColumnMapper">
+					<property name="property" value="BILLING_DATE"/>
+					<property name="index" value="33"/>
+				</bean>
+
+
+					</list>
+				</property>
+			</bean>
+		</property>
+		<property name="additiveSql">
+			<value>
+				<![CDATA[
+				INSERT INTO SB_DLSJ_CBR(SJID, SJSJ, JSSJ, CT, PT, ZHBL, BQBJ , ZXYGZ, ZXYGZ1, ZXYGZ2, ZXYGZ3, ZXYGZ4, FXYGZ, FXYGZ1, FXYGZ2, FXYGZ3, FXYGZ4, ZXWGZ, ZXWGZ1, ZXWGZ2, ZXWGZ3, ZXWGZ4, FXWGZ, FXWGZ1, FXWGZ2, FXWGZ3, FXWGZ4, ZXYGZDXL, ZXYGZDXLFSSJ, FXYGZDXL, FXYGZDXLFSSJ, WGZXX1, WGZXX2, WGZXX3, WGZXX4, FXWGZXX1, FXWGZXX2, FXWGZXX3, FXWGZXX4, BILLING_DATE)
+				VALUES(:SJID, :SJSJ, now(), :CT, :PT, :ZHBL, :BQBJ, :ZXYGZ, :ZXYGZ1, :ZXYGZ2, :ZXYGZ3, :ZXYGZ4, :FXYGZ, :FXYGZ1, :FXYGZ2, :FXYGZ3, :FXYGZ4, :ZXWGZ, :ZXWGZ1, :ZXWGZ2, :ZXWGZ3, :ZXWGZ4, :FXWGZ, :FXWGZ1, :FXWGZ2, :FXWGZ3, :FXWGZ4, :ZXYGZDXL, :ZXYGZDXLFSSJ, :FXYGZDXL, :FXYGZDXLFSSJ, :WGZXX1, :WGZXX2, :WGZXX3, :WGZXX4, :FXWGZXX1, :FXWGZXX2, :FXWGZXX3, :FXWGZXX4, :BILLING_DATE)
+				ON DUPLICATE KEY UPDATE
+				JSSJ=now(),ZXYGZ=:ZXYGZ,ZXYGZ1=:ZXYGZ1, ZXYGZ2=:ZXYGZ2, ZXYGZ3=:ZXYGZ3, ZXYGZ4=:ZXYGZ4,FXYGZ =:FXYGZ,FXYGZ1 =:FXYGZ1,FXYGZ2 =:FXYGZ2,FXYGZ3 =:FXYGZ3,FXYGZ4 =:FXYGZ4, ZXWGZ=:ZXWGZ,ZXWGZ1 =:ZXWGZ1, ZXWGZ2=:ZXWGZ2,ZXWGZ3 =:ZXWGZ3, ZXWGZ4=:ZXWGZ4, FXWGZ=:FXWGZ,FXWGZ1 =:FXWGZ1, FXWGZ2=:FXWGZ2,FXWGZ3 =:FXWGZ3, FXWGZ4=:FXWGZ4, ZXYGZDXL=:ZXYGZDXL,ZXYGZDXLFSSJ =:ZXYGZDXLFSSJ, FXYGZDXL=:FXYGZDXL, FXYGZDXLFSSJ=:FXYGZDXLFSSJ, WGZXX1=:WGZXX1, WGZXX2=:WGZXX2,WGZXX3 =:WGZXX3,WGZXX4 =:WGZXX4,FXWGZXX1 =:FXWGZXX1, FXWGZXX2=:FXWGZXX2, FXWGZXX3=:FXWGZXX3, FXWGZXX4=:FXWGZXX4, BILLING_DATE=:BILLING_DATE
+				]]>
+			</value>
+		</property>
+		
+	</bean>
+	<!-- 业务处理器专变任务负荷数据临时表插入 -->	
+	<bean id="bp.batchDao.insertTaskFhsj" class="cn.hexing.db.batch.dao.jdbc.JdbcBatchDao4Mysql">
+		<property name="key" value="2000"/>
+		<property name="batchSize"><value>${bp.batchSize}</value></property>
+		<property name="delaySecond"><value>${bp.delaySecond}</value></property>
+		<property name="dataSource" ref="dataSource"/>
+		<property name="sql">
+			<value>
+				<![CDATA[
+				SELECT AXDY,BXDY,CXDY,AXDL,BXDL,CXDL,SZGL,GLYS,SSYG,SSWG,FXYGGL,FXWGGL,ZXYGZ,ZXWGZ,FXYGZ,FXWGZ,WGZ1,WGZ2,WGZ3,WGZ4,AXGLYS,BXGLYS,CXGLYS	,AXSSYG,BXSSYG,CXSSYG,AXSSWG,BXSSWG,CXSSWG,AXZXYGZ,BXZXYGZ,CXZXYGZ,AXZXWGZ,BXZXWGZ,CXZXWGZ,DWPL
+				FROM SB_FHSJ
+				WHERE SJID=? AND SJSJ=?
+				]]>
+			</value>
+		</property>
+		<property name="mapperLoadTaskData">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.bp.model.TaskFHSJ"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="AXDY" />
+							<property name="index" value="1" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="BXDY" />
+							<property name="index" value="2" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="CXDY" />
+							<property name="index" value="3" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="AXDL" />
+							<property name="index" value="4" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="BXDL" />
+							<property name="index" value="5" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="CXDL" />
+							<property name="index" value="6" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="SZGL" />
+							<property name="index" value="7" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="GLYS" />
+							<property name="index" value="8" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="SSYG" />
+							<property name="index" value="9" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="SSWG" />
+							<property name="index" value="10" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="FXYGGL" />
+							<property name="index" value="11" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="FXWGGL" />
+							<property name="index" value="12" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="ZXYGZ" />
+							<property name="index" value="13" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="ZXWGZ" />
+							<property name="index" value="14" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="FXYGZ" />
+							<property name="index" value="15" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="FXWGZ" />
+							<property name="index" value="16" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="WGZ1" />
+							<property name="index" value="17" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="WGZ2" />
+							<property name="index" value="18" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="WGZ3" />
+							<property name="index" value="19" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="WGZ4" />
+							<property name="index" value="20" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="AXGLYS" />
+							<property name="index" value="21" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="BXGLYS" />
+							<property name="index" value="22" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="CXGLYS" />
+							<property name="index" value="23" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="AXSSYG" />
+							<property name="index" value="24" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="BXSSYG" />
+							<property name="index" value="25" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="CXSSYG" />
+							<property name="index" value="26" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="AXSSWG" />
+							<property name="index" value="27" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="BXSSWG" />
+							<property name="index" value="28" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="CXSSWG" />
+							<property name="index" value="29" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="AXZXYGZ" />
+							<property name="index" value="30" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="BXZXYGZ" />
+							<property name="index" value="31" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="CXZXYGZ" />
+							<property name="index" value="32" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="AXZXWGZ" />
+							<property name="index" value="33" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="BXZXWGZ" />
+							<property name="index" value="34" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="CXZXWGZ" />
+							<property name="index" value="35" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="DWPL" />
+							<property name="index" value="36" />
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+		<property name="additiveSql">
+			<value>
+				<![CDATA[
+				INSERT INTO SB_FHSJ (SJID,SJSJ,JSSJ,CT,PT,ZHBL,BQBJ,AXDY,BXDY,CXDY,AXDL,BXDL,CXDL,SZGL,GLYS,SSYG,SSWG,FXYGGL,FXWGGL,ZXYGZ,ZXWGZ,FXYGZ,FXWGZ,WGZ1,WGZ2,WGZ3,WGZ4,AXGLYS,BXGLYS,CXGLYS	,AXSSYG,BXSSYG,CXSSYG,AXSSWG,BXSSWG,CXSSWG,AXZXYGZ,BXZXYGZ,CXZXYGZ,AXZXWGZ,BXZXWGZ,CXZXWGZ,DWPL)
+				VALUES (:SJID,:SJSJ,now(),:CT,:PT,:ZHBL,:BQBJ,:AXDY,:BXDY,:CXDY,:AXDL,:BXDL,:CXDL,:SZGL,:GLYS,:SSYG,:SSWG,:FXYGGL,:FXWGGL,:ZXYGZ,:ZXWGZ,:FXYGZ,:FXWGZ,:WGZ1,:WGZ2,:WGZ3,:WGZ4,:AXGLYS,:BXGLYS,:CXGLYS	,:AXSSYG,:BXSSYG,:CXSSYG,:AXSSWG,:BXSSWG,:CXSSWG,:AXZXYGZ,:BXZXYGZ,:CXZXYGZ,:AXZXWGZ,:BXZXWGZ,:CXZXWGZ,:DWPL)
+				ON DUPLICATE KEY UPDATE
+				JSSJ=now(),AXDY=:AXDY, BXDY=:BXDY, CXDY=:CXDY, AXDY=:AXDY, BXDY=:BXDY, CXDY=:CXDY, AXDL=:AXDL, BXDL=:BXDL, CXDL=:CXDL, SZGL=:SZGL, GLYS=:GLYS, SSYG=:SSYG, SSWG=:SSWG, FXYGGL=:FXYGGL, FXWGGL=:FXWGGL, ZXYGZ=:ZXYGZ, ZXWGZ=:ZXWGZ, FXYGZ=:FXYGZ, FXWGZ=:FXWGZ, WGZ1=:WGZ1, WGZ2=:WGZ2, WGZ3=:WGZ3, WGZ4=:WGZ4, AXGLYS=:AXGLYS, BXGLYS=:BXGLYS, CXGLYS	=:CXGLYS	, AXSSYG=:AXSSYG, BXSSYG=:BXSSYG, CXSSYG=:CXSSYG, AXSSWG=:AXSSWG, BXSSWG=:BXSSWG, CXSSWG=:CXSSWG, AXZXYGZ=:AXZXYGZ, BXZXYGZ=:BXZXYGZ, CXZXYGZ=:CXZXYGZ, AXZXWGZ=:AXZXWGZ, BXZXWGZ=:BXZXWGZ, CXZXWGZ=:CXZXWGZ, DWPL=:DWPL
+				]]>
+			</value>
+		</property>
+	</bean>
+	
+	<!-- 业务处理器专变任务电压合格率数据数据临时表插入 -->	
+	<bean id="bp.batchDao.insertTaskDyhglsj" class="cn.hexing.db.batch.dao.jdbc.JdbcBatchDao2">
+		<property name="key" value="3000"/>
+		<property name="batchSize"><value>${bp.batchSize}</value></property>
+		<property name="delaySecond"><value>${bp.delaySecond}</value></property>
+		<property name="dataSource" ref="dataSource"/>
+		<property name="sql">
+			<value>
+				<![CDATA[
+				INSERT INTO TEMP_SB_DYHGLSJ(SJID,SJSJ,PT,BQBJ,TJCS,AXCSXCS,AXCXXCS,BXCSXCS,BXCXXCS,CXCSXCS,CXCXXCS,AXFZJFSSJ,AXGZJFSSJ,BXFZJFSSJ,BXGZJFSSJ,CXFZJFSSJ,CXGZJFSSJ)
+				VALUES(:SJID,:SJSJ,:PT,:BQBJ,:TJCS,:AXCSXCS,:AXCXXCS,:BXCSXCS,:BXCXXCS,:CXCSXCS,:CXCXXCS,:AXFZJFSSJ,:AXGZJFSSJ,:BXFZJFSSJ,:BXGZJFSSJ,:CXFZJFSSJ,:CXGZJFSSJ)
+				]]>
+			</value>
+		</property>
+		<property name="additiveSql">
+			<value>
+				<![CDATA[
+				MERGE INTO sb_dyhglsj t
+				USING (select sjid, sjsj, max(pt) as pt, max(bqbj) as bqbj, max(tjcs) as tjcs, 
+								max(axcsxcs) as axcsxcs, max(axcxxcs) as axcxxcs, max(bxcsxcs) as bxcsxcs, max(bxcxxcs) as bxcxxcs, 
+								max(cxcsxcs) as cxcsxcs, max(cxcxxcs) as cxcxxcs, max(axfzjfssj) as axfzjfssj, max(axgzjfssj) as axgzjfssj, 
+								max(bxfzjfssj) as bxfzjfssj, max(bxgzjfssj) as bxgzjfssj, max(cxfzjfssj) as cxfzjfssj, max(cxgzjfssj) as cxgzjfssj
+				       from TEMP_SB_DYHGLSJ group by sjid, sjsj) s
+				ON (t.sjid = s.sjid AND t.sjsj = s.sjsj)
+				WHEN MATCHED THEN
+				   UPDATE SET t.pt=s.pt, t.bqbj=s.bqbj, t.tjcs=nvl(s.tjcs, t.tjcs), 
+				              t.axcsxcs=nvl(s.axcsxcs, t.axcsxcs), t.axcxxcs=nvl(s.axcxxcs, t.axcxxcs), 
+				              t.bxcsxcs=nvl(s.bxcsxcs, t.bxcsxcs), t.bxcxxcs=nvl(s.bxcxxcs, t.bxcxxcs), 
+				              t.cxcsxcs=nvl(s.cxcsxcs, t.cxcsxcs), t.cxcxxcs=nvl(s.cxcxxcs, t.cxcxxcs), 
+				              t.axfzjfssj=nvl(s.axfzjfssj, t.axfzjfssj), t.axgzjfssj=nvl(s.axgzjfssj, t.axgzjfssj),
+				              t.bxfzjfssj=nvl(s.bxfzjfssj, t.bxfzjfssj), t.bxgzjfssj=nvl(s.bxgzjfssj, t.bxgzjfssj), 
+				              t.cxfzjfssj=nvl(s.cxfzjfssj, t.cxfzjfssj), t.cxgzjfssj=nvl(s.cxgzjfssj, t.cxgzjfssj)          
+				WHEN NOT MATCHED THEN
+				   INSERT (sjid, sjsj, pt, bqbj, tjcs, axcsxcs, axcxxcs, bxcsxcs, bxcxxcs, cxcsxcs, cxcxxcs, 
+				          axfzjfssj, axgzjfssj, bxfzjfssj, bxgzjfssj, cxfzjfssj, cxgzjfssj)
+				   VALUES (s.sjid, s.sjsj, s.pt, s.bqbj, s.tjcs, s.axcsxcs, s.axcxxcs, s.bxcsxcs, s.bxcxxcs, s.cxcsxcs, s.cxcxxcs, 
+				          s.axfzjfssj, s.axgzjfssj, s.bxfzjfssj, s.bxgzjfssj, s.cxfzjfssj, s.cxgzjfssj)	
+				LOG ERRORS INTO sb_dyhglsj_log (to_char(sysdate, 'YYYYMMDDHH24MISS')) REJECT LIMIT UNLIMITED	
+				]]>
+			</value>
+		</property>
+	</bean>
+	
+		
+	
+	<bean id="bp.batchDao.dlmsAlamrStatusUpdate" class="cn.hexing.db.batch.dao.jdbc.JdbcBatchDao">
+		<property name="key" value="4003"/>
+		<property name="batchSize"><value>${bp.batchSize}</value></property>
+		<property name="delaySecond"><value>${bp.delaySecond}</value></property>
+		<property name="dataSource" ref="dataSource"/>
+		<property name="sql">
+			<value>
+				<![CDATA[	
+				INSERT INTO TJ_DLMSGJZT
+				VALUES(:logicAddress,:obis,:lastReportTime)
+				ON DUPLICATE KEY UPDATE 
+				ZDLJDZ=:logicAddress,obis=:obis,
+				ZJSBSJ=:lastReportTime
+				]]>
+			</value>
+		</property>
+	</bean>
+	
+	<!-- 业务处理器专变异常数据表插入 -->	
+	<bean id="bp.batchDao.insertAlarm" class="cn.hexing.db.batch.dao.jdbc.JdbcBatchDao">
+		<property name="key" value="4000"/>
+		<property name="batchSize"><value>${bp.batchSize}</value></property>
+		<property name="delaySecond"><value>${bp.delaySecond}</value></property>
+		<property name="dataSource" ref="dataSource"/>
+		<property name="sql">
+			<value>
+				<![CDATA[	
+				INSERT INTO sb_gj
+				VALUES(:dataSaveID,:alertCodeHex,:alertTime,:receiveTime,:sbcs,'','','')
+				ON DUPLICATE KEY UPDATE 
+				sjid=:dataSaveID,gjbm=:alertCodeHex,
+				rqsj=:alertTime,jssj=:receiveTime,
+				sbcs=:sbcs,ly='',zt='',dxfszt=''
+				]]>
+			</value>
+		</property>
+	</bean>
+	<!-- 通讯状况存储 -->
+	<bean id="bp.batchDao.rtu.commstate" class="cn.hexing.db.batch.dao.jdbc.JdbcBatchDao">
+		<property name="key" value="6003"></property>
+		<property name="batchSize"><value>2000</value></property>
+		<property name="delaySecond"><value>10</value></property>
+		<property name="dataSource" ref="dataSourceRz"/>
+		<property name="sql">
+			<value>
+				<![CDATA[
+				INSERT INTO TX_ZDZXQK( ZDLJDZ,IP,ZT,FSSJ)
+								VALUES( :logicAddress,:peerAddress,:status,now())
+				]]>
+			</value>
+		</property>
+	</bean>
+	
+		<!-- 升级更新 -->
+	<bean id="bp.batchDao.updateUpgradeInfo" class="cn.hexing.db.batch.dao.jdbc.JdbcBatchDao">
+		<property name="key" value="4004"/>
+		<property name="batchSize"><value>${bp.batchSize}</value></property>
+		<property name="delaySecond"><value>${bp.delaySecond}</value></property>
+		<property name="dataSource" ref="dataSource"/>
+		<property name="sql">
+			<value>
+				<![CDATA[				
+				   update gj_rjsj
+			   	   set 
+			       zzs          = :blockCount,
+			       dqdjz        = :curBlockNum,
+			       ldz          = :reissueBlock,
+			       sjzt         = :status,
+			       zcd			= :maxSize
+				   where rjsjid=:softUpgradeID
+			]]>
+			</value>
+		</property>
+	</bean>
+	
+	<!-- 集中器自动注册 -->
+	<bean id="bp.batchDao.autoRegister" class ="cn.hexing.db.batch.dao.jdbc.JdbcBatchDao">
+		<property name="key" value="4001"/>
+		<property name="batchSize"><value>${bp.batchSize}</value></property>
+		<property name="delaySecond"><value>${bp.delaySecond}</value></property>
+		<property name="dataSource" ref="dataSource"/>
+		<property name="sql">
+			<value>
+				<![CDATA[	
+				
+				INSERT INTO rz_jzqzc  
+				VALUES(:meterAddress,:measurePoint,:logicAddress,:value,NOW(),:status)
+				ON DUPLICATE KEY UPDATE txdz=:meterAddress,cld=:measurePoint,zdljdz=:logicAddress,sbcs=:value,sbsj=NOW(),jrzt=:status
+		
+			]]>
+			</value>
+		</property>
+	</bean>
+	
+	<!-- 业务处理器专变上行非法原始报文插入 -->
+	<bean id="bp.batchDao.insertUpErrLog" class="cn.hexing.db.batch.dao.jdbc.JdbcBatchDao">
+		<property name="key" value="5002"/>
+		<property name="batchSize"><value>${bp.batchSize}</value></property>
+		<property name="delaySecond"><value>${bp.delaySecond}</value></property>
+		<property name="dataSource" ref="dataSourceRz"/>
+		<property name="sql">
+			<value>
+				<![CDATA[
+				INSERT INTO BW_ZBFF( ZDLJDZ,QYM,KZM,JSSJ,YSBW)
+								VALUES( :logicAddress,:qym,:kzm,:time,:body)
+				]]>
+			</value>
+		</property>
+	</bean>
+	
+	<!-- 业务处理器终端实时工况信息插入 -->
+	<bean id="bp.batchDao.insertRtuTaskInfo" class="cn.hexing.db.batch.dao.jdbc.JdbcBatchDao2">
+		<property name="key" value="5100"/>
+		<property name="batchSize"><value>${bp.batchSize}</value></property>
+		<property name="delaySecond"><value>${bp.delaySecond}</value></property>
+		<property name="dataSource" ref="dataSource"/>
+		<property name="sqlPre" value="update temp_e_zdssgk set kg = 1 where yt = 1"/>
+		<property name="sql">
+			<value><![CDATA[
+			UPDATE e_zdssgk SET  dqfh   = :value * IF (:ct IS NULL,:ct,1) * IF (:pt IS NULL,:pt,1),
+       		zjsjsj = :time, dqsjbh = :code, sjjssj = now(), ct = :ct, pt = :pt,  txfs = :txfs
+ 			WHERE hh = :customerNo AND zdjh = :rtuId
+ 			]]></value>
+		</property>
+	</bean>
+	
+	<bean id="bp.event.handle.readTask" class="cn.hexing.fk.bp.processor.TaskMessageHandler">
+		<property name="key" value="4"/>
+	</bean>
+	<bean id="bp.event.handle.expAlarm" class="cn.hexing.fk.bp.processor.AlarmMessageHandler">
+		<property name="key" value="3"/>
+		<property name="notifiedAlertCodes" value="0102,0182,01C1,C600"/>
+		<property name="masterDbService" ref="master.dbservice"/>
+	</bean>
+	
+	<bean id="bp.asyncService" class="cn.hexing.db.batch.AsyncService">
+		<property name="daoList">
+			<list>
+				<ref bean="bp.batchDao.insertUpErrLog" />
+				<ref bean="bp.batchDao.insertTaskData" />	
+				<ref bean="bp.batchDao.insertRtuTaskInfo" />				
+				<ref bean="bp.batchDao.insertTaskDlsj" />
+				<ref bean="bp.batchDao.insertReadDay" />
+				<ref bean="bp.batchDao.insertFreezeMonth" />
+				<ref bean="bp.batchDao.insertTaskFhsj" />
+				<ref bean="bp.batchDao.insertTaskDyhglsj" />									
+				<ref bean="bp.batchDao.insertPrepay"/>							
+				<ref bean="bp.batchDao.insertAlarm" />	
+				<ref bean="bp.batchDao.autoRegister"/>
+				<ref bean="bp.batchDao.rtu.commstate"/>	
+				<ref bean="bp.batchDao.updateUpgradeInfo"/>			
+				<ref bean="bp.batchDao.insertPrepayFreezeMonth"/>
+				<ref bean="bp.batchDao.dlmsAlamrStatusUpdate"/>		
+			</list>
+		</property>
+		<property name="bpHandlerMap">
+			<map>
+				<entry>
+					<key><ref bean="EventType.BP_READ_TASK" /></key>
+					<ref bean="bp.event.handle.readTask" />
+				</entry>
+				<entry>
+					<key><ref bean="EventType.BP_EXP_ALARM" /></key>
+					<ref bean="bp.event.handle.expAlarm" />
+				</entry>
+			</map>
+		</property>
+		<property name="dataSource" ref="dataSource"/>
+		<property name="dataSourceRz" ref="dataSourceRz"/>
+		<property name="maxThreadSize" value="100"/>
+	</bean>
+
+	<bean id="fasSystem" class="cn.hexing.fk.FasSystem"
+		init-method="initialize">
+		<property name="eventHooks">
+			<list>
+				<ref bean="webserver.event.hook" />
+				<ref bean="monitor.event.handler" />
+			</list>
+		</property>
+		<property name="modules">
+			<list>
+				<ref bean="bp.dlms.processor" />	
+				<ref bean="bp.server.web" />
+				<ref bean="bp.com.client" />
+				<ref bean="bp.asyncService" />	
+				<ref bean="bp.msg.processor" />	
+				<ref bean="bp.msg.filetransfer" />	
+				<ref bean="bp.rereadTask.client" />			
+				<ref bean="monitor.server" />																	
+			</list>
+		</property>		
+	</bean>
+
+	<!-- 定义定时Job -->
+	<bean id="job.showProfile" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="fasSystem" />
+		<property name="targetMethod" value="showProfile" />
+	</bean>
+	<bean id="cronTrigger.showProfile" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="job.showProfile" />
+		<property name="cronExpression"><value>${sys.showprofile.cronExpression}</value></property>
+	</bean>
+	<bean id="bp.refreshRtu" class="cn.hexing.fk.bp.processor.RtuRefreshManage">
+		<property name="masterDbService" ref="master.dbservice"/>
+		<property name="manageRtu" ref="manageRtu"/>	
+	</bean>
+	<bean id="job.refreshRtu" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="bp.refreshRtu" />
+		<property name="targetMethod" value="refreshRtuCache" />
+	</bean>
+	<bean id="cronTrigger.refreshRtuCache" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="job.refreshRtu" />
+		<property name="cronExpression"><value>${bp.refreshRtu.cronExpression}</value></property>
+	</bean>
+	
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="cronTrigger.showProfile" />
+				<ref bean="cronTrigger.refreshRtuCache" />
+			</list>
+		</property>
+	</bean>
+	
+	
+<!-- 从数据库中加载DlmsScaleItem -->
+	<bean id="dao.initDlmsItem" class="cn.hexing.fk.bp.dlms.persisit.JdbcDlmsDao">
+		<property name="dataSource" ref="dataSource"/>
+		
+		<property name="sqlLoadDlmsMultiScaleGroupByType">
+			<value>
+			<![CDATA[
+			select  t.M_MODLE as M_MODEL,
+					t.DLMS_SUB_PROTOCOL AS DLMS_SUB_PROTOCOL,
+					t1.ITEM_ID AS ITEM_ID,
+					t1.SCALE AS SCALE
+			from DLMS_SCALE_MODLE t,DLMS_SCALE_CONFIG t1
+			where t1.M_S_VERSION = t.M_S_VERSION
+				]]>
+			</value>
+		</property>
+		<property name="mapplerLoadMultiScale">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.bp.model.DlmsMultiScale"/>
+				<property name="columnMapper">
+					<list>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="meterType"/>
+						<property name="index" value="1"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="subProtocol"/>
+						<property name="index" value="2"/>
+					</bean>	
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="itemId"/>
+						<property name="index" value="3"/>
+					</bean>	
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="scale"/>
+						<property name="index" value="4"/>
+					</bean>	
+					</list>
+				</property>
+			</bean>
+		</property>
+		<property name="sqlLoadDlmsAlarmStatus">
+			<value>
+			<![CDATA[
+ 				SELECT ZDLJDZ, OBIS, ZJSBSJ FROM TJ_DLMSGJZT
+				]]>
+			</value>
+		</property>
+		<property name="mapperLoadDlmsAlarmStatus">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.bp.model.DlmsAlarmStatus"/>
+				<property name="columnMapper">
+					<list>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="logicAddress"/>
+						<property name="index" value="1"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="obis"/>
+						<property name="index" value="2"/>
+					</bean>	
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="lastReportTime"/>
+						<property name="index" value="3"/>
+					</bean>	
+					</list>
+				</property>
+			</bean>
+		</property>
+		<property name="sqlLoadBlockRelatedSmall">
+			<value>
+			<![CDATA[
+ 				SELECT DXSJXBM,XXSJXBM FROM P_DBSJXMX ORDER BY XH 
+				]]>
+			</value>
+		</property>
+		
+		<property name="sqlLoadDlmsCommandByTaskNo">
+			<value>
+			<![CDATA[
+				SELECT MLID, CZRWID, HYSJ, MLZT
+	  			FROM CZ_MLLB
+	  			WHERE CZRWID=?
+				]]>
+			</value>
+		</property>
+		<property name="mapperLoadDlmsCommand">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.bp.model.DlmsCommand"/>
+				<property name="columnMapper">
+					<list>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="commId"/>
+							<property name="index" value="1"/>
+						</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskNo"/>
+							<property name="index" value="2"/>
+						</bean>	
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="receiveDate"/>
+							<property name="index" value="3"/>
+						</bean>	
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="status"/>
+							<property name="index" value="4"/>
+						</bean>	
+					</list>
+				</property>
+			</bean>
+		</property>
+		<property name="sqlLoadScaleItem">
+			<value>
+				<![CDATA[
+				select 
+				item_id,
+				dlms_sub_protocol,
+				class_id,
+				obis,
+				attribute_id,
+				scale,
+				dlms_data_type,
+				calling_data_type,
+				ARRAY_STRUCT_ITEM,
+				customize_class
+				from dlms_params a
+						]]>
+			</value>
+		</property>
+		<property name="mapperLoadScaleItem">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.bp.dlms.protocol.DlmsScaleItem"/>
+				<property name="columnMapper">
+					<list>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="id"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="subProtocol"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="classId"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="obis"/>
+							<property name="index" value="4"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="attrId"/>
+							<property name="index" value="5"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="scale"/>
+							<property name="index" value="6"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="dlmsDataType"/>
+							<property name="index" value="7"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="callingDataType"/>
+							<property name="index" value="8"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="arrayStructItems"/>
+							<property name="index" value="9"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="customizeClass"/>
+							<property name="index" value="10"/>
+						</bean>
+					
+					</list>
+				</property>
+			</bean>
+		</property>
+		<property name="sqlUpdateEsamKeyVersion">
+			<value>
+				<![CDATA[
+					update da_bj
+					set mybb = ?
+				 	where txdz=?
+					]]>
+			</value>
+		</property>
+		<property name="sqlUpdateEncriptKey">
+			<value>
+				<![CDATA[
+					update da_bj
+					set gqxmm = ?
+				 	where txdz=?
+					]]>
+			</value>
+		</property>
+		<property name="sqlUpdateChannelSet">
+			<value>
+				<![CDATA[
+			   		  UPDATE RW_ZDRW T
+                      SET T.SFYX = 1, T.RWBJ = 1, T.ZT = '04',T.XFCGSJ=now()
+                      WHERE ZDJH = ?
+                      AND RWH = ?
+					]]>
+			</value>
+		</property>
+		<property name="sqlLoadItemRelated">
+				<value>
+					<![CDATA[
+				  select sjxbm, item_id from p_dlmssjxgx
+					]]>
+				</value>
+		</property>
+		<property name="mapperLoadItemRelated">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.DlmsItemRelated"/>
+				<property name="columnMapper">
+					<list>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="code"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="attribute"/>
+							<property name="index" value="2"/>
+						</bean>	
+					</list>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+
+	<bean id="managerScaleItem" class="cn.hexing.fk.bp.dlms.protocol.DlmsScaleManager" 
+		factory-method="getInstance"	init-method="init">
+		<property name="scaleDao" ref="dao.initDlmsItem" />
+	</bean>
+	<bean id="bp.dlms.dboperator" class="cn.hexing.fk.bp.dlms.persisit.MasterDbServiceAssistant"
+		factory-method="getInstance">
+		<property name="masterDbService" ref="master.dbservice"/>
+		<property name="jdbcDao" ref="dao.initDlmsItem"/>
+		<property name="service" ref="bp.asyncService"/>
+		<property name="noticeMSDelayTimeAfterReadEvent" value="5"/> <!-- second -->
+	</bean>
+	<bean id="bp.dlms.taskoperator" class="cn.hexing.fk.bp.dlms.persisit.TaskMessageService"
+		factory-method="getInstance" init-method="init">
+		<property name="service" ref="bp.asyncService"></property>
+		<property name="itemRelatedDao" ref="dao.initDlmsItem" />
+	</bean>
+	<bean id="bp.dlms.alarmoperator" class="cn.hexing.fk.bp.dlms.persisit.DlmsAlarmMessageService" 
+		factory-method="getInstance"	init-method="init">
+<!-- 		<property name="alarmMessageDao" ref="dao.initDlmsItem" /> -->
+		<property name="service" ref="bp.asyncService"/>
+	</bean>
+	
+	<bean id="bp.dlms.upgradeprocessor" class="cn.hexing.fk.bp.dlms.upgrade.DlmsUpgradeHandler"
+	 factory-method="getInstance" init-method="init">
+	<property name="dbService" ref="master.dbservice"/>
+	<property name="service" ref="bp.asyncService"/>
+	<property name="sleepTimeStay06Step" value="15"/>
+	</bean>
+	<!-- 读警告 对于新老版本不同的配置 -->
+	<!-- 老版本，cn.hexing.fk.bp.dlms.alarm.AlarmRegisterNotificationOldImpl -->
+	<!-- 新版本，cn.hexing.fk.bp.dlms.alarm.AlarmRegisterNotificationImpl -->
+	<bean id="bp.dlms.alarmNotification" class="cn.hexing.fk.bp.dlms.alarm.AlarmRegisterNotificationImpl">
+		<property name="service" ref="bp.asyncService"/>
+	</bean>
+	<bean id="bp.dlms.oldAlarmNotification" class="cn.hexing.fk.bp.dlms.alarm.AlarmRegisterNotificationOldImpl">
+		<property name="service" ref="bp.asyncService"/>
+	</bean>
+	
+	<!-- 加密 -->
+<!-- 	<bean id="bp.dlms.cipher" class="cn.hexing.fk.bp.dlms.cipher.EsamCipher" -->
+<!-- 			factory-method="getInstance"> -->
+<!-- 	</bean> -->
+	
+<!-- 	<bean id="bp.dlms.cipher" class="cn.hexing.fk.bp.dlms.cipher.Gcm128SoftCipher" -->
+<!-- 			factory-method="getInstance"> -->
+<!-- 	</bean> -->
+	
+	<bean id="gw.handler.updateKey" class="cn.hexing.fk.bp.processor.GwUpdateKeyHandler" 
+		factory-method="getInstance">
+		<property name="msgQueue" ref="bp.msgqueue"/>	
+	</bean>
+	<bean id="bp.dlms.constant" class="cn.hexing.fk.bp.dlms.util.DlmsConstant"
+		factory-method="getInstance"	>
+		<property name="iranTime" value="${bp.isIranTime}"/>
+		<property name="alarmTimeReadInterval" value="2"/>
+		<property name="alarmTimeOffset" value="${bp.alarm.offsetTime}"></property>
+	</bean>
+	<bean id="bp.dlms.alarmanager" class="cn.hexing.fk.bp.dlms.alarm.DlmsAlarmManager" 
+		factory-method="getInstance"  init-method="init">
+		<property name="alarmNotify" ref="bp.dlms.alarmNotification"/>
+		<property name="oldAlarmNotify" ref="bp.dlms.oldAlarmNotification"/>
+		<property name="alarmDao" ref="dao.initDlmsItem"/>
+	</bean>
+	
+</beans>

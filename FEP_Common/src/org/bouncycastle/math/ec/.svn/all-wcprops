@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ami3.0/!svn/ver/1320/trunk/fep/FEP_Common/src/org/bouncycastle/math/ec
+END
+PreCompInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/math/ec/PreCompInfo.java
+END
+ECConstants.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/math/ec/ECConstants.java
+END
+ECFieldElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/math/ec/ECFieldElement.java
+END
+IntArray.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/math/ec/IntArray.java
+END
+SimpleBigDecimal.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/math/ec/SimpleBigDecimal.java
+END
+ZTauElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/math/ec/ZTauElement.java
+END

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ami3.0/!svn/ver/15975/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/bpserver/timeSyn
+END
+TimeSynReadProcessor.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/ami3.0/!svn/ver/9574/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/bpserver/timeSyn/TimeSynReadProcessor.java
+END
+TimeSynReader.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/ami3.0/!svn/ver/18604/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/bpserver/timeSyn/TimeSynReader.java
+END
+TimeSynRereadProcessor.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/ami3.0/!svn/ver/8645/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/bpserver/timeSyn/TimeSynRereadProcessor.java
+END
+TimeSynMain.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ami3.0/!svn/ver/15949/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/bpserver/timeSyn/TimeSynMain.java
+END

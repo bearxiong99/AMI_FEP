@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockclient/async/event/adapt
+END
+OnClientRecvMsg.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockclient/async/event/adapt/OnClientRecvMsg.java
+END
+OnClientClosed.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockclient/async/event/adapt/OnClientClosed.java
+END
+OnClientSendMsg.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockclient/async/event/adapt/OnClientSendMsg.java
+END
+OnClientConnected.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockclient/async/event/adapt/OnClientConnected.java
+END

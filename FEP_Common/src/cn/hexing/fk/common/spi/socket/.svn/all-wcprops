@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/ami3.0/!svn/ver/11790/trunk/fep/FEP_Common/src/cn/hexing/fk/common/spi/socket
+END
+IClientIO.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/common/spi/socket/IClientIO.java
+END
+IChannel.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/common/spi/socket/IChannel.java
+END
+IClientSideChannel.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/common/spi/socket/IClientSideChannel.java
+END
+ISocketServer.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/common/spi/socket/ISocketServer.java
+END
+IServerSideChannel.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/common/spi/socket/IServerSideChannel.java
+END

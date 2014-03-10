@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/test
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/test/log4j.properties
+END
+application.properties
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/test/application.properties
+END

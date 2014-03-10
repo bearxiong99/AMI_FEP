@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ami3.0/!svn/ver/10128/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/meter
+END
+MeterParserFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/ami3.0/!svn/ver/15074/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/meter/MeterParserFactory.java
+END
+IMeterParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/ami3.0/!svn/ver/12863/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/meter/IMeterParser.java
+END
+DataItemCoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/ami3.0/!svn/ver/14995/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/meter/DataItemCoder.java
+END
+HX645MeterFrame.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/ami3.0/!svn/ver/19826/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/meter/HX645MeterFrame.java
+END
+MeterProtocolFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/ami3.0/!svn/ver/15074/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/meter/MeterProtocolFactory.java
+END
+ModbusParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/ami3.0/!svn/ver/16609/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/meter/ModbusParser.java
+END
+HX645MeterParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/ami3.0/!svn/ver/18460/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/meter/HX645MeterParser.java
+END
+AbstractMeterFrame.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/meter/AbstractMeterFrame.java
+END
+BbMeterFrame.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/meter/BbMeterFrame.java
+END
+ZjMeterFrame.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/meter/ZjMeterFrame.java
+END
+BbMeterParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/ami3.0/!svn/ver/20987/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/meter/BbMeterParser.java
+END
+ZjMeterParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/ami3.0/!svn/ver/12863/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/meter/ZjMeterParser.java
+END

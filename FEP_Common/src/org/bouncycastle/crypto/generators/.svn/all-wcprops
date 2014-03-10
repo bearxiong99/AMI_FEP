@@ -1,0 +1,167 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/ami3.0/!svn/ver/1320/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/generators
+END
+NTRUEncryptionKeyPairGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/generators/NTRUEncryptionKeyPairGenerator.java
+END
+DSAParametersGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/generators/DSAParametersGenerator.java
+END
+RSABlindingFactorGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/generators/RSABlindingFactorGenerator.java
+END
+KDF1BytesGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/generators/KDF1BytesGenerator.java
+END
+DSAKeyPairGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/generators/DSAKeyPairGenerator.java
+END
+NTRUSigningKeyPairGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/generators/NTRUSigningKeyPairGenerator.java
+END
+KDF2BytesGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/generators/KDF2BytesGenerator.java
+END
+OpenSSLPBEParametersGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/generators/OpenSSLPBEParametersGenerator.java
+END
+MGF1BytesGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/generators/MGF1BytesGenerator.java
+END
+DESedeKeyGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/generators/DESedeKeyGenerator.java
+END
+DHKeyGeneratorHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/generators/DHKeyGeneratorHelper.java
+END
+BaseKDFBytesGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/generators/BaseKDFBytesGenerator.java
+END
+GOST3410ParametersGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/generators/GOST3410ParametersGenerator.java
+END
+DHParametersHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/generators/DHParametersHelper.java
+END
+GOST3410KeyPairGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/generators/GOST3410KeyPairGenerator.java
+END
+RSAKeyPairGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/generators/RSAKeyPairGenerator.java
+END
+PKCS5S1ParametersGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/generators/PKCS5S1ParametersGenerator.java
+END
+SCrypt.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/generators/SCrypt.java
+END
+PKCS5S2ParametersGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/generators/PKCS5S2ParametersGenerator.java
+END
+DHParametersGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/generators/DHParametersGenerator.java
+END
+DHKeyPairGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/generators/DHKeyPairGenerator.java
+END
+DHBasicKeyPairGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/generators/DHBasicKeyPairGenerator.java
+END
+DESKeyGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/generators/DESKeyGenerator.java
+END
+ElGamalParametersGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/generators/ElGamalParametersGenerator.java
+END
+NaccacheSternKeyPairGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/generators/NaccacheSternKeyPairGenerator.java
+END
+ElGamalKeyPairGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/generators/ElGamalKeyPairGenerator.java
+END
+PKCS12ParametersGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/generators/PKCS12ParametersGenerator.java
+END

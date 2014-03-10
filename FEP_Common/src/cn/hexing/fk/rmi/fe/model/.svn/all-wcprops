@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/ami3.0/!svn/ver/17273/trunk/fep/FEP_Common/src/cn/hexing/fk/rmi/fe/model
+END
+RtuCurrentWorkState.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ami3.0/!svn/ver/17267/trunk/fep/FEP_Common/src/cn/hexing/fk/rmi/fe/model/RtuCurrentWorkState.java
+END
+RtuCurrentMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ami3.0/!svn/ver/17267/trunk/fep/FEP_Common/src/cn/hexing/fk/rmi/fe/model/RtuCurrentMessage.java
+END
+RtuCommunicationInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ami3.0/!svn/ver/17273/trunk/fep/FEP_Common/src/cn/hexing/fk/rmi/fe/model/RtuCommunicationInfo.java
+END

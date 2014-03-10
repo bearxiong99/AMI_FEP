@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ami3.0/!svn/ver/18007/trunk/fep/FEP_Communication
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ami3.0/!svn/ver/6570/trunk/fep/FEP_Communication/.classpath
+END
+fedeploy.sh
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ami3.0/!svn/ver/8730/trunk/fep/FEP_Communication/fedeploy.sh
+END
+key.data
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/ami3.0/!svn/ver/5642/trunk/fep/FEP_Communication/key.data
+END
+monitor.vbs
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ami3.0/!svn/ver/5642/trunk/fep/FEP_Communication/monitor.vbs
+END
+startfe.sh
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ami3.0/!svn/ver/16601/trunk/fep/FEP_Communication/startfe.sh
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ami3.0/!svn/ver/992/trunk/fep/FEP_Communication/.project
+END
+fe_deploy.cmd
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ami3.0/!svn/ver/8730/trunk/fep/FEP_Communication/fe_deploy.cmd
+END
+stopfe.sh
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ami3.0/!svn/ver/8095/trunk/fep/FEP_Communication/stopfe.sh
+END
+build.properties
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ami3.0/!svn/ver/5181/trunk/fep/FEP_Communication/build.properties
+END
+startfe.bat
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ami3.0/!svn/ver/20658/trunk/fep/FEP_Communication/startfe.bat
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ami3.0/!svn/ver/8099/trunk/fep/FEP_Communication/build.xml
+END

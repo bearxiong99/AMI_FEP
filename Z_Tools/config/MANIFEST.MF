@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Created-By: gaoll
+Class-Path: . lib/fep-common.jar lib/commons-beanutils-1.8.3.jar lib/commons-dbcp.jar lib/commons-logging.jar lib/commons-net-3.1.jar lib/commons-pool.jar  lib/log4j.jar lib/substance.jar lib/swing-layout-1.0.4.jar
+Main-Class: cn.hexing.tool.Tools
+

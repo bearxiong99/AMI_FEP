@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ami3.0/!svn/ver/11790/trunk/fep/FEP_Common/src/cn/hexing/fk/common/spi
+END
+IMessageQueue.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/common/spi/IMessageQueue.java
+END
+IModStatistics.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/common/spi/IModStatistics.java
+END
+IEventHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/common/spi/IEventHandler.java
+END
+IEventTrace.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/common/spi/IEventTrace.java
+END
+IProfile.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/common/spi/IProfile.java
+END
+IEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/common/spi/IEvent.java
+END
+IEventHook.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/common/spi/IEventHook.java
+END
+IEventPump.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/common/spi/IEventPump.java
+END
+IClientModule.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/common/spi/IClientModule.java
+END
+IModule.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/common/spi/IModule.java
+END

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ami3.0/!svn/ver/11362/trunk/fep/FEP_db_service/src
+END
+applicationContext-db-batch.xml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/ami3.0/!svn/ver/20203/trunk/fep/FEP_db_service/src/applicationContext-db-batch.xml
+END
+applicationContext-mysql-db-batch.xml
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/ami3.0/!svn/ver/18401/trunk/fep/FEP_db_service/src/applicationContext-mysql-db-batch.xml
+END
+jdbc.properties
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/src/jdbc.properties
+END

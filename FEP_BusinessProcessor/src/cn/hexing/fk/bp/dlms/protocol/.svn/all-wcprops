@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ami3.0/!svn/ver/20406/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/protocol
+END
+DlmsProtocolEncoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/ami3.0/!svn/ver/19964/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/protocol/DlmsProtocolEncoder.java
+END
+IDlmsScaleConvert.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/ami3.0/!svn/ver/2470/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/protocol/IDlmsScaleConvert.java
+END
+DlmsScaleManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/ami3.0/!svn/ver/16347/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/protocol/DlmsScaleManager.java
+END
+SelectiveGetTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/ami3.0/!svn/ver/14946/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/protocol/SelectiveGetTest.java
+END
+DlmsScaleItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/ami3.0/!svn/ver/17898/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/protocol/DlmsScaleItem.java
+END
+DlmsProtocolDecoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/ami3.0/!svn/ver/20406/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/protocol/DlmsProtocolDecoder.java
+END

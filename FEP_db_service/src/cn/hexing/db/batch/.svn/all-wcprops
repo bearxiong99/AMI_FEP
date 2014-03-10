@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/ami3.0/!svn/ver/9423/trunk/fep/FEP_db_service/src/cn/hexing/db/batch
+END
+BatchDaoParameterUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/src/cn/hexing/db/batch/BatchDaoParameterUtils.java
+END
+BaseBpEventHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/src/cn/hexing/db/batch/BaseBpEventHandler.java
+END
+AsyncService.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ami3.0/!svn/ver/16020/trunk/fep/FEP_db_service/src/cn/hexing/db/batch/AsyncService.java
+END

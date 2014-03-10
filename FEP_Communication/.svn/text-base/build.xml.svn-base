@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<project name="fep_communication" default="build-communication-jar" basedir="." >
+	<property file="build.properties"/>
+	<property name="src.dir" value="${basedir}/src" />
+	<property name="classes.dir" value="${basedir}/bin" />
+	<property name="lib.dir" value="${basedir}/libs" />
+	<property name="fe.jar.name" value="fep-fe.jar" />
+	<property name="build.encoding" value="GBK" />
+	
+	<path id="project.classpath">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+		<pathelement path="${classes.dir}" />
+	</path>
+
+    <!-- =================================================================== -->
+    <!-- Clean generated class files                                         -->
+    <!-- =================================================================== -->
+    <target name="clean" description="Clean generated class files">
+        <delete dir="${classes.dir}" />
+        <delete dir="${app.fe.path}" />
+    </target>
+	
+	<!-- =================================================================== -->
+    <!-- Compile java source file                                            -->
+    <!-- =================================================================== -->
+    <target name="compile" description="Compile java file">
+    	<mkdir dir="${classes.dir}" />
+		<copy todir="${classes.dir}">
+			<fileset dir="${src.dir}">			  
+			  <exclude name="**/*.java"/>
+			</fileset>
+		</copy>
+    	<javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="project.classpath"
+    	    source="1.5" target="1.5" debug="true" encoding="${build.encoding}">
+    		<include name="**/*.java"/>
+    	</javac>
+    </target>
+
+	<!-- =================================================================== -->
+    <!-- Build distributed .jar file - fep_fe                      -->
+    <!-- =================================================================== -->
+	<target name="build-communication-jar" depends="compile" description="Build fep_communication jar">
+        <mkdir dir="${app.fe.path}" />
+		<delete file="${app.fe.path}/${fe.jar.name}" />
+		<delete file="${app.fe.path}/jdbc.properties"></delete>
+		<jar destfile="${app.fe.path}/${fe.jar.name}" basedir="${classes.dir}">
+			<include name="cn/**" />
+		</jar>
+		<copy todir="${app.fe.path}" >
+			<fileset dir="${src.dir}" defaultexcludes="true">			  
+				<include name="*.xml" />
+				<include name="*.properties" />
+			</fileset>
+			<fileset dir="${basedir}" defaultexcludes="true">			  
+				<include name="*.bat" />
+				<include name="*.sh" />
+			</fileset>
+		</copy>
+		<copydir dest="${app.fe.path}/libs" src="${basedir}/libs"></copydir>
+	</target>
+
+</project>

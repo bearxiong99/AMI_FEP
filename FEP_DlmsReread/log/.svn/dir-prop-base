@@ -1,0 +1,11 @@
+K 10
+svn:ignore
+V 79
+zjfas-fl.log
+zjfas-fl.log.2
+zjfas-fl.log.3
+zjfas-fl.log.4
+zjfas-fl.log.5
+*.log
+
+END

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="EmWsdl" default="" basedir="." >
+	<property name="src.dir" value="${basedir}/src" />
+	<property name="lib.dir" value="${basedir}/libs" />
+	<property name="java.package" value="cn.hexing.em.client"/>
+	<property name="java.package.dir" value="${src.dir}/cn/hexing/em/client"/>
+	<property name="wsdl.path" value="${basedir}/src/cn/hexing/em/client/em.wsdl"/>
+	<property name="wsdl.namespace" value="http://tempuri.org/"/>
+	<path id="axis.classpath">
+      <fileset dir="${lib.dir}">
+               <include name="**/*.jar" />
+      </fileset>
+    </path>
+	<taskdef resource="axis-tasks.properties" classpathref="axis.classpath" />
+	<axis-wsdl2java all="true"
+		url="${wsdl.path}"
+		deployscope="Request"
+		output="${src.dir}"
+		serverside="true"
+		skeletondeploy="false"
+		testcase="false"
+		noimports="false"
+		typemappingversion="1.2">  
+		<mapping namespace="${wsdl.namespace}" package="${java.package}"/>
+	</axis-wsdl2java>
+	<delete file="${java.package.dir}/Service1SoapImpl.java"></delete>
+	<delete file="${java.package.dir}/deploy.wsdd"></delete>
+	<delete file="${java.package.dir}/undeploy.wsdd"></delete>
+</project>

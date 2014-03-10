@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ami3.0/!svn/ver/15366/trunk/fep/FEP_Common/src/com/hx/ansi/ansiElements
+END
+AnsiContext.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/ami3.0/!svn/ver/18392/trunk/fep/FEP_Common/src/com/hx/ansi/ansiElements/AnsiContext.java
+END
+SeekIndex.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/ami3.0/!svn/ver/13600/trunk/fep/FEP_Common/src/com/hx/ansi/ansiElements/SeekIndex.java
+END
+DailySchedule.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ami3.0/!svn/ver/15365/trunk/fep/FEP_Common/src/com/hx/ansi/ansiElements/DailySchedule.java
+END
+RecurrDate.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ami3.0/!svn/ver/16228/trunk/fep/FEP_Common/src/com/hx/ansi/ansiElements/RecurrDate.java
+END
+AnsiDataItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ami3.0/!svn/ver/18392/trunk/fep/FEP_Common/src/com/hx/ansi/ansiElements/AnsiDataItem.java
+END
+TierSwitch.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ami3.0/!svn/ver/15971/trunk/fep/FEP_Common/src/com/hx/ansi/ansiElements/TierSwitch.java
+END
+AnsiTaskInf.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/ami3.0/!svn/ver/14836/trunk/fep/FEP_Common/src/com/hx/ansi/ansiElements/AnsiTaskInf.java
+END
+NonRecurrDate.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ami3.0/!svn/ver/15365/trunk/fep/FEP_Common/src/com/hx/ansi/ansiElements/NonRecurrDate.java
+END

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/ami3.0/!svn/ver/15949/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/service
+END
+LoadDatasServiceParent.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/ami3.0/!svn/ver/19884/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/service/LoadDatasServiceParent.java
+END
+LoadAnsiDatasService.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ami3.0/!svn/ver/15949/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/service/LoadAnsiDatasService.java
+END
+TimeSynService.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ami3.0/!svn/ver/11427/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/service/TimeSynService.java
+END
+LoadGgDatasService.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ami3.0/!svn/ver/8128/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/service/LoadGgDatasService.java
+END
+LoadGwDatasService.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ami3.0/!svn/ver/8038/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/service/LoadGwDatasService.java
+END
+LoadDatasService.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ami3.0/!svn/ver/17979/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/service/LoadDatasService.java
+END
+LoadDlmsDatasService.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/ami3.0/!svn/ver/8128/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/service/LoadDlmsDatasService.java
+END

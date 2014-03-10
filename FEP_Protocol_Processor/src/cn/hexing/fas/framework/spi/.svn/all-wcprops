@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/framework/spi
+END
+IStringSerializable.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/framework/spi/IStringSerializable.java
+END
+AbstractMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/framework/spi/AbstractMessage.java
+END

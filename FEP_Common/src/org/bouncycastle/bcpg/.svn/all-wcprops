@@ -1,0 +1,293 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg
+END
+SignatureSubpacketInputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/SignatureSubpacketInputStream.java
+END
+SecretSubkeyPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/SecretSubkeyPacket.java
+END
+UserAttributeSubpacketInputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/UserAttributeSubpacketInputStream.java
+END
+ModDetectionCodePacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/ModDetectionCodePacket.java
+END
+InputStreamPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/InputStreamPacket.java
+END
+OutputStreamPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/OutputStreamPacket.java
+END
+UserAttributeSubpacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/UserAttributeSubpacket.java
+END
+BCPGInputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/BCPGInputStream.java
+END
+SymmetricKeyEncSessionPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/SymmetricKeyEncSessionPacket.java
+END
+BCPGOutputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/BCPGOutputStream.java
+END
+MarkerPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/MarkerPacket.java
+END
+HashAlgorithmTags.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/HashAlgorithmTags.java
+END
+DSAPublicBCPGKey.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/DSAPublicBCPGKey.java
+END
+PublicKeyAlgorithmTags.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/PublicKeyAlgorithmTags.java
+END
+CRC24.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/CRC24.java
+END
+PublicKeyPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/PublicKeyPacket.java
+END
+OnePassSignaturePacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/OnePassSignaturePacket.java
+END
+DSASecretBCPGKey.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/DSASecretBCPGKey.java
+END
+UserAttributeSubpacketTags.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/UserAttributeSubpacketTags.java
+END
+BCPGKey.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/BCPGKey.java
+END
+SymmetricEncDataPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/SymmetricEncDataPacket.java
+END
+CompressedDataPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/CompressedDataPacket.java
+END
+SecretKeyPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/SecretKeyPacket.java
+END
+RSAPublicBCPGKey.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/RSAPublicBCPGKey.java
+END
+PublicSubkeyPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/PublicSubkeyPacket.java
+END
+MPInteger.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/MPInteger.java
+END
+S2K.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/S2K.java
+END
+RSASecretBCPGKey.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/RSASecretBCPGKey.java
+END
+BCPGObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/BCPGObject.java
+END
+SignatureSubpacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/SignatureSubpacket.java
+END
+ElGamalPublicBCPGKey.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/ElGamalPublicBCPGKey.java
+END
+Packet.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/Packet.java
+END
+PublicKeyEncSessionPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/PublicKeyEncSessionPacket.java
+END
+TrustPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/TrustPacket.java
+END
+SymmetricKeyAlgorithmTags.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/SymmetricKeyAlgorithmTags.java
+END
+ElGamalSecretBCPGKey.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/ElGamalSecretBCPGKey.java
+END
+LiteralDataPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/LiteralDataPacket.java
+END
+SignatureSubpacketTags.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/SignatureSubpacketTags.java
+END
+UserIDPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/UserIDPacket.java
+END
+ArmoredInputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/ArmoredInputStream.java
+END
+ExperimentalPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/ExperimentalPacket.java
+END
+PacketTags.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/PacketTags.java
+END
+ArmoredOutputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/ArmoredOutputStream.java
+END
+CompressionAlgorithmTags.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/CompressionAlgorithmTags.java
+END
+SignaturePacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/SignaturePacket.java
+END
+SymmetricEncIntegrityPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/SymmetricEncIntegrityPacket.java
+END
+UserAttributePacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/UserAttributePacket.java
+END
+ContainedPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/bcpg/ContainedPacket.java
+END

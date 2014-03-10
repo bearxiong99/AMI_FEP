@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ami3.0/!svn/ver/9318/trunk/fep/FEP_db_service/libs
+END
+commons-beanutils-1.8.3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/ami3.0/!svn/ver/5644/trunk/fep/FEP_db_service/libs/commons-beanutils-1.8.3.jar
+END
+proxool-0.9.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/libs/proxool-0.9.1.jar
+END
+sql-map-2.dtd
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/libs/sql-map-2.dtd
+END
+c3p0-0.9.1.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ami3.0/!svn/ver/9318/trunk/fep/FEP_db_service/libs/c3p0-0.9.1.2.jar
+END
+sql-map-config-2.dtd
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/libs/sql-map-config-2.dtd
+END
+log4j.jar
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/libs/log4j.jar
+END
+proxool-cglib.jar
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/libs/proxool-cglib.jar
+END
+mysql-connector-java-5.1.0-bin.jar
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/libs/mysql-connector-java-5.1.0-bin.jar
+END
+commons-dbcp.jar
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/libs/commons-dbcp.jar
+END
+commons-pool.jar
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/libs/commons-pool.jar
+END
+spring-sources.jar
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/libs/spring-sources.jar
+END
+ojdbc14.jar
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/libs/ojdbc14.jar
+END
+commons-lang.jar
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/libs/commons-lang.jar
+END
+ibatis-2.3.0.677.jar
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/libs/ibatis-2.3.0.677.jar
+END
+commons-logging.jar
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/libs/commons-logging.jar
+END
+ttjdbc5.jar
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/libs/ttjdbc5.jar
+END
+fep-common.jar
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/ami3.0/!svn/ver/15764/trunk/fep/FEP_db_service/libs/fep-common.jar
+END
+spring.jar
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/libs/spring.jar
+END

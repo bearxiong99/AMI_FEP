@@ -1,0 +1,816 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Application context definition for ...
+-->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:p="http://www.springframework.org/schema/p" xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:context="http://www.springframework.org/schema/context" xmlns:jee="http://www.springframework.org/schema/jee"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<!-- ========================= 通信前置机对象定义 ========================= -->
+	<!--
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>application.properties</value>
+				<value>jdbc.properties</value>
+			</list>
+		</property>
+	</bean>
+	-->
+	<!-- 自动加载缓存 -->
+	<bean id="bp.refreshRtu" class="cn.hexing.db.managertu.RtuRefreshManage">
+		<property name="masterDbService" ref="master.dbservice"/>
+		<property name="manageRtu" ref="manageRtu"/>	
+	</bean>
+	<bean id="job.refreshRtu" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="bp.refreshRtu" />
+		<property name="targetMethod" value="refreshRtuCache" />
+	</bean>
+	<bean id="cronTrigger.refreshRtuCache" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="job.refreshRtu" />
+		<property name="cronExpression"><value>${reread.refresh.corn}</value></property>
+	</bean>
+	<!-- ===============配置文件加密================ -->
+	<bean id="propertyConfigurer" class="cn.hexing.fk.utils.EncryptPlaceholderConfigurer">
+		<property name="encryptFileName" value="jdbc.properties"/>
+		<property name="encryptPropNames">
+			<list>
+				<value>master.jdbc.username</value>
+				<value>master.jdbc.password</value>
+			</list>
+		</property>
+		<property name="locations">
+			<list>
+				<value>application.properties</value>
+				<value>jdbc.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- ================= 前置机客户端（/漏点补召服务端）收发消息事件处理器 ========================= -->
+	<bean id="rereadEventHandler" class="cn.hexing.reread.bpserver.TaskRereadEventHandler" parent="SimpleEventHandler">
+		<property name="name" value="RereadServerHandler" />
+		<property name="com" ref="taskReread.client.cluster"/>	
+	</bean>
+	<bean id="taskRereadMessageCreator" class="cn.hexing.reread.bpserver.TaskRereadMessageCreator"> </bean>
+
+	<!-- ================== 漏点补召：BP客户端对象 ========================= -->			
+	<bean id="taskReread.client.cluster" class="cn.hexing.fk.clientmod.ClusterClientModule">
+		<property name="name" value="bpClinets"/>
+		<property name="clientsUrl" value="${bp.clients.url}"/>
+		<property name="bufLength" value="10240"/>
+		<property name="timeout" value="4"/>
+		<property name="heartInterval" value="10"/>
+		<property name="requestNum" value="500"/>
+		<property name="eventHandler" ref="rereadEventHandler"/>
+		<property name="messageCreator" ref="taskRereadMessageCreator"/>
+	</bean>	
+	<!-- ================== 漏点补召：主程序 ======================= -->
+	
+	<bean id="dlmsReread.main" class="cn.hexing.reread.bpserver.dlms.DlmsRereadMain">
+		<property name="name" value="dlmsReread"/>
+		<property name="service" ref="dlmsReread.service"/>
+		<property name="reader" ref="dlmsReread.reader"/>
+		<property name="masterRereadInterval" value="60"/><!-- 主站补召任务轮训间隔时间（单位：秒） -->
+	</bean>
+	<!-- 广规漏点补招 -->
+	<bean id="GgReread.main" class="cn.hexing.reread.bpserver.gg.GgRereadMain">
+		<property name="name" value="GgReread"/>
+		<property name="service" ref="GgReread.service"/>
+		<property name="reader" ref="GgReread.reader"/>
+		<property name="masterRereadInterval" value="60"/><!-- 主站补召任务轮训间隔时间（单位：秒） -->
+	</bean>
+	<!-- 国网漏点补招 -->
+	<bean id="GwReread.main" class="cn.hexing.reread.bpserver.gw.GwRereadMain">
+		<property name="name" value="GwReread"/>
+		<property name="service" ref="GwReread.service"/>
+		<property name="reader" ref="GwReread.reader"/>
+		<property name="masterRereadInterval" value="60"/><!-- 主站补召任务轮训间隔时间（单位：秒） -->
+	</bean>
+	<!-- ANSI漏点补招 -->
+	<bean id="AnsiReread.main" class="cn.hexing.reread.bpserver.ansi.AnsiRereadMain">
+		<property name="name" value="AnsiReread"/>
+		<property name="service" ref="AnsiReread.service"/>
+		<property name="reader" ref="AnsiReread.reader"/>
+		<property name="masterRereadInterval" value="60"/><!-- 主站补召任务轮训间隔时间（单位：秒） -->
+	</bean>
+    
+	<!-- ================== 启动服务======================= -->
+	<bean id="fasSystem" class="cn.hexing.fk.FasSystem" factory-method="getFasSystem" init-method="initialize">
+		<!-- 对于简化方式配置模块，下面属性列表可以不定义或者列表为空。 -->
+		<property name="eventHooks">
+			<list>
+				<ref bean="rereadEventHandler" />
+			</list>
+		</property>
+		<!-- 对于简化方式配置模块，下面属性列表可以不定义或者列表为空。 -->
+		<property name="modules">
+			<list>				
+				<!-- 下面两个bean属性，用于漏点补召 -->
+				<ref bean="taskReread.client.cluster" />
+				<ref bean="dlmsReread.main" />	
+				<ref bean="GgReread.main" />
+				<ref bean="GwReread.main" />
+				<ref bean="AnsiReread.main" />
+				<ref bean="TimeSyn.main" />
+			</list>
+		</property>
+		<!-- 特殊的Module，不被监控管理组件管理，但是有FasSystem进行启动和停止 -->
+		<property name="unMonitoredModules">
+			<list>
+			</list>
+		</property>
+	</bean>
+	<!-- ================== 漏点补召：业务处理器 ======================= -->
+	<bean id="dlmsReread.reader" class="cn.hexing.reread.bpserver.dlms.DlmsRereader">
+		<property name="com" ref="taskReread.client.cluster"/>
+		<property name="iranTime" value="${dlms.task.isIranTime}"/>
+		<property name="interval" value="${dlms.reread.callBP.interval}"/>
+		<property name="intervalReqCnt" value="${dlms.reread.callBP.intervalReqCnt}"/>
+		<property name="sendTimes" value="${dlms.reread.callBP.trytimes}"/>
+		<property name="oldProtocols" value="${dlms.reread.protocol.old}"/>
+	</bean>
+	<bean id="GgReread.reader" class="cn.hexing.reread.bpserver.gg.GgTaskRereader">
+		<property name="com" ref="taskReread.client.cluster"/>
+		<property name="interval" value="${dlms.reread.callBP.interval}"/>
+		<property name="intervalReqCnt" value="${dlms.reread.callBP.intervalReqCnt}"/>
+		<property name="sendTimes" value="${dlms.reread.callBP.trytimes}"/>
+	</bean>
+	<bean id="GwReread.reader" class="cn.hexing.reread.bpserver.gw.GwTaskRereader">
+		<property name="com" ref="taskReread.client.cluster"/>
+		<property name="interval" value="${dlms.reread.callBP.interval}"/>
+		<property name="intervalReqCnt" value="${dlms.reread.callBP.intervalReqCnt}"/>
+		<property name="sendTimes" value="${dlms.reread.callBP.trytimes}"/>
+	</bean>
+	<bean id="AnsiReread.reader" class="cn.hexing.reread.bpserver.ansi.AnsiRereader">
+		<property name="com" ref="taskReread.client.cluster"/>
+		<property name="interval" value="${dlms.reread.callBP.interval}"/>
+		<property name="intervalReqCnt" value="${dlms.reread.callBP.intervalReqCnt}"/>
+		<property name="sendTimes" value="${dlms.reread.callBP.trytimes}"/>
+	</bean>
+	<!-- ========================= 数据库访问 ========================= -->	
+	<!-- DLMS数据库service-->
+	<bean id="dlmsReread.service" class="cn.hexing.reread.service.LoadDlmsDatasService" factory-method="getInstance">
+		<property name="loadDatasDao" ref="reread.jdbc.dao"/>	
+	</bean>
+	<!-- 广规数据库service-->
+	<bean id="GgReread.service" class="cn.hexing.reread.service.LoadGgDatasService" factory-method="getInstance">
+		<property name="loadDatasDao" ref="reread.jdbc.dao"/>	
+	</bean>
+	<!-- 国网数据库service-->
+	<bean id="GwReread.service" class="cn.hexing.reread.service.LoadGwDatasService" factory-method="getInstance">
+		<property name="loadDatasDao" ref="reread.jdbc.dao"/>	
+	</bean>
+	<!-- 国网数据库service-->
+	<bean id="AnsiReread.service" class="cn.hexing.reread.service.LoadAnsiDatasService" factory-method="getInstance">
+		<property name="loadDatasDao" ref="reread.jdbc.dao"/>	
+	</bean>
+	
+	<bean id="reread.jdbc.dao" class="cn.hexing.reread.dao.jdbc.LoadDatasDaoImpl">
+		<property name="dataSource" ref="dataSource"/>
+		<!-- 修改补召策略的XGBJ -->
+		<property name="setRereadStrategyXgbjSql">
+			<value>
+				<![CDATA[
+				update MB_BZCL set XGBJ=? where mbid=? and rwlx= ?
+				]]>
+			</value>
+		</property>
+		<!-- 修改补召策略的XGBJ -->
+		<property name="deleteRereadStrategySql">
+			<value>
+				<![CDATA[
+				delete from MB_BZCL where mbid=? and rwlx= ?
+				]]>
+			</value>
+		</property>
+		<!-- 补召策略 ，优先使用P_RWSX表里面的SJJG来计算采样间隔时间，如果P_RWSX中为空，则终端任务使用上报间隔时间、主战任务使用采样间隔时间-->
+		<property name="getRereadStrategySql">
+			<value>
+				<![CDATA[
+				SELECT mb.MBID,
+					(CASE WHEN rwsx.SJJG<60 THEN rwsx.SJJG  
+			           WHEN (rwsx.SJJG>=60 and rwsx.SJJG<1440) THEN floor(rwsx.SJJG/60) 
+			           WHEN (rwsx.SJJG>=1440) THEN 1 
+			           ELSE mb.sbjgsj
+			       END) CYJGSJ,
+			       (CASE WHEN rwsx.SJJG<60 THEN '02' 
+			             WHEN (rwsx.SJJG>=60 and rwsx.SJJG<1440) THEN '03' 
+			             WHEN (rwsx.SJJG>=1440) THEN '04' 
+			             ELSE mb.sbjgsjdw
+			        END) CYJGSJDW,
+					CRONBDS,LDKSSJ,LDJZSJ,mb.RWSX,'01' RWLX,cl.XGBJ 
+				FROM (SELECT * FROM MB_BZCL WHERE RWLX='01') cl,MB_ZDRW mb,(SELECT * FROM P_RWSX WHERE LANG='en_US' AND RWLX='01') rwsx 
+				WHERE cl.MBID = mb.MBID AND mb.RWSX=rwsx.RWSX AND rwsx.GYLX=mb.SJLX AND mb.SJLX=?
+ 				UNION
+				SELECT mb.MBID,
+					(CASE WHEN rwsx.SJJG<60 THEN rwsx.SJJG  
+			           WHEN (rwsx.SJJG>=60 and rwsx.SJJG<1440) THEN floor(rwsx.SJJG/60) 
+			           WHEN (rwsx.SJJG>=1440) THEN 1 
+			           ELSE mb.cyjgsj
+			       END) CYJGSJ,
+			       (CASE WHEN rwsx.SJJG<60 THEN '02' 
+			             WHEN (rwsx.SJJG>=60 and rwsx.SJJG<1440) THEN '03' 
+			             WHEN (rwsx.SJJG>=1440) THEN '04' 
+			             ELSE mb.cyjgsjdw
+			        END) CYJGSJDW,
+					cl.CRONBDS,cl.LDKSSJ,cl.LDJZSJ,mb.RWSX,'02' RWLX,cl.XGBJ 
+				FROM (SELECT * FROM MB_BZCL WHERE RWLX='02') cl,MB_ZZRW mb,(SELECT * FROM P_RWSX WHERE LANG='en_US' AND RWLX='02') rwsx 
+				WHERE cl.MBID = mb.MBID AND mb.RWSX=rwsx.RWSX AND rwsx.GYLX=mb.SJLX AND mb.SJLX=?
+				]]>
+			</value>
+		</property>
+		<property name="mapperGetRereadStrategy">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.reread.model.RereadStrategy"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskTemplateID"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="sampleInterval"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="sampleIntervalUnit"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="cron"/>
+							<property name="index" value="4"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="dataBegin"/>
+							<property name="index" value="5"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="dataEnd"/>
+							<property name="index" value="6"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rwsx"/>
+							<property name="index" value="7"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rwlx"/>
+							<property name="index" value="8"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="xgbj"/>
+							<property name="index" value="9"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>	
+		<!-- 漏点审计 -->
+		<property name="procGetRereadPoint">
+			<bean class="cn.hexing.db.procedure.DbProcedure">
+				<property name="dataSource" ref="dataSource"/>
+				<property name="callString">
+					<!-- sample
+					<value>{call pkg_fep_services.sb_gj_ins(#dataSaveID,jdbcType=NUMERIC,mode=IN#,#deptCode,jdbcType=VARCHAR,mode=IN#,#customerNo,jdbcType=VARCHAR,mode=IN#,#rtuId,jdbcType=VARCHAR,mode=IN#,#stationNo,jdbcType=VARCHAR,mode=IN#,#alertCodeHex,jdbcType=VARCHAR,mode=IN#,#alertTime,jdbcType=TIMESTAMP,mode=IN#,#sbcs,jdbcType=VARCHAR,mode=IN#,#txfs,jdbcType=VARCHAR,mode=IN#)}</value>					
+					<value>{?INTEGER = call pkg_fep_services.get_zdzxh(#p_zdljdz,jdbcType=VARCHAR,mode=IN#,#p_zdgylx,jdbcType=VARCHAR,mode=IN#)}</value>
+					-->
+					<!-- 存储过程配置，要求没有任何空格存在，以免解析错误 -->
+					<value>
+						{call audit_omissive_data(#p_mbid,jdbcType=VARCHAR,mode=IN#,#startTime,jdbcType=VARCHAR,mode=IN#,#endTime,jdbcType=VARCHAR,mode=IN#,#sjjg,jdbcType=INTEGER,mode=IN#,#p_dwdm,jdbcType=VARCHAR,mode=IN#,#p_dbgylx,jdbcType=VARCHAR,mode=IN#,#p_jssj,jdbcType=FLOAT,mode=IN#,#p_rwlx,jdbcType=VARCHAR,mode=IN#)}
+					</value>					
+				</property>
+			</bean>
+		</property>
+		<property name="mapperGetRereadPoint">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.reread.model.RereadPoint"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskType"/>
+							<property name="index" value="7"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="cldh"/>
+							<property name="index" value="6"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="terminalAddr"/>
+							<property name="index" value="5"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="commAddr"/>
+							<property name="index" value="4"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskNo"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="timePoint"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="dataItemId"/>
+							<property name="index" value="1"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>	
+		<!-- 主站补召 -->
+		<property name="getMasterRereadSql">
+			<value>
+				<![CDATA[
+				select mb.MBID,
+						(CASE WHEN rwsx.SJJG<60 THEN rwsx.SJJG  
+				           WHEN (rwsx.SJJG>=60 and rwsx.SJJG<1440) THEN floor(rwsx.SJJG/60) 
+				           WHEN (rwsx.SJJG>=1440) THEN 1 
+				           ELSE mb.sbjgsj
+				       END) CYJGSJ,
+				       (CASE WHEN rwsx.SJJG<60 THEN '02' 
+				             WHEN (rwsx.SJJG>=60 and rwsx.SJJG<1440) THEN '03' 
+				             WHEN (rwsx.SJJG>=1440) THEN '04' 
+				             ELSE mb.sbjgsjdw
+				        END) CYJGSJDW,
+				        t.DWDM,t.QSSJ,t.JZSJ,t.CJSJ,mb.RWSX,'01' RWLX ,DATE_FORMAT(t.ZXSJ,'%Y-%m-%d %H:%i:%s') ZXSJ
+					from MB_ZZBZ t,MB_ZDRW mb ,(SELECT * FROM P_RWSX WHERE LANG='en_US' AND RWLX='01') rwsx 
+					WHERE t.MBID = mb.MBID and t.RWLX='01' AND mb.RWSX=rwsx.RWSX AND rwsx.GYLX=mb.SJLX
+						 and t.ZXZT='0' and mb.SJLX=? and t.ZXSJ<now()
+ 				union
+ 				select mb.MBID,
+						(CASE WHEN rwsx.SJJG<60 THEN rwsx.SJJG  
+				           WHEN (rwsx.SJJG>=60 and rwsx.SJJG<1440) THEN floor(rwsx.SJJG/60) 
+				           WHEN (rwsx.SJJG>=1440) THEN 1 
+				           ELSE mb.cyjgsj
+				       END) CYJGSJ,
+				       (CASE WHEN rwsx.SJJG<60 THEN '02' 
+				             WHEN (rwsx.SJJG>=60 and rwsx.SJJG<1440) THEN '03' 
+				             WHEN (rwsx.SJJG>=1440) THEN '04' 
+				             ELSE mb.cyjgsjdw
+				        END) CYJGSJDW,
+				        t.DWDM,t.QSSJ,t.JZSJ,t.CJSJ,mb.RWSX,'02' RWLX  ,DATE_FORMAT(t.ZXSJ,'%Y-%m-%d %H:%i:%s') ZXSJ
+					from MB_ZZBZ t,MB_ZZRW mb,(SELECT * FROM P_RWSX WHERE LANG='en_US' AND RWLX='02') rwsx
+					WHERE t.MBID = mb.MBID AND mb.RWSX=rwsx.RWSX AND rwsx.GYLX=mb.SJLX 
+					 	 and t.RWLX='02' and t.ZXZT='0' AND mb.SJLX=? and t.ZXSJ<now()
+				]]>
+			</value>
+		</property>
+		<property name="mapperGetMasterReread">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.reread.model.MasterReread"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskTemplateID"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="sampleInterval"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="sampleIntervalUnit"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="dwdm"/>
+							<property name="index" value="4"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="startTime"/>
+							<property name="index" value="5"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="endTime"/>
+							<property name="index" value="6"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="createTime"/>
+							<property name="index" value="7"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rwsx"/>
+							<property name="index" value="8"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rwlx"/>
+							<property name="index" value="9"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="zxsj"/>
+							<property name="index" value="10"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>	
+		<!-- 修改主站补召任务状态为完成 -->
+		<property name="setMasterRereadSuccessSql">
+			<value>
+				<![CDATA[
+				update MB_ZZBZ set ZXZT=? where mbid=? and cjsj = ? and rwlx= ?
+				]]>
+			</value>
+		</property>
+		<property name="sqlLoadItemRelated">
+			<value>
+				<![CDATA[
+				select sjxbm, item_id from p_dlmssjxgx
+				]]>
+			</value>
+		</property>
+		<property name="mapperLoadItemRelated">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.DlmsItemRelated" />
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="code" />
+							<property name="index" value="1" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="attribute" />
+							<property name="index" value="2" />
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 自动对时任务service-->
+	<bean id="TimeSyn.main" class="cn.hexing.reread.bpserver.timeSyn.TimeSynMain">
+		<property name="name" value="TimeSyn"/>
+		<property name="service" ref="timeSyn.service"/>
+		<property name="reader" ref="timeSyn.reader"/>
+	</bean>
+	<bean id="timeSyn.reader" class="cn.hexing.reread.bpserver.timeSyn.TimeSynReader">
+		<property name="com" ref="taskReread.client.cluster"/>
+		<property name="service" ref="timeSyn.service"/>
+		<property name="interval" value="${dlms.timeSyn.callBP.interval}"/>
+		<property name="bpAutoTimeSyn" value="${dlms.timeSyn.bpAutoTimeSyn}"/>
+		<property name="timeDiffThreshold" value="${dlms.timeSyn.timeDiffThreshold}"/>
+		<property name="dstFlag"  value="${dlms.dst.flag}"></property>
+		<property name="dstRule"  value="${dlms.dst.rule}"></property>
+	</bean>
+	<bean id="timeSyn.service" class="cn.hexing.reread.service.TimeSynService" factory-method="getInstance">
+		<property name="timeSynDao" ref="timeSyn.jdbc.dao"/>	
+	</bean>
+	<bean id="timeSyn.jdbc.dao" class="cn.hexing.reread.dao.jdbc.TimeSynDaoImpl">
+		<property name="bpAutoTimeSyn" value="${dlms.timeSyn.bpAutoTimeSyn}"/>
+		<property name="dataSource" ref="dataSource"/>
+		<!-- 新建任务、命令 -->
+		<property name="getTaskIdSql">
+			<value>
+				<![CDATA[
+				SELECT NEXTVAL('S_CZ_RW') TASKID FROM DUAL
+				]]>
+			</value>
+		</property>
+		<property name="getMlIdSql">
+			<value>
+				<![CDATA[
+				SELECT NEXTVAL('S_CZ_MLLB') MLID FROM DUAL
+				]]>
+			</value>
+		</property>
+		<property name="insTaskSql">
+			<value>
+				<![CDATA[
+				INSERT INTO CZ_RW(CZRWID, CZSJ, CZYID, MLSL, CGMLSL, SBMLSL, ZT)
+				VALUES(?, now(),?, 0, 0, 0, 0)
+				]]>
+			</value>
+		</property>
+		<property name="insMlSql">
+			<value>
+				<![CDATA[
+					INSERT INTO CZ_MLLB(MLID, CZRWID, ZDJH, YDXXSL, CSGS, XFSJ, MLZT,CLDH)
+					VALUES(?, ?, ?, 0, 0, now(), 0, ?)
+			 	]]>
+			</value>
+		</property>
+		<property name="insSzjgSql">
+			<value>
+				<![CDATA[
+					INSERT INTO CZ_SZJG(MLID, BJJH, CLDH, SJSJ , SJXZT)
+					VALUES(?, ?, ?, now() , ?)
+			 	]]>
+			</value>
+		</property>
+		<!-- 自动对时任务 -->
+		<property name="getTimeSynTasksSql">
+			<value>
+				<![CDATA[
+				SELECT DWDM,RWLX,DATE_FORMAT(ZXSJ,'%Y-%m-%d %H:%i:%s') ZXSJ,DQZT FROM TJ_ZDDSRW WHERE DQZT='0' and ZXSJ<now()
+				]]>
+			</value>
+		</property>
+		<property name="mapperGetTimeSynTasks">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.reread.model.TimeSynTask"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="dwdm"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rwlx"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="zxsj"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="dqzt"/>
+							<property name="index" value="4"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>	
+		<!-- 设置对时任务状态 -->
+		<property name="setTimeSynTaskSuccessSql">
+			<value>
+				<![CDATA[
+				UPDATE TJ_ZDDSRW SET DQZT='1' WHERE DWDM=? AND RWLX=? AND DATE_FORMAT(ZXSJ,'%Y-%m-%d %H:%i:%s')=?
+				]]>
+			</value>
+		</property>
+		<!-- 初始化TJ_ZDDSSJ -->
+		<property name="initReadStatusSql">
+			<value>
+				<![CDATA[
+				 INSERT INTO TJ_ZDDSSJ(BJJH,DWDM,CLDH,ISZJ,ZCZT,FSQQSJ)
+					SELECT * FROM(
+				         (
+					         SELECT DISTINCT  ZD.ZDLJDZ,ZD.DWDM,0 CLDH, '0' ISZJ,'0' ZCZT,now()
+					         FROM DA_ZD ZD
+					         WHERE ZD.DWDM LIKE CONCAT(?,'%') AND ZD.ZT IN ('03') AND ZD.ZDYT IS NOT NULL
+				         )UNION ALL(
+					         SELECT DISTINCT ZD.ZDLJDZ, ZD.DWDM, CLD.CLDH, '1' ISZJ,'0' ZCZT,now()
+					         FROM DA_ZD ZD, DA_YH YH,DA_CLD CLD,DA_BJ BJ
+					         WHERE YH.HH = BJ.HH AND CLD.ZDJH=ZD.ZDJH AND CLD.CLDJH=BJ.BJJH
+					            AND ZD.DWDM LIKE CONCAT(?,'%') AND (ZD.ZDGYLX = '02' or ZD.ZDGYLX = '04') AND BJ.TXGY='03' AND ZD.ZT IN ('03')
+				         )
+					)a
+				ON DUPLICATE KEY UPDATE ZCZT='0',FSQQSJ=now()
+				]]>
+			</value>
+		</property>
+		<property name="initReadStatusForMeterBoxSql">
+			<value>
+				<![CDATA[
+				INSERT INTO TJ_ZDDSSJ(BJJH,DWDM,CLDH,ISZJ,ZCZT,FSQQSJ)
+					SELECT * FROM(
+				         (
+					         SELECT DISTINCT  ZD.ZDLJDZ,ZD.DWDM,0 CLDH, '0' ISZJ,'0' ZCZT,now()
+					         FROM DA_ZD ZD
+					         WHERE ZD.DWDM LIKE CONCAT(?,'%') AND ZD.ZT IN ('03') AND ZD.ZDYT IS NOT NULL
+				         )UNION ALL(
+					         SELECT DISTINCT ZD.ZDLJDZ, ZD.DWDM, CLD.CLDH, '1' ISZJ,'0' ZCZT,now()
+					         FROM DA_ZD ZD, DA_YH YH,DA_CLD CLD,DA_BJ BJ
+					         WHERE YH.HH = BJ.HH AND CLD.ZDJH=ZD.ZDJH AND CLD.CLDJH=BJ.BJJH
+					            AND ZD.DWDM LIKE CONCAT(?,'%')  AND BJ.BJLX!='08' AND CLD.CLDH!=0 AND ZD.ZT IN ('03')
+				         )
+					)a
+				ON DUPLICATE KEY UPDATE ZCZT='0',FSQQSJ=now()
+				]]>
+			</value>
+		</property>
+		<property name="deleteReadStatusSql">
+			<value>
+				<![CDATA[
+				DELETE FROM TJ_ZDDSSJ WHERE DWDM LIKE CONCAT(?,'%')
+				]]>
+			</value>
+		</property>
+				
+		<!-- 档案查询 -->
+		<property name="getReadTimeModelSql">
+			<value>
+				<![CDATA[
+				SELECT DISTINCT ZD.DWDM, ZD.ZDJH, ZD.ZDLJDZ, ZD.TXDZ, ZD.ZDYT , ZD.ZDGYLX, 
+							CLD.CLDJH BJJH, (CASE WHEN CLD.CLDLX='05' THEN 0 ELSE CLD.CLDH END) CLDH, (CASE WHEN CLD.CLDLX='05' THEN '0' ELSE '1' END) ISZJ, BJ.TXGY TXGY
+					FROM DA_ZD ZD , DA_CLD CLD left join DA_BJ BJ on CLD.CLDJH=BJ.BJJH
+					WHERE ZD.ZDJH=CLD.ZDJH AND ZD.ZT IN ('03') AND ZD.DWDM LIKE CONCAT(?,'%')
+					ORDER BY ISZJ,DWDM,ZDJH,CLDH
+				]]>
+			</value>
+		</property>
+		<property name="getReadTimeModelForMeterBoxSql">
+			<value>
+				<![CDATA[
+				SELECT * FROM (
+					SELECT DISTINCT ZD.DWDM, ZD.ZDJH, ZD.ZDLJDZ, ZD.TXDZ, ZD.ZDYT , ZD.ZDGYLX, 
+							CLD.CLDJH BJJH, (CASE WHEN CLD.CLDLX='05' THEN 0 ELSE CLD.CLDH END) CLDH, (CASE WHEN CLD.CLDLX='05' THEN '0' ELSE '1' END) ISZJ, BJ.TXGY TXGY
+							,BJ.BJLX
+					FROM DA_ZD ZD , DA_CLD CLD left join DA_BJ BJ on CLD.CLDJH=BJ.BJJH
+					WHERE ZD.ZDJH=CLD.ZDJH
+						AND ZD.ZT IN ('03') AND ZD.DWDM LIKE CONCAT(?,'%')
+					ORDER BY ISZJ,DWDM,ZDJH,CLDH
+				) a WHERE BJLX IS NULL OR BJLX!='08'
+				]]>
+			</value>
+		</property>
+		<property name="mapperGetReadTimeModel">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.reread.model.ReadTimeModel"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="dwdm"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="zdjh"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="zdljdz"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="txdz"/>
+							<property name="index" value="4"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="yhlx"/>
+							<property name="index" value="5"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="zdgylx"/>
+							<property name="index" value="6"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="bjjh"/>
+							<property name="index" value="7"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="cldh"/>
+							<property name="index" value="8"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="iszj"/>
+							<property name="index" value="9"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="txgy"/>
+							<property name="index" value="10"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+		
+		<!-- 需要补召时间的档案查询 -->
+		<property name="getRereadTimeModelSql">
+			<value>
+				<![CDATA[
+				SELECT DISTINCT ZD.DWDM, ZD.ZDJH, ZD.ZDLJDZ, ZD.TXDZ, ZD.ZDYT, ZD.ZDGYLX, 
+					bj.BJJH, DSSJ.CLDH, DSSJ.ISZJ, bj.TXGY,ZD.ZT
+				FROM DA_ZD ZD, TJ_ZDDSSJ DSSJ ,da_cld cld left join da_bj bj on bj.bjjh=cld.cldjh 
+				WHERE DSSJ.BJJH = cld.zdjh and dssj.cldh=cld.cldh and zd.zdjh=cld.zdjh 
+					AND DSSJ.DWDM LIKE CONCAT(?,'%') AND DSSJ.ZCZT='0'
+				ORDER BY dssj.ISZJ,zd.DWDM,zd.ZDJH
+				]]>
+			</value>
+		</property>
+		<property name="getRereadTimeModelSql_autoSyn">
+			<value>
+				<![CDATA[				
+				SELECT DISTINCT ZD.DWDM, ZD.ZDJH, ZD.ZDLJDZ, ZD.TXDZ, ZD.ZDYT, ZD.ZDGYLX, 
+					null BJJH, DSSJ.CLDH, DSSJ.ISZJ, bj.TXGY,ZD.ZT
+				FROM DA_ZD ZD, TJ_ZDDSSJ DSSJ  ,da_cld cld left join da_bj bj on bj.bjjh=cld.cldjh 
+				WHERE DSSJ.BJJH = ZD.ZDLJDZ and DSSJ.BJJH = cld.zdjh and dssj.cldh=cld.cldh and zd.zdjh=cld.zdjh
+					AND DSSJ.DWDM LIKE CONCAT(?,'%') AND (DSSJ.ZCZT='0' or DSSJ.ZCZT='1')
+				ORDER BY ISZJ,DWDM,ZDJH
+				]]>
+			</value>
+		</property>
+		<property name="mapperGetRereadTimeModel">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.reread.model.ReadTimeModel"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="dwdm"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="zdjh"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="zdljdz"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="txdz"/>
+							<property name="index" value="4"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="yhlx"/>
+							<property name="index" value="5"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="zdgylx"/>
+							<property name="index" value="6"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="bjjh"/>
+							<property name="index" value="7"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="cldh"/>
+							<property name="index" value="8"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="iszj"/>
+							<property name="index" value="9"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="txgy"/>
+							<property name="index" value="10"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+		<!-- 设置对时任务状态 -->
+		<property name="addTimeSynLogSql">
+			<value>
+				<![CDATA[
+				INSERT INTO TJ_ZDDS_LOG(RWDWDM, RWLX, RWZXSJ, ZDLJDZ, DWDM, CLDH, FSQQSJ,ISZJ,DSBZ,SJCFZ)
+				VALUES(?, ?, DATE_FORMAT(?,'%Y-%m-%d %H:%i:%s'), ?, ?, ?, DATE_FORMAT(?,'%Y-%m-%d %H:%i:%s'), ?, ?, ?)
+				]]>
+			</value>
+		</property>
+		<!-- 自动对时策略 -->
+		<property name="getTimeSynStrategySql">
+			<value>
+				<![CDATA[
+				SELECT DWDM,RWLX,CRON,XGBJ FROM TJ_ZDDSCL
+				]]>
+			</value>
+		</property>
+		<property name="mapperGetTimeSynStrategy">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.reread.model.TimeSynStrategy"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="dwdm"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rwlx"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="cron"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="xgbj"/>
+							<property name="index" value="4"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>	
+		<!-- 设置对时策略状态 -->
+		<property name="setTimeSynStrategyStateSql">
+			<value>
+				<![CDATA[
+				UPDATE TJ_ZDDSCL SET XGBJ=? WHERE DWDM=? AND RWLX=? AND CRON=?
+				]]>
+			</value>
+		</property>
+		<!-- 删除对时策略状态 -->
+		<property name="deleteTimeSynStrategySql">
+			<value>
+				<![CDATA[
+				DELETE FROM TJ_ZDDSCL WHERE DWDM=? AND RWLX=? AND CRON=?
+				]]>
+			</value>
+		</property>
+	</bean>
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="cronTrigger.refreshRtuCache" />
+			</list>
+		</property>
+	</bean>
+</beans>

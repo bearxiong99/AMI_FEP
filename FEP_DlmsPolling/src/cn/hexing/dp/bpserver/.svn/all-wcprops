@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/ami3.0/!svn/ver/17997/trunk/fep/FEP_DlmsPolling/src/cn/hexing/dp/bpserver
+END
+TaskPollingEventHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ami3.0/!svn/ver/6311/trunk/fep/FEP_DlmsPolling/src/cn/hexing/dp/bpserver/TaskPollingEventHandler.java
+END
+TPMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ami3.0/!svn/ver/6328/trunk/fep/FEP_DlmsPolling/src/cn/hexing/dp/bpserver/TPMessage.java
+END
+TPMessageCreator.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ami3.0/!svn/ver/6328/trunk/fep/FEP_DlmsPolling/src/cn/hexing/dp/bpserver/TPMessageCreator.java
+END
+TPConstant.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ami3.0/!svn/ver/18563/trunk/fep/FEP_DlmsPolling/src/cn/hexing/dp/bpserver/TPConstant.java
+END

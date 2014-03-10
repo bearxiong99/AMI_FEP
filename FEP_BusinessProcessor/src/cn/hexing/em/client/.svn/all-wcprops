@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/ami3.0/!svn/ver/11427/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/em/client
+END
+EmUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/ami3.0/!svn/ver/9511/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/em/client/EmUtil.java
+END
+EmResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ami3.0/!svn/ver/4697/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/em/client/EmResult.java
+END
+Service1.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ami3.0/!svn/ver/4450/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/em/client/Service1.java
+END
+EmService.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/ami3.0/!svn/ver/9510/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/em/client/EmService.java
+END
+Service1SoapStub.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ami3.0/!svn/ver/9510/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/em/client/Service1SoapStub.java
+END
+Service1Soap.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ami3.0/!svn/ver/9510/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/em/client/Service1Soap.java
+END
+Service1Locator.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ami3.0/!svn/ver/9510/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/em/client/Service1Locator.java
+END
+Service1SoapProxy.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/ami3.0/!svn/ver/9510/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/em/client/Service1SoapProxy.java
+END
+em.wsdl
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ami3.0/!svn/ver/9510/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/em/client/em.wsdl
+END

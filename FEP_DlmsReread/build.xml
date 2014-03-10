@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<project name="fep_dr" default="build-dr-jar" basedir="." >
+	<property file="build.properties"/>
+	<property name="src.dir" value="${basedir}/src" />
+	<property name="classes.dir" value="${basedir}/bin" />
+	<property name="lib.dir" value="${basedir}/libs" />
+	<property name="dr.jar.name" value="fep-dr.jar" />
+	<property name="build.encoding" value="UTF-8" />
+	
+	<path id="project.classpath">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+		<pathelement path="${classes.dir}" />
+	</path>
+
+    <!-- =================================================================== -->
+    <!-- Clean generated class files                                         -->
+    <!-- =================================================================== -->
+    <target name="clean" description="Clean generated class files">
+        <delete dir="${classes.dir}" />
+        <delete dir="${app.dr.path}" />
+    </target>
+	
+	<!-- =================================================================== -->
+    <!-- Compile java source file                                            -->
+    <!-- =================================================================== -->
+    <target name="compile" description="Compile java file">
+    	<mkdir dir="${classes.dir}" />
+		<copy todir="${classes.dir}">
+			<fileset dir="${src.dir}">			  
+			  <exclude name="**/*.java"/>
+			</fileset>
+		</copy>
+    	<javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="project.classpath"
+    	    source="1.5" target="1.5" debug="true" encoding="${build.encoding}" includeantruntime="on">
+    		<include name="**/*.java"/>
+    	</javac>
+    </target>
+
+	<!-- =================================================================== -->
+    <!-- Build distributed .jar file - FK_Common                       -->
+    <!-- =================================================================== -->
+	<target name="build-dr-jar" depends="compile" description="Build dp jar">
+        <mkdir dir="${app.dr.path}" />
+		<delete file="${app.dr.path}/${dr.jar.name}" />
+		<delete file="${app.dr.path}/jdbc.properties"></delete>
+		<jar destfile="${app.dr.path}/${dr.jar.name}" basedir="${classes.dir}">
+			<include name="cn/**" />
+		</jar>
+		<copy todir="${app.dr.path}">
+			<fileset dir="${src.dir}" defaultexcludes="true">			  
+				<include name="*.xml" />
+				<include name="*.properties" />
+			</fileset>
+			<fileset dir="${basedir}" defaultexcludes="true">			  
+				<include name="*.bat" />
+				<include name="*.sh" />
+			</fileset>			
+		</copy>
+		<copydir dest="${app.dr.path}/libs" src="${basedir}/libs">
+			<include name="*.jar"/>
+			<exclude name="*-sources.jar"/>
+		</copydir>
+	</target>
+
+</project>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="libs/commons-collections.jar"/>
+	<classpathentry kind="lib" path="libs/commons-dbcp.jar"/>
+	<classpathentry kind="lib" path="libs/commons-logging.jar"/>
+	<classpathentry kind="lib" path="libs/commons-pool.jar"/>
+	<classpathentry kind="lib" path="libs/jta.jar"/>
+	<classpathentry kind="lib" path="libs/log4j-1.2.14.jar"/>
+	<classpathentry kind="lib" path="libs/ojdbc14.jar"/>
+	<classpathentry kind="lib" path="libs/quartz-all-1.6.0.jar"/>
+	<classpathentry kind="lib" path="libs/spring.jar"/>
+	<classpathentry kind="lib" path="libs/commons-discovery-0.2.jar"/>
+	<classpathentry kind="lib" path="libs/saaj.jar"/>
+	<classpathentry kind="lib" path="libs/jdom.jar"/>
+	<classpathentry kind="lib" path="libs/jaxrpc.jar"/>
+	<classpathentry kind="lib" path="libs/axis.jar"/>
+	<classpathentry kind="lib" path="libs/wsdl4j-1.6.2.jar"/>
+	<classpathentry kind="lib" path="libs/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="libs/commons-beanutils-1.8.3.jar"/>
+	<classpathentry kind="lib" path="libs/mysql-connector-java-5.1.0-bin.jar"/>
+	<classpathentry kind="lib" path="libs/fep-monitor.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/FEP_Common"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/FEP_db_service"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/FEP_Monitor"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/FEP_Socket"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/FEP_Protocol_Processor"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,2 @@
+FE远程客户端
+application.properties里配置的端口和IP是FEP_Communication工程内监听的端口和IP，application.properties 内字段fe.rmi.server.url   

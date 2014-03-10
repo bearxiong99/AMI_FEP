@@ -1,0 +1,239 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ami3.0/!svn/ver/21068/trunk/fep/FEP_BusinessProcessor/libs
+END
+axis.jar
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/libs/axis.jar
+END
+commons-beanutils-1.8.3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/ami3.0/!svn/ver/5657/trunk/fep/FEP_BusinessProcessor/libs/commons-beanutils-1.8.3.jar
+END
+proxool-0.9.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/ami3.0/!svn/ver/7720/trunk/fep/FEP_BusinessProcessor/libs/proxool-0.9.1.jar
+END
+c3p0-0.9.1.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ami3.0/!svn/ver/9319/trunk/fep/FEP_BusinessProcessor/libs/c3p0-0.9.1.2.jar
+END
+fep-protocol.jar
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/ami3.0/!svn/ver/21525/trunk/fep/FEP_BusinessProcessor/libs/fep-protocol.jar
+END
+wsdl4j-1.6.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/libs/wsdl4j-1.6.2.jar
+END
+commons-discovery-0.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/libs/commons-discovery-0.2.jar
+END
+jta.jar
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/libs/jta.jar
+END
+ifDLMS.jar
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/ami3.0/!svn/ver/5658/trunk/fep/FEP_BusinessProcessor/libs/ifDLMS.jar
+END
+dom4j-1.6.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/ami3.0/!svn/ver/4448/trunk/fep/FEP_BusinessProcessor/libs/dom4j-1.6.1.jar
+END
+log4j.jar
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ami3.0/!svn/ver/7720/trunk/fep/FEP_BusinessProcessor/libs/log4j.jar
+END
+proxool-cglib.jar
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/ami3.0/!svn/ver/7720/trunk/fep/FEP_BusinessProcessor/libs/proxool-cglib.jar
+END
+commons-pool.jar
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/libs/commons-pool.jar
+END
+axis-ant.jar
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ami3.0/!svn/ver/9510/trunk/fep/FEP_BusinessProcessor/libs/axis-ant.jar
+END
+ojdbc14.jar
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/libs/ojdbc14.jar
+END
+commons-collections.jar
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/libs/commons-collections.jar
+END
+jaxrpc.jar
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/libs/jaxrpc.jar
+END
+jdom.jar
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/libs/jdom.jar
+END
+commons-lang.jar
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ami3.0/!svn/ver/5658/trunk/fep/FEP_BusinessProcessor/libs/commons-lang.jar
+END
+ibatis-2.3.0.677.jar
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/ami3.0/!svn/ver/7720/trunk/fep/FEP_BusinessProcessor/libs/ibatis-2.3.0.677.jar
+END
+commons-net-3.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/ami3.0/!svn/ver/9811/trunk/fep/FEP_BusinessProcessor/libs/commons-net-3.1.jar
+END
+ttjdbc5.jar
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/libs/ttjdbc5.jar
+END
+fep-monitor.jar
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ami3.0/!svn/ver/21068/trunk/fep/FEP_BusinessProcessor/libs/fep-monitor.jar
+END
+fep-common.jar
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/ami3.0/!svn/ver/21068/trunk/fep/FEP_BusinessProcessor/libs/fep-common.jar
+END
+fep-socket.jar
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/ami3.0/!svn/ver/21068/trunk/fep/FEP_BusinessProcessor/libs/fep-socket.jar
+END
+log4j-1.2.14.jar
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/libs/log4j-1.2.14.jar
+END
+castor-0.9.9.1-xml.jar
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/ami3.0/!svn/ver/7720/trunk/fep/FEP_BusinessProcessor/libs/castor-0.9.9.1-xml.jar
+END
+xercesImpl.jar
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/ami3.0/!svn/ver/7720/trunk/fep/FEP_BusinessProcessor/libs/xercesImpl.jar
+END
+saaj.jar
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/libs/saaj.jar
+END
+commons-cli-1.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/ami3.0/!svn/ver/7720/trunk/fep/FEP_BusinessProcessor/libs/commons-cli-1.2.jar
+END
+hx.jar
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ami3.0/!svn/ver/5658/trunk/fep/FEP_BusinessProcessor/libs/hx.jar
+END
+mysql-connector-java-5.1.0-bin.jar
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ami3.0/!svn/ver/6561/trunk/fep/FEP_BusinessProcessor/libs/mysql-connector-java-5.1.0-bin.jar
+END
+commons-dbcp.jar
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/libs/commons-dbcp.jar
+END
+esam.jar
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/ami3.0/!svn/ver/7720/trunk/fep/FEP_BusinessProcessor/libs/esam.jar
+END
+fep-db-service.jar
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/ami3.0/!svn/ver/21068/trunk/fep/FEP_BusinessProcessor/libs/fep-db-service.jar
+END
+quartz-all-1.6.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/libs/quartz-all-1.6.0.jar
+END
+commons-logging-1.0.4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ami3.0/!svn/ver/7720/trunk/fep/FEP_BusinessProcessor/libs/commons-logging-1.0.4.jar
+END
+commons-logging.jar
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/ami3.0/!svn/ver/7744/trunk/fep/FEP_BusinessProcessor/libs/commons-logging.jar
+END
+spring.jar
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/libs/spring.jar
+END

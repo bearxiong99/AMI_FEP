@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/ami3.0/!svn/ver/7789/trunk/fep/FEP_Monitor
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Monitor/.classpath
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ami3.0/!svn/ver/1002/trunk/fep/FEP_Monitor/.project
+END
+build.properties
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ami3.0/!svn/ver/19902/trunk/fep/FEP_Monitor/build.properties
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ami3.0/!svn/ver/19902/trunk/fep/FEP_Monitor/build.xml
+END

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ami3.0/!svn/ver/20794/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/alarm
+END
+AlarmRegisterReader.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/ami3.0/!svn/ver/19778/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/alarm/AlarmRegisterReader.java
+END
+DlmsAlarmManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/ami3.0/!svn/ver/19966/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/alarm/DlmsAlarmManager.java
+END
+AlarmRegisterNotification.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/ami3.0/!svn/ver/8776/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/alarm/AlarmRegisterNotification.java
+END
+AlarmRegisterNotificationOldImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/ami3.0/!svn/ver/19966/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/alarm/AlarmRegisterNotificationOldImpl.java
+END
+AlarmRegisterNotificationImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/ami3.0/!svn/ver/22304/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/alarm/AlarmRegisterNotificationImpl.java
+END

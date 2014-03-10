@@ -1,0 +1,173 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ami3.0/!svn/ver/13410/trunk/fep/FEP_Common/src/com/hx/dlms
+END
+DecodeStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/ami3.0/!svn/ver/1959/trunk/fep/FEP_Common/src/com/hx/dlms/DecodeStream.java
+END
+ASN1Constants.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/com/hx/dlms/ASN1Constants.java
+END
+DlmsTypeDesc.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/ami3.0/!svn/ver/1959/trunk/fep/FEP_Common/src/com/hx/dlms/DlmsTypeDesc.java
+END
+ASN1UnsignedInt8.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ami3.0/!svn/ver/1959/trunk/fep/FEP_Common/src/com/hx/dlms/ASN1UnsignedInt8.java
+END
+ASN1Boolean.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ami3.0/!svn/ver/1959/trunk/fep/FEP_Common/src/com/hx/dlms/ASN1Boolean.java
+END
+ASN1Type.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/ami3.0/!svn/ver/20161/trunk/fep/FEP_Common/src/com/hx/dlms/ASN1Type.java
+END
+ASN1Explicit.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/ami3.0/!svn/ver/1959/trunk/fep/FEP_Common/src/com/hx/dlms/ASN1Explicit.java
+END
+ASN1Int8.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ami3.0/!svn/ver/1959/trunk/fep/FEP_Common/src/com/hx/dlms/ASN1Int8.java
+END
+EncodeStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/com/hx/dlms/EncodeStream.java
+END
+DlmsDateTime.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/ami3.0/!svn/ver/8530/trunk/fep/FEP_Common/src/com/hx/dlms/DlmsDateTime.java
+END
+ASN1Choice.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/ami3.0/!svn/ver/1959/trunk/fep/FEP_Common/src/com/hx/dlms/ASN1Choice.java
+END
+ASN1Integer.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ami3.0/!svn/ver/1959/trunk/fep/FEP_Common/src/com/hx/dlms/ASN1Integer.java
+END
+ASN1SequenceOf.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/ami3.0/!svn/ver/20063/trunk/fep/FEP_Common/src/com/hx/dlms/ASN1SequenceOf.java
+END
+ASN1ObjectFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/com/hx/dlms/ASN1ObjectFactory.java
+END
+ASN1UnsignedInt16.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/ami3.0/!svn/ver/1959/trunk/fep/FEP_Common/src/com/hx/dlms/ASN1UnsignedInt16.java
+END
+ASN1Int16.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/ami3.0/!svn/ver/1959/trunk/fep/FEP_Common/src/com/hx/dlms/ASN1Int16.java
+END
+TagAdjunct.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/ami3.0/!svn/ver/1959/trunk/fep/FEP_Common/src/com/hx/dlms/TagAdjunct.java
+END
+ASN1Enum.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ami3.0/!svn/ver/1959/trunk/fep/FEP_Common/src/com/hx/dlms/ASN1Enum.java
+END
+ASN1OctetString.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/ami3.0/!svn/ver/1959/trunk/fep/FEP_Common/src/com/hx/dlms/ASN1OctetString.java
+END
+ASN1BitString.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/ami3.0/!svn/ver/10018/trunk/fep/FEP_Common/src/com/hx/dlms/ASN1BitString.java
+END
+ASN1String.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/ami3.0/!svn/ver/1959/trunk/fep/FEP_Common/src/com/hx/dlms/ASN1String.java
+END
+DlmsData.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/ami3.0/!svn/ver/19956/trunk/fep/FEP_Common/src/com/hx/dlms/DlmsData.java
+END
+DlmsAssistant.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/ami3.0/!svn/ver/14024/trunk/fep/FEP_Common/src/com/hx/dlms/DlmsAssistant.java
+END
+ASN1Sequence.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/ami3.0/!svn/ver/8758/trunk/fep/FEP_Common/src/com/hx/dlms/ASN1Sequence.java
+END
+ASN1GeneralizedTime.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ami3.0/!svn/ver/14991/trunk/fep/FEP_Common/src/com/hx/dlms/ASN1GeneralizedTime.java
+END
+DlmsDataType.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/ami3.0/!svn/ver/17897/trunk/fep/FEP_Common/src/com/hx/dlms/DlmsDataType.java
+END
+ASN1Implicit.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/ami3.0/!svn/ver/1959/trunk/fep/FEP_Common/src/com/hx/dlms/ASN1Implicit.java
+END
+ASN1Oid.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ami3.0/!svn/ver/1959/trunk/fep/FEP_Common/src/com/hx/dlms/ASN1Oid.java
+END

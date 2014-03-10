@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ami3.0/!svn/ver/17284/trunk/fep/FEP_RmiFeClient/src
+END
+applicationContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ami3.0/!svn/ver/17284/trunk/fep/FEP_RmiFeClient/src/applicationContext.xml
+END
+jdbc.properties
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ami3.0/!svn/ver/17284/trunk/fep/FEP_RmiFeClient/src/jdbc.properties
+END
+application.properties
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ami3.0/!svn/ver/17284/trunk/fep/FEP_RmiFeClient/src/application.properties
+END

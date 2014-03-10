@@ -1,0 +1,2307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<protocol-data>
+	<!--复位命令-->
+	<data-item code="01F001" parentCode="01F001" length="0" type="" format="" description="硬件初始化" />
+	<data-item code="01F002" parentCode="01F002" length="0" type="" format="" description="数据区初始化" />
+	<data-item code="01F003" parentCode="01F003" length="0" type="" format="" description="参数及全体数据区初始化（即恢复至出厂配置）" />
+	<data-item code="01F004" parentCode="01F004" length="0" type="" format="" description="参数（除与系统主站通信有关的）及全体数据区初始化" />
+	<!--链路接口检测命令-->
+	<data-item code="02F001" parentCode="02F001" length="0" type="" format="" description="硬件初始化" />
+	<data-item code="02F002" parentCode="02F002" length="0" type="" format="" description="数据区初始化" />
+	<data-item code="02F003" parentCode="02F003" length="0" type="" format="" description="参数及全体数据区初始化（即恢复至出厂配置）" />
+	<!--终端参数-->
+	<data-item code="04F001" parentCode="04F001" length="6" type="" format="HTB1#HTB1#BS2#BS1#HTB1" description="终端通信参数" />
+	<data-item code="04F002" parentCode="04F002" length="0" type="" format="N1#HEX2" description="终端中继转发设置" />
+	<data-item code="04F003" parentCode="04F003" length="28" type="" format="IP6#IP6#ASC16" description="主站IP地址和端口 APN16字节" />
+<!-- 	<data-item code="04F003" parentCode="04F003" length="44" type="" format="IP6#IP6#ASC32" description="主站IP地址和端口 APN32字节" /> -->
+<!-- 	<data-item code="04F003" parentCode="04F003" length="76" type="" format="IP6#IP6#ASC64" description="主站IP地址和端口 APN64字节" /> -->
+	<data-item code="04F004" parentCode="04F004" length="16" type="" format="SIM8#SIM8" description="主站电话号码和短信中心号码" />
+	<data-item code="04F005" parentCode="04F005" length="3" type="" format="HTB1#HTB2" description="终端通信参数" />
+	<data-item code="04F006" parentCode="04F006" length="16" type="" format="HEX2#HEX2#HEX2#HEX2#HEX2#HEX2#HEX2#HEX2" description="终端组地址设置" />
+	<data-item code="04F007" parentCode="04F007" length="16" type="" format="IP4#IP4#IP4#HTB1#IP6#HTB1#X1#ASC1#X1#ASC1#HTB2" description="终端IP地址和端口" />
+	<data-item code="04F008" parentCode="04F008" length="8" type="" format="BS1#HTB2#HTB1#HTB1#BS3" description="终端上行通信工作方式" />
+	<data-item code="04F009" parentCode="04F009" length="16" type="" format="BS8#BS8" description="终端事件记录配置设置" />
+	<data-item code="04F010" parentCode="04F010" length="0" type="" format="N2#HTB2#HTB2#BS1#HTB1#HEX6#HEX6#BS1#BS1#HEX6#BS1" description="终端电能表/交流采样装置配置参数" />
+	<data-item code="04F011" parentCode="04F011" length="0" type="" format="N1#HTB1#HTB1#BS1#HTB2" description="终端脉冲配置参数" />
+	<data-item code="04F012" parentCode="04F012" length="2" type="" format="BS1#BS1" description="终端状态量输入参数" />
+	<data-item code="04F013" parentCode="04F013" length="0" type="" format="N1#HTB1#HTB1#BS1" description="终端电压/电流模拟量配置参数" />
+	<data-item code="04F014" parentCode="04F014" length="0" type="" format="N1#HTB1#N1#BS1" description="终端总加组配置参数" />
+	<data-item code="04F015" parentCode="04F015" length="0" type="" format="N1#HTB1#HTB1#HTB1#BS1#HTB1#A3" description="有功总电能量差动越限事件参数设置" />
+	<data-item code="04F016" parentCode="04F016" length="64" type="" format="ASC32#ASC32" description="虚拟专网用户名、密码" />
+	<data-item code="04F017" parentCode="04F017" length="2" type="" format="A2" description="终端保安定值" />
+	<data-item code="04F018" parentCode="04F018" length="12" type="" format="BS1#BS1#BS1#BS1#BS1#BS1#BS1#BS1#BS1#BS1#BS1#BS1" description="终端保安定值" />
+	<data-item code="04F019" parentCode="04F019" length="1" type="" format="A4" description="终端时段功控定值浮动系数" />
+	<data-item code="04F020" parentCode="04F020" length="1" type="" format="A4" description="终端月电能量控定值浮动系数" />
+	<data-item code="04F021" parentCode="04F021" length="49" type="" format="HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1" description="终端电能量费率时段和费率数" />
+	<data-item code="04F022" parentCode="04F022" length="0" type="" format="N1#A3" description="终端电能量费率" />	
+	<data-item code="04F023" parentCode="04F023" length="3" type="" format="BS3" description="终端催费告警参数" />	
+	<data-item code="04F025" parentCode="04F025" length="11" type="" format="HTB2#HTB2#A7#A22#A23#BS1" description="测量点基本参数" />
+	<data-item code="04F026" parentCode="04F026" length="57" type="" format="A7#A7#A7#A7#HTB1#A5#A7#HTB1#A5#A25#HTB1#A5#A25#HTB1#A5#A25#HTB1#A5#A23#HTB1#A5#A23#HTB1#A5#A5#HTB1#A5#A5#HTB1#A5#HTB1" description="测量点限值参数" />
+	<data-item code="04F027" parentCode="04F027" length="24" type="" format="A26#A26#A26#A26#A26#A26#A26#A26#A26#A26#A26#A26" description="测量点铜损、铁损参数" />	
+	<data-item code="04F028" parentCode="04F028" length="4" type="" format="A5#A5" description="测量点功率因数分段限值" />	
+	<data-item code="04F029" parentCode="04F029" length="12" type="" format="ASC12" description="终端当地电能表显示号" />		
+	<data-item code="04F030" parentCode="04F030" length="1" type="" format="HTB1" description="台区集中抄表停抄/投抄设置" />
+	<data-item code="04F031" parentCode="04F031" length="0" type="" format="N1#A12" description="载波从节点附属节点地址" />	
+	<data-item code="04F033" parentCode="04F033" length="0" type="" format="N1#HTB1#BS2#BS4#A19#HTB1#A18#N1#A19#A19" description="终端抄表运行参数设置" />
+	<data-item code="04F034" parentCode="04F034" length="0" type="" format="N1#HTB1#BS1#HTB4" description="集中器下行通信模块的参数设置" />
+	<data-item code="04F035" parentCode="04F035" length="0" type="" format="N1#HTB2" description="台区集中抄表重点户设置" />
+	<data-item code="04F036" parentCode="04F036" length="4" type="" format="HTB4" description="终端上行通信流量门限设置" />
+	<data-item code="04F037" parentCode="04F037" length="0" type="" format="HTB1#BS1#HTB1#HTB1#HTB1#HTB1#N1#HEX2#HTB2" description="终端级联通信参数" />
+	<data-item code="04F038" parentCode="04F038" length="0" type="" format="HTB1#N1#HTB1#N1#BS1" description="1类数据配置设置" />	
+	<data-item code="04F039" parentCode="04F039" length="0" type="" format="HTB1#N1#HTB1#N1#BS1" description="2类数据配置设置" />	
+	<data-item code="04F041" parentCode="04F041" length="0" type="" format="M1#M1#A2" description="时段功控定值" />	
+	<data-item code="04F042" parentCode="04F042" length="6" type="" format="A2#A19#HTB1#BS1" description="厂休功控参数" />	
+	<data-item code="04F043" parentCode="04F043" length="1" type="" format="HTB1" description="功率控制的功率计算滑差时间" />	
+	<data-item code="04F044" parentCode="04F044" length="8" type="" format="A20#A20#A2" description="功率控制的功率计算滑差时间" />		
+	<data-item code="04F045" parentCode="04F045" length="1" type="" format="BS1" description="功控轮次设定" />		
+	<data-item code="04F046" parentCode="04F046" length="4" type="" format="A3" description="月电量控定值" />		
+	<data-item code="04F047" parentCode="04F047" length="17" type="" format="HTB4#HTB1#A3#A3#A3" description="购电量（费）控参数" />		
+	<data-item code="04F048" parentCode="04F048" length="1" type="" format="BS1" description="电控轮次设定" />			
+	<data-item code="04F049" parentCode="04F049" length="1" type="" format="HTB1" description="功控告警时间" />			
+	<data-item code="04F057" parentCode="04F057" length="3" type="" format="BS3" description="终端声音告警允许∕禁止设置" />		
+	<data-item code="04F058" parentCode="04F058" length="1" type="" format="HTB1" description="终端自动保电参数" />		
+	<data-item code="04F059" parentCode="04F059" length="4" type="" format="A22#A22#HTB1#HTB1" description="电能表异常判别阈值设定" />
+	<data-item code="04F060" parentCode="04F060" length="80" type="" format="A5#A5#A5#A5#A5#A5#A5#A5#A5#A5#A5#A5#A5#A5#A5#A5#A5#A5#A5#A5#A5#A6#A6#A6#A6#A6#A6#A6#A6#A6#A6#A6#A6#A6#A6#A6#A6#A6#A6#A6" description="谐波限值" />
+	<data-item code="04F061" parentCode="04F061" length="1" type="" format="BS1" description="直流模拟量接入参数" />		
+	<data-item code="04F065" parentCode="04F065" length="0" type="" format="BS1#A1#HTB1#N1#STS4" description="定时上报1类数据任务设置" />
+	<data-item code="04F066" parentCode="04F066" length="0" type="" format="BS1#A1#HTB1#N1#STS4" description="定时上报2类数据任务设置" />
+	<data-item code="04F067" parentCode="04F067" length="1" type="" format="HEX1" description="定时上报1类数据任务启动/停止设置" />
+	<data-item code="04F068" parentCode="04F068" length="1" type="" format="HEX1" description="定时上报2类数据任务启动/停止设置" />
+	<data-item code="04F073" parentCode="04F073" length="48" type="" format="BS1#A2#BS1#A2#BS1#A2#BS1#A2#BS1#A2#BS1#A2#BS1#A2#BS1#A2#BS1#A2#BS1#A2#BS1#A2#BS1#A2#BS1#A2#BS1#A2#BS1#A2#BS1#A2#" description="电容器参数" />
+	<data-item code="04F074" parentCode="04F074" length="10" type="" format="A5#A23#A23#HTB1#HTB1" description="电容器投切运行参数" />
+	<data-item code="04F075" parentCode="04F075" length="16" type="" format="A7#A7#A7#A7#A5#A5#A5#A5" description="电容器保护参数" />
+	<data-item code="04F076" parentCode="04F076" length="1" type="" format="HTB1" description="电容器投切控制方式" />
+	<data-item code="04F081" parentCode="04F081" length="4" type="" format="A2#A2" description="直流模拟量输入变比" />
+	<data-item code="04F082" parentCode="04F082" length="4" type="" format="A2#A2" description="直流模拟量限值" />
+	<data-item code="04F083" parentCode="04F083" length="1" type="" format="HTB1" description="直流模拟量冻结参数" />
+	<data-item code="04F150" parentCode="04F150" length="512" type="" format="HEX256#HEX256" description="测量点状态" />
+
+	<data-item code="04F170" parentCode="04F170" length="8" type="" format="HTB2#ASC15#ASC15" description="pda身份认证" />
+	<data-item code="04F171" parentCode="04F171" length="11" type="" format="HTB2#ASC15#ASC15#ASC15" description="pda身份认证密码修改" />
+	<data-item code="04F172" parentCode="04F172" length="0" type="" format="HTB2#ASC33#N1#ASC33#N1#HTB1#ASC33" description="pda现场装接关系上送" />
+	<data-item code="04F173" parentCode="04F173" length="0" type="" format="HTB2#N1#ASC32#A30#A30" description="pda集中器经纬度上送" />
+	<data-item code="04F174" parentCode="04F174" length="0" type="" format="HTB2#N1#ASC32#A30#A30" description="pda采集器经纬度上送" />
+	<data-item code="04F175" parentCode="04F175" length="0" type="" format="HTB2#N1#ASC32#A30#A30" description="pda采集器经纬度上送" />
+	<data-item code="04F176" parentCode="04F176" length="0" type="" format="HTB2#ASC33" description="pda安装调试请求" />
+	
+	
+	<data-item code="04F242" parentCode="04F242" length="0" type="" format="HTB1#HTB1#L1#RAW"></data-item>
+	<data-item code="04F240" parentCode="04F240" length="4" type="" format="HEX2#HEX2" description="终端逻辑地址" />
+	<data-item code="04F246" parentCode="04F246" length="4" type="" format="A19#A19" description="设置自动关灯点亮时间" />
+	<data-item code="04F247" parentCode="04F247" length="1" type="" format="HTB1" description="集中器自动搜表开关"/>
+	<data-item code="04F248" parentCode="04F248" length="1"	type="" format="HTB1" description="复位表计为新表设置"/>
+	<data-item code="04F251" parentCode="04F251" length="0" type="" format="" description="清表档案"/>
+	<data-item code="04F245" parentCode="04F245" length="10" type="" format="ASC1#HTB1#HTB1#HEX2#ASC1#HTB1#HTB1#HEX2" description="经度纬度"/>
+	<data-item code="04F244" parentCode="04F244" length="12" type="" format="A7#A7#A7#A7#A7#A7" description="采集器阀值设置"/>
+	<data-item code="04F243" parentCode="04F243" length="3" type="" format="BS3" description="设置搜表时段"/>
+	<!--控制命令-->	
+	<data-item code="05F001" parentCode="05F001" length="1" type="" format="BS1" description="遥控跳闸" />
+	<data-item code="05F002" parentCode="05F002" length="0" type="" format="" description="允许合闸" />
+	<data-item code="05F005" parentCode="05F005" length="0" type="" format="" description="复位测量点参数状态" />
+	<data-item code="05F009" parentCode="05F009" length="2" type="" format="BS1#HTB1" description="时段功控投入" />
+	<data-item code="05F010" parentCode="05F010" length="0" type="" format="" description="厂休功控投入" />
+	<data-item code="05F011" parentCode="05F011" length="0" type="" format="" description="营业报停功控投入" />
+	<data-item code="05F012" parentCode="05F012" length="11" type="" format="HTB1#A4#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1" description="当前功率下浮控投入" />
+	<data-item code="05F015" parentCode="05F015" length="0" type="" format="" description="月电控投入" />
+	<data-item code="05F016" parentCode="05F016" length="0" type="" format="" description="购电控投入" />
+	<data-item code="05F017" parentCode="05F017" length="0" type="" format="" description="时段功控解除" />
+	<data-item code="05F018" parentCode="05F018" length="0" type="" format="" description="厂休功控解除" />
+	<data-item code="05F019" parentCode="05F019" length="0" type="" format="" description="营业报停功控解除" />
+	<data-item code="05F020" parentCode="05F020" length="0" type="" format="" description="当前功率下浮控解除" />
+	<data-item code="05F023" parentCode="05F023" length="0" type="" format="" description="月电控解除" />
+	<data-item code="05F024" parentCode="05F024" length="0" type="" format="" description="购电控解除	" />
+	<data-item code="05F025" parentCode="05F025" length="1" type="" format="HTB1" description="终端保电投入" />
+	<data-item code="05F026" parentCode="05F026" length="0" type="" format="" description="催费告警投入" />
+	<data-item code="05F027" parentCode="05F027" length="0" type="" format="" description="允许终端与主站通话" />
+	<data-item code="05F028" parentCode="05F028" length="0" type="" format="" description="终端剔除投入" />
+	<data-item code="05F029" parentCode="05F029" length="0" type="" format="" description="允许终端主动上报" />	
+	<data-item code="05F031" parentCode="05F031" length="6" type="" format="A1" description="对时命令" />
+	<data-item code="05F032" parentCode="05F032" length="0" type="" format="HTB1#N1#HEX1" description="中文信息" />
+	<data-item code="05F033" parentCode="05F033" length="0" type="" format="" description="终端保电解除" />
+	<data-item code="05F034" parentCode="05F034" length="0" type="" format="" description="催费告警解除" />
+	<data-item code="05F035" parentCode="05F035" length="0" type="" format="" description="禁止终端与主站通话" />
+	<data-item code="05F036" parentCode="05F036" length="0" type="" format="" description="终端剔除解除" />
+	<data-item code="05F037" parentCode="05F037" length="0" type="" format="" description="禁止终端主动上报" />	
+	<data-item code="05F038" parentCode="05F038" length="0" type="" format="" description="激活终端连接主站" />
+	<data-item code="05F039" parentCode="05F039" length="0" type="" format="" description="命令终端断开连接" />
+	<data-item code="05F041" parentCode="05F041" length="2" type="" format="BS2" description="电容器控制投入" />
+	<data-item code="05F042" parentCode="05F042" length="2" type="" format="BS2" description="电容器控制切除" />
+	<data-item code="05F049" parentCode="05F049" length="1" type="" format="HTB1" description="命令指定通信端口暂停抄表" />
+	<data-item code="05F050" parentCode="05F050" length="1" type="" format="HTB1" description="命令指定通信端口恢复抄表" />
+	<data-item code="05F051" parentCode="05F051" length="1" type="" format="HTB1" description="命令指定通信端口重新抄表" />
+	<data-item code="05F052" parentCode="05F052" length="0" type="" format="" description="初始化指定通信端口下的全部中继路由信息" />	
+	<data-item code="05F053" parentCode="05F053" length="1" type="" format="HTB1" description="删除指定通信端口下的全部电表" />
+	<data-item code="05F090" parentCode="05F090" length="0" type="" format="" description="终端启动通信测试请求" />
+	<data-item code="05F149" parentCode="05F149" length="1" type="" format="HTB1" description="电能表通信参数自动维护功能开启与关闭" />
+	<data-item code="05F150" parentCode="05F150" length="0" type="" format="" description="复位测量点参数状态" />
+	
+	<!--请求终端配置及信息-->
+	<data-item code="09F001" parentCode="09F001" length="41" type="" format="ASC4#ASC8#ASC4#A20#ASC11#ASC4#ASC4#A20" description="终端版本信息" />
+	<data-item code="09F002" parentCode="09F002" length="0" type="" format="HTB1#HTB1#HTB1#HTB1#HTB2#HTB2#HTB2#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#N1#BS2#HTB4#HTB2#HTB2##HTB2" description="终端支持的输入、输出及通信端口配置" />
+	<data-item code="09F003" parentCode="09F003" length="35" type="" format="HTB2#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#BS2#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1#HTB1" description="终端支持的其他配置" />
+	<data-item code="09F004" parentCode="09F004" length="0" type="" format="N1#BS1" description="终端支持的参数配置" />
+	<data-item code="09F005" parentCode="09F005" length="0" type="" format="N1#BS1" description="终端支持的控制配置" />
+	<data-item code="09F006" parentCode="09F006" length="0" type="" format="M2#N1#BS1" description="终端支持的1类数据配置" />
+	<data-item code="09F007" parentCode="09F007" length="0" type="" format="M2#N1#BS1" description="终端支持的2类数据配置" />	
+	<data-item code="09F008" parentCode="09F008" length="8" type="" format="BS8" description="终端支持的事件记录配置" />
+	
+	<!--一类数据-->
+	<data-item code="0CF002" parentCode="0CF002">
+		<data-item code="0400121000" parentCode="0CF002" length="6" type="" format="A1" description="终端日历时钟" />		
+	</data-item>
+	<data-item code="0CF003" parentCode="0CF003">
+		<data-item code="0400121100" parentCode="0CF003" length="31" type="" format="BS31" description="参数映射表" />		
+	</data-item>
+	<data-item code="0CF004" parentCode="0CF004">
+		<data-item code="0400121200" parentCode="0CF004" length="1" type="" format="BS1" description="终端上行通信状态" />		
+	</data-item>
+	<data-item code="0CF005" parentCode="0CF005">
+		<data-item code="0400121301" parentCode="0CF005" length="1" type="" format="BS1" description="保电、剔除和催费告警投入状态" />		
+		<data-item code="04001213Y2" parentCode="0CF005" length="1" type="" format="M1" description="总加组有效标志位" />		
+		<data-item code="0400121303" parentCode="0CF005" length="1" type="" format="HTB1" description="功控定值方案号" />		
+		<data-item code="0400121304" parentCode="0CF005" length="1" type="" format="BS1" description="功控时段有效标志位" />		
+		<data-item code="0400121305" parentCode="0CF005" length="1" type="" format="BS1" description="功控状态" />		
+		<data-item code="0400121306" parentCode="0CF005" length="1" type="" format="BS1" description="电控状态" />		
+		<data-item code="0400121307" parentCode="0CF005" length="1" type="" format="BS1" description="功控轮次状态" />		
+		<data-item code="0400121308" parentCode="0CF005" length="1" type="" format="BS1" description="电控轮次状态" />				
+	</data-item>
+	<data-item code="0CF006" parentCode="0CF006">
+		<data-item code="0400121401" parentCode="0CF006" length="1" type="" format="BS1" description="遥控跳闸输出状态" />		
+		<data-item code="0400121402" parentCode="0CF006" length="1" type="" format="BS1" description="当前催费告警状态" />		
+		<data-item code="04001214Y3" parentCode="0CF006" length="1" type="" format="M1" description="总加组有效标志位" />		
+		<data-item code="0400121404" parentCode="0CF006" length="2" type="" format="A2" description="当前功控定值" />		
+		<data-item code="0400121405" parentCode="0CF006" length="1" type="" format="BS1" description="当前功率下浮控浮动系数" />		
+		<data-item code="0400121406" parentCode="0CF006" length="1" type="" format="BS1" description="功控跳闸输出状态" />		
+		<data-item code="0400121407" parentCode="0CF006" length="1" type="" format="BS1" description="月电控跳闸输出状态" />		
+		<data-item code="0400121408" parentCode="0CF006" length="1" type="" format="BS1" description="购电控跳闸输出状态" />				
+		<data-item code="0400121409" parentCode="0CF006" length="1" type="" format="BS1" description="功控越限告警状态" />				
+		<data-item code="040012140A" parentCode="0CF006" length="1" type="" format="BS1" description="电控越限告警状态" />				
+	</data-item>	
+	<data-item code="0CF007" parentCode="0CF007">
+		<data-item code="0400121501" parentCode="0CF007" length="1" type="" format="HTB1" description="重要事件计数器EC1值" />		
+		<data-item code="0400121502" parentCode="0CF007" length="1" type="" format="HTB1" description="一般事件计数器EC2值" />
+	</data-item>
+	<data-item code="0CF008" parentCode="0CF008">
+		<data-item code="0400121600" parentCode="0CF008" length="8" type="" format="BS8" description="事件状态标志" />				
+	</data-item>
+	<data-item code="0CF009" parentCode="0CF009">
+		<data-item code="0400121701" parentCode="0CF009" length="1" type="" format="BS1" description="1~8路状态量的状态" />				
+		<data-item code="0400121702" parentCode="0CF009" length="1" type="" format="BS1" description="1~8路状态量的变位标志" />				
+	</data-item>	
+	<data-item code="0CF010" parentCode="0CF010">
+		<data-item code="0400121801" parentCode="0CF010" length="4" type="" format="HTB4" description="终端与主站当日通信流量" />		
+		<data-item code="0400121802" parentCode="0CF010" length="4" type="" format="HTB4" description="终端与主站当月通信流量" />
+	</data-item>
+	<data-item code="0CF011" parentCode="0CF011">
+		<data-item code="04001219Y0" parentCode="0CF011" length="1" type="" format="HTB1" description="本项数据块个数n" />		
+		<data-item code="0400121901" parentCode="0CF011" length="1" type="" format="HTB1" description="终端通信端口号" />
+		<data-item code="0400121902" parentCode="0CF011" length="2" type="" format="HTB2" description="要抄电表总数" />
+		<data-item code="0400121903" parentCode="0CF011" length="1" type="" format="BS1" description="当前抄表工作状态标志" />
+		<data-item code="0400121904" parentCode="0CF011" length="2" type="" format="HTB2" description="抄表成功块数" />
+		<data-item code="0400121905" parentCode="0CF011" length="1" type="" format="HTB1" description="抄重点表成功块数" />
+		<data-item code="0400121906" parentCode="0CF011" length="6" type="" format="A1" description="抄表开始时间" />
+		<data-item code="0400121907" parentCode="0CF011" length="6" type="" format="A1" description="抄表结束时间" />
+	</data-item>
+	<!-- 文件传输未收到数据段位图查询	-->
+	<data-item code="0CF014" parentCode="0CF014">
+		<data-item code="0400125300" parentCode="0CF014" length="130" type="" format="HTB2#BS128" description="当前总加有功功率" />		
+	</data-item>
+	<data-item code="0CF017" parentCode="0CF017">
+		<data-item code="0214110000" parentCode="0CF017" length="2" type="" format="A2" description="当前总加有功功率" />		
+	</data-item>
+	<data-item code="0CF018" parentCode="0CF018">
+		<data-item code="0214110100" parentCode="0CF018" length="2" type="" format="A2" description="当前总加无功功率" />		
+	</data-item>	
+	<data-item code="0CF019" parentCode="0CF019">
+		<data-item code="0000000000" parentCode="0CF019" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="01142000XX" parentCode="0CF019" length="4" type="" format="A3" description="当日总加有功总电能量" />
+	</data-item>
+	<data-item code="0CF020" parentCode="0CF020">
+		<data-item code="0000000000" parentCode="0CF020" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="01142001XX" parentCode="0CF020" length="4" type="" format="A3" description="当日总加有功总电能量" />
+	</data-item>
+	<data-item code="0CF021" parentCode="0CF021">
+		<data-item code="0000000000" parentCode="0CF021" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="01152000XX" parentCode="0CF021" length="4" type="" format="A3" description="当月总加有功总电能量" />
+	</data-item>
+	<data-item code="0CF022" parentCode="0CF022">
+		<data-item code="0000000000" parentCode="0CF022" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="01152001XX" parentCode="0CF022" length="4" type="" format="A3" description="当月总加无功总电能量" />
+	</data-item>
+	<data-item code="0CF023" parentCode="0CF023">
+		<data-item code="0100201000" parentCode="0CF023" length="4" type="" format="A3" description="当前剩余电量（费）" />
+	</data-item>
+	<data-item code="0CF024" parentCode="0CF024">
+		<data-item code="0214120000" parentCode="0CF024" length="2" type="" format="A2" description="当前总加无功功率" />		
+	</data-item>		
+	<data-item code="0CF025" parentCode="0CF025">
+		<data-item code="0400122000" parentCode="0CF025" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0200110000" parentCode="0CF025" length="3" type="" format="A9" description="当前总有功功率" />
+		<data-item code="0200110001" parentCode="0CF025" length="3" type="" format="A9" description="当前A相有功功率" />
+		<data-item code="0200110002" parentCode="0CF025" length="3" type="" format="A9" description="当前B相有功功率" />
+		<data-item code="0200110003" parentCode="0CF025" length="3" type="" format="A9" description="当前C相有功功率" />
+		<data-item code="0200110100" parentCode="0CF025" length="3" type="" format="A9" description="当前总无功功率" />
+		<data-item code="0200110101" parentCode="0CF025" length="3" type="" format="A9" description="当前A相无功功率" />
+		<data-item code="0200110102" parentCode="0CF025" length="3" type="" format="A9" description="当前B相无功功率" />
+		<data-item code="0200110103" parentCode="0CF025" length="3" type="" format="A9" description="当前C相无功功率" />
+		<data-item code="0200110200" parentCode="0CF025" length="2" type="" format="A5" description="当前总功率因数" />
+		<data-item code="0200110201" parentCode="0CF025" length="2" type="" format="A5" description="当前A相功率因数" />
+		<data-item code="0200110202" parentCode="0CF025" length="2" type="" format="A5" description="当前B相功率因数" />
+		<data-item code="0200110203" parentCode="0CF025" length="2" type="" format="A5" description="当前C相功率因数" />
+		<data-item code="0200110301" parentCode="0CF025" length="2" type="" format="A7" description="当前A相电压" />
+		<data-item code="0200110302" parentCode="0CF025" length="2" type="" format="A7" description="当前B相电压" />
+		<data-item code="0200110303" parentCode="0CF025" length="2" type="" format="A7" description="当前C相电压" />
+		<data-item code="0200110401" parentCode="0CF025" length="3" type="" format="A25" description="当前A相电流" />
+		<data-item code="0200110402" parentCode="0CF025" length="3" type="" format="A25" description="当前B相电流" />
+		<data-item code="0200110403" parentCode="0CF025" length="3" type="" format="A25" description="当前C相电流" />
+		<data-item code="0200110404" parentCode="0CF025" length="3" type="" format="A25" description="当前零序电流" />		
+		<data-item code="0200110500" parentCode="0CF025" length="3" type="" format="A9" description="总视在功率" />
+		<data-item code="0200110501" parentCode="0CF025" length="3" type="" format="A9" description="A相视在功率" />
+		<data-item code="0200110502" parentCode="0CF025" length="3" type="" format="A9" description="B相视在功率" />
+		<data-item code="0200110503" parentCode="0CF025" length="3" type="" format="A9" description="C相视在功率" />
+	</data-item>
+	
+	
+	<data-item code="0CF077" parentCode="0CF077" description="当前反向三相及总有/无功功率">
+		<data-item code="0400122000" parentCode="0CF077" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0200112000" parentCode="0CF077" length="3" type="" format="A9" description="当前总反向有功功率" />
+		<data-item code="0200112001" parentCode="0CF077" length="3" type="" format="A9" description="当前A相反向有功功率" />
+		<data-item code="0200112002" parentCode="0CF077" length="3" type="" format="A9" description="当前B相反向有功功率" />
+		<data-item code="0200112003" parentCode="0CF077" length="3" type="" format="A9" description="当前C相反向有功功率" />
+		<data-item code="0200112100" parentCode="0CF077" length="3" type="" format="A9" description="当前总反向无功功率" />
+		<data-item code="0200112101" parentCode="0CF077" length="3" type="" format="A9" description="当前A反向相无功功率" />
+		<data-item code="0200112102" parentCode="0CF077" length="3" type="" format="A9" description="当前B反向相无功功率" />
+		<data-item code="0200112103" parentCode="0CF077" length="3" type="" format="A9" description="当前C反向相无功功率" />
+	</data-item>
+	
+	<data-item code="0CF026" parentCode="0CF026">
+		<data-item code="0400122000" parentCode="0CF026" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0400100500" parentCode="0CF026" length="2" type="" format="A8" description="总断相次数" />
+		<data-item code="0400100501" parentCode="0CF026" length="2" type="" format="A8" description="A相断相次数" />
+		<data-item code="0400100502" parentCode="0CF026" length="2" type="" format="A8" description="B相断相次数" />
+		<data-item code="0400100503" parentCode="0CF026" length="2" type="" format="A8" description="C相断相次数" />
+		<data-item code="0400100600" parentCode="0CF026" length="3" type="" format="A10" description="断相时间累计值" />
+		<data-item code="0400100601" parentCode="0CF026" length="3" type="" format="A10" description="A相断相时间累计值" />
+		<data-item code="0400100602" parentCode="0CF026" length="3" type="" format="A10" description="B相断相时间累计值" />
+		<data-item code="0400100603" parentCode="0CF026" length="3" type="" format="A10" description="C相断相时间累计值" />
+		<data-item code="0400100700" parentCode="0CF026" length="4" type="" format="A17" description="最近一次断相起始时刻" />
+		<data-item code="0400100701" parentCode="0CF026" length="4" type="" format="A17" description="A相最近断相起始时刻" />
+		<data-item code="0400100702" parentCode="0CF026" length="4" type="" format="A17" description="B相最近断相起始时刻" />
+		<data-item code="0400100703" parentCode="0CF026" length="4" type="" format="A17" description="C相最近断相起始时刻" />
+		<data-item code="0400100800" parentCode="0CF026" length="4" type="" format="A17" description="最近一次断相结束时刻" />
+		<data-item code="0400100801" parentCode="0CF026" length="4" type="" format="A17" description="A相最近断相结束时刻" />
+		<data-item code="0400100802" parentCode="0CF026" length="4" type="" format="A17" description="B相最近断相结束时刻" />
+		<data-item code="0400100803" parentCode="0CF026" length="4" type="" format="A17" description="C相最近断相结束时刻" />
+	</data-item>
+
+	<data-item code="0CF027" parentCode="0CF027">
+		<data-item code="0400122000" parentCode="0CF027" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0400102401" parentCode="0CF027" length="6" type="" format="A1" description="电能表日历时钟" />
+		<data-item code="0400102402" parentCode="0CF027" length="4" type="" format="A27" description="电池工作时间" />
+		<data-item code="0400102403" parentCode="0CF027" length="3" type="" format="A10" description="编程总次数" />
+		<data-item code="0400102404" parentCode="0CF027" length="6" type="" format="A1" description="最近一次编程发生时刻" />
+		<data-item code="0400102405" parentCode="0CF027" length="3" type="" format="A10" description="电表清零总次数" />
+		<data-item code="0400102406" parentCode="0CF027" length="6" type="" format="A1" description="最近一次清零发生时刻" />
+		<data-item code="0400102407" parentCode="0CF027" length="3" type="" format="A10" description="需量清零总次数" />
+		<data-item code="0400102408" parentCode="0CF027" length="6" type="" format="A1" description="最近一次清零发生时刻" />
+		<data-item code="0400102409" parentCode="0CF027" length="3" type="" format="A10" description="事件清零总次数" />
+		<data-item code="0400102410" parentCode="0CF027" length="6" type="" format="A1" description="最近一次清零发生时刻" />
+		<data-item code="0400102411" parentCode="0CF027" length="3" type="" format="A10" description="校时总次数" />
+		<data-item code="0400102412" parentCode="0CF027" length="6" type="" format="A1" description="最近一次校时发生时刻" />
+	</data-item>
+	
+	<data-item code="0CF028" parentCode="0CF028">
+		<data-item code="0400122000" parentCode="0CF028" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0400102501" parentCode="0CF028" length="2" type="" format="BS2" description="电表运行状态字变位标志1" />
+		<data-item code="0400102502" parentCode="0CF028" length="2" type="" format="BS2" description="电表运行状态字变位标志2" />
+		<data-item code="0400102503" parentCode="0CF028" length="2" type="" format="BS2" description="电表运行状态字变位标志3" />
+		<data-item code="0400102504" parentCode="0CF028" length="2" type="" format="BS2" description="电表运行状态字变位标志4" />
+		<data-item code="0400102505" parentCode="0CF028" length="2" type="" format="BS2" description="电表运行状态字变位标志5" />
+		<data-item code="0400102506" parentCode="0CF028" length="2" type="" format="BS2" description="电表运行状态字变位标志6" />
+		<data-item code="0400102507" parentCode="0CF028" length="2" type="" format="BS2" description="电表运行状态字变位标志7" />
+		<data-item code="0400102601" parentCode="0CF028" length="2" type="" format="BS2" description="电表运行状态字1" />
+		<data-item code="0400102602" parentCode="0CF028" length="2" type="" format="BS2" description="电表运行状态字2" />
+		<data-item code="0400102603" parentCode="0CF028" length="2" type="" format="BS2" description="电表运行状态字3" />
+		<data-item code="0400102604" parentCode="0CF028" length="2" type="" format="BS2" description="电表运行状态字4" />
+		<data-item code="0400102605" parentCode="0CF028" length="2" type="" format="BS2" description="电表运行状态字5" />
+		<data-item code="0400102606" parentCode="0CF028" length="2" type="" format="BS2" description="电表运行状态字6" />
+		<data-item code="0400102607" parentCode="0CF028" length="2" type="" format="BS2" description="电表运行状态字7" />
+	</data-item>
+	
+	<data-item code="0CF029" parentCode="0CF029">
+		<data-item code="0400122000" parentCode="0CF029" length="5" type="" format="A15" description="终端抄表时间" />	
+		<data-item code="0100120001" parentCode="0CF029" length="5" type="" format="A14" description="当前铜损有功总电能示值" />	
+		<data-item code="0100120101" parentCode="0CF029" length="5" type="" format="A14" description="当前铁损有功总电能示值" />	
+	</data-item>
+	<data-item code="0CF030" parentCode="0CF030">
+		<data-item code="0400122000" parentCode="0CF030" length="5" type="" format="A15" description="终端抄表时间" />	
+		<data-item code="0102120002" parentCode="0CF030" length="5" type="" format="A14" description="上一结算日铜损有功总电能补偿量" />	
+		<data-item code="0102120102" parentCode="0CF030" length="5" type="" format="A14" description="上一结算日铁损有功总电能补偿量" />	
+	</data-item>
+	
+	<data-item code="0CF031" parentCode="0CF031">
+		<data-item code="0400122000" parentCode="0CF031" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0100110001" parentCode="0CF031" length="5" type="" format="A14" description="当前A相正有功电能示值" />
+		<data-item code="0100110002" parentCode="0CF031" length="5" type="" format="A14" description="当前A相反有功电能示值" />
+		<data-item code="0100110003" parentCode="0CF031" length="4" type="" format="A11" description="当前A相组合无功1电能示值" />
+		<data-item code="0100110004" parentCode="0CF031" length="4" type="" format="A11" description="当前A相组合无功2电能示值" />
+		<data-item code="0100110101" parentCode="0CF031" length="5" type="" format="A14" description="当前B相正有功电能示值" />
+		<data-item code="0100110102" parentCode="0CF031" length="5" type="" format="A14" description="当前B相反有功电能示值" />
+		<data-item code="0100110103" parentCode="0CF031" length="4" type="" format="A11" description="当前B相组合无功1电能示值" />
+		<data-item code="0100110104" parentCode="0CF031" length="4" type="" format="A11" description="当前B相组合无功2电能示值" />
+		<data-item code="0100110201" parentCode="0CF031" length="5" type="" format="A14" description="当前C相正有功电能示值" />
+		<data-item code="0100110202" parentCode="0CF031" length="5" type="" format="A14" description="当前C相反有功电能示值" />
+		<data-item code="0100110203" parentCode="0CF031" length="4" type="" format="A11" description="当前C相组合无功1电能示值" />
+		<data-item code="0100110204" parentCode="0CF031" length="4" type="" format="A11" description="当前C相组合无功2电能示值" />
+	</data-item>
+	
+	<data-item code="0CF032" parentCode="0CF032">
+		<data-item code="0400122000" parentCode="0CF032" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0102110001" parentCode="0CF032" length="5" type="" format="A14" description="上一结算日A相正有功电能示值" />
+		<data-item code="0102110002" parentCode="0CF032" length="5" type="" format="A14" description="上一结算日A相反有功电能示值" />
+		<data-item code="0102110003" parentCode="0CF032" length="4" type="" format="A11" description="上一结算日A相组合无功1电能示值" />
+		<data-item code="0102110004" parentCode="0CF032" length="4" type="" format="A11" description="上一结算日A相组合无功2电能示值" />
+		<data-item code="0102110101" parentCode="0CF032" length="5" type="" format="A14" description="上一结算日B相正有功电能示值" />
+		<data-item code="0102110102" parentCode="0CF032" length="5" type="" format="A14" description="上一结算日B相反有功电能示值" />
+		<data-item code="0102110103" parentCode="0CF032" length="4" type="" format="A11" description="上一结算日B相组合无功1电能示值" />
+		<data-item code="0102110104" parentCode="0CF032" length="4" type="" format="A11" description="上一结算日B相组合无功2电能示值" />
+		<data-item code="0102110201" parentCode="0CF032" length="5" type="" format="A14" description="上一结算日C相正有功电能示值" />
+		<data-item code="0102110202" parentCode="0CF032" length="5" type="" format="A14" description="上一结算日C相反有功电能示值" />
+		<data-item code="0102110203" parentCode="0CF032" length="4" type="" format="A11" description="上一结算日C相组合无功1电能示值" />
+		<data-item code="0102110204" parentCode="0CF032" length="4" type="" format="A11" description="上一结算日C相组合无功2电能示值" />
+	</data-item>
+	<!--与F129~F136,F145~148重复-->
+	<data-item code="0CF033" parentCode="0CF033">
+		<data-item code="0400122000" parentCode="0CF033" length="5" type="" format="A15" description="终端抄表时间" />	
+		<data-item code="0000000000" parentCode="0CF033" length="1" type="" format="HTB1" description="费率数M" />	
+		<data-item code="01001000XX" parentCode="0CF033" length="5" type="" format="A14" description="当前正向有功总电能示值" />
+		<data-item code="01001002XX" parentCode="0CF033" length="4" type="" format="A11" description="当前正向无功总电能示值" />
+		<data-item code="01001004XX" parentCode="0CF033" length="4" type="" format="A11" description="当前一象限无功总电能示值" />
+		<data-item code="01001005XX" parentCode="0CF033" length="4" type="" format="A11" description="当前四象限无功总电能示值" />
+	</data-item>
+		
+	<data-item code="0CF034" parentCode="0CF034">
+		<data-item code="0400122000" parentCode="0CF034" length="5" type="" format="A15" description="终端抄表时间" />	
+		<data-item code="0000000000" parentCode="0CF034" length="1" type="" format="HTB1" description="费率数M" />	
+		<data-item code="01001001XX" parentCode="0CF034" length="5" type="" format="A14" description="当前反向有功总电能示值" />
+		<data-item code="01001003XX" parentCode="0CF034" length="4" type="" format="A11" description="当前反向无功总电能示值" />
+		<data-item code="01001006XX" parentCode="0CF034" length="4" type="" format="A11" description="当前二象限无功总电能示值" />
+		<data-item code="01001007XX" parentCode="0CF034" length="4" type="" format="A11" description="当前三象限无功总电能示值" />
+	</data-item>
+	
+	<data-item code="0CF035" parentCode="0CF035">
+		<data-item code="0400122000" parentCode="0CF035" length="5" type="" format="A15" description="终端抄表时间" />	
+		<data-item code="0000000000" parentCode="0CF035" length="1" type="" format="HTB1" description="费率数M" />	
+		<data-item code="02011000XX" parentCode="0CF035" length="3" type="" format="A23" description="当月正向有功总量大需量" />
+		<data-item code="02011008XX" parentCode="0CF035" length="4" type="" format="A17" description="当月正向有功总最大需量发生时间" />
+		<data-item code="02011002XX" parentCode="0CF035" length="3" type="" format="A23" description="当月正向无功总最大需量" />
+		<data-item code="02011010XX" parentCode="0CF035" length="4" type="" format="A17" description="当月正向无功总最大需量发生时间" />
+	</data-item>
+	
+	<data-item code="0CF036" parentCode="0CF036">
+		<data-item code="0400122000" parentCode="0CF036" length="5" type="" format="A15" description="终端抄表时间" />	
+		<data-item code="0000000000" parentCode="0CF036" length="1" type="" format="HTB1" description="费率数M" />	
+		<data-item code="02011001XX" parentCode="0CF036" length="3" type="" format="A23" description="当月反向有功总量大需量" />
+		<data-item code="02011009XX" parentCode="0CF036" length="4" type="" format="A17" description="当月反向有功总最大需量发生时间" />
+		<data-item code="02011003XX" parentCode="0CF036" length="3" type="" format="A23" description="当月反向无功总最大需量" />
+		<data-item code="02011011XX" parentCode="0CF036" length="4" type="" format="A17" description="当月反向无功总最大需量发生时间" />
+	</data-item>
+	
+	
+	<data-item code="0CF037" parentCode="0CF037">
+		<data-item code="0400122000" parentCode="0CF037" length="5" type="" format="A15" description="终端抄表时间" />	
+		<data-item code="0000000000" parentCode="0CF037" length="1" type="" format="HTB1" description="费率数M" />	
+		<data-item code="01021000XX" parentCode="0CF037" length="5" type="" format="A14" description="上月（上一结算日）正向有功总电能示值" />
+		<data-item code="01021002XX" parentCode="0CF037" length="4" type="" format="A11" description="上月（上一结算日）正向无功总电能示值" />
+		<data-item code="01021004XX" parentCode="0CF037" length="4" type="" format="A11" description="上月（上一结算日）一象限无功总电能示值" />
+		<data-item code="01021005XX" parentCode="0CF037" length="4" type="" format="A11" description="上月（上一结算日）四象限无功总电能示值" />
+	</data-item>
+	
+	<data-item code="0CF038" parentCode="0CF038">
+		<data-item code="0400122000" parentCode="0CF038" length="5" type="" format="A15" description="终端抄表时间" />	
+		<data-item code="0000000000" parentCode="0CF038" length="1" type="" format="HTB1" description="费率数M" />	
+		<data-item code="01021001XX" parentCode="0CF038" length="5" type="" format="A14" description="上月（上一结算日）反向有功总电能示值" />
+		<data-item code="01021003XX" parentCode="0CF038" length="4" type="" format="A11" description="上月（上一结算日）反向无功总电能示值" />
+		<data-item code="01021006XX" parentCode="0CF038" length="4" type="" format="A11" description="上月（上一结算日）二象限无功总电能示值" />
+		<data-item code="01021007XX" parentCode="0CF038" length="4" type="" format="A11" description="上月（上一结算日）三象限无功总电能示值" />
+	</data-item>
+	
+	<data-item code="0CF039" parentCode="0CF039">
+		<data-item code="0400122000" parentCode="0CF039" length="5" type="" format="A15" description="终端抄表时间" />	
+		<data-item code="0000000000" parentCode="0CF039" length="1" type="" format="HTB1" description="费率数M" />	
+		<data-item code="02021000XX" parentCode="0CF039" length="3" type="" format="A23" description="上月（上一结算日）正向有功总量大需量" />
+		<data-item code="02021008XX" parentCode="0CF039" length="4" type="" format="A17" description="上月（上一结算日）正向有功总最大需量发生时间" />
+		<data-item code="02021002XX" parentCode="0CF039" length="3" type="" format="A23" description="上月（上一结算日）正向无功总最大需量" />
+		<data-item code="02021010XX" parentCode="0CF039" length="4" type="" format="A17" description="上月（上一结算日）正向无功总最大需量发生时间" />
+	</data-item>
+
+	<data-item code="0CF040" parentCode="0CF040">
+		<data-item code="0400122000" parentCode="0CF040" length="5" type="" format="A15" description="终端抄表时间" />	
+		<data-item code="0000000000" parentCode="0CF040" length="1" type="" format="HTB1" description="费率数M" />	
+		<data-item code="02021001XX" parentCode="0CF040" length="3" type="" format="A23" description="上月（上一结算日）反向有功总量大需量" />
+		<data-item code="02021009XX" parentCode="0CF040" length="4" type="" format="A17" description="上月（上一结算日）反向有功总最大需量发生时间" />
+		<data-item code="02021003XX" parentCode="0CF040" length="3" type="" format="A23" description="上月（上一结算日）反向无功总最大需量" />
+		<data-item code="02021011XX" parentCode="0CF040" length="4" type="" format="A17" description="上月（上一结算日）反向无功总最大需量发生时间" />
+	</data-item>
+
+	<data-item code="0CF041" parentCode="0CF041">
+		<data-item code="0000000000" parentCode="0CF041" length="1" type="" format="HTB1" description="费率数M" />	
+		<data-item code="01002002XX" parentCode="0CF041" length="4" type="" format="A13" description="当日正向有功总电能" />
+	</data-item>
+	
+	<data-item code="0CF042" parentCode="0CF042">
+		<data-item code="0000000000" parentCode="0CF042" length="1" type="" format="HTB1" description="费率数M" />	
+		<data-item code="01002003XX" parentCode="0CF042" length="4" type="" format="A13" description="当日正向无功总电能" />
+	</data-item>
+
+	<data-item code="0CF043" parentCode="0CF043">
+		<data-item code="0000000000" parentCode="0CF043" length="1" type="" format="HTB1" description="费率数M" />	
+		<data-item code="01002004XX" parentCode="0CF043" length="4" type="" format="A13" description="当日反向有功总电能" />
+	</data-item>
+
+	<data-item code="0CF044" parentCode="0CF044">
+		<data-item code="0000000000" parentCode="0CF044" length="1" type="" format="HTB1" description="费率数M" />	
+		<data-item code="01002005XX" parentCode="0CF044" length="4" type="" format="A13" description="当日反向无功总电能" />
+	</data-item>
+
+	<data-item code="0CF045" parentCode="0CF045">
+		<data-item code="0000000000" parentCode="0CF045" length="1" type="" format="HTB1" description="费率数M" />	
+		<data-item code="01012002XX" parentCode="0CF045" length="4" type="" format="A13" description="当月正向有功总电能" />
+	</data-item>
+
+	<data-item code="0CF046" parentCode="0CF046">
+		<data-item code="0000000000" parentCode="0CF046" length="1" type="" format="HTB1" description="费率数M" />	
+		<data-item code="01012003XX" parentCode="0CF046" length="4" type="" format="A13" description="当月正向无功总电能" />
+	</data-item>
+
+	<data-item code="0CF047" parentCode="0CF047">
+		<data-item code="0000000000" parentCode="0CF047" length="1" type="" format="HTB1" description="费率数M" />	
+		<data-item code="01012004XX" parentCode="0CF047" length="4" type="" format="A13" description="当月反向有功总电能" />
+	</data-item>
+
+	<data-item code="0CF048" parentCode="0CF048">
+		<data-item code="0000000000" parentCode="0CF048" length="1" type="" format="HTB1" description="费率数M" />	
+		<data-item code="01012005XX" parentCode="0CF048" length="4" type="" format="A13" description="当月反向无功总电能" />
+	</data-item>
+
+	<data-item code="0CF049" parentCode="0CF049">
+		<data-item code="0200110601" parentCode="0CF049" length="2" type="" format="A5" description="当前Uab/Ua相位角" />	
+		<data-item code="0200110602" parentCode="0CF049" length="2" type="" format="A5" description="当前Ub相位角" />
+		<data-item code="0200110603" parentCode="0CF049" length="2" type="" format="A5" description="当前Ucb/Uc相位角" />	
+		<data-item code="0200110604" parentCode="0CF049" length="2" type="" format="A5" description="当前Ia相位角" />
+		<data-item code="0200110605" parentCode="0CF049" length="2" type="" format="A5" description="当前Ib相位角/Ua相位角" />	
+		<data-item code="0200110606" parentCode="0CF049" length="2" type="" format="A5" description="当前Ic相位角" />
+	</data-item>
+
+	<data-item code="0CF057" parentCode="0CF057">
+		<data-item code="0000000002" parentCode="0CF057" length="1" type="" format="HTB1" description="谐波次数N（N≤19）" />	
+		<data-item code="03001000XX" parentCode="0CF057" length="2" type="" format="A6" description="A相2次谐波电压" />
+		<data-item code="03001001XX" parentCode="0CF057" length="2" type="" format="A6" description="B相2次谐波电压" />
+		<data-item code="03001002XX" parentCode="0CF057" length="2" type="" format="A6" description="C相2次谐波电压" />
+		<data-item code="03001003XX" parentCode="0CF057" length="2" type="" format="A6" description="A相2次谐波电流" />
+		<data-item code="03001004XX" parentCode="0CF057" length="2" type="" format="A6" description="B相2次谐波电流" />
+		<data-item code="03001005XX" parentCode="0CF057" length="2" type="" format="A6" description="C相2次谐波电流" />
+	</data-item>
+
+	<data-item code="0CF058" parentCode="0CF058">
+		<data-item code="0000000003" parentCode="0CF058" length="1" type="" format="HTB1" description="谐波次数N（N≤19）" />	
+		<data-item code="03001006XX" parentCode="0CF058" length="2" type="" format="A5" description="A相总谐波电压含有率" />
+		<data-item code="03001007XX" parentCode="0CF058" length="2" type="" format="A5" description="B相总谐波电压含有率" />
+		<data-item code="03001008XX" parentCode="0CF058" length="2" type="" format="A5" description="C相总谐波电压含有率" />
+		<data-item code="03001009XX" parentCode="0CF058" length="2" type="" format="A5" description="A相2次谐波电流含有率" />
+		<data-item code="03001010XX" parentCode="0CF058" length="2" type="" format="A5" description="B相2次谐波电流含有率" />
+		<data-item code="03001011XX" parentCode="0CF058" length="2" type="" format="A5" description="C相2次谐波电流含有率" />
+	</data-item>
+	
+	<data-item code="0CF065" parentCode="0CF065">
+		<data-item code="0400100000" parentCode="0CF065" length="1" type="" format="BS1" description="无功补偿装置的运行方式" />	
+		<data-item code="0400100100" parentCode="0CF065" length="2" type="" format="BS2" description="电容器的投切状态" />
+	</data-item>
+		
+	<data-item code="0CF066" parentCode="0CF066">
+		<data-item code="0400100201" parentCode="0CF066" length="4" type="" format="HTB4" description="当前第1组电容器累计投入时间" />	
+		<data-item code="0400100202" parentCode="0CF066" length="4" type="" format="HTB4" description="当前第2组电容器累计投入时间" />
+		<data-item code="0400100203" parentCode="0CF066" length="4" type="" format="HTB4" description="当前第3组电容器累计投入时间" />	
+		<data-item code="0400100204" parentCode="0CF066" length="4" type="" format="HTB4" description="当前第4组电容器累计投入时间" />
+		<data-item code="0400100205" parentCode="0CF066" length="4" type="" format="HTB4" description="当前第5组电容器累计投入时间" />	
+		<data-item code="0400100206" parentCode="0CF066" length="4" type="" format="HTB4" description="当前第6组电容器累计投入时间" />
+		<data-item code="0400100207" parentCode="0CF066" length="4" type="" format="HTB4" description="当前第7组电容器累计投入时间" />	
+		<data-item code="0400100208" parentCode="0CF066" length="4" type="" format="HTB4" description="当前第8组电容器累计投入时间" />
+		<data-item code="0400100209" parentCode="0CF066" length="4" type="" format="HTB4" description="当前第9组电容器累计投入时间" />
+		<data-item code="0400100301" parentCode="0CF066" length="4" type="" format="HTB4" description="当前第1组电容器累计投入次数" />	
+		<data-item code="0400100302" parentCode="0CF066" length="4" type="" format="HTB4" description="当前第2组电容器累计投入次数" />
+		<data-item code="0400100303" parentCode="0CF066" length="4" type="" format="HTB4" description="当前第3组电容器累计投入次数" />	
+		<data-item code="0400100304" parentCode="0CF066" length="4" type="" format="HTB4" description="当前第4组电容器累计投入次数" />
+		<data-item code="0400100305" parentCode="0CF066" length="4" type="" format="HTB4" description="当前第5组电容器累计投入次数" />	
+		<data-item code="0400100306" parentCode="0CF066" length="4" type="" format="HTB4" description="当前第6组电容器累计投入次数" />
+		<data-item code="0400100307" parentCode="0CF066" length="4" type="" format="HTB4" description="当前第7组电容器累计投入次数" />	
+		<data-item code="0400100308" parentCode="0CF066" length="4" type="" format="HTB4" description="当前第8组电容器累计投入次数" />
+		<data-item code="0400100309" parentCode="0CF066" length="4" type="" format="HTB4" description="当前第9组电容器累计投入次数" />		
+	</data-item>
+
+	<data-item code="0CF067" parentCode="0CF067">
+		<data-item code="0100201100" parentCode="0CF067" length="4" type="" format="A13" description="当前日补偿的无功电能量" />	
+		<data-item code="0100201200" parentCode="0CF067" length="4" type="" format="A13" description="当前月补偿的无功电能量" />
+	</data-item>
+	
+	<data-item code="0CF073" parentCode="0CF073">
+		<data-item code="0400101000" parentCode="0CF073" length="2" type="" format="A2" description="直流模拟量当前数据" />	
+	</data-item>
+
+	<data-item code="0CF081" parentCode="0CF081">
+		<data-item code="0221110000" parentCode="0CF081" length="2" type="" format="A2" description="小时冻结总加有功功率" />	
+	</data-item>
+	
+	<data-item code="0CF082" parentCode="0CF082">
+		<data-item code="0221110100" parentCode="0CF082" length="2" type="" format="A2" description="小时冻结总加无功功率" />	
+	</data-item>
+
+	<data-item code="0CF083" parentCode="0CF083">
+		<data-item code="0121200000" parentCode="0CF083" length="4" type="" format="A3" description="小时冻结总加有功总电能量" />	
+	</data-item>
+
+	<data-item code="0CF084" parentCode="0CF084">
+		<data-item code="0121200100" parentCode="0CF084" length="4" type="" format="A3" description="小时冻结总加无功总电能量" />	
+	</data-item>
+
+	<data-item code="0CF089" parentCode="0CF089">
+		<data-item code="0205110000" parentCode="0CF089	" length="3" type="" format="A9" description="小时冻结有功功率" />	
+	</data-item>
+		
+	<data-item code="0CF090" parentCode="0CF090">
+		<data-item code="0205110001" parentCode="0CF090	" length="3" type="" format="A9" description="小时冻结A相有功功率" />	
+	</data-item>
+
+	<data-item code="0CF091" parentCode="0CF091">
+		<data-item code="0205110002" parentCode="0CF091	" length="3" type="" format="A9" description="小时冻结B相有功功率" />	
+	</data-item>
+	
+	<data-item code="0CF092" parentCode="0CF092">
+		<data-item code="0205110003" parentCode="0CF092	" length="3" type="" format="A9" description="小时冻结C相有功功率" />	
+	</data-item>
+
+	<data-item code="0CF093" parentCode="0CF093">
+		<data-item code="0205110100" parentCode="0CF093	" length="3" type="" format="A9" description="小时冻结无功功率" />	
+	</data-item>
+		
+	<data-item code="0CF094" parentCode="0CF094">
+		<data-item code="0205110101" parentCode="0CF094	" length="3" type="" format="A9" description="小时冻结A相无功功率" />	
+	</data-item>
+
+	<data-item code="0CF095" parentCode="0CF095">
+		<data-item code="0205110102" parentCode="0CF095	" length="3" type="" format="A9" description="小时冻结B相无功功率" />	
+	</data-item>
+	
+	<data-item code="0CF096" parentCode="0CF096">
+		<data-item code="0205110103" parentCode="0CF096	" length="3" type="" format="A9" description="小时冻结C相无功功率" />	
+	</data-item>
+		
+	<data-item code="0CF097" parentCode="0CF097">
+		<data-item code="0205110301" parentCode="0CF097" length="2" type="" format="A7" description="小时冻结A相电压" />		
+	</data-item>
+	
+	<data-item code="0CF098" parentCode="0CF098">
+		<data-item code="0205110302" parentCode="0CF098" length="2" type="" format="A7" description="小时冻结B相电压" />		
+	</data-item>
+	
+	<data-item code="0CF099" parentCode="0CF099">
+		<data-item code="0205110303" parentCode="0CF099" length="2" type="" format="A7" description="小时冻结C相电压" />		
+	</data-item>
+	
+	<data-item code="0CF100" parentCode="0CF100">
+		<data-item code="0205110401" parentCode="0CF100" length="3" type="" format="A25" description="小时冻结A相电流" />		
+	</data-item>
+	<data-item code="0CF101" parentCode="0CF101">
+		<data-item code="0205110402" parentCode="0CF101" length="3" type="" format="A25" description="小时冻结B相电流" />		
+	</data-item>
+	
+	<data-item code="0CF102" parentCode="0CF102">
+		<data-item code="0205110403" parentCode="0CF102" length="3" type="" format="A25" description="小时冻结C相电流" />		
+	</data-item>
+
+	<data-item code="0CF103" parentCode="0CF103">
+		<data-item code="0205110404" parentCode="0CF103" length="3" type="" format="A25" description="小时冻结零序电流" />		
+	</data-item>
+
+	<data-item code="0CF105" parentCode="0CF105">
+		<data-item code="0105200200" parentCode="0CF105" length="4" type="" format="A13" description="小时冻结正向有功总电能量" />		
+	</data-item>
+	
+	<data-item code="0CF106" parentCode="0CF106">
+		<data-item code="0105200300" parentCode="0CF106" length="4" type="" format="A13" description="小时冻结正向无功总电能量" />		
+	</data-item>
+
+	<data-item code="0CF107" parentCode="0CF107">
+		<data-item code="0105200400" parentCode="0CF107" length="4" type="" format="A13" description="小时冻结反向有功总电能量" />		
+	</data-item>
+	
+	<data-item code="0CF108" parentCode="0CF108">
+		<data-item code="0105200500" parentCode="0CF108" length="4" type="" format="A13" description="小时冻结反向无功总电能量" />		
+	</data-item>
+	
+	<data-item code="0CF109" parentCode="0CF109">
+		<data-item code="0105100000" parentCode="0CF109" length="4" type="" format="A11" description="小时冻结正向有功总电能示值" />		
+	</data-item>
+	
+	<data-item code="0CF110" parentCode="0CF110">
+		<data-item code="0105100100" parentCode="0CF110" length="4" type="" format="A11" description="小时冻结正向无功总电能示值" />		
+	</data-item>
+	
+	<data-item code="0CF111" parentCode="0CF111">
+		<data-item code="0105100200" parentCode="0CF111" length="4" type="" format="A11" description="小时冻结反向有功总电能示值" />		
+	</data-item>
+	
+	<data-item code="0CF112" parentCode="0CF112">
+		<data-item code="0105100300" parentCode="0CF112" length="4" type="" format="A11" description="小时冻结反向无功总电能示值" />		
+	</data-item>
+
+	<data-item code="0CF113" parentCode="0CF113">
+		<data-item code="0205110200" parentCode="0CF113" length="2" type="" format="A5" description="小时冻结总功率因数" />		
+	</data-item>
+
+	<data-item code="0CF114" parentCode="0CF114">
+		<data-item code="0205110201" parentCode="0CF114" length="2" type="" format="A5" description="小时冻结A相功率因数" />		
+	</data-item>
+	
+	<data-item code="0CF115" parentCode="0CF115">
+		<data-item code="0205110202" parentCode="0CF115" length="2" type="" format="A5" description="小时冻结B相功率因数" />		
+	</data-item>
+	
+	<data-item code="0CF116" parentCode="0CF116">
+		<data-item code="0205110203" parentCode="0CF116" length="2" type="" format="A5" description="小时冻结C相功率因数" />		
+	</data-item>
+
+	<data-item code="0CF121" parentCode="0CF121">
+		<data-item code="0405101000" parentCode="0CF121" length="2" type="" format="A2" description="小时冻结直流模拟量" />		
+	</data-item>
+		
+	<data-item code="0CF129" parentCode="0CF129">
+		<data-item code="0400122000" parentCode="0CF129" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0CF129" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="01001000XX" parentCode="0CF129" length="5" type="" format="A14" description="当前正向有功总电能示值" />
+	</data-item>
+
+	<data-item code="0CF130" parentCode="0CF130">
+		<data-item code="0400122000" parentCode="0CF130" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0CF130" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="01001002XX" parentCode="0CF130" length="4" type="" format="A11" description="当前正向无功总电能示值" />
+	</data-item>
+	
+	<data-item code="0CF131" parentCode="0CF131">
+		<data-item code="0400122000" parentCode="0CF131" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0CF131" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="01001001XX" parentCode="0CF131" length="5" type="" format="A14" description="当前反向有功总电能示值" />
+	</data-item>
+
+	<data-item code="0CF132" parentCode="0CF132">
+		<data-item code="0400122000" parentCode="0CF132" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0CF132" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="01001003XX" parentCode="0CF132" length="4" type="" format="A11" description="当前反向无功总电能示值" />
+	</data-item>
+	
+	<data-item code="0CF133" parentCode="0CF133">
+		<data-item code="0400122000" parentCode="0CF133" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0CF133" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="01001004XX" parentCode="0CF133" length="4" type="" format="A11" description="当前一象限无功总电能示值" />
+	</data-item>
+
+	<data-item code="0CF134" parentCode="0CF134">
+		<data-item code="0400122000" parentCode="0CF134" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0CF134" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="01001006XX" parentCode="0CF134" length="4" type="" format="A11" description="当前二象限无功总电能示值" />
+	</data-item>
+	
+	<data-item code="0CF135" parentCode="0CF135">
+		<data-item code="0400122000" parentCode="0CF135" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0CF135" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="01001007XX" parentCode="0CF135" length="4" type="" format="A11" description="当前三象限无功总电能示值" />
+	</data-item>
+
+	<data-item code="0CF136" parentCode="0CF136">
+		<data-item code="0400122000" parentCode="0CF136" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0CF136" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="01001005XX" parentCode="0CF136" length="4" type="" format="A11" description="当前四象限无功总电能示值" />
+	</data-item>
+
+	<data-item code="0CF137" parentCode="0CF137">
+		<data-item code="0400122000" parentCode="0CF137" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0CF137" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="01021000XX" parentCode="0CF137" length="5" type="" format="A14" description="上月（上一结算日）正向有功总电能示值" />
+	</data-item>
+
+	<data-item code="0CF138" parentCode="0CF138">
+		<data-item code="0400122000" parentCode="0CF138" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0CF138" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="01021002XX" parentCode="0CF138" length="4" type="" format="A11" description="上月（上一结算日）正向无功总电能示值" />
+	</data-item>
+	
+	<data-item code="0CF139" parentCode="0CF139">
+		<data-item code="0400122000" parentCode="0CF139" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0CF139" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="01021001XX" parentCode="0CF139" length="5" type="" format="A14" description="上月（上一结算日）反向有功总电能示值" />
+	</data-item>
+
+	<data-item code="0CF140" parentCode="0CF140">
+		<data-item code="0400122000" parentCode="0CF140" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0CF140" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="01021003XX" parentCode="0CF140" length="4" type="" format="A11" description="上月（上一结算日）反向无功总电能示值" />
+	</data-item>
+
+	<data-item code="0CF141" parentCode="0CF141">
+		<data-item code="0400122000" parentCode="0CF141" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0CF141" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="01021004XX" parentCode="0CF141" length="4" type="" format="A11" description="上月（上一结算日）一象限无功总电能示值" />
+	</data-item>
+
+	<data-item code="0CF142" parentCode="0CF142">
+		<data-item code="0400122000" parentCode="0CF142" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0CF142" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="01021006XX" parentCode="0CF142" length="4" type="" format="A11" description="上月（上一结算日）二象限无功总电能示值" />
+	</data-item>
+	
+	<data-item code="0CF143" parentCode="0CF143">
+		<data-item code="0400122000" parentCode="0CF143" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0CF143" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="01021007XX" parentCode="0CF143" length="4" type="" format="A11" description="上月（上一结算日）三象限无功总电能示值" />
+	</data-item>
+
+	<data-item code="0CF144" parentCode="0CF144">
+		<data-item code="0400122000" parentCode="0CF144" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0CF144" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="01021005XX" parentCode="0CF144" length="4" type="" format="A11" description="上月（上一结算日）四象限无功总电能示值" />
+	</data-item>
+
+	<data-item code="0CF145" parentCode="0CF145">
+		<data-item code="0400122000" parentCode="0CF145" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="X000000000" parentCode="0CF145" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="02011000XX" parentCode="0CF145" length="3" type="" format="A23" description="当月正向有功总量大需量" />
+		<data-item code="02011008XX" parentCode="0CF145" length="4" type="" format="A17" description="当月正向有功总最大需量发生时间" />
+	</data-item>
+
+	<data-item code="0CF146" parentCode="0CF146">
+		<data-item code="0400122000" parentCode="0CF146" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="X000000000" parentCode="0CF146" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="02011002XX" parentCode="0CF146" length="3" type="" format="A23" description="当月正向无功总量大需量" />
+		<data-item code="02011010XX" parentCode="0CF146" length="4" type="" format="A17" description="当月正向无功总最大需量发生时间" />
+	</data-item>
+	
+	<data-item code="0CF147" parentCode="0CF147">
+		<data-item code="0400122000" parentCode="0CF147" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="X000000000" parentCode="0CF147" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="02011001XX" parentCode="0CF147" length="3" type="" format="A23" description="当月反向有功总量大需量" />
+		<data-item code="02011009XX" parentCode="0CF147" length="4" type="" format="A17" description="当月反向有功总最大需量发生时间" />
+	</data-item>
+	
+	<data-item code="0CF148" parentCode="0CF148">
+		<data-item code="0400122000" parentCode="0CF148" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="X000000000" parentCode="0CF148" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="02011003XX" parentCode="0CF148" length="3" type="" format="A23" description="当月反向无功总量大需量" />
+		<data-item code="02011011XX" parentCode="0CF148" length="4" type="" format="A17" description="当月反向无功总最大需量发生时间" />
+	</data-item>
+	
+	<data-item code="0CF149" parentCode="0CF149">
+		<data-item code="0400122000" parentCode="0CF149" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="X000000000" parentCode="0CF149" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="02021000XX" parentCode="0CF149" length="3" type="" format="A23" description="上月（上一结算日）正向有功总量大需量" />
+		<data-item code="02021008XX" parentCode="0CF149" length="4" type="" format="A17" description="上月（上一结算日）正向有功总最大需量发生时间" />
+	</data-item>
+
+	<data-item code="0CF150" parentCode="0CF150">
+		<data-item code="0400122000" parentCode="0CF150" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="X000000000" parentCode="0CF150" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="02021002XX" parentCode="0CF150" length="3" type="" format="A23" description="上月（上一结算日）正向无功总量大需量" />
+		<data-item code="02021010XX" parentCode="0CF150" length="4" type="" format="A17" description="上月（上一结算日）正向无功总最大需量发生时间" />
+	</data-item>
+	
+	<data-item code="0CF151" parentCode="0CF151">
+		<data-item code="0400122000" parentCode="0CF151" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="X000000000" parentCode="0CF151" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="02021001XX" parentCode="0CF151" length="3" type="" format="A23" description="上月（上一结算日）反向有功总量大需量" />
+		<data-item code="02021009XX" parentCode="0CF151" length="4" type="" format="A17" description="上月（上一结算日）反向有功总最大需量发生时间" />
+	</data-item>
+	
+	<data-item code="0CF152" parentCode="0CF152">
+		<data-item code="0400122000" parentCode="0CF152" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="X000000000" parentCode="0CF152" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="02021003XX" parentCode="0CF152" length="3" type="" format="A23" description="上月（上一结算日）反向无功总量大需量" />
+		<data-item code="02021011XX" parentCode="0CF152" length="4" type="" format="A17" description="上月（上一结算日）反向无功总最大需量发生时间" />
+	</data-item>
+
+	<data-item code="0CF153" parentCode="0CF153">
+		<data-item code="0400122000" parentCode="0CF153" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0CF153" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="01061000XX" parentCode="0CF153" length="5" type="" format="A14" description="第一时区冻结正向有功总电能示值" />		
+	</data-item>
+	
+	<data-item code="0CF154" parentCode="0CF154">
+		<data-item code="0400122000" parentCode="0CF154" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0CF154" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="01071000XX" parentCode="0CF154" length="5" type="" format="A14" description="第二时区冻结正向有功总电能示值" />		
+	</data-item>
+	
+	<data-item code="0CF155" parentCode="0CF155">
+		<data-item code="0400122000" parentCode="0CF155" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0CF155" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="01081000XX" parentCode="0CF155" length="5" type="" format="A14" description="第三时区冻结正向有功总电能示值" />		
+	</data-item>
+	
+	<data-item code="0CF156" parentCode="0CF156">
+		<data-item code="0400122000" parentCode="0CF156" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0CF156" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="01091000XX" parentCode="0CF156" length="5" type="" format="A14" description="第四时区冻结正向有功总电能示值" />		
+	</data-item>
+	
+	<data-item code="0CF157" parentCode="0CF157">
+		<data-item code="0400122000" parentCode="0CF157" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0CF157" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="01101000XX" parentCode="0CF157" length="5" type="" format="A14" description="第五时区冻结正向有功总电能示值" />		
+	</data-item>
+
+	<data-item code="0CF158" parentCode="0CF158">
+		<data-item code="0400122000" parentCode="0CF158" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0CF158" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="01111000XX" parentCode="0CF158" length="5" type="" format="A14" description="第六时区冻结正向有功总电能示值" />		
+	</data-item>
+	
+	<data-item code="0CF159" parentCode="0CF159">
+		<data-item code="0400122000" parentCode="0CF159" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0CF159" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="01121000XX" parentCode="0CF159" length="5" type="" format="A14" description="第七时区冻结正向有功总电能示值" />		
+	</data-item>
+	
+	<data-item code="0CF160" parentCode="0CF160">
+		<data-item code="0400122000" parentCode="0CF160" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0CF160" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="01131000XX" parentCode="0CF160" length="5" type="" format="A14" description="第八时区冻结正向有功总电能示值" />		
+	</data-item>
+	
+	<data-item code="0CF161" parentCode="0CF161">
+		<data-item code="0400122000" parentCode="0CF161" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0400102001" parentCode="0CF161" length="1" type="" format="HTB1" description="电能表通断电状态" />
+		<data-item code="0400102002" parentCode="0CF161" length="5" type="" format="A15" description="电能表最近一次远程控制通电时间" />
+		<data-item code="0400102003" parentCode="0CF161" length="5" type="" format="A15" description="电能表最近一次远程控制断电时间" />
+	</data-item>
+	
+	<data-item code="0CF165" parentCode="0CF165">
+		<data-item code="0400122000" parentCode="0CF165" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0400102101" parentCode="0CF165" length="2" type="" format="A8" description="电能表编程开关操作次数" />
+		<data-item code="0400102102" parentCode="0CF165" length="5" type="" format="A15" description="电能表最近一次编程开关操作时间" />
+		<data-item code="0400102103" parentCode="0CF165" length="2" type="" format="A8" description="电能表尾盖打开次数" />
+		<data-item code="0400102104" parentCode="0CF165" length="5" type="" format="A15" description="电能表最近一次尾盖打开时间" />		
+	</data-item>
+	
+	<data-item code="0CF166" parentCode="0CF166">
+		<data-item code="0400122000" parentCode="0CF166" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0400102201" parentCode="0CF166" length="2" type="" format="A8" description="电能表时钟修改次数" />
+		<data-item code="0400102202" parentCode="0CF166" length="5" type="" format="A15" description="电能表最近一次时钟修改时间" />
+		<data-item code="0400102203" parentCode="0CF166" length="2" type="" format="A8" description="电能表时段参数修改次数" />
+		<data-item code="0400102204" parentCode="0CF166" length="5" type="" format="A15" description="电能表最近一次时段参数修改时间" />		
+	</data-item>
+	
+	<data-item code="0CF167" parentCode="0CF167">
+		<data-item code="0400122000" parentCode="0CF167" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0400102301" parentCode="0CF167" length="2" type="" format="A8" description="电能表购电次数" />
+		<data-item code="0400102302" parentCode="0CF167" length="5" type="" format="A14" description="电能表剩余金额" />
+		<data-item code="0400102303" parentCode="0CF167" length="5" type="" format="A14" description="电能表累计购电金额" />
+		<data-item code="0400102304" parentCode="0CF167" length="4" type="" format="A11" description="电能表剩余电量" />		
+		<data-item code="0400102305" parentCode="0CF167" length="4" type="" format="A11" description="电能表透支电量" />
+		<data-item code="0400102306" parentCode="0CF167" length="4" type="" format="A11" description="电能表累计购电量" />
+		<data-item code="0400102307" parentCode="0CF167" length="4" type="" format="A11" description="电能表赊欠门限电量" />
+		<data-item code="0400102308" parentCode="0CF167" length="4" type="" format="A11" description="电能表报警电量" />		
+		<data-item code="0400102309" parentCode="0CF167" length="4" type="" format="A11" description="电能表故障电量" />
+	</data-item>
+	
+	<data-item code="0CF168" parentCode="0CF168">
+		<data-item code="0400122000" parentCode="0CF168" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0CF168" length="1" type="" format="HTB1" description="费率数M" />
+		<data-item code="01162002XX" parentCode="0CF168" length="4" type="" format="A13" description="已结费正向有功总电能" />
+		<data-item code="01172002XX" parentCode="0CF168" length="4" type="" format="A13" description="未结费正向有功总电能" />		
+	</data-item>
+	
+	<data-item code="0CF169" parentCode="0CF169">
+		<data-item code="0400110000" parentCode="0CF169" length="0" type="" format="HTB#N1#N1#HEX6" description="集中抄表中继路由信息" />				
+	</data-item>
+
+	<data-item code="0CF170" parentCode="0CF170">
+		<data-item code="0400120001" parentCode="0CF170" length="1" type="" format="HTB1" description="所属终端通信端口号" />		
+		<data-item code="0400120002" parentCode="0CF170" length="1" type="" format="HTB1" description="中继路由级数" />		
+		<data-item code="0400120003" parentCode="0CF170" length="1" type="" format="BS1" description="载波抄读通信相位" />		
+		<data-item code="0400120004" parentCode="0CF170" length="1" type="" format="BS1" description="所属终端通信端口号" />		
+		<data-item code="0400120005" parentCode="0CF170" length="1" type="" format="HTB1" description="所属终端通信端口号" />		
+		<data-item code="0400120006" parentCode="0CF170" length="6" type="" format="A1" description="所属终端通信端口号" />	
+		<data-item code="0400120007" parentCode="0CF170" length="6" type="" format="A1" description="所属终端通信端口号" />		
+		<data-item code="0400120008" parentCode="0CF170" length="1" type="" format="HTB1" description="所属终端通信端口号" />				
+	</data-item>
+	
+	<data-item code="0CF240" parentCode="0CF240">
+		<data-item code="0400122000" parentCode="0CF240" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0400125200" parentCode="0CF240" length="1" type="" format="HTB1" description="1路门接点状态" />
+		<data-item code="0400125201" parentCode="0CF240" length="1" type="" format="HTB1" description="2路门接点状态" />		
+	</data-item>
+	
+	<data-item  code="0CF248" parentCode="0CF248" length="0" type="" format="N2#HTB2#HTB2#HTB2" description="集中抄表网络拓扑信息"/>
+	<!--二类数据-->
+	<data-item code="0DF001" parentCode="0DF001" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF001" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0DF001" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01221000XX" parentCode="0DF001" length="5" type="" format="A14" description="日冻结正向有功总电能示值" />
+		<data-item code="01221002XX" parentCode="0DF001" length="4" type="" format="A11" description="日冻结正向无功总电能示值" />
+		<data-item code="01221004XX" parentCode="0DF001" length="4" type="" format="A11" description="日冻结一象限无功总电能示值" />
+		<data-item code="01221005XX" parentCode="0DF001" length="4" type="" format="A11" description="日冻结四象限无功总电能示值" />
+	</data-item>
+
+	<data-item code="0DF002" parentCode="0DF002" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF002" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0DF002" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01221001XX" parentCode="0DF002" length="5" type="" format="A14" description="日冻结反向有功总电能示值" />
+		<data-item code="01221003XX" parentCode="0DF002" length="4" type="" format="A11" description="日冻结反向无功总电能示值" />
+		<data-item code="01221006XX" parentCode="0DF002" length="4" type="" format="A11" description="日冻结二象限无功总电能示值" />
+		<data-item code="01221007XX" parentCode="0DF002" length="4" type="" format="A11" description="日冻结三象限无功总电能示值" />
+	</data-item>	
+
+	<data-item code="0DF003" parentCode="0DF003" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF003" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0DF003" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="02221000XX" parentCode="0DF003" length="3" type="" format="A23" description="日冻结正向有功总量大需量" />
+		<data-item code="02221008XX" parentCode="0DF003" length="4" type="" format="A17" description="日冻结正向有功总最大需量发生时间" />
+		<data-item code="02221002XX" parentCode="0DF003" length="3" type="" format="A23" description="日冻结正向无功总最大需量" />
+		<data-item code="02221010XX" parentCode="0DF003" length="4" type="" format="A17" description="日冻结正向无功总最大需量发生时间" />
+	</data-item>	
+
+	<data-item code="0DF004" parentCode="0DF004" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF004" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0DF004" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="02221001XX" parentCode="0DF004" length="3" type="" format="A23" description="日冻结反向有功总量大需量" />
+		<data-item code="02221009XX" parentCode="0DF004" length="4" type="" format="A17" description="日冻结反向有功总最大需量发生时间" />
+		<data-item code="02221003XX" parentCode="0DF004" length="3" type="" format="A23" description="日冻结反向无功总最大需量" />
+		<data-item code="02221011XX" parentCode="0DF004" length="4" type="" format="A17" description="日冻结反向无功总最大需量发生时间" />
+	</data-item>	
+	
+	<data-item code="0DF005" parentCode="0DF005" type="日冻结">
+		<data-item code="0000000000" parentCode="0DF005" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01222002XX" parentCode="0DF005" length="4" type="" format="A13" description="日冻结正向有功总电能" />
+	</data-item>
+
+	<data-item code="0DF006" parentCode="0DF006" type="日冻结">
+		<data-item code="0000000000" parentCode="0DF006" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01222003XX" parentCode="0DF006" length="4" type="" format="A13" description="日冻结正向无功总电能" />
+	</data-item>
+	
+	<data-item code="0DF007" parentCode="0DF007" type="日冻结">
+		<data-item code="0000000000" parentCode="0DF007" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01222004XX" parentCode="0DF007" length="4" type="" format="A13" description="日冻结反向有功总电能" />
+	</data-item>
+	
+	<data-item code="0DF008" parentCode="0DF008" type="日冻结">
+		<data-item code="0000000000" parentCode="0DF008" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01222005XX" parentCode="0DF008" length="4" type="" format="A13" description="日冻结反向无功总电能" />
+	</data-item>
+
+	<data-item code="0DF009" parentCode="0DF009" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF009" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0DF009" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01201000XX" parentCode="0DF009" length="5" type="" format="A14" description="抄表日冻结正向有功总电能示值" />
+		<data-item code="01201002XX" parentCode="0DF009" length="4" type="" format="A11" description="抄表日冻结正向无功总电能示值" />
+		<data-item code="01201004XX" parentCode="0DF009" length="4" type="" format="A11" description="抄表日冻结一象限无功总电能示值" />
+		<data-item code="01201005XX" parentCode="0DF009" length="4" type="" format="A11" description="抄表日冻结四象限无功总电能示值" />
+	</data-item>
+
+	<data-item code="0DF010" parentCode="0DF010" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF010" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0DF010" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01201001XX" parentCode="0DF010" length="5" type="" format="A14" description="抄表日冻结反向有功总电能示值" />
+		<data-item code="01201003XX" parentCode="0DF010" length="4" type="" format="A11" description="抄表日冻结反向无功总电能示值" />
+		<data-item code="01201006XX" parentCode="0DF010" length="4" type="" format="A11" description="抄表日冻结二象限无功总电能示值" />
+		<data-item code="01201007XX" parentCode="0DF010" length="4" type="" format="A11" description="抄表日冻结三象限无功总电能示值" />
+	</data-item>	
+
+	<data-item code="0DF011" parentCode="0DF011" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF011" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0DF011" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="02201000XX" parentCode="0DF011" length="3" type="" format="A23" description="抄表日冻结正向有功总量大需量" />
+		<data-item code="02201008XX" parentCode="0DF011" length="4" type="" format="A17" description="抄表日冻结正向有功总最大需量发生时间" />
+		<data-item code="02201002XX" parentCode="0DF011" length="3" type="" format="A23" description="抄表日冻结正向无功总最大需量" />
+		<data-item code="02201010XX" parentCode="0DF011" length="4" type="" format="A17" description="抄表日冻结正向无功总最大需量发生时间" />
+	</data-item>	
+
+	<data-item code="0DF012" parentCode="0DF012" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF012" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0DF012" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="02201001XX" parentCode="0DF012" length="3" type="" format="A23" description="抄表日冻结反向有功总量大需量" />
+		<data-item code="02201009XX" parentCode="0DF012" length="4" type="" format="A17" description="抄表日冻结反向有功总最大需量发生时间" />
+		<data-item code="02201003XX" parentCode="0DF012" length="3" type="" format="A23" description="抄表日冻结反向无功总最大需量" />
+		<data-item code="02201011XX" parentCode="0DF012" length="4" type="" format="A17" description="抄表日冻结反向无功总最大需量发生时间" />
+	</data-item>	
+
+	<data-item code="0DF017" parentCode="0DF017" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF017" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0DF017" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01231000XX" parentCode="0DF017" length="5" type="" format="A14" description="月冻结正向有功总电能示值" />
+		<data-item code="01231002XX" parentCode="0DF017" length="4" type="" format="A11" description="月冻结正向无功总电能示值" />
+		<data-item code="01231004XX" parentCode="0DF017" length="4" type="" format="A11" description="月冻结一象限无功总电能示值" />
+		<data-item code="01231005XX" parentCode="0DF017" length="4" type="" format="A11" description="月冻结四象限无功总电能示值" />
+	</data-item>
+
+	<data-item code="0DF018" parentCode="0DF018" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF018" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0DF018" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01231001XX" parentCode="0DF018" length="5" type="" format="A14" description="月冻结反向有功总电能示值" />
+		<data-item code="01231003XX" parentCode="0DF018" length="4" type="" format="A11" description="月冻结反向无功总电能示值" />
+		<data-item code="01231006XX" parentCode="0DF018" length="4" type="" format="A11" description="月冻结二象限无功总电能示值" />
+		<data-item code="01231007XX" parentCode="0DF018" length="4" type="" format="A11" description="月冻结三象限无功总电能示值" />
+	</data-item>	
+
+	<data-item code="0DF019" parentCode="0DF019" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF019" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0DF019" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="02231000XX" parentCode="0DF019" length="3" type="" format="A23" description="月冻结正向有功总量大需量" />
+		<data-item code="02231008XX" parentCode="0DF019" length="4" type="" format="A17" description="月冻结正向有功总最大需量发生时间" />
+		<data-item code="02231002XX" parentCode="0DF019" length="3" type="" format="A23" description="月冻结正向无功总最大需量" />
+		<data-item code="02231010XX" parentCode="0DF019" length="4" type="" format="A17" description="月冻结正向无功总最大需量发生时间" />
+	</data-item>	
+
+	<data-item code="0DF020" parentCode="0DF020" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF020" length="5" type="" format="A15" description="终端抄表时间" />		
+		<data-item code="0000000000" parentCode="0DF020" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="02231001XX" parentCode="0DF020" length="3" type="" format="A23" description="月冻结反向有功总量大需量" />
+		<data-item code="02231009XX" parentCode="0DF020" length="4" type="" format="A17" description="月冻结反向有功总最大需量发生时间" />
+		<data-item code="02231003XX" parentCode="0DF020" length="3" type="" format="A23" description="月冻结反向无功总最大需量" />
+		<data-item code="02231011XX" parentCode="0DF020" length="4" type="" format="A17" description="月冻结反向无功总最大需量发生时间" />
+	</data-item>	
+	
+	<data-item code="0DF021" parentCode="0DF021" type="月冻结">
+		<data-item code="0000000000" parentCode="0DF021" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01232002XX" parentCode="0DF021" length="4" type="" format="A13" description="月冻结正向有功总电能" />
+	</data-item>
+	
+	<data-item code="0DF022" parentCode="0DF022" type="月冻结">
+		<data-item code="0000000000" parentCode="0DF022" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01232003XX" parentCode="0DF022" length="4" type="" format="A13" description="月冻结正向无功总电能" />
+	</data-item>
+
+	<data-item code="0DF023" parentCode="0DF023" type="月冻结">
+		<data-item code="0000000000" parentCode="0DF023" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01232004XX" parentCode="0DF023" length="4" type="" format="A13" description="月冻结反向有功总电能" />
+	</data-item>
+
+	<data-item code="0DF024" parentCode="0DF024" type="月冻结">
+		<data-item code="0000000000" parentCode="0DF024" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01232005XX" parentCode="0DF024" length="4" type="" format="A13" description="月冻结反向无功总电能" />
+	</data-item>
+
+	<data-item code="0DF025" parentCode="0DF025" type="日冻结">
+		<data-item code="0222101601" parentCode="0DF025" length="3" type="" format="A23" description="日冻结三相总最大有功功率" />		
+		<data-item code="0222101602" parentCode="0DF025" length="3" type="" format="A18" description="日冻结三相总最大有功功率发生时间" />
+		<data-item code="0222101603" parentCode="0DF025" length="3" type="" format="A23" description="日冻结A相最大有功功率" />
+		<data-item code="0222101604" parentCode="0DF025" length="3" type="" format="A18" description="日冻结A相最大有功功率发生时间" />
+		<data-item code="0222101605" parentCode="0DF025" length="3" type="" format="A23" description="日冻结B相最大有功功率" />
+		<data-item code="0222101606" parentCode="0DF025" length="3" type="" format="A18" description="日冻结B相最大有功功率发生时间" />
+		<data-item code="0222101607" parentCode="0DF025" length="3" type="" format="A23" description="日冻结C相最大有功功率" />
+		<data-item code="0222101608" parentCode="0DF025" length="3" type="" format="A18" description="日冻结C相最大有功功率发生时间" />
+		<data-item code="0222101609" parentCode="0DF025" length="2" type="" format="HTB2" description="日冻结三相总有功功率为零时间" />
+		<data-item code="0222101610" parentCode="0DF025" length="2" type="" format="HTB2" description="日冻结A相有功功率为零时间" />
+		<data-item code="0222101611" parentCode="0DF025" length="2" type="" format="HTB2" description="日冻结B相有功功率为零时间" />
+		<data-item code="0222101612" parentCode="0DF025" length="2" type="" format="HTB2" description="日冻结C相有功功率为零时间" />
+	</data-item>
+	
+	<data-item code="0DF026" parentCode="0DF026" type="日冻结">
+		<data-item code="0222101701" parentCode="0DF026" length="3" type="" format="A23" description="日冻结三相总有功最大需量" />		
+		<data-item code="0222101702" parentCode="0DF026" length="3" type="" format="A18" description="日冻结三相总有功最大需量发生时间" />
+		<data-item code="0222101703" parentCode="0DF026" length="3" type="" format="A23" description="日冻结A相有功最大需量" />
+		<data-item code="0222101704" parentCode="0DF026" length="3" type="" format="A18" description="日冻结A相有功最大需量发生时间" />
+		<data-item code="0222101705" parentCode="0DF026" length="3" type="" format="A23" description="日冻结B相有功最大需量" />
+		<data-item code="0222101706" parentCode="0DF026" length="3" type="" format="A18" description="日冻结B相有功最大需量发生时间" />
+		<data-item code="0222101707" parentCode="0DF026" length="3" type="" format="A23" description="日冻结C相有功最大需量" />
+		<data-item code="0222101708" parentCode="0DF026" length="3" type="" format="A18" description="日冻结C相有功最大需量发生时间" />
+	</data-item>
+	
+	<data-item code="0DF027" parentCode="0DF027" type="日冻结">
+		<data-item code="0422122101" parentCode="0DF027" length="2" type="" format="HTB2" description="日冻结A相电压越上上限日累计时间" />		
+		<data-item code="0422122102" parentCode="0DF027" length="2" type="" format="HTB2" description="日冻结A相电压越下下限日累计时间" />
+		<data-item code="0422122103" parentCode="0DF027" length="2" type="" format="HTB2" description="日冻结A相电压越上限日累计时间" />
+		<data-item code="0422122104" parentCode="0DF027" length="2" type="" format="HTB2" description="日冻结A相电压越下限日累计时间" />
+		<data-item code="0422122105" parentCode="0DF027" length="2" type="" format="HTB2" description="日冻结A相电压合格日累计时间" />
+		<data-item code="0422122201" parentCode="0DF027" length="2" type="" format="HTB2" description="日冻结B相电压越上上限日累计时间" />		
+		<data-item code="0422122202" parentCode="0DF027" length="2" type="" format="HTB2" description="日冻结B相电压越下下限日累计时间" />
+		<data-item code="0422122203" parentCode="0DF027" length="2" type="" format="HTB2" description="日冻结B相电压越上限日累计时间" />
+		<data-item code="0422122204" parentCode="0DF027" length="2" type="" format="HTB2" description="日冻结B相电压越下限日累计时间" />
+		<data-item code="0422122205" parentCode="0DF027" length="2" type="" format="HTB2" description="日冻结B相电压合格日累计时间" />
+		<data-item code="0422122301" parentCode="0DF027" length="2" type="" format="HTB2" description="日冻结C相电压越上上限日累计时间" />		
+		<data-item code="0422122302" parentCode="0DF027" length="2" type="" format="HTB2" description="日冻结C相电压越下下限日累计时间" />
+		<data-item code="0422122303" parentCode="0DF027" length="2" type="" format="HTB2" description="日冻结C相电压越上限日累计时间" />
+		<data-item code="0422122304" parentCode="0DF027" length="2" type="" format="HTB2" description="日冻结C相电压越下限日累计时间" />
+		<data-item code="0422122305" parentCode="0DF027" length="2" type="" format="HTB2" description="日冻结C相电压合格日累计时间" />
+		<data-item code="0222110701" parentCode="0DF027" length="2" type="" format="A7" description="日冻结A相电压最大值" />		
+		<data-item code="0222110702" parentCode="0DF027" length="3" type="" format="A18" description="日冻结A相电压最大值发生时间" />
+		<data-item code="0222110703" parentCode="0DF027" length="2" type="" format="A7" description="日冻结A相电压最小值" />
+		<data-item code="0222110704" parentCode="0DF027" length="3" type="" format="A18" description="日冻结A相电压最小值发生时间" />
+		<data-item code="0222110801" parentCode="0DF027" length="2" type="" format="A7" description="日冻结B相电压最大值" />		
+		<data-item code="0222110802" parentCode="0DF027" length="3" type="" format="A18" description="日冻结B相电压最大值发生时间" />
+		<data-item code="0222110803" parentCode="0DF027" length="2" type="" format="A7" description="日冻结B相电压最小值" />
+		<data-item code="0222110804" parentCode="0DF027" length="3" type="" format="A18" description="日冻结B相电压最小值发生时间" />
+		<data-item code="0222110901" parentCode="0DF027" length="2" type="" format="A7" description="日冻结C相电压最大值" />		
+		<data-item code="0222110902" parentCode="0DF027" length="3" type="" format="A18" description="日冻结C相电压最大值发生时间" />
+		<data-item code="0222110903" parentCode="0DF027" length="2" type="" format="A7" description="日冻结C相电压最小值" />
+		<data-item code="0222110904" parentCode="0DF027" length="3" type="" format="A18" description="日冻结C相电压最小值发生时间" />
+		<data-item code="0222111001" parentCode="0DF027" length="2" type="" format="A7" description="日冻结A相平均电压" />
+		<data-item code="0222111002" parentCode="0DF027" length="2" type="" format="A7" description="日冻结B相平均电压" />
+		<data-item code="0222111003" parentCode="0DF027" length="2" type="" format="A7" description="日冻结C相平均电压" />
+	</data-item>
+
+	<data-item code="0DF028" parentCode="0DF028" type="日冻结">
+		<data-item code="0422122401" parentCode="0DF028" length="2" type="" format="HTB2" description="日冻结电流不平衡度越限日累计时间" />	
+		<data-item code="0422122402" parentCode="0DF028" length="2" type="" format="HTB2" description="日冻结电压不平衡度越限日累计时间 " />	
+		<data-item code="0422122403" parentCode="0DF028" length="2" type="" format="A5" description="日冻结电流不平衡最大值" />	
+		<data-item code="0422122404" parentCode="0DF028" length="3" type="" format="A18" description="日冻结电流不平衡最大值发生时间" />	
+		<data-item code="0422122405" parentCode="0DF028" length="2" type="" format="A5" description="日冻结电压不平衡最大值" />			
+		<data-item code="0422122406" parentCode="0DF028" length="3" type="" format="A18" description="日冻结电压不平衡最大值发生时间" />			
+	</data-item>
+	
+	<data-item code="0DF029" parentCode="0DF029" type="日冻结">
+		<data-item code="0422122501" parentCode="0DF029" length="2" type="" format="HTB2" description="日冻结A相电流越上上限累计时间" />	
+		<data-item code="0422122502" parentCode="0DF029" length="2" type="" format="HTB2" description="日冻结A相电流越上限累计时间 " />	
+		<data-item code="0422122503" parentCode="0DF029" length="2" type="" format="HTB2" description="日冻结B相电流越上上限累计时间" />	
+		<data-item code="0422122504" parentCode="0DF029" length="2" type="" format="HTB2" description="日冻结B相电流越上限累计时间" />	
+		<data-item code="0422122505" parentCode="0DF029" length="2" type="" format="HTB2" description="日冻结C相电流越上上限累计时间" />			
+		<data-item code="0422122506" parentCode="0DF029" length="2" type="" format="HTB2" description="日冻结C相电流越上限累计时间" />		
+		<data-item code="0422122507" parentCode="0DF029" length="2" type="" format="HTB2" description="日冻结零序电流越上限累计时间" />			
+		<data-item code="0222111101" parentCode="0DF029" length="3" type="" format="A25" description="日冻结A相电流最大值" />	
+		<data-item code="0222111102" parentCode="0DF029" length="3" type="" format="A18" description="日冻结A相电流最大值发生时间 " />	
+		<data-item code="0222111103" parentCode="0DF029" length="3" type="" format="A25" description="日冻结B相电流最大值" />	
+		<data-item code="0222111104" parentCode="0DF029" length="3" type="" format="A18" description="日冻结B相电流最大值发生时间" />	
+		<data-item code="0222111105" parentCode="0DF029" length="3" type="" format="A25" description="日冻结C相电流最大值" />			
+		<data-item code="0222111106" parentCode="0DF029" length="3" type="" format="A18" description="日冻结C相电流最大值发生时间" />		
+		<data-item code="0222111107" parentCode="0DF029" length="3" type="" format="A25" description="日冻结零序电流最大值" />		
+		<data-item code="0222111108" parentCode="0DF029" length="3" type="" format="A18" description="日冻结零序电流最大值发生时间" />		
+	</data-item>
+	
+	<data-item code="0DF030" parentCode="0DF030" type="日冻结">
+		<data-item code="0422122601" parentCode="0DF030" length="2" type="" format="HTB2" description="日冻结视在功率越上上限累计时间" />		
+		<data-item code="0422122602" parentCode="0DF030" length="2" type="" format="HTB2" description="日冻结视在功率越上限累计时间" />
+	</data-item>
+
+	<data-item code="0DF031" parentCode="0DF031" type="日冻结">
+		<data-item code="0422122701" parentCode="0DF031" length="2" type="" format="A5" description="日冻结负载率最大值" />		
+		<data-item code="0422122702" parentCode="0DF031" length="3" type="" format="A18" description="日冻结负载率最大值发生时间" />
+		<data-item code="0422122703" parentCode="0DF031" length="2" type="" format="A5" description="日冻结负载率最小值" />		
+		<data-item code="0422122704" parentCode="0DF031" length="3" type="" format="A18" description="日冻结负载率最小值发生时间" />		
+	</data-item>
+
+	<data-item code="0DF032" parentCode="0DF032" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF032" length="2" type="" format="A8" description="终端抄表时间" />
+		<data-item code="0422100500" parentCode="0DF032" length="2" type="" format="A8" description="日冻结总断相次数" />
+		<data-item code="0422100501" parentCode="0DF032" length="2" type="" format="A8" description="日冻结A相断相次数" />
+		<data-item code="0422100502" parentCode="0DF032" length="2" type="" format="A8" description="日冻结B相断相次数" />
+		<data-item code="0422100503" parentCode="0DF032" length="2" type="" format="A8" description="日冻结C相断相次数" />
+		<data-item code="0422100600" parentCode="0DF032" length="3" type="" format="A10" description="日冻结断相时间累计值" />
+		<data-item code="0422100601" parentCode="0DF032" length="3" type="" format="A10" description="日冻结A相断相时间累计值" />
+		<data-item code="0422100602" parentCode="0DF032" length="3" type="" format="A10" description="日冻结B相断相时间累计值" />
+		<data-item code="0422100603" parentCode="0DF032" length="3" type="" format="A10" description="日冻结C相断相时间累计值" />
+		<data-item code="0422100700" parentCode="0DF032" length="4" type="" format="A17" description="日冻结最近一次断相起始时刻" />
+		<data-item code="0422100701" parentCode="0DF032" length="4" type="" format="A17" description="日冻结A相最近断相起始时刻" />
+		<data-item code="0422100702" parentCode="0DF032" length="4" type="" format="A17" description="日冻结B相最近断相起始时刻" />
+		<data-item code="0422100703" parentCode="0DF032" length="4" type="" format="A17" description="日冻结C相最近断相起始时刻" />
+		<data-item code="0422100800" parentCode="0DF032" length="4" type="" format="A17" description="日冻结最近一次断相结束时刻" />
+		<data-item code="0422100801" parentCode="0DF032" length="4" type="" format="A17" description="日冻结A相最近断相结束时刻" />
+		<data-item code="0422100802" parentCode="0DF032" length="4" type="" format="A17" description="日冻结B相最近断相结束时刻" />
+		<data-item code="0422100803" parentCode="0DF032" length="4" type="" format="A17" description="日冻结C相最近断相结束时刻" />		
+	</data-item>
+
+	<data-item code="0DF033" parentCode="0DF033" type="月冻结">
+		<data-item code="0223101601" parentCode="0DF033" length="3" type="" format="A23" description="月冻结三相总最大有功功率" />
+		<data-item code="0223101602" parentCode="0DF033" length="3" type="" format="A18" description="月冻结三相总最大有功功率发生时间" />
+		<data-item code="0223101603" parentCode="0DF033" length="3" type="" format="A23" description="月冻结A相最大有功功率" />
+		<data-item code="0223101604" parentCode="0DF033" length="3" type="" format="A18" description="月冻结A相最大有功功率发生时间" />
+		<data-item code="0223101605" parentCode="0DF033" length="3" type="" format="A23" description="月冻结B相最大有功功率" />
+		<data-item code="0223101606" parentCode="0DF033" length="3" type="" format="A18" description="月冻结B相最大有功功率发生时间" />
+		<data-item code="0223101607" parentCode="0DF033" length="3" type="" format="A23" description="月冻结C相最大有功功率" />
+		<data-item code="0223101608" parentCode="0DF033" length="3" type="" format="A18" description="月冻结C相最大有功功率发生时间" />
+		<data-item code="0223101609" parentCode="0DF033" length="2" type="" format="HTB2" description="月冻结三相总有功功率为零时间" />
+		<data-item code="0223101610" parentCode="0DF033" length="2" type="" format="HTB2" description="月冻结A相有功功率为零时间" />
+		<data-item code="0223101611" parentCode="0DF033" length="2" type="" format="HTB2" description="月冻结B相有功功率为零时间" />
+		<data-item code="0223101612" parentCode="0DF033" length="2" type="" format="HTB2" description="月冻结C相有功功率为零时间" />				
+	</data-item>
+
+	<data-item code="0DF034" parentCode="0DF034" type="月冻结">
+		<data-item code="0223101701" parentCode="0DF034" length="3" type="" format="A23" description="月冻结三相总有功最大需量" />
+		<data-item code="0223101702" parentCode="0DF034" length="3" type="" format="A18" description="月冻结三相总有功最大需量发生时间" />
+		<data-item code="0223101703" parentCode="0DF034" length="3" type="" format="A23" description="月冻结A相有功最大需量" />
+		<data-item code="0223101704" parentCode="0DF034" length="3" type="" format="A18" description="月冻结A相有功最大需量发生时间" />
+		<data-item code="0223101705" parentCode="0DF034" length="3" type="" format="A23" description="月冻结B相有功最大需量" />
+		<data-item code="0223101706" parentCode="0DF034" length="3" type="" format="A18" description="月冻结B相有功最大需量发生时间" />		
+		<data-item code="0223101707" parentCode="0DF034" length="3" type="" format="A23" description="月冻结C相有功最大需量" />
+		<data-item code="0223101708" parentCode="0DF034" length="3" type="" format="A18" description="月冻结C相有功最大需量发生时间" />		
+	</data-item>
+
+	<data-item code="0DF035" parentCode="0DF035" type="月冻结">
+		<data-item code="0423122101" parentCode="0DF035" length="2" type="" format="HTB2" description="月冻结A相电压越上上限日累计时间" />
+		<data-item code="0423122102" parentCode="0DF035" length="2" type="" format="HTB2" description="月冻结A相电压越下下限日累计时间" />
+		<data-item code="0423122103" parentCode="0DF035" length="2" type="" format="HTB2" description="月冻结A相电压越上限日累计时间" />
+		<data-item code="0423122104" parentCode="0DF035" length="2" type="" format="HTB2" description="月冻结A相电压越下限日累计时间" />
+		<data-item code="0423122105" parentCode="0DF035" length="2" type="" format="HTB2" description="月冻结A相电压合格日累计时间" />
+		<data-item code="0423122201" parentCode="0DF035" length="2" type="" format="HTB2" description="月冻结B相电压越上上限日累计时间" />
+		<data-item code="0423122202" parentCode="0DF035" length="2" type="" format="HTB2" description="月冻结B相电压越下下限日累计时间" />
+		<data-item code="0423122203" parentCode="0DF035" length="2" type="" format="HTB2" description="月冻结B相电压越上限日累计时间" />
+		<data-item code="0423122204" parentCode="0DF035" length="2" type="" format="HTB2" description="月冻结B相电压越下限日累计时间" />
+		<data-item code="0423122205" parentCode="0DF035" length="2" type="" format="HTB2" description="月冻结B相电压合格日累计时间" />
+		<data-item code="0423122301" parentCode="0DF035" length="2" type="" format="HTB2" description="月冻结C相电压越上上限日累计时间" />
+		<data-item code="0423122302" parentCode="0DF035" length="2" type="" format="HTB2" description="月冻结C相电压越下下限日累计时间" />
+		<data-item code="0423122303" parentCode="0DF035" length="2" type="" format="HTB2" description="月冻结C相电压越上限日累计时间" />
+		<data-item code="0423122304" parentCode="0DF035" length="2" type="" format="HTB2" description="月冻结C相电压越下限日累计时间" />
+		<data-item code="0423122305" parentCode="0DF035" length="2" type="" format="HTB2" description="月冻结C相电压合格日累计时间" />	
+		<data-item code="0223110701" parentCode="0DF035" length="2" type="" format="A7" description="月冻结A相电压最大值" />			
+		<data-item code="0223110702" parentCode="0DF035" length="3" type="" format="A18" description="月冻结A相电压最大值发生时间" />			
+		<data-item code="0223110703" parentCode="0DF035" length="2" type="" format="A7" description="月冻结A相电压最小值" />			
+		<data-item code="0223110704" parentCode="0DF035" length="3" type="" format="A18" description="月冻结A相电压最小值发生时间" />	
+		<data-item code="0223110801" parentCode="0DF035" length="2" type="" format="A7" description="月冻结B相电压最大值" />			
+		<data-item code="0223110802" parentCode="0DF035" length="3" type="" format="A18" description="月冻结B相电压最大值发生时间" />			
+		<data-item code="0223110803" parentCode="0DF035" length="2" type="" format="A7" description="月冻结B相电压最小值" />			
+		<data-item code="0223110804" parentCode="0DF035" length="3" type="" format="A18" description="月冻结B相电压最小值发生时间" />	
+		<data-item code="0223110901" parentCode="0DF035" length="2" type="" format="A7" description="月冻结C相电压最大值" />			
+		<data-item code="0223110902" parentCode="0DF035" length="3" type="" format="A18" description="月冻结C相电压最大值发生时间" />			
+		<data-item code="0223110903" parentCode="0DF035" length="2" type="" format="A7" description="月冻结C相电压最小值" />			
+		<data-item code="0223110904" parentCode="0DF035" length="3" type="" format="A18" description="月冻结C相电压最小值发生时间" />	
+		<data-item code="0223111001" parentCode="0DF035" length="2" type="" format="A7" description="月冻结A相平均电压" />			
+		<data-item code="0223111002" parentCode="0DF035" length="2" type="" format="A7" description="月冻结B相平均电压" />	
+		<data-item code="0223111003" parentCode="0DF035" length="2" type="" format="A7" description="月冻结C相平均电压" />	
+	</data-item>
+
+	<data-item code="0DF036" parentCode="0DF036" type="月冻结">
+		<data-item code="0423122407" parentCode="0DF036" length="2" type="" format="HTB2" description="月冻结电流不平衡度越限月累计时间" />		
+		<data-item code="0423122408" parentCode="0DF036" length="2" type="" format="HTB2" description="月冻结电压不平衡度越限月累计时间 " />
+		<data-item code="0423122403" parentCode="0DF036" length="2" type="" format="A5" description="月冻结电流不平衡最大值 " />
+		<data-item code="0423122404" parentCode="0DF036" length="2" type="" format="A18" description="月冻结电流不平衡最大值发生时间 " />
+		<data-item code="0423122405" parentCode="0DF036" length="2" type="" format="A5" description="月冻结电压不平衡最大值 " />
+		<data-item code="0423122406" parentCode="0DF036" length="2" type="" format="A18" description="月冻结电压不平衡最大值发生时间 " />
+	</data-item>
+
+	<data-item code="0DF037" parentCode="0DF037" type="月冻结">
+		<data-item code="0423122501" parentCode="0DF037" length="2" type="" format="HTB2" description="月冻结A相电流越上上限累计时间" />		
+		<data-item code="0423122502" parentCode="0DF037" length="2" type="" format="HTB2" description="月冻结A相电流越上限累计时间" />		
+		<data-item code="0423122503" parentCode="0DF037" length="2" type="" format="HTB2" description="月冻结B相电流越上上限累计时间" />		
+		<data-item code="0423122504" parentCode="0DF037" length="2" type="" format="HTB2" description="月冻结B相电流越上限累计时间" />
+		<data-item code="0423122505" parentCode="0DF037" length="2" type="" format="HTB2" description="月冻结C相电流越上上限累计时间" />		
+		<data-item code="0423122506" parentCode="0DF037" length="2" type="" format="HTB2" description="月冻结C相电流越上限累计时间" />
+		<data-item code="0423122507" parentCode="0DF037" length="2" type="" format="HTB2" description="月冻结零序电流越上限累计时间" />
+		<data-item code="0223111101" parentCode="0DF037" length="3" type="" format="A25" description="月冻结A相电流最大值" />
+		<data-item code="0223111102" parentCode="0DF037" length="3" type="" format="A18" description="月冻结A相电流最大值发生时间" />
+		<data-item code="0223111103" parentCode="0DF037" length="3" type="" format="A25" description="月冻结B相电流最大值" />
+		<data-item code="0223111104" parentCode="0DF037" length="3" type="" format="A18" description="月冻结B相电流最大值发生时间" />
+		<data-item code="0223111105" parentCode="0DF037" length="3" type="" format="A25" description="月冻结C相电流最大值" />
+		<data-item code="0223111106" parentCode="0DF037" length="3" type="" format="A18" description="月冻结C相电流最大值发生时间" />
+		<data-item code="0223111107" parentCode="0DF037" length="3" type="" format="A25" description="月冻结零序电流最大值" />
+		<data-item code="0223111108" parentCode="0DF037" length="3" type="" format="A18" description="月冻结零序电流最大值发生时间" />
+	</data-item>
+
+	<data-item code="0DF038" parentCode="0DF038" type="月冻结"> 
+		<data-item code="0423122603" parentCode="0DF038" length="2" type="" format="HTB2" description="月冻结视在功率越上上限累计时间" />		
+		<data-item code="0423122604" parentCode="0DF038" length="2" type="" format="HTB2" description="月冻结视在功率越上限累计时间" />
+	</data-item>
+	
+	<data-item code="0DF039" parentCode="0DF039" type="月冻结">
+		<data-item code="0423122701" parentCode="0DF039" length="2" type="" format="A5" description="月冻结负载率最大值" />		
+		<data-item code="0423122702" parentCode="0DF039" length="3" type="" format="A8" description="月冻结负载率最大值发生时间" />
+		<data-item code="0423122703" parentCode="0DF039" length="2" type="" format="A5" description="月冻结负载率最小值" />		
+		<data-item code="0423122704" parentCode="0DF039" length="3" type="" format="A8" description="月冻结负载率最小值发生时间" />		
+	</data-item>
+
+	<data-item code="0DF041" parentCode="0DF041" type="日冻结">
+		<data-item code="0422100201" parentCode="0DF041" length="4" type="" format="HTB4" description="日冻结第1组电容器累计投入时间" />		
+		<data-item code="0422100202" parentCode="0DF041" length="4" type="" format="HTB4" description="日冻结第2组电容器累计投入时间" />		
+		<data-item code="0422100203" parentCode="0DF041" length="4" type="" format="HTB4" description="日冻结第3组电容器累计投入时间" />		
+		<data-item code="0422100204" parentCode="0DF041" length="4" type="" format="HTB4" description="日冻结第4组电容器累计投入时间" />		
+		<data-item code="0422100205" parentCode="0DF041" length="4" type="" format="HTB4" description="日冻结第5组电容器累计投入时间" />		
+		<data-item code="0422100206" parentCode="0DF041" length="4" type="" format="HTB4" description="日冻结第6组电容器累计投入时间" />		
+		<data-item code="0422100207" parentCode="0DF041" length="4" type="" format="HTB4" description="日冻结第7组电容器累计投入时间" />		
+		<data-item code="0422100208" parentCode="0DF041" length="4" type="" format="HTB4" description="日冻结第8组电容器累计投入时间" />		
+		<data-item code="0422100209" parentCode="0DF041" length="4" type="" format="HTB4" description="日冻结第9组电容器累计投入时间" />		
+		<data-item code="0422100301" parentCode="0DF041" length="4" type="" format="HTB4" description="日冻结第1组电容器累计投入次数" />		
+		<data-item code="0422100302" parentCode="0DF041" length="4" type="" format="HTB4" description="日冻结第2组电容器累计投入次数" />		
+		<data-item code="0422100303" parentCode="0DF041" length="4" type="" format="HTB4" description="日冻结第3组电容器累计投入次数" />		
+		<data-item code="0422100304" parentCode="0DF041" length="4" type="" format="HTB4" description="日冻结第4组电容器累计投入次数" />		
+		<data-item code="0422100305" parentCode="0DF041" length="4" type="" format="HTB4" description="日冻结第5组电容器累计投入次数" />		
+		<data-item code="0422100306" parentCode="0DF041" length="4" type="" format="HTB4" description="日冻结第6组电容器累计投入次数" />		
+		<data-item code="0422100307" parentCode="0DF041" length="4" type="" format="HTB4" description="日冻结第7组电容器累计投入次数" />		
+		<data-item code="0422100308" parentCode="0DF041" length="4" type="" format="HTB4" description="日冻结第8组电容器累计投入次数" />		
+		<data-item code="0422100309" parentCode="0DF041" length="4" type="" format="HTB4" description="日冻结第9组电容器累计投入次数" />		
+	</data-item>
+
+	<data-item code="0DF042" parentCode="0DF042" type="日冻结">
+		<data-item code="0122201100" parentCode="0DF042" length="4" type="" format="A13" description="日冻结日补偿的无功电能量" />		
+		<data-item code="0122201200" parentCode="0DF042" length="4" type="" format="A13" description="日冻结月补偿的无功电能量" />
+	</data-item>
+	
+	<data-item code="0DF043" parentCode="0DF043" type="日冻结">
+		<data-item code="0422122801" parentCode="0DF043" length="2" type="" format="HTB2" description="日冻结区段1累计时间" />		
+		<data-item code="0422122802" parentCode="0DF043" length="2" type="" format="HTB2" description="日冻结区段2累计时间" />
+		<data-item code="0422122803" parentCode="0DF043" length="2" type="" format="HTB2" description="日冻结区段3累计时间" />
+	</data-item>
+
+	<data-item code="0DF044" parentCode="0DF044" type="月冻结">
+		<data-item code="0423122801" parentCode="0DF044" length="2" type="" format="HTB2" description="月冻结区段1累计时间" />		
+		<data-item code="0423122802" parentCode="0DF044" length="2" type="" format="HTB2" description="月冻结区段2累计时间" />
+		<data-item code="0423122803" parentCode="0DF044" length="2" type="" format="HTB2" description="月冻结区段3累计时间" />
+	</data-item>
+
+	<data-item code="0DF045" parentCode="0DF045" type="日冻结">
+		<data-item code="0122120001" parentCode="0DF045" length="5" type="" format="A14" description="日冻结铜损有功总电能示值" />		
+		<data-item code="0122120101" parentCode="0DF045" length="5" type="" format="A14" description="日冻结铁损有功总电能示值" />		
+	</data-item>
+	
+	<data-item code="0DF046" parentCode="0DF046" type="月冻结">
+		<data-item code="0123120001" parentCode="0DF046" length="5" type="" format="A14" description="月冻结铜损有功总电能示值" />		
+		<data-item code="0123120101" parentCode="0DF046" length="5" type="" format="A14" description="月冻结铁损有功总电能示值" />		
+	</data-item>
+	
+	<data-item code="0DF049" parentCode="0DF049" type="日冻结">
+		<data-item code="0422122901" parentCode="0DF049" length="2" type="" format="HTB2" description="日冻结终端供电时间" />		
+		<data-item code="0422122902" parentCode="0DF049" length="2" type="" format="HTB2" description="日冻结终端复位累计次数" />
+	</data-item>
+	
+	<data-item code="0DF050" parentCode="0DF050" type="日冻结">
+		<data-item code="0422123001" parentCode="0DF050" length="1" type="" format="HTB1" description="日冻结月电控跳闸累计次数" />		
+		<data-item code="0422123002" parentCode="0DF050" length="1" type="" format="HTB1" description="日冻结购电控跳闸累计次数" />		
+		<data-item code="0422123003" parentCode="0DF050" length="1" type="" format="HTB1" description="日冻结功控跳闸累计次数" />		
+		<data-item code="0422123004" parentCode="0DF050" length="1" type="" format="HTB1" description="日冻结遥控跳闸累计次数" />		
+	</data-item>
+	
+	<data-item code="0DF051" parentCode="0DF051" type="月冻结">
+		<data-item code="0423122903" parentCode="0DF051" length="2" type="" format="HTB2" description="月冻结终端供电时间" />		
+		<data-item code="0423122904" parentCode="0DF051" length="2" type="" format="HTB2" description="月冻结终端复位累计次数" />
+	</data-item>
+	
+	<data-item code="0DF052" parentCode="0DF052" type="月冻结">
+		<data-item code="0423123005" parentCode="0DF052" length="1" type="" format="HTB1" description="月冻结月电控跳闸累计次数" />		
+		<data-item code="0423123006" parentCode="0DF052" length="1" type="" format="HTB1" description="月冻结购电控跳闸累计次数" />		
+		<data-item code="0423123007" parentCode="0DF052" length="1" type="" format="HTB1" description="月冻结功控跳闸累计次数" />		
+		<data-item code="0423123008" parentCode="0DF052" length="1" type="" format="HTB1" description="月冻结遥控跳闸累计次数" />				
+	</data-item>
+	
+	<data-item code="0DF053" parentCode="0DF053" type="日冻结">
+		<data-item code="0422123101" parentCode="0DF053" length="4" type="" format="HTB4" description="日冻结终端与主站日通信流量" />				
+	</data-item>
+	
+	<data-item code="0DF054" parentCode="0DF054" type="月冻结">
+		<data-item code="0423123102" parentCode="0DF054" length="4" type="" format="HTB4" description="月冻结终端与主站月通信流量" />				
+	</data-item>
+	
+	<data-item code="0DF057" parentCode="0DF057" type="日冻结">
+		<data-item code="0218101601" parentCode="0DF057" length="2" type="" format="A2" description="日冻结总加最大有功功率" />				
+		<data-item code="0218101602" parentCode="0DF057" length="3" type="" format="A18" description="日冻结总加最大有功功率发生时间" />				
+		<data-item code="0218101613" parentCode="0DF057" length="2" type="" format="A2" description="日冻结总加最有功小功率" />				
+		<data-item code="0218101614" parentCode="0DF057" length="3" type="" format="A18" description="日冻结总加最小有功功率发生时间" />		
+		<data-item code="0218101609" parentCode="0DF057" length="2" type="" format="HTB2" description="日冻结总加有功功率为零累计时间" />				
+	</data-item>
+
+	<data-item code="0DF058" parentCode="0DF058" type="日冻结">		
+		<data-item code="0000000000" parentCode="0DF058" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01182000XX" parentCode="0DF058" length="4" type="" format="A3" description="日冻结总加总加有功总电能量" />
+	</data-item>
+
+	<data-item code="0DF059" parentCode="0DF059" type="日冻结">		
+		<data-item code="0000000000" parentCode="0DF059" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01182001XX" parentCode="0DF059" length="4" type="" format="A3" description="日冻结总加总加无功总电能量" />
+	</data-item>
+	
+	<data-item code="0DF060" parentCode="0DF060" type="月冻结">
+		<data-item code="0219101601" parentCode="0DF060" length="2" type="" format="A2" description="月冻结总加最大有功功率" />				
+		<data-item code="0219101602" parentCode="0DF060" length="3" type="" format="A18" description="月冻结总加最大有功功率发生时间" />				
+		<data-item code="0219101613" parentCode="0DF060" length="2" type="" format="A2" description="月冻结总加最有功小功率" />				
+		<data-item code="0219101614" parentCode="0DF060" length="3" type="" format="A18" description="月冻结总加最小有功功率发生时间" />			
+		<data-item code="0219101609" parentCode="0DF060" length="2" type="" format="HTB2" description="月冻结总加有功功率为零累计时间" />				
+	</data-item>
+	
+	<data-item code="0DF061" parentCode="0DF061" type="月冻结">		
+		<data-item code="0000000000" parentCode="0DF061" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01192000XX" parentCode="0DF061" length="4" type="" format="A3" description="月冻结总加总加有功总电能量" />
+	</data-item>
+	
+	<data-item code="0DF062" parentCode="0DF062" type="月冻结">		
+		<data-item code="0000000000" parentCode="0DF062" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01192001XX" parentCode="0DF062" length="4" type="" format="A3" description="月冻结总加总加无功总电能量" />
+	</data-item>
+	
+	<data-item code="0DF065" parentCode="0DF065" type="月冻结">
+		<data-item code="0119201301" parentCode="0DF065" length="2" type="" format="HTB2" description="月冻结总加超功率定值月累计时间" />				
+		<data-item code="0119201302" parentCode="0DF065" length="4" type="" format="A3" description="月冻结总加超功率定值的月累计电能量" />							
+	</data-item>
+	
+	<data-item code="0DF066" parentCode="0DF066" type="月冻结">
+		<data-item code="0119201303" parentCode="0DF066" length="2" type="" format="HTB2" description="月冻结总加超月电能量定值月累计时间" />				
+		<data-item code="0119201304" parentCode="0DF066" length="4" type="" format="A3" description="月冻结总加超月冻结电能量定值的月累计电能量" />							
+	</data-item>
+
+	<data-item code="0DF073" parentCode="0DF073">
+		<data-item code="0233110000" parentCode="0DF073" length="2" type="" format="A2" description="总加组有功功率曲线" />				
+	</data-item>
+	
+	<data-item code="0DF074" parentCode="0DF074">
+		<data-item code="0233110100" parentCode="0DF074" length="2" type="" format="A2" description="总加组无功功率曲线" />				
+	</data-item>
+	
+	<data-item code="0DF075" parentCode="0DF075">
+		<data-item code="0233200000" parentCode="0DF075" length="4" type="" format="A3" description="总加组有功总电能量曲线" />				
+	</data-item>
+	
+	<data-item code="0DF076" parentCode="0DF076">
+		<data-item code="0233200100" parentCode="0DF076" length="4" type="" format="A3" description="总加组无功总电能量曲线" />				
+	</data-item>
+	
+	<data-item code="0DF081" parentCode="0DF081">
+		<data-item code="0232110000" parentCode="0DF081" length="3" type="" format="A9" description="测量点有功功率曲线" />				
+	</data-item>
+	
+	<data-item code="0DF082" parentCode="0DF082">
+		<data-item code="0232110001" parentCode="0DF082" length="3" type="" format="A9" description="测量点A相有功功率曲线" />				
+	</data-item>
+	
+	<data-item code="0DF083" parentCode="0DF083">
+		<data-item code="0232110002" parentCode="0DF083" length="3" type="" format="A9" description="测量点B相有功功率曲线" />				
+	</data-item>
+	
+	<data-item code="0DF084" parentCode="0DF084">
+		<data-item code="0232110003" parentCode="0DF084" length="3" type="" format="A9" description="测量点C相有功功率曲线" />				
+	</data-item>
+	
+	<data-item code="0DF085" parentCode="0DF085">
+		<data-item code="0232110100" parentCode="0DF085" length="3" type="" format="A9" description="测量点无功功率曲线" />				
+	</data-item>
+	
+	<data-item code="0DF086" parentCode="0DF086">
+		<data-item code="0232110101" parentCode="0DF086" length="3" type="" format="A9" description="测量点A相无功功率曲线" />				
+	</data-item>
+	
+	<data-item code="0DF087" parentCode="0DF087">
+		<data-item code="0232110102" parentCode="0DF087" length="3" type="" format="A9" description="测量点B相无功功率曲线" />				
+	</data-item>
+	
+	<data-item code="0DF088" parentCode="0DF088">
+		<data-item code="0232110103" parentCode="0DF088" length="3" type="" format="A9" description="测量点C相无功功率曲线" />				
+	</data-item>
+	
+	<data-item code="0DF089" parentCode="0DF089">
+		<data-item code="0232110301" parentCode="0DF089" length="2" type="" format="A7" description="测量点A相电压曲线" />				
+	</data-item>
+	
+	<data-item code="0DF090" parentCode="0DF090">
+		<data-item code="0232110302" parentCode="0DF090" length="2" type="" format="A7" description="测量点B相电压曲线" />				
+	</data-item>
+	
+	<data-item code="0DF091" parentCode="0DF091">
+		<data-item code="0232110303" parentCode="0DF091" length="2" type="" format="A7" description="测量点C相电压曲线" />				
+	</data-item>
+	
+	<data-item code="0DF092" parentCode="0DF092">
+		<data-item code="0232110401" parentCode="0DF092" length="3" type="" format="A25" description="测量点A相电流曲线" />				
+	</data-item>
+	
+	<data-item code="0DF093" parentCode="0DF093">
+		<data-item code="0232110402" parentCode="0DF093" length="3" type="" format="A25" description="测量点B相电流曲线" />				
+	</data-item>
+	
+	<data-item code="0DF094" parentCode="0DF094">
+		<data-item code="0232110403" parentCode="0DF094" length="3" type="" format="A25" description="测量点C相电流曲线" />				
+	</data-item>
+	
+	<data-item code="0DF095" parentCode="0DF095">
+		<data-item code="0232110404" parentCode="0DF095" length="3" type="" format="A25" description="测量点零序电流曲线" />				
+	</data-item>
+	
+	<data-item code="0DF097" parentCode="0DF097">
+		<data-item code="0132200200" parentCode="0DF097" length="4" type="" format="A13" description="测量点正向有功总电能量曲线" />				
+	</data-item>
+	
+	<data-item code="0DF098" parentCode="0DF098">
+		<data-item code="0132200300" parentCode="0DF098" length="4" type="" format="A13" description="测量点正向无功总电能量曲线" />				
+	</data-item>
+	
+	<data-item code="0DF099" parentCode="0DF099">
+		<data-item code="0132200400" parentCode="0DF099" length="4" type="" format="A13" description="测量点反向有功总电能量曲线" />				
+	</data-item>
+	
+	<data-item code="0DF100" parentCode="0DF100">
+		<data-item code="0132200500" parentCode="0DF100" length="4" type="" format="A13" description="测量点反向无功总电能量曲线" />				
+	</data-item>
+	
+	<data-item code="0DF101" parentCode="0DF101">
+		<data-item code="0132100000" parentCode="0DF101" length="4" type="" format="A11" description="测量点正向有功总电能示值曲线" />				
+	</data-item>
+	
+	<data-item code="0DF102" parentCode="0DF102">
+		<data-item code="0132100200" parentCode="0DF102" length="4" type="" format="A11" description="测量点正向无功总电能示值曲线" />				
+	</data-item>
+	
+	<data-item code="0DF103" parentCode="0DF103">
+		<data-item code="0132100100" parentCode="0DF103" length="4" type="" format="A11" description="测量点反向有功总电能示值曲线" />				
+	</data-item>
+	
+	<data-item code="0DF104" parentCode="0DF104">
+		<data-item code="0132100300" parentCode="0DF104" length="4" type="" format="A11" description="测量点反向无功总电能示值曲线" />				
+	</data-item>
+	
+	<data-item code="0DF105" parentCode="0DF105">
+		<data-item code="0232110200" parentCode="0DF105" length="2" type="" format="A5" description="测量点总功率因数曲线" />				
+	</data-item>
+	
+	<data-item code="0DF106" parentCode="0DF106">
+		<data-item code="0232110201" parentCode="0DF106" length="2" type="" format="A5" description="测量点A相功率因数曲线" />				
+	</data-item>
+	
+	<data-item code="0DF107" parentCode="0DF107">
+		<data-item code="0232110202" parentCode="0DF107" length="2" type="" format="A5" description="测量点B相功率因数曲线" />				
+	</data-item>
+
+	<data-item code="0DF108" parentCode="0DF108">
+		<data-item code="0232110203" parentCode="0DF108" length="2" type="" format="A5" description="测量点C相功率因数曲线" />				
+	</data-item>
+	
+	<data-item code="0DF109" parentCode="0DF109">
+		<data-item code="0232110601" parentCode="0DF109" length="2" type="" format="A5" description="Uab/Ua相位角" />				
+		<data-item code="0232110602" parentCode="0DF109" length="2" type="" format="A5" description="Ub相位角" />				
+		<data-item code="0232110603" parentCode="0DF109" length="2" type="" format="A5" description="Ucb/Uc相位角" />				
+	</data-item>
+	
+	<data-item code="0DF110" parentCode="0DF110">
+		<data-item code="0232110604" parentCode="0DF110" length="2" type="" format="A5" description="Ia相位角" />				
+		<data-item code="0232110605" parentCode="0DF110" length="2" type="" format="A5" description="Ib相位角" />				
+		<data-item code="0232110606" parentCode="0DF110" length="2" type="" format="A5" description="Ic相位角" />				
+	</data-item>
+	
+	<data-item code="0DF113" parentCode="0DF113">
+		<data-item code="0322101201" parentCode="0DF113" length="2" type="" format="A6" description="A相2次谐波电流日最大值" />				
+		<data-item code="0322101202" parentCode="0DF113" length="4" type="" format="A17" description="A相2次谐波电流日最大值发生时间" />				
+		<data-item code="0322101203" parentCode="0DF113" length="2" type="" format="A6" description="A相3次谐波电流日最大值" />				
+		<data-item code="0322101204" parentCode="0DF113" length="4" type="" format="A17" description="A相3次谐波电流日最大值发生时间" />		
+		<data-item code="0322101205" parentCode="0DF113" length="2" type="" format="A6" description="A相4次谐波电流日最大值" />				
+		<data-item code="0322101206" parentCode="0DF113" length="4" type="" format="A17" description="A相4次谐波电流日最大值发生时间" />		
+		<data-item code="0322101207" parentCode="0DF113" length="2" type="" format="A6" description="A相5次谐波电流日最大值" />				
+		<data-item code="0322101208" parentCode="0DF113" length="4" type="" format="A17" description="A相5次谐波电流日最大值发生时间" />		
+		<data-item code="0322101209" parentCode="0DF113" length="2" type="" format="A6" description="A相6次谐波电流日最大值" />				
+		<data-item code="0322101210" parentCode="0DF113" length="4" type="" format="A17" description="A相6次谐波电流日最大值发生时间" />		
+		<data-item code="0322101211" parentCode="0DF113" length="2" type="" format="A6" description="A相7次谐波电流日最大值" />				
+		<data-item code="0322101212" parentCode="0DF113" length="4" type="" format="A17" description="A相7次谐波电流日最大值发生时间" />		
+		<data-item code="0322101213" parentCode="0DF113" length="2" type="" format="A6" description="A相8次谐波电流日最大值" />				
+		<data-item code="0322101214" parentCode="0DF113" length="4" type="" format="A17" description="A相8次谐波电流日最大值发生时间" />		
+		<data-item code="0322101215" parentCode="0DF113" length="2" type="" format="A6" description="A相9次谐波电流日最大值" />				
+		<data-item code="0322101216" parentCode="0DF113" length="4" type="" format="A17" description="A相9次谐波电流日最大值发生时间" />	
+		<data-item code="0322101217" parentCode="0DF113" length="2" type="" format="A6" description="A相10次谐波电流日最大值" />				
+		<data-item code="0322101218" parentCode="0DF113" length="4" type="" format="A17" description="A相10次谐波电流日最大值发生时间" />	
+		<data-item code="0322101219" parentCode="0DF113" length="2" type="" format="A6" description="A相11次谐波电流日最大值" />				
+		<data-item code="0322101220" parentCode="0DF113" length="4" type="" format="A17" description="A相11次谐波电流日最大值发生时间" />				
+		<data-item code="0322101221" parentCode="0DF113" length="2" type="" format="A6" description="A相12次谐波电流日最大值" />				
+		<data-item code="0322101222" parentCode="0DF113" length="4" type="" format="A17" description="A相12次谐波电流日最大值发生时间" />		
+		<data-item code="0322101223" parentCode="0DF113" length="2" type="" format="A6" description="A相13次谐波电流日最大值" />				
+		<data-item code="0322101224" parentCode="0DF113" length="4" type="" format="A17" description="A相13次谐波电流日最大值发生时间" />		
+		<data-item code="0322101225" parentCode="0DF113" length="2" type="" format="A6" description="A相14次谐波电流日最大值" />				
+		<data-item code="0322101226" parentCode="0DF113" length="4" type="" format="A17" description="A相14次谐波电流日最大值发生时间" />		
+		<data-item code="0322101227" parentCode="0DF113" length="2" type="" format="A6" description="A相15次谐波电流日最大值" />				
+		<data-item code="0322101228" parentCode="0DF113" length="4" type="" format="A17" description="A相15次谐波电流日最大值发生时间" />		
+		<data-item code="0322101229" parentCode="0DF113" length="2" type="" format="A6" description="A相16次谐波电流日最大值" />				
+		<data-item code="0322101230" parentCode="0DF113" length="4" type="" format="A17" description="A相16次谐波电流日最大值发生时间" />		
+		<data-item code="0322101231" parentCode="0DF113" length="2" type="" format="A6" description="A相17次谐波电流日最大值" />				
+		<data-item code="0322101232" parentCode="0DF113" length="4" type="" format="A17" description="A相17次谐波电流日最大值发生时间" />		
+		<data-item code="0322101233" parentCode="0DF113" length="2" type="" format="A6" description="A相18次谐波电流日最大值" />				
+		<data-item code="0322101234" parentCode="0DF113" length="4" type="" format="A17" description="A相18次谐波电流日最大值发生时间" />	
+		<data-item code="0322101235" parentCode="0DF113" length="2" type="" format="A6" description="A相19次谐波电流日最大值" />				
+		<data-item code="0322101236" parentCode="0DF113" length="4" type="" format="A17" description="A相19次谐波电流日最大值发生时间" />		
+		<data-item code="0322101237" parentCode="0DF113" length="2" type="" format="A6" description="A相总畸变电流日最大值" />				
+		<data-item code="0322101238" parentCode="0DF113" length="4" type="" format="A17" description="A相总畸变电流日最大值发生时间" />							
+	</data-item>
+	
+	<data-item code="0DF114" parentCode="0DF114">
+		<data-item code="0322101301" parentCode="0DF114" length="2" type="" format="A6" description="B相2次谐波电流日最大值" />				
+		<data-item code="0322101302" parentCode="0DF114" length="4" type="" format="A17" description="B相2次谐波电流日最大值发生时间" />				
+		<data-item code="0322101303" parentCode="0DF114" length="2" type="" format="A6" description="B相3次谐波电流日最大值" />				
+		<data-item code="0322101304" parentCode="0DF114" length="4" type="" format="A17" description="B相3次谐波电流日最大值发生时间" />		
+		<data-item code="0322101305" parentCode="0DF114" length="2" type="" format="A6" description="B相4次谐波电流日最大值" />				
+		<data-item code="0322101306" parentCode="0DF114" length="4" type="" format="A17" description="B相4次谐波电流日最大值发生时间" />		
+		<data-item code="0322101307" parentCode="0DF114" length="2" type="" format="A6" description="B相5次谐波电流日最大值" />				
+		<data-item code="0322101308" parentCode="0DF114" length="4" type="" format="A17" description="B相5次谐波电流日最大值发生时间" />		
+		<data-item code="0322101309" parentCode="0DF114" length="2" type="" format="A6" description="B相6次谐波电流日最大值" />				
+		<data-item code="0322101310" parentCode="0DF114" length="4" type="" format="A17" description="B相6次谐波电流日最大值发生时间" />		
+		<data-item code="0322101311" parentCode="0DF114" length="2" type="" format="A6" description="B相7次谐波电流日最大值" />				
+		<data-item code="0322101312" parentCode="0DF114" length="4" type="" format="A17" description="B相7次谐波电流日最大值发生时间" />		
+		<data-item code="0322101313" parentCode="0DF114" length="2" type="" format="A6" description="B相8次谐波电流日最大值" />				
+		<data-item code="0322101314" parentCode="0DF114" length="4" type="" format="A17" description="B相8次谐波电流日最大值发生时间" />		
+		<data-item code="0322101315" parentCode="0DF114" length="2" type="" format="A6" description="B相9次谐波电流日最大值" />				
+		<data-item code="0322101316" parentCode="0DF114" length="4" type="" format="A17" description="B相9次谐波电流日最大值发生时间" />	
+		<data-item code="0322101317" parentCode="0DF114" length="2" type="" format="A6" description="B相10次谐波电流日最大值" />				
+		<data-item code="0322101318" parentCode="0DF114" length="4" type="" format="A17" description="B相10次谐波电流日最大值发生时间" />	
+		<data-item code="0322101319" parentCode="0DF114" length="2" type="" format="A6" description="B相11次谐波电流日最大值" />				
+		<data-item code="0322101320" parentCode="0DF114" length="4" type="" format="A17" description="B相11次谐波电流日最大值发生时间" />				
+		<data-item code="0322101321" parentCode="0DF114" length="2" type="" format="A6" description="B相12次谐波电流日最大值" />				
+		<data-item code="0322101322" parentCode="0DF114" length="4" type="" format="A17" description="B相12次谐波电流日最大值发生时间" />		
+		<data-item code="0322101323" parentCode="0DF114" length="2" type="" format="A6" description="B相13次谐波电流日最大值" />				
+		<data-item code="0322101324" parentCode="0DF114" length="4" type="" format="A17" description="B相13次谐波电流日最大值发生时间" />		
+		<data-item code="0322101325" parentCode="0DF114" length="2" type="" format="A6" description="B相14次谐波电流日最大值" />				
+		<data-item code="0322101326" parentCode="0DF114" length="4" type="" format="A17" description="B相14次谐波电流日最大值发生时间" />		
+		<data-item code="0322101327" parentCode="0DF114" length="2" type="" format="A6" description="B相15次谐波电流日最大值" />				
+		<data-item code="0322101328" parentCode="0DF114" length="4" type="" format="A17" description="B相15次谐波电流日最大值发生时间" />		
+		<data-item code="0322101329" parentCode="0DF114" length="2" type="" format="A6" description="B相16次谐波电流日最大值" />				
+		<data-item code="0322101330" parentCode="0DF114" length="4" type="" format="A17" description="B相16次谐波电流日最大值发生时间" />		
+		<data-item code="0322101331" parentCode="0DF114" length="2" type="" format="A6" description="B相17次谐波电流日最大值" />				
+		<data-item code="0322101332" parentCode="0DF114" length="4" type="" format="A17" description="B相17次谐波电流日最大值发生时间" />		
+		<data-item code="0322101333" parentCode="0DF114" length="2" type="" format="A6" description="B相18次谐波电流日最大值" />				
+		<data-item code="0322101334" parentCode="0DF114" length="4" type="" format="A17" description="B相18次谐波电流日最大值发生时间" />	
+		<data-item code="0322101335" parentCode="0DF114" length="2" type="" format="A6" description="B相19次谐波电流日最大值" />				
+		<data-item code="0322101336" parentCode="0DF114" length="4" type="" format="A17" description="B相19次谐波电流日最大值发生时间" />		
+		<data-item code="0322101337" parentCode="0DF114" length="2" type="" format="A6" description="B相总畸变电流日最大值" />				
+		<data-item code="0322101338" parentCode="0DF114" length="4" type="" format="A17" description="B相总畸变电流日最大值发生时间" />							
+	</data-item>
+	
+	<data-item code="0DF115" parentCode="0DF115">
+		<data-item code="0322101401" parentCode="0DF115" length="2" type="" format="A6" description="C相2次谐波电流日最大值" />				
+		<data-item code="0322101402" parentCode="0DF115" length="4" type="" format="A17" description="C相2次谐波电流日最大值发生时间" />				
+		<data-item code="0322101403" parentCode="0DF115" length="2" type="" format="A6" description="C相3次谐波电流日最大值" />				
+		<data-item code="0322101404" parentCode="0DF115" length="4" type="" format="A17" description="C相3次谐波电流日最大值发生时间" />		
+		<data-item code="0322101405" parentCode="0DF115" length="2" type="" format="A6" description="C相4次谐波电流日最大值" />				
+		<data-item code="0322101406" parentCode="0DF115" length="4" type="" format="A17" description="C相4次谐波电流日最大值发生时间" />		
+		<data-item code="0322101407" parentCode="0DF115" length="2" type="" format="A6" description="C相5次谐波电流日最大值" />				
+		<data-item code="0322101408" parentCode="0DF115" length="4" type="" format="A17" description="C相5次谐波电流日最大值发生时间" />		
+		<data-item code="0322101409" parentCode="0DF115" length="2" type="" format="A6" description="C相6次谐波电流日最大值" />				
+		<data-item code="0322101410" parentCode="0DF115" length="4" type="" format="A17" description="C相6次谐波电流日最大值发生时间" />		
+		<data-item code="0322101411" parentCode="0DF115" length="2" type="" format="A6" description="C相7次谐波电流日最大值" />				
+		<data-item code="0322101412" parentCode="0DF115" length="4" type="" format="A17" description="C相7次谐波电流日最大值发生时间" />		
+		<data-item code="0322101413" parentCode="0DF115" length="2" type="" format="A6" description="C相8次谐波电流日最大值" />				
+		<data-item code="0322101414" parentCode="0DF115" length="4" type="" format="A17" description="C相8次谐波电流日最大值发生时间" />		
+		<data-item code="0322101415" parentCode="0DF115" length="2" type="" format="A6" description="C相9次谐波电流日最大值" />				
+		<data-item code="0322101416" parentCode="0DF115" length="4" type="" format="A17" description="C相9次谐波电流日最大值发生时间" />	
+		<data-item code="0322101417" parentCode="0DF115" length="2" type="" format="A6" description="C相10次谐波电流日最大值" />				
+		<data-item code="0322101418" parentCode="0DF115" length="4" type="" format="A17" description="C相10次谐波电流日最大值发生时间" />	
+		<data-item code="0322101419" parentCode="0DF115" length="2" type="" format="A6" description="C相11次谐波电流日最大值" />				
+		<data-item code="0322101420" parentCode="0DF115" length="4" type="" format="A17" description="C相11次谐波电流日最大值发生时间" />				
+		<data-item code="0322101421" parentCode="0DF115" length="2" type="" format="A6" description="C相12次谐波电流日最大值" />				
+		<data-item code="0322101422" parentCode="0DF115" length="4" type="" format="A17" description="C相12次谐波电流日最大值发生时间" />		
+		<data-item code="0322101423" parentCode="0DF115" length="2" type="" format="A6" description="C相13次谐波电流日最大值" />				
+		<data-item code="0322101424" parentCode="0DF115" length="4" type="" format="A17" description="C相13次谐波电流日最大值发生时间" />		
+		<data-item code="0322101425" parentCode="0DF115" length="2" type="" format="A6" description="C相14次谐波电流日最大值" />				
+		<data-item code="0322101426" parentCode="0DF115" length="4" type="" format="A17" description="C相14次谐波电流日最大值发生时间" />		
+		<data-item code="0322101427" parentCode="0DF115" length="2" type="" format="A6" description="C相15次谐波电流日最大值" />				
+		<data-item code="0322101428" parentCode="0DF115" length="4" type="" format="A17" description="C相15次谐波电流日最大值发生时间" />		
+		<data-item code="0322101429" parentCode="0DF115" length="2" type="" format="A6" description="C相16次谐波电流日最大值" />				
+		<data-item code="0322101430" parentCode="0DF115" length="4" type="" format="A17" description="C相16次谐波电流日最大值发生时间" />		
+		<data-item code="0322101431" parentCode="0DF115" length="2" type="" format="A6" description="C相17次谐波电流日最大值" />				
+		<data-item code="0322101432" parentCode="0DF115" length="4" type="" format="A17" description="C相17次谐波电流日最大值发生时间" />		
+		<data-item code="0322101433" parentCode="0DF115" length="2" type="" format="A6" description="C相18次谐波电流日最大值" />				
+		<data-item code="0322101434" parentCode="0DF115" length="4" type="" format="A17" description="C相18次谐波电流日最大值发生时间" />	
+		<data-item code="0322101435" parentCode="0DF115" length="2" type="" format="A6" description="C相19次谐波电流日最大值" />				
+		<data-item code="0322101436" parentCode="0DF115" length="4" type="" format="A17" description="C相19次谐波电流日最大值发生时间" />		
+		<data-item code="0322101437" parentCode="0DF115" length="2" type="" format="A6" description="C相总畸变电流日最大值" />				
+		<data-item code="0322101438" parentCode="0DF115" length="4" type="" format="A17" description="C相总畸变电流日最大值发生时间" />							
+	</data-item>
+	
+	<data-item code="0DF116" parentCode="0DF116">
+		<data-item code="0322101501" parentCode="0DF116" length="2" type="" format="A5" description="A相2次谐波电压含有率日最大值" />				
+		<data-item code="0322101502" parentCode="0DF116" length="4" type="" format="A17" description="A相2次谐波电压含有率日最大值发生时间" />				
+		<data-item code="0322101503" parentCode="0DF116" length="2" type="" format="A5" description="A相3次谐波电压含有率日最大值" />				
+		<data-item code="0322101504" parentCode="0DF116" length="4" type="" format="A17" description="A相3次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101505" parentCode="0DF116" length="2" type="" format="A5" description="A相4次谐波电压含有率日最大值" />				
+		<data-item code="0322101506" parentCode="0DF116" length="4" type="" format="A17" description="A相4次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101507" parentCode="0DF116" length="2" type="" format="A5" description="A相5次谐波电压含有率日最大值" />				
+		<data-item code="0322101508" parentCode="0DF116" length="4" type="" format="A17" description="A相5次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101509" parentCode="0DF116" length="2" type="" format="A5" description="A相6次谐波电压含有率日最大值" />				
+		<data-item code="0322101510" parentCode="0DF116" length="4" type="" format="A17" description="A相6次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101511" parentCode="0DF116" length="2" type="" format="A5" description="A相7次谐波电压含有率日最大值" />				
+		<data-item code="0322101512" parentCode="0DF116" length="4" type="" format="A17" description="A相7次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101513" parentCode="0DF116" length="2" type="" format="A5" description="A相8次谐波电压含有率日最大值" />				
+		<data-item code="0322101514" parentCode="0DF116" length="4" type="" format="A17" description="A相8次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101515" parentCode="0DF116" length="2" type="" format="A5" description="A相9次谐波电压含有率日最大值" />				
+		<data-item code="0322101516" parentCode="0DF116" length="4" type="" format="A17" description="A相9次谐波电压含有率日最大值发生时间" />	
+		<data-item code="0322101517" parentCode="0DF116" length="2" type="" format="A5" description="A相10次谐波电压含有率日最大值" />				
+		<data-item code="0322101518" parentCode="0DF116" length="4" type="" format="A17" description="A相10次谐波电压含有率日最大值发生时间" />	
+		<data-item code="0322101519" parentCode="0DF116" length="2" type="" format="A5" description="A相11次谐波电压含有率日最大值" />				
+		<data-item code="0322101520" parentCode="0DF116" length="4" type="" format="A17" description="A相11次谐波电压含有率日最大值发生时间" />				
+		<data-item code="0322101521" parentCode="0DF116" length="2" type="" format="A5" description="A相12次谐波电压含有率日最大值" />				
+		<data-item code="0322101522" parentCode="0DF116" length="4" type="" format="A17" description="A相12次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101523" parentCode="0DF116" length="2" type="" format="A5" description="A相13次谐波电压含有率日最大值" />				
+		<data-item code="0322101524" parentCode="0DF116" length="4" type="" format="A17" description="A相13次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101525" parentCode="0DF116" length="2" type="" format="A5" description="A相14次谐波电压含有率日最大值" />				
+		<data-item code="0322101526" parentCode="0DF116" length="4" type="" format="A17" description="A相14次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101527" parentCode="0DF116" length="2" type="" format="A5" description="A相15次谐波电压含有率日最大值" />				
+		<data-item code="0322101528" parentCode="0DF116" length="4" type="" format="A17" description="A相15次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101529" parentCode="0DF116" length="2" type="" format="A5" description="A相16次谐波电压含有率日最大值" />				
+		<data-item code="0322101530" parentCode="0DF116" length="4" type="" format="A17" description="A相16次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101531" parentCode="0DF116" length="2" type="" format="A5" description="A相17次谐波电压含有率日最大值" />				
+		<data-item code="0322101532" parentCode="0DF116" length="4" type="" format="A17" description="A相17次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101533" parentCode="0DF116" length="2" type="" format="A5" description="A相18次谐波电压含有率日最大值" />				
+		<data-item code="0322101534" parentCode="0DF116" length="4" type="" format="A17" description="A相18次谐波电压含有率日最大值发生时间" />	
+		<data-item code="0322101535" parentCode="0DF116" length="2" type="" format="A5" description="A相19次谐波电压含有率日最大值" />				
+		<data-item code="0322101536" parentCode="0DF116" length="4" type="" format="A17" description="A相19次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101537" parentCode="0DF116" length="2" type="" format="A5" description="A相总畸变电压含有率日最大值" />				
+		<data-item code="0322101538" parentCode="0DF116" length="4" type="" format="A17" description="A相总畸变电压含有率日最大值发生时间" />							
+	</data-item>
+	
+	<data-item code="0DF117" parentCode="0DF117">
+		<data-item code="0322101601" parentCode="0DF117" length="2" type="" format="A5" description="B相2次谐波电压含有率日最大值" />				
+		<data-item code="0322101602" parentCode="0DF117" length="4" type="" format="A17" description="B相2次谐波电压含有率日最大值发生时间" />				
+		<data-item code="0322101603" parentCode="0DF117" length="2" type="" format="A5" description="B相3次谐波电压含有率日最大值" />				
+		<data-item code="0322101604" parentCode="0DF117" length="4" type="" format="A17" description="B相3次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101605" parentCode="0DF117" length="2" type="" format="A5" description="B相4次谐波电压含有率日最大值" />				
+		<data-item code="0322101606" parentCode="0DF117" length="4" type="" format="A17" description="B相4次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101607" parentCode="0DF117" length="2" type="" format="A5" description="B相5次谐波电压含有率日最大值" />				
+		<data-item code="0322101608" parentCode="0DF117" length="4" type="" format="A17" description="B相5次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101609" parentCode="0DF117" length="2" type="" format="A5" description="B相6次谐波电压含有率日最大值" />				
+		<data-item code="0322101610" parentCode="0DF117" length="4" type="" format="A17" description="B相6次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101611" parentCode="0DF117" length="2" type="" format="A5" description="B相7次谐波电压含有率日最大值" />				
+		<data-item code="0322101612" parentCode="0DF117" length="4" type="" format="A17" description="B相7次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101613" parentCode="0DF117" length="2" type="" format="A5" description="B相8次谐波电压含有率日最大值" />				
+		<data-item code="0322101614" parentCode="0DF117" length="4" type="" format="A17" description="B相8次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101615" parentCode="0DF117" length="2" type="" format="A5" description="B相9次谐波电压含有率日最大值" />				
+		<data-item code="0322101616" parentCode="0DF117" length="4" type="" format="A17" description="B相9次谐波电压含有率日最大值发生时间" />	
+		<data-item code="0322101617" parentCode="0DF117" length="2" type="" format="A5" description="B相10次谐波电压含有率日最大值" />				
+		<data-item code="0322101618" parentCode="0DF117" length="4" type="" format="A17" description="B相10次谐波电压含有率日最大值发生时间" />	
+		<data-item code="0322101619" parentCode="0DF117" length="2" type="" format="A5" description="B相11次谐波电压含有率日最大值" />				
+		<data-item code="0322101620" parentCode="0DF117" length="4" type="" format="A17" description="B相11次谐波电压含有率日最大值发生时间" />				
+		<data-item code="0322101621" parentCode="0DF117" length="2" type="" format="A5" description="B相12次谐波电压含有率日最大值" />				
+		<data-item code="0322101622" parentCode="0DF117" length="4" type="" format="A17" description="B相12次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101623" parentCode="0DF117" length="2" type="" format="A5" description="B相13次谐波电压含有率日最大值" />				
+		<data-item code="0322101624" parentCode="0DF117" length="4" type="" format="A17" description="B相13次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101625" parentCode="0DF117" length="2" type="" format="A5" description="B相14次谐波电压含有率日最大值" />				
+		<data-item code="0322101626" parentCode="0DF117" length="4" type="" format="A17" description="B相14次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101627" parentCode="0DF117" length="2" type="" format="A5" description="B相15次谐波电压含有率日最大值" />				
+		<data-item code="0322101628" parentCode="0DF117" length="4" type="" format="A17" description="B相15次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101629" parentCode="0DF117" length="2" type="" format="A5" description="B相16次谐波电压含有率日最大值" />				
+		<data-item code="0322101630" parentCode="0DF117" length="4" type="" format="A17" description="B相16次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101631" parentCode="0DF117" length="2" type="" format="A5" description="B相17次谐波电压含有率日最大值" />				
+		<data-item code="0322101632" parentCode="0DF117" length="4" type="" format="A17" description="B相17次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101633" parentCode="0DF117" length="2" type="" format="A5" description="B相18次谐波电压含有率日最大值" />				
+		<data-item code="0322101634" parentCode="0DF117" length="4" type="" format="A17" description="B相18次谐波电压含有率日最大值发生时间" />	
+		<data-item code="0322101635" parentCode="0DF117" length="2" type="" format="A5" description="B相19次谐波电压含有率日最大值" />				
+		<data-item code="0322101636" parentCode="0DF117" length="4" type="" format="A17" description="B相19次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101637" parentCode="0DF117" length="2" type="" format="A5" description="B相总畸变电压含有率日最大值" />				
+		<data-item code="0322101638" parentCode="0DF117" length="4" type="" format="A17" description="B相总畸变电压含有率日最大值发生时间" />							
+	</data-item>
+	
+	<data-item code="0DF118" parentCode="0DF118">
+		<data-item code="0322101701" parentCode="0DF118" length="2" type="" format="A5" description="C相2次谐波电压含有率日最大值" />				
+		<data-item code="0322101702" parentCode="0DF118" length="4" type="" format="A17" description="C相2次谐波电压含有率日最大值发生时间" />				
+		<data-item code="0322101703" parentCode="0DF118" length="2" type="" format="A5" description="C相3次谐波电压含有率日最大值" />				
+		<data-item code="0322101704" parentCode="0DF118" length="4" type="" format="A17" description="C相3次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101705" parentCode="0DF118" length="2" type="" format="A5" description="C相4次谐波电压含有率日最大值" />				
+		<data-item code="0322101706" parentCode="0DF118" length="4" type="" format="A17" description="C相4次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101707" parentCode="0DF118" length="2" type="" format="A5" description="C相5次谐波电压含有率日最大值" />				
+		<data-item code="0322101708" parentCode="0DF118" length="4" type="" format="A17" description="C相5次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101709" parentCode="0DF118" length="2" type="" format="A5" description="C相6次谐波电压含有率日最大值" />				
+		<data-item code="0322101710" parentCode="0DF118" length="4" type="" format="A17" description="C相6次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101711" parentCode="0DF118" length="2" type="" format="A5" description="C相7次谐波电压含有率日最大值" />				
+		<data-item code="0322101712" parentCode="0DF118" length="4" type="" format="A17" description="C相7次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101713" parentCode="0DF118" length="2" type="" format="A5" description="C相8次谐波电压含有率日最大值" />				
+		<data-item code="0322101714" parentCode="0DF118" length="4" type="" format="A17" description="C相8次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101715" parentCode="0DF118" length="2" type="" format="A5" description="C相9次谐波电压含有率日最大值" />				
+		<data-item code="0322101716" parentCode="0DF118" length="4" type="" format="A17" description="C相9次谐波电压含有率日最大值发生时间" />	
+		<data-item code="0322101717" parentCode="0DF118" length="2" type="" format="A5" description="C相10次谐波电压含有率日最大值" />				
+		<data-item code="0322101718" parentCode="0DF118" length="4" type="" format="A17" description="C相10次谐波电压含有率日最大值发生时间" />	
+		<data-item code="0322101719" parentCode="0DF118" length="2" type="" format="A5" description="C相11次谐波电压含有率日最大值" />				
+		<data-item code="0322101720" parentCode="0DF118" length="4" type="" format="A17" description="C相11次谐波电压含有率日最大值发生时间" />				
+		<data-item code="0322101721" parentCode="0DF118" length="2" type="" format="A5" description="C相12次谐波电压含有率日最大值" />				
+		<data-item code="0322101722" parentCode="0DF118" length="4" type="" format="A17" description="C相12次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101723" parentCode="0DF118" length="2" type="" format="A5" description="C相13次谐波电压含有率日最大值" />				
+		<data-item code="0322101724" parentCode="0DF118" length="4" type="" format="A17" description="C相13次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101725" parentCode="0DF118" length="2" type="" format="A5" description="C相14次谐波电压含有率日最大值" />				
+		<data-item code="0322101726" parentCode="0DF118" length="4" type="" format="A17" description="C相14次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101727" parentCode="0DF118" length="2" type="" format="A5" description="C相15次谐波电压含有率日最大值" />				
+		<data-item code="0322101728" parentCode="0DF118" length="4" type="" format="A17" description="C相15次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101729" parentCode="0DF118" length="2" type="" format="A5" description="C相16次谐波电压含有率日最大值" />				
+		<data-item code="0322101730" parentCode="0DF118" length="4" type="" format="A17" description="C相16次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101731" parentCode="0DF118" length="2" type="" format="A5" description="C相17次谐波电压含有率日最大值" />				
+		<data-item code="0322101732" parentCode="0DF118" length="4" type="" format="A17" description="C相17次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101733" parentCode="0DF118" length="2" type="" format="A5" description="C相18次谐波电压含有率日最大值" />				
+		<data-item code="0322101734" parentCode="0DF118" length="4" type="" format="A17" description="C相18次谐波电压含有率日最大值发生时间" />	
+		<data-item code="0322101735" parentCode="0DF118" length="2" type="" format="A5" description="C相19次谐波电压含有率日最大值" />				
+		<data-item code="0322101736" parentCode="0DF118" length="4" type="" format="A17" description="C相19次谐波电压含有率日最大值发生时间" />		
+		<data-item code="0322101737" parentCode="0DF118" length="2" type="" format="A5" description="C相总畸变电压含有率日最大值" />				
+		<data-item code="0322101738" parentCode="0DF118" length="4" type="" format="A17" description="C相总畸变电压含有率日最大值发生时间" />							
+	</data-item>
+
+	<data-item code="0DF121" parentCode="0DF121">		
+		<data-item code="0000000001" parentCode="0DF121" length="1" type="" format="HTB1" description="谐波次数M" />		
+		<data-item code="03221018XX" parentCode="0DF121" length="2" type="" format="HTB2" description="A相总畸变电压含有率越限日累计时间" />
+		<data-item code="03221019XX" parentCode="0DF121" length="2" type="" format="HTB2" description="A相总畸变电流越限日累计时间" />
+	</data-item>
+	
+	<data-item code="0DF122" parentCode="0DF122">		
+		<data-item code="0000000001" parentCode="0DF122" length="1" type="" format="HTB1" description="谐波次数M" />		
+		<data-item code="03221020XX" parentCode="0DF122" length="2" type="" format="HTB2" description="B相总畸变电压含有率越限日累计时间" />
+		<data-item code="03221021XX" parentCode="0DF122" length="2" type="" format="HTB2" description="B相总畸变电流越限日累计时间" />
+	</data-item>
+	
+	<data-item code="0DF123" parentCode="0DF123">		
+		<data-item code="0000000001" parentCode="0DF123" length="1" type="" format="HTB1" description="谐波次数M" />		
+		<data-item code="03221022XX" parentCode="0DF123" length="2" type="" format="HTB2" description="C相总畸变电压含有率越限日累计时间" />
+		<data-item code="03221023XX" parentCode="0DF123" length="2" type="" format="HTB2" description="C相总畸变电流越限日累计时间" />
+	</data-item>
+	
+	<data-item code="0DF129" parentCode="0DF129" type="日冻结">		
+		<data-item code="0422101101" parentCode="0DF129" length="2" type="" format="HTB2" description="日冻结直流模拟量越上限累计时间" />		
+		<data-item code="0422101102" parentCode="0DF129" length="2" type="" format="HTB2" description="日冻结直流模拟量越下限累计时间" />
+		<data-item code="0422101103" parentCode="0DF129" length="2" type="" format="A2" description="日冻结直流模拟量最大值" />
+		<data-item code="0422101104" parentCode="0DF129" length="3" type="" format="A18" description="日冻结直流模拟量最大值发生时间" />
+		<data-item code="0422101105" parentCode="0DF129" length="2" type="" format="A2" description="日冻结直流模拟量最小值" />
+		<data-item code="0422101106" parentCode="0DF129" length="3" type="" format="A18" description="日冻结直流模拟量最小值发生时间" />
+	</data-item>
+	
+	<data-item code="0DF130" parentCode="0DF130" type="月冻结"> 		
+		<data-item code="0423101201" parentCode="0DF130" length="2" type="" format="HTB2" description="月冻结直流模拟量越上限累计时间" />		
+		<data-item code="0423101202" parentCode="0DF130" length="2" type="" format="HTB2" description="月冻结直流模拟量越下限累计时间" />
+		<data-item code="0423101203" parentCode="0DF130" length="2" type="" format="A2" description="月冻结直流模拟量最大值" />
+		<data-item code="0423101204" parentCode="0DF130" length="3" type="" format="A18" description="月冻结直流模拟量最大值发生时间" />
+		<data-item code="0423101205" parentCode="0DF130" length="2" type="" format="A2" description="月冻结直流模拟量最小值" />
+		<data-item code="0423101206" parentCode="0DF130" length="3" type="" format="A18" description="月冻结直流模拟量最小值发生时间" />
+	</data-item>
+	
+	<data-item code="0DF138" parentCode="0DF138">
+		<data-item code="0432101000" parentCode="0DF138" length="2" type="" format="A2" description="直流模拟量数据曲线" />		
+	</data-item>
+	
+	<data-item code="0DF145" parentCode="0DF145">
+		<data-item code="0132100400" parentCode="0DF145" length="4" type="" format="A11" description="曲线一象限无功总电能示值" />		
+	</data-item>
+	
+	<data-item code="0DF146" parentCode="0DF146">
+		<data-item code="0132100500" parentCode="0DF146" length="4" type="" format="A11" description="曲线四象限无功总电能示值" />		
+	</data-item>
+	
+	<data-item code="0DF147" parentCode="0DF147">
+		<data-item code="0132100600" parentCode="0DF147" length="4" type="" format="A11" description="曲线二象限无功总电能示值" />		
+	</data-item>
+	
+	<data-item code="0DF148" parentCode="0DF148">
+		<data-item code="0132100700" parentCode="0DF148" length="4" type="" format="A11" description="曲线三象限无功总电能示值" />		
+	</data-item>
+	
+	<data-item code="0DF149" parentCode="0DF149">
+		<data-item code="0132100800" parentCode="0DF149" length="4" type="" format="A28" description="内部温度"/>
+	</data-item>
+	
+	<data-item code="0DF153" parentCode="0DF153" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF153" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0122110001" parentCode="0DF153" length="5" type="" format="A14" description="日冻结A相正向有功电能示值" />		
+		<data-item code="0122110101" parentCode="0DF153" length="5" type="" format="A14" description="日冻结B相正向有功电能示值" />		
+		<data-item code="0122110201" parentCode="0DF153" length="5" type="" format="A14" description="日冻结C相正向有功电能示值" />				
+	</data-item>
+	
+	<data-item code="0DF154" parentCode="0DF154" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF154" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0122110003" parentCode="0DF154" length="4" type="" format="A11" description="日冻结A相正向无功电能示值" />		
+		<data-item code="0122110103" parentCode="0DF154" length="4" type="" format="A11" description="日冻结B相正向无功电能示值" />		
+		<data-item code="0122110203" parentCode="0DF154" length="4" type="" format="A11" description="日冻结C相正向无功电能示值" />				
+	</data-item>
+	
+	<data-item code="0DF155" parentCode="0DF155" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF155" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0122110002" parentCode="0DF155" length="5" type="" format="A14" description="日冻结A相反向有功电能示值" />		
+		<data-item code="0122110102" parentCode="0DF155" length="5" type="" format="A14" description="日冻结B相反向有功电能示值" />		
+		<data-item code="0122110202" parentCode="0DF155" length="5" type="" format="A14" description="日冻结C相反向有功电能示值" />				
+	</data-item>
+
+	<data-item code="0DF156" parentCode="0DF156" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF156" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0122110004" parentCode="0DF156" length="4" type="" format="A11" description="日冻结A相反向无功电能示值" />		
+		<data-item code="0122110104" parentCode="0DF156" length="4" type="" format="A11" description="日冻结B相反向无功电能示值" />		
+		<data-item code="0122110204" parentCode="0DF156" length="4" type="" format="A11" description="日冻结C相反向无功电能示值" />				
+	</data-item>
+	
+	<data-item code="0DF157" parentCode="0DF157" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF157" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0123110001" parentCode="0DF157" length="5" type="" format="A14" description="月冻结A相正向有功电能示值" />		
+		<data-item code="0123110101" parentCode="0DF157" length="5" type="" format="A14" description="月冻结B相正向有功电能示值" />		
+		<data-item code="0123110201" parentCode="0DF157" length="5" type="" format="A14" description="月冻结C相正向有功电能示值" />				
+	</data-item>
+	
+	<data-item code="0DF158" parentCode="0DF158" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF158" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0123110003" parentCode="0DF158" length="4" type="" format="A11" description="月冻结A相正向无功电能示值" />		
+		<data-item code="0123110103" parentCode="0DF158" length="4" type="" format="A11" description="月冻结B相正向无功电能示值" />		
+		<data-item code="0123110203" parentCode="0DF158" length="4" type="" format="A11" description="月冻结C相正向无功电能示值" />				
+	</data-item>
+	
+	<data-item code="0DF159" parentCode="0DF159" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF159" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0123110002" parentCode="0DF159" length="5" type="" format="A14" description="月冻结A相反向有功电能示值" />		
+		<data-item code="0123110102" parentCode="0DF159" length="5" type="" format="A14" description="月冻结B相反向有功电能示值" />		
+		<data-item code="0123110202" parentCode="0DF159" length="5" type="" format="A14" description="月冻结C相反向有功电能示值" />				
+	</data-item>
+
+	<data-item code="0DF160" parentCode="0DF160" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF160" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0123110004" parentCode="0DF160" length="4" type="" format="A11" description="月冻结A相反向无功电能示值" />		
+		<data-item code="0123110104" parentCode="0DF160" length="4" type="" format="A11" description="月冻结B相反向无功电能示值" />		
+		<data-item code="0123110204" parentCode="0DF160" length="4" type="" format="A11" description="月冻结C相反向无功电能示值" />				
+	</data-item>
+	
+	<data-item code="0DF161" parentCode="0DF161" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF161" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF161" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01221000XX" parentCode="0DF161" length="5" type="" format="A14" description="日冻结正向有功总电能示值" />
+	</data-item>
+	
+	<data-item code="0DF162" parentCode="0DF162" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF162" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF162" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01221002XX" parentCode="0DF162" length="4" type="" format="A11" description="日冻结正向无功总电能示值" />
+	</data-item>
+	
+	<data-item code="0DF163" parentCode="0DF163" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF163" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF163" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01221001XX" parentCode="0DF163" length="5" type="" format="A14" description="日冻结反向有功总电能示值" />
+	</data-item>
+	
+	<data-item code="0DF164" parentCode="0DF164" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF164" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF164" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01221003XX" parentCode="0DF164" length="4" type="" format="A11" description="日冻结反向无功总电能示值" />
+	</data-item>
+	
+	<data-item code="0DF165" parentCode="0DF165" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF165" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF165" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01221004XX" parentCode="0DF165" length="4" type="" format="A11" description="日冻结一象限无功总电能示值" />
+	</data-item>
+	
+	<data-item code="0DF166" parentCode="0DF166" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF166" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF166" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01221006XX" parentCode="0DF166" length="4" type="" format="A11" description="日冻结二象限无功总电能示值" />
+	</data-item>
+	
+	
+	<data-item code="0DF167" parentCode="0DF167" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF167" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF167" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01221007XX" parentCode="0DF167" length="4" type="" format="A11" description="日冻结三象限无功总电能示值" />
+	</data-item>
+	
+	<data-item code="0DF168" parentCode="0DF168" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF168" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF168" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01221005XX" parentCode="0DF168" length="4" type="" format="A11" description="日冻结四象限无功总电能示值" />
+	</data-item>
+	
+	<data-item code="0DF169" parentCode="0DF169" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF169" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF169" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01201000XX" parentCode="0DF169" length="5" type="" format="A14" description="抄表日冻结正向有功总电能示值" />
+	</data-item>
+	
+	<data-item code="0DF170" parentCode="0DF170" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF170" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF170" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01201002XX" parentCode="0DF170" length="4" type="" format="A11" description="抄表日冻结正向无功总电能示值" />
+	</data-item>
+	
+	<data-item code="0DF171" parentCode="0DF171" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF171" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF171" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01201001XX" parentCode="0DF171" length="5" type="" format="A14" description="抄表日冻结反向有功总电能示值" />
+	</data-item>
+	
+	<data-item code="0DF172" parentCode="0DF172" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF172" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF172" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01201003XX" parentCode="0DF172" length="4" type="" format="A11" description="抄表日冻结反向无功总电能示值" />
+	</data-item>
+	
+	<data-item code="0DF173" parentCode="0DF173" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF173" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF173" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01201004XX" parentCode="0DF173" length="4" type="" format="A11" description="抄表日冻结一象限无功总电能示值" />
+	</data-item>
+	
+	<data-item code="0DF174" parentCode="0DF174" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF174" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF174" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01201006XX" parentCode="0DF174" length="4" type="" format="A11" description="抄表日冻结二象限无功总电能示值" />
+	</data-item>
+	
+	
+	<data-item code="0DF175" parentCode="0DF175" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF175" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF175" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01201007XX" parentCode="0DF175" length="4" type="" format="A11" description="抄表日冻结三象限无功总电能示值" />
+	</data-item>
+	
+	<data-item code="0DF176" parentCode="0DF176" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF176" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF176" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01201005XX" parentCode="0DF176" length="4" type="" format="A11" description="抄表日冻结四象限无功总电能示值" />
+	</data-item>
+	
+	<data-item code="0DF177" parentCode="0DF177" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF177" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF177" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01231000XX" parentCode="0DF177" length="5" type="" format="A14" description="月冻结正向有功总电能示值" />
+	</data-item>		
+	
+	<data-item code="0DF178" parentCode="0DF178" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF178" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF178" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01231002XX" parentCode="0DF178" length="4" type="" format="A11" description="月冻结正向无功总电能示值" />
+	</data-item>
+	
+	<data-item code="0DF179" parentCode="0DF179" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF179" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF179" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01231001XX" parentCode="0DF179" length="5" type="" format="A14" description="月冻结反向有功总电能示值" />
+	</data-item>
+	
+	<data-item code="0DF180" parentCode="0DF180" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF180" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF180" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01231003XX" parentCode="0DF180" length="4" type="" format="A11" description="月冻结反向无功总电能示值" />
+	</data-item>
+	
+	<data-item code="0DF181" parentCode="0DF181" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF181" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF181" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01231004XX" parentCode="0DF181" length="4" type="" format="A11" description="月冻结一象限无功总电能示值" />
+	</data-item>
+	
+	<data-item code="0DF182" parentCode="0DF182" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF182" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF182" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01231006XX" parentCode="0DF182" length="4" type="" format="A11" description="月冻结二象限无功总电能示值" />
+	</data-item>
+	
+	
+	<data-item code="0DF183" parentCode="0DF183" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF183" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF183" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01231007XX" parentCode="0DF183" length="4" type="" format="A11" description="月冻结三象限无功总电能示值" />
+	</data-item>
+	
+	<data-item code="0DF184" parentCode="0DF184" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF184" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF184" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01231005XX" parentCode="0DF184" length="4" type="" format="A11" description="月冻结四象限无功总电能示值" />
+	</data-item>
+	
+	<data-item code="0DF185" parentCode="0DF185" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF185" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="X000000000" parentCode="0DF185" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="02221000XX" parentCode="0DF185" length="3" type="" format="A23" description="日冻结正向有功总量大需量" />
+		<data-item code="02221008XX" parentCode="0DF185" length="4" type="" format="A17" description="日冻结正向有功总最大需量发生时间" />
+	</data-item>
+	
+	<data-item code="0DF186" parentCode="0DF186" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF186" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="X000000000" parentCode="0DF186" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="02221002XX" parentCode="0DF186" length="3" type="" format="A23" description="日冻结正向无功总量大需量" />
+		<data-item code="02221010XX" parentCode="0DF186" length="4" type="" format="A17" description="日冻结正向无功总最大需量发生时间" />
+	</data-item>
+	
+	<data-item code="0DF187" parentCode="0DF187" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF187" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="X000000000" parentCode="0DF187" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="02221001XX" parentCode="0DF187" length="3" type="" format="A23" description="日冻结反向有功总量大需量" />
+		<data-item code="02221009XX" parentCode="0DF187" length="4" type="" format="A17" description="日冻结反向有功总最大需量发生时间" />
+	</data-item>
+	
+	<data-item code="0DF188" parentCode="0DF188" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF188" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="X000000000" parentCode="0DF188" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="02221003XX" parentCode="0DF188" length="3" type="" format="A23" description="日冻结反向无功总量大需量" />
+		<data-item code="02221011XX" parentCode="0DF188" length="4" type="" format="A17" description="日冻结反向无功总最大需量发生时间" />
+	</data-item>
+	
+	<data-item code="0DF189" parentCode="0DF189" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF189" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="X000000000" parentCode="0DF189" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="02201000XX" parentCode="0DF189" length="3" type="" format="A23" description="抄表日冻结正向有功总量大需量" />
+		<data-item code="02201008XX" parentCode="0DF189" length="4" type="" format="A17" description="抄表日冻结正向有功总最大需量发生时间" />
+	</data-item>
+	
+	<data-item code="0DF190" parentCode="0DF190" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF190" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="X000000000" parentCode="0DF190" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="02201002XX" parentCode="0DF190" length="3" type="" format="A23" description="抄表日冻结正向无功总量大需量" />
+		<data-item code="02201010XX" parentCode="0DF190" length="4" type="" format="A17" description="抄表日冻结正向无功总最大需量发生时间" />
+	</data-item>
+	
+	<data-item code="0DF191" parentCode="0DF191" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF191" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="X000000000" parentCode="0DF191" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="02201001XX" parentCode="0DF191" length="3" type="" format="A23" description="抄表日冻结反向有功总量大需量" />
+		<data-item code="02201009XX" parentCode="0DF191" length="4" type="" format="A17" description="抄表日冻结反向有功总最大需量发生时间" />
+	</data-item>
+	
+	<data-item code="0DF192" parentCode="0DF192" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF192" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="X000000000" parentCode="0DF192" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="02201003XX" parentCode="0DF192" length="3" type="" format="A23" description="抄表日冻结反向无功总量大需量" />
+		<data-item code="02201011XX" parentCode="0DF192" length="4" type="" format="A17" description="抄表日冻结反向无功总最大需量发生时间" />
+	</data-item>
+	
+	<data-item code="0DF193" parentCode="0DF193" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF193" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="X000000000" parentCode="0DF193" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="02231000XX" parentCode="0DF193" length="3" type="" format="A23" description="月冻结正向有功总量大需量" />
+		<data-item code="02231008XX" parentCode="0DF193" length="4" type="" format="A17" description="月冻结正向有功总最大需量发生时间" />
+	</data-item>
+	
+	<data-item code="0DF194" parentCode="0DF194" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF194" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="X000000000" parentCode="0DF194" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="02231002XX" parentCode="0DF194" length="3" type="" format="A23" description="月冻结正向无功总量大需量" />
+		<data-item code="02231010XX" parentCode="0DF194" length="4" type="" format="A17" description="月冻结正向无功总最大需量发生时间" />
+	</data-item>
+	
+	<data-item code="0DF195" parentCode="0DF195" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF195" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="X000000000" parentCode="0DF195" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="02231001XX" parentCode="0DF195" length="3" type="" format="A23" description="月冻结反向有功总量大需量" />
+		<data-item code="02231009XX" parentCode="0DF195" length="4" type="" format="A17" description="月冻结反向有功总最大需量发生时间" />
+	</data-item>
+	
+	<data-item code="0DF196" parentCode="0DF196" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF196" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="X000000000" parentCode="0DF196" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="02231003XX" parentCode="0DF196" length="3" type="" format="A23" description="月冻结反向无功总量大需量" />
+		<data-item code="02231011XX" parentCode="0DF196" length="4" type="" format="A17" description="月冻结反向无功总最大需量发生时间" />
+	</data-item>
+	
+	<data-item code="0DF201" parentCode="0DF201" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF201" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF201" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01241000XX" parentCode="0DF201" length="5" type="" format="A14" description="月冻结第一时区冻结正向有功总电能示值" />		
+	</data-item>
+	
+	<data-item code="0DF202" parentCode="0DF202" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF202" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF202" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01251000XX" parentCode="0DF202" length="5" type="" format="A14" description="月冻结第二时区冻结正向有功总电能示值" />		
+	</data-item>
+	
+	<data-item code="0DF203" parentCode="0DF203" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF203" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF203" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01261000XX" parentCode="0DF203" length="5" type="" format="A14" description="月冻结第三时区冻结正向有功总电能示值" />		
+	</data-item>
+	
+	<data-item code="0DF204" parentCode="0DF204" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF204" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF204" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01271000XX" parentCode="0DF204" length="5" type="" format="A14" description="月冻结第四时区冻结正向有功总电能示值" />		
+	</data-item>
+	
+	<data-item code="0DF205" parentCode="0DF205" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF205" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF205" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01281000XX" parentCode="0DF205" length="5" type="" format="A14" description="月冻结第五时区冻结正向有功总电能示值" />		
+	</data-item>
+	
+	<data-item code="0DF206" parentCode="0DF206" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF206" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF206" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01291000XX" parentCode="0DF206" length="5" type="" format="A14" description="月冻结第六时区冻结正向有功总电能示值" />		
+	</data-item>
+	
+	<data-item code="0DF207" parentCode="0DF207" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF207" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF207" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01301000XX" parentCode="0DF207" length="5" type="" format="A14" description="月冻结第七时区冻结正向有功总电能示值" />		
+	</data-item>
+	
+	<data-item code="0DF208" parentCode="0DF208" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF208" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF208" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01311000XX" parentCode="0DF208" length="5" type="" format="A14" description="月冻结第八时区冻结正向有功总电能示值" />		
+	</data-item>
+	
+	<data-item code="0DF209" parentCode="0DF209" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF209" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0422102001" parentCode="0DF209" length="1" type="" format="HTB1" description="日冻结电能表通断电状态" />		
+		<data-item code="0422102002" parentCode="0DF209" length="5" type="" format="A15" description="日冻结电能表最近一次远程控制通电时间" />		
+		<data-item code="0422102003" parentCode="0DF209" length="5" type="" format="A15" description="日冻结电能表最近一次远程控制断电时间" />		
+	</data-item>
+	
+	<data-item code="0DF213" parentCode="0DF213" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF213" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0423102101" parentCode="0DF213" length="2" type="" format="A8" description="月冻结电能表编程开关操作次数" />		
+		<data-item code="0423102102" parentCode="0DF213" length="5" type="" format="A15" description="月冻结电能表最近一次编程开关操作时间" />		
+		<data-item code="0423102103" parentCode="0DF213" length="2" type="" format="A8" description="月冻结电能表尾盖打开次数" />		
+		<data-item code="0423102104" parentCode="0DF213" length="5" type="" format="A15" description="月冻结电能表最近一次尾盖打开时间" />		
+	</data-item>
+	
+	<data-item code="0DF214" parentCode="0DF214" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF214" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0423102201" parentCode="0DF214" length="2" type="" format="A8" description="月冻结电能表时钟修改次数" />		
+		<data-item code="0423102202" parentCode="0DF214" length="5" type="" format="A15" description="月冻结电能表最近一次时钟修改时间" />		
+		<data-item code="0423102203" parentCode="0DF214" length="2" type="" format="A8" description="月冻结电能表时段参数修改次数" />		
+		<data-item code="0423102204" parentCode="0DF214" length="5" type="" format="A15" description="月冻结电能表最近一次时段参数修改时间" />		
+	</data-item>
+	
+	<data-item code="0DF215" parentCode="0DF215" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF215" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0423102301" parentCode="0DF215" length="2" type="" format="A8" description="月冻结电能表购电次数" />		
+		<data-item code="0423102302" parentCode="0DF215" length="5" type="" format="A14" description="月冻结电能表剩余金额" />		
+		<data-item code="0423102303" parentCode="0DF215" length="5" type="" format="A14" description="月冻结电能表累计购电金额" />		
+		<data-item code="0423102304" parentCode="0DF215" length="4" type="" format="A11" description="月冻结电能表剩余电量" />		
+		<data-item code="0423102305" parentCode="0DF215" length="4" type="" format="A11" description="月冻结电能表透支电量" />
+		<data-item code="0423102306" parentCode="0DF215" length="4" type="" format="A11" description="月冻结电能表累计购电量" />
+		<data-item code="0423102307" parentCode="0DF215" length="4" type="" format="A11" description="月冻结电能表赊欠门限电量" />
+		<data-item code="0423102308" parentCode="0DF215" length="4" type="" format="A11" description="月冻结电能表报警电量" />
+		<data-item code="0423102309" parentCode="0DF215" length="4" type="" format="A11" description="月冻结电能表故障电量" />		
+	</data-item>
+	
+	<data-item code="0DF216" parentCode="0DF216" type="月冻结">
+		<data-item code="0400122000" parentCode="0DF216" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0000000000" parentCode="0DF216" length="1" type="" format="HTB1" description="费率数M" />		
+		<data-item code="01342002XX" parentCode="0DF216" length="5" type="" format="A14" description="月冻结已结费正向有功总电能" />		
+		<data-item code="01352002XX" parentCode="0DF216" length="5" type="" format="A14" description="月冻结未结费正向有功总电能" />				
+	</data-item>
+	
+	<data-item code="0DF217" parentCode="0DF217">
+		<data-item code="0432120100" parentCode="0DF217" length="1" type="" format="HTB1" description="白噪声比值N曲线" />			
+	</data-item>
+	
+	<data-item code="0DF218" parentCode="0DF218">
+		<data-item code="0432120201" parentCode="0DF218" length="1" type="" format="HTB1" description="色噪声比值N曲线" />			
+		<data-item code="0432120202" parentCode="0DF218" length="6" type="" format="A12" description="对应噪声比值N的主节点地址曲线" />			
+	</data-item>
+	
+	<data-item code="0DF249" parentCode="0DF249" type="日冻结" description="巴西高压表数据日冻结UFER/DMCR">
+		<data-item code="0400122000" parentCode="0DF249" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0102130001" parentCode="0DF249" length="5" type="" format="A14" description="UFER电量T1"/>
+		<data-item code="0102130002" parentCode="0DF249" length="5" type="" format="A14" description="UFER电量T2"/>
+		<data-item code="0102130003" parentCode="0DF249" length="5" type="" format="A14" description="UFER电量T3"/>
+		<data-item code="0102130004" parentCode="0DF249" length="5" type="" format="A14" description="UFER电量T4"/>
+		<data-item code="0202130001" parentCode="0DF249" length="3" type="" format="A23" description="DMCR需量T1"/>
+		<data-item code="0202130002" parentCode="0DF249" length="3" type="" format="A23" description="DMCR需量T2"/>
+		<data-item code="0202130003" parentCode="0DF249" length="3" type="" format="A23" description="DMCR需量T3"/>
+		<data-item code="0202130004" parentCode="0DF249" length="3" type="" format="A23" description="DMCR需量T4"/>
+	</data-item>
+	<data-item code="0DF250" parentCode="0DF250" type="月冻结" description="巴西高压表数据月冻结UFER/DMCR">
+		<data-item code="0400122000" parentCode="0DF250" length="5" type="" format="A15" description="终端抄表时间" />
+		<data-item code="0123130001" parentCode="0DF250" length="5" type="" format="A14" description="UFER电量T1"/>
+		<data-item code="0123130002" parentCode="0DF250" length="5" type="" format="A14" description="UFER电量T2"/>
+		<data-item code="0123130003" parentCode="0DF250" length="5" type="" format="A14" description="UFER电量T3"/>
+		<data-item code="0123130004" parentCode="0DF250" length="5" type="" format="A14" description="UFER电量T4"/>
+		<data-item code="0223130001" parentCode="0DF250" length="3" type="" format="A23" description="DMCR需量T1"/>
+		<data-item code="0223130002" parentCode="0DF250" length="3" type="" format="A23" description="DMCR需量T2"/>
+		<data-item code="0223130003" parentCode="0DF250" length="3" type="" format="A23" description="DMCR需量T3"/>
+		<data-item code="0223130004" parentCode="0DF250" length="3" type="" format="A23" description="DMCR需量T4"/>
+	</data-item>
+	
+	<!-- 预付费日冻结 -->
+	<data-item code="0DF254" parentCode="0DF254" type="日冻结">
+		<data-item code="0400122000" parentCode="0DF254" length="5" type="" format="A15"  description="终端抄表时间"/>
+		<data-item code="0822000001" parentCode="0DF254" length="4" type="" format="A28" description="电表余额信息"/>	    
+		<data-item code="0822000002" parentCode="0DF254" length="1" type="" format="A4" description="余额状态"/>
+		<data-item code="0822000003" parentCode="0DF254" length="1" type="" format="A4" description="继电器状态"/>
+		<data-item code="0822000004" parentCode="0DF254" length="4" type="" format="A28" description="累积用钱量"/>
+	</data-item>
+	<!--三类数据-->
+	<data-item code="0EF001" parentCode="0EF001" length="0" type="" format="" description="重要事件召测" />
+	<data-item code="0EF002" parentCode="0EF002" length="0" type="" format="" description="一般事件召测" />
+	
+	<!-- 固件升级 -->
+	<data-item code="C0F010" parentCode="C0F010" length="270" type="" format="HTB1#IP4#HTB2#ASC32#ASC32#ASC32#ASC32" description="固件升级"></data-item>
+	<!--固件升级，每一帧数据长度是可配置的，根据通信状况来确定每一帧的长度length  512	-->
+	<data-item code="0FF001" parentCode="0FF001" length="1024" type="" format="HTB1#HTB1#HTB1#HTB2#HTB4#HTB2#ASC512" description="固件升级 每一帧数据长度length=512"></data-item>
+	
+	<data-item code="06F020" parentCode="C0F020" length="96" type="" format="HTB1#ASC48" description="更新集中器内保存的主站公钥"></data-item>
+	<data-item code="06F021" parentCode="C0F021" length="0" type="" format="" description="更新集中器本身公钥"></data-item>
+	
+</protocol-data>

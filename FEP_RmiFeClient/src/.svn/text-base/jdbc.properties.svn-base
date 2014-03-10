@@ -1,0 +1,8 @@
+
+
+master.jdbc.driver=oracle.jdbc.driver.OracleDriver
+master.jdbc.url=jdbc:oracle:thin:@192.168.2.176:1521:ami
+
+master.jdbc.username=AMI3
+master.jdbc.password=AMI3
+

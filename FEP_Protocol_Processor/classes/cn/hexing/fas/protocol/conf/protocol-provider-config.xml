@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<protocol-provider>
+			
+	<!-- 浙江规约处理器 -->
+	<protocol-handler>
+		<message-type>cn.hexing.fk.message.zj.MessageZj</message-type>
+		<handler-class>cn.hexing.fas.protocol.zj.handler.PrototalHandlerImpl</handler-class>				
+		<codec-factory>
+			<factory-class>cn.hexing.fas.protocol.codec.DefaultMessageCodecFactory</factory-class>
+			<data-config-mapping>cn/hexing/fas/protocol/zj/conf/protocol-data-config-mapping.xml</data-config-mapping>
+			<data-config-resource>cn/hexing/fas/protocol/zj/conf/protocol-data-config.xml</data-config-resource>
+			<!-- 读中继 消息编码/解码器 -->
+			<codec fun-code="00">
+				<encoder-class>cn.hexing.fas.protocol.zj.codec.C00MessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.zj.codec.C00MessageDecoder</decoder-class>
+			</codec>
+			<!-- 读当前数据 消息编码/解码器 -->
+			<codec fun-code="01">
+				<encoder-class>cn.hexing.fas.protocol.zj.codec.C01MessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.zj.codec.C01MessageDecoder</decoder-class>
+			</codec>
+			<!-- 读任务数据 消息编码/解码器 -->
+			<codec fun-code="02">
+				<encoder-class>cn.hexing.fas.protocol.zj.codec.C02MessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.zj.codec.C02MessageDecoder</decoder-class>
+			</codec>
+			<!-- 读编程日志 消息编码/解码器 -->
+			<codec fun-code="04">
+				<encoder-class>cn.hexing.fas.protocol.zj.codec.C04MessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.zj.codec.C04MessageDecoder</decoder-class>
+			</codec>
+			<!-- 实时写对象参数 消息编码/解码器 -->
+			<codec fun-code="07">
+				<encoder-class>cn.hexing.fas.protocol.zj.codec.C07MessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.zj.codec.C07MessageDecoder</decoder-class>
+			</codec>
+			<!-- 写对象参数 消息编码/解码器 -->
+			<codec fun-code="08">
+				<encoder-class>cn.hexing.fas.protocol.zj.codec.C08MessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.zj.codec.C08MessageDecoder</decoder-class>
+			</codec>
+			<!-- 异常告警 消息编码/解码器 -->
+			<codec fun-code="09">
+				<encoder-class>cn.hexing.fas.protocol.zj.codec.C09MessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.zj.codec.C09MessageDecoder</decoder-class>
+			</codec>						
+			<!-- 请求发送端信 消息编码/解码器 -->
+			<codec fun-code="40">
+				<encoder-class>cn.hexing.fas.protocol.zj.codec.C28MessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.zj.codec.C28MessageDecoder</decoder-class>
+			</codec>
+		</codec-factory>
+	</protocol-handler>
+						
+	<!-- 浙江广规规约处理器 -->
+	<protocol-handler>
+		<message-type>cn.hexing.fas.framework.message.MessageGg</message-type>
+		<handler-class>cn.hexing.fas.protocol.zj.handler.PrototalHandlerImpl</handler-class>				
+		<codec-factory>
+			<factory-class>cn.hexing.fas.protocol.codec.DefaultMessageCodecFactory</factory-class>
+			<data-config-mapping>cn/hexing/fas/protocol/gg/conf/protocol-data-config-mapping.xml</data-config-mapping>
+			<data-config-resource>cn/hexing/fas/protocol/gg/conf/protocol-data-config.xml</data-config-resource>	
+			<!-- 读中继 消息编码/解码器 -->
+			<codec fun-code="00">
+				<encoder-class>cn.hexing.fas.protocol.zj.codec.C00MessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.zj.codec.C00MessageDecoder</decoder-class>
+			</codec>
+			<!-- 读当前数据 消息编码/解码器 -->
+			<codec fun-code="01">
+				<encoder-class>cn.hexing.fas.protocol.zj.codec.C01MessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.zj.codec.C01MessageDecoder</decoder-class>
+			</codec>
+			<!-- 读任务数据 消息编码/解码器 -->
+			<codec fun-code="02">
+				<encoder-class>cn.hexing.fas.protocol.zj.codec.C02MessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.zj.codec.C02MessageDecoder</decoder-class>
+			</codec>
+			<!-- 读编程日志 消息编码/解码器 -->
+			<codec fun-code="04">
+				<encoder-class>cn.hexing.fas.protocol.zj.codec.C04MessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.zj.codec.C04MessageDecoder</decoder-class>
+			</codec>
+			<!-- 实时写对象参数 消息编码/解码器 -->
+			<codec fun-code="07">
+				<encoder-class>cn.hexing.fas.protocol.zj.codec.C07MessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.zj.codec.C07MessageDecoder</decoder-class>
+			</codec>
+			<!-- 写对象参数 消息编码/解码器 -->
+			<codec fun-code="08">
+				<encoder-class>cn.hexing.fas.protocol.zj.codec.C08MessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.zj.codec.C08MessageDecoder</decoder-class>
+			</codec>
+			<!-- 异常告警 消息编码/解码器 -->
+			<codec fun-code="09">
+				<encoder-class>cn.hexing.fas.protocol.zj.codec.C09MessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.zj.codec.C09MessageDecoder</decoder-class>
+			</codec>
+			<!-- 抄冻结数据 消息编码/解码器 -->
+			<codec fun-code="17">
+				<encoder-class>cn.hexing.fas.protocol.zj.codec.C11MessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.zj.codec.C11MessageDecoder</decoder-class>
+			</codec>
+			<!-- 集抄冻结数据 消息编码/解码器 -->
+			<codec fun-code="18">
+				<encoder-class>cn.hexing.fas.protocol.zj.codec.C12MessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.zj.codec.C12MessageDecoder</decoder-class>
+			</codec>
+			<!-- 控制操作类 消息编码/解码器 -->
+			<codec fun-code="20">
+				<encoder-class>cn.hexing.fas.protocol.zj.codec.C14MessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.zj.codec.C14MessageDecoder</decoder-class>
+			</codec>
+			<!-- 表计档案注册类  消息编码/解码器 -->
+			<codec fun-code="21">
+				<encoder-class>cn.hexing.fas.protocol.zj.codec.C15MessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.zj.codec.C15MessageDecoder</decoder-class>
+			</codec>
+			<!-- 事件 告警类 消息编码/解码器 -->
+			<codec fun-code="25">
+				<encoder-class>cn.hexing.fas.protocol.zj.codec.C19MessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.zj.codec.C19MessageDecoder</decoder-class>
+			</codec>
+			<!-- 预付费信息类 消息编码/解码器 -->
+			<codec fun-code="51">
+				<encoder-class>cn.hexing.fas.protocol.zj.codec.C33MessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.zj.codec.C33MessageDecoder</decoder-class>
+			</codec>
+			<!-- 广规软件升级 -->
+			<codec fun-code="48">
+				<encoder-class>cn.hexing.fas.protocol.zj.codec.C30MessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.zj.codec.C30MessageDecoder</decoder-class>
+			</codec>			
+			<!-- 请求发送端信 消息编码/解码器 -->
+			<codec fun-code="40">
+				<encoder-class>cn.hexing.fas.protocol.zj.codec.C28MessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.zj.codec.C28MessageDecoder</decoder-class>
+			</codec>
+		</codec-factory>
+	</protocol-handler>	
+	<!-- 国网规约处理器 -->
+	<protocol-handler>
+		<message-type>cn.hexing.fk.message.gw.MessageGw</message-type>
+		<handler-class>cn.hexing.fas.protocol.gw.handler.PrototalHandlerImpl</handler-class>				
+		<codec-factory>
+			<factory-class>cn.hexing.fas.protocol.codec.DefaultMessageCodecFactory</factory-class>
+			<data-config-mapping>cn/hexing/fas/protocol/gw/conf/protocol-data-config-mapping.xml</data-config-mapping>
+			<data-config-resource>cn/hexing/fas/protocol/gw/conf/protocol-data-config.xml</data-config-resource>	
+			<!-- 确认命令 消息解码器 -->
+			<codec fun-code="00">				
+				<decoder-class>cn.hexing.fas.protocol.gw.codec.C00MessageDecoder</decoder-class>
+			</codec>
+			<!-- 复位命令 消息编码器 -->
+			<codec fun-code="01">
+				<encoder-class>cn.hexing.fas.protocol.gw.codec.C04MessageEncoder</encoder-class>				
+			</codec>
+			<!-- 链路检测 消息编码器 -->
+			<codec fun-code="02">
+				<decoder-class>cn.hexing.fas.protocol.gw.codec.C02MessageDecoder</decoder-class>				
+			</codec>
+			<!-- 设置参数 消息编码器 -->
+			<codec fun-code="04">
+				<encoder-class>cn.hexing.fas.protocol.gw.codec.C04MessageEncoder</encoder-class>				
+				<decoder-class>cn.hexing.fas.protocol.gw.codec.C04MessageDecoder</decoder-class>
+			</codec>
+			<!-- 控制命令 消息编码器 -->
+			<codec fun-code="05">
+				<encoder-class>cn.hexing.fas.protocol.gw.codec.C04MessageEncoder</encoder-class>	
+				<decoder-class>cn.hexing.fas.protocol.gw.codec.C00MessageDecoder</decoder-class>			
+			</codec>
+			<!-- 更新密钥 -->
+			<codec fun-code="06">
+				<encoder-class>cn.hexing.fas.protocol.gw.codec.C06MessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.gw.codec.C06MessageDecoder</decoder-class>
+			</codec>
+			
+			<!-- 请求终端配置及信息 消息编码/解码器 -->
+			<codec fun-code="09">
+				<encoder-class>cn.hexing.fas.protocol.gw.codec.C09MessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.gw.codec.C09MessageDecoder</decoder-class>
+			</codec>			
+			<!-- 查询参数 消息编码/解码器 -->
+			<codec fun-code="10">
+				<encoder-class>cn.hexing.fas.protocol.gw.codec.C0AMessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.gw.codec.C0AMessageDecoder</decoder-class>
+			</codec>
+			<!-- 一类数据 消息编码/解码器 -->
+			<codec fun-code="12">
+				<encoder-class>cn.hexing.fas.protocol.gw.codec.C0CMessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.gw.codec.C0CMessageDecoder</decoder-class>
+			</codec>
+			<!-- 二类数据 消息编码/解码器 -->
+			<codec fun-code="13">
+				<encoder-class>cn.hexing.fas.protocol.gw.codec.C0DMessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.gw.codec.C0DMessageDecoder</decoder-class>
+			</codec>
+			<!-- 三类数据 消息编码/解码器 -->
+			<codec fun-code="14">
+				<encoder-class>cn.hexing.fas.protocol.gw.codec.C0EMessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.gw.codec.C0EMessageDecoder</decoder-class>
+			</codec>	
+			<!-- 文件传输   消息编码/解码器 -->
+			<codec fun-code="15">
+				<encoder-class>cn.hexing.fas.protocol.gw.codec.C0FMessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.gw.codec.C0FMessageDecoder</decoder-class>
+			</codec>					
+			<!-- 中继转发 消息编码/解码器 -->
+			<codec fun-code="16">
+				<encoder-class>cn.hexing.fas.protocol.gw.codec.C10MessageEncoder</encoder-class>
+				<decoder-class>cn.hexing.fas.protocol.gw.codec.C10MessageDecoder</decoder-class>
+			</codec>
+
+			<codec fun-code="192">
+				<encoder-class>cn.hexing.fas.protocol.gw.codec.C04MessageEncoder</encoder-class>
+			</codec>
+		</codec-factory>
+	</protocol-handler>		
+ 	
+ 	<!-- 伊朗老广规规约处理器 (同一个系统中不能同时出现2套广规)--> 
+<!--	<protocol-handler>-->
+<!--		<message-type>cn.hexing.fas.framework.message.MessageGg</message-type>-->
+<!--		<handler-class>cn.hexing.fas.protocol.zj.handler.PrototalHandlerImpl</handler-class>				-->
+<!--		<codec-factory>-->
+<!--			<factory-class>cn.hexing.fas.protocol.codec.DefaultMessageCodecFactory</factory-class>-->
+<!--			<data-config-mapping>cn/hexing/fas/protocol/zj/ggconf/protocol-data-config-mapping.xml</data-config-mapping>-->
+<!--			<data-config-resource>cn/hexing/fas/protocol/zj/ggconf/protocol-data-config.xml</data-config-resource>	-->
+<!--			 读当前数据 消息编码/解码器 -->
+<!--			<codec fun-code="01">-->
+<!--				<encoder-class>cn.hexing.fas.protocol.zj.ggcodec.C01MessageEncoder</encoder-class>-->
+<!--				<decoder-class>cn.hexing.fas.protocol.zj.ggcodec.C01MessageDecoder</decoder-class>-->
+<!--			</codec>-->
+<!--			 实时写对象参数 消息编码/解码器 -->
+<!--			<codec fun-code="07">-->
+<!--				<encoder-class>cn.hexing.fas.protocol.zj.ggcodec.C07MessageEncoder</encoder-class>-->
+<!--				<decoder-class>cn.hexing.fas.protocol.zj.ggcodec.C07MessageDecoder</decoder-class>-->
+<!--			</codec>-->
+<!--			 写对象参数 消息编码/解码器 -->
+<!--			<codec fun-code="08">-->
+<!--				<encoder-class>cn.hexing.fas.protocol.zj.ggcodec.C08MessageEncoder</encoder-class>-->
+<!--				<decoder-class>cn.hexing.fas.protocol.zj.ggcodec.C08MessageDecoder</decoder-class>-->
+<!--			</codec>-->
+<!--			 抄冻结数据 消息编码/解码器 -->
+<!--			<codec fun-code="17">-->
+<!--				<encoder-class>cn.hexing.fas.protocol.zj.ggcodec.C11MessageEncoder</encoder-class>-->
+<!--				<decoder-class>cn.hexing.fas.protocol.zj.ggcodec.C11MessageDecoder</decoder-class>-->
+<!--			</codec>-->
+<!--			 集抄冻结数据 消息编码/解码器 -->
+<!--			<codec fun-code="18">-->
+<!--				<encoder-class>cn.hexing.fas.protocol.zj.ggcodec.C12MessageEncoder</encoder-class>-->
+<!--				<decoder-class>cn.hexing.fas.protocol.zj.ggcodec.C12MessageDecoder</decoder-class>-->
+<!--			</codec>-->
+<!--			 控制操作类 消息编码/解码器 -->
+<!--			<codec fun-code="20">-->
+<!--				<encoder-class>cn.hexing.fas.protocol.zj.ggcodec.C14MessageEncoder</encoder-class>-->
+<!--				<decoder-class>cn.hexing.fas.protocol.zj.ggcodec.C14MessageDecoder</decoder-class>-->
+<!--			</codec>-->
+<!--			 表计档案注册类  消息编码/解码器 -->
+<!--			<codec fun-code="21">-->
+<!--				<encoder-class>cn.hexing.fas.protocol.zj.ggcodec.C15MessageEncoder</encoder-class>-->
+<!--				<decoder-class>cn.hexing.fas.protocol.zj.ggcodec.C15MessageDecoder</decoder-class>-->
+<!--			</codec>-->
+<!--			 事件 告警类 消息编码/解码器 -->
+<!--			<codec fun-code="25">-->
+<!--				<encoder-class>cn.hexing.fas.protocol.zj.ggcodec.C19MessageEncoder</encoder-class>-->
+<!--				<decoder-class>cn.hexing.fas.protocol.zj.ggcodec.C19MessageDecoder</decoder-class>-->
+<!--			</codec>-->
+<!--		</codec-factory>-->
+<!--	</protocol-handler>	-->
+
+</protocol-provider>

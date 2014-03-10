@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ami3.0/!svn/ver/15659/trunk/fep/FEP_Common/src/com/hx/ansi/ansiElements/ansiElements
+END
+AnsiTableItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/ami3.0/!svn/ver/18392/trunk/fep/FEP_Common/src/com/hx/ansi/ansiElements/ansiElements/AnsiTableItem.java
+END
+TableInf.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ami3.0/!svn/ver/13600/trunk/fep/FEP_Common/src/com/hx/ansi/ansiElements/ansiElements/TableInf.java
+END
+UserInformation.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/ami3.0/!svn/ver/13600/trunk/fep/FEP_Common/src/com/hx/ansi/ansiElements/ansiElements/UserInformation.java
+END
+AnsiTaskDataItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/ami3.0/!svn/ver/14444/trunk/fep/FEP_Common/src/com/hx/ansi/ansiElements/ansiElements/AnsiTaskDataItem.java
+END
+Table.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ami3.0/!svn/ver/18392/trunk/fep/FEP_Common/src/com/hx/ansi/ansiElements/ansiElements/Table.java
+END
+AnsiTaskData.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ami3.0/!svn/ver/14444/trunk/fep/FEP_Common/src/com/hx/ansi/ansiElements/ansiElements/AnsiTaskData.java
+END
+AnsiCommandResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/ami3.0/!svn/ver/13600/trunk/fep/FEP_Common/src/com/hx/ansi/ansiElements/ansiElements/AnsiCommandResult.java
+END

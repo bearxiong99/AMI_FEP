@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Application context definition for ...
+-->
+<beans 	xmlns="http://www.springframework.org/schema/beans" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:p="http://www.springframework.org/schema/p" 
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:context="http://www.springframework.org/schema/context" 
+		xmlns:jee="http://www.springframework.org/schema/jee"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xmlns:jaxws="http://cxf.apache.org/jaxws"
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+			http://cxf.apache.org/jaxws http://cxf.apache.org/schema/jaxws.xsd">
+			
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>application.properties</value>
+				<value>jdbc.properties</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="dataSource"
+    	class="org.logicalcobwebs.proxool.ProxoolDataSource">
+	    <property name="driver"><value>${master.jdbc.driver}</value></property>
+	    <property name="driverUrl"><value>${master.jdbc.url}</value></property>
+	    <property name="user"><value>${master.jdbc.username}</value></property>
+	    <property name="password"><value>${master.jdbc.password}</value></property>
+	    <property name="trace"><value>true</value></property>
+	    <property name="verbose"><value>true</value></property>
+	    <property name="houseKeepingTestSql" value="select sysdate from dual"/>
+	    <property name="alias" value="mainDb"/>
+	</bean>
+	
+	
+	<bean id="rmiDb" class="cn.hexing.rmi.client.control.RmiClientDb">
+		<property name="dataSource" ref="dataSource"/>
+		
+		<property name="mapperGetDepartment">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.rmi.client.model.LeftTreeNode"/>
+				<property name="columnMapper">
+					<list>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="id"/>
+							<property name="index" value="1"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="text"/>
+							<property name="index" value="2"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="departmentId"/>
+							<property name="index" value="3"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="type"/>
+							<property name="index" value="4"/>
+					</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+		
+		<property name="sqlQueryTerminal">
+			<value>
+				select zdljdz from da_zd where zdljdz like ?
+			</value>
+		</property>
+		
+		<property name="sqlGetDepartment">
+			<value>
+			SELECT DWDM AS DWBM, DWMC AS DWMC, DWDM, 'dw' AS TYPE
+			FROM QX_QY DW
+			WHERE DW.SJDWDM = ?
+			ORDER BY DWDM
+			</value>
+		</property>
+		
+		<property name="sqlGetRootDepartment">
+			<value>
+			SELECT DWDM AS DWBM, DWMC AS DWMC, DWDM, 'root' AS TYPE
+			FROM QX_QY DW
+			WHERE DW.SJDWDM is null
+			ORDER BY DWDM
+			</value>
+		</property>
+		
+		<property name="sqlGetCircuit">
+			<value>
+			SELECT T.XLID AS DWBM, T.XLMC AS DWMC, T.DWDM, 'xl' AS TYPE
+			FROM G_XL T
+			WHERE T.DWDM = ?
+			ORDER BY T.XLMC
+			</value>
+		</property>
+		
+		<property name="sqlGetDistrict">
+			<value>
+			SELECT TQ.TQID AS DWBM, TQ.TQMC AS DWMC, TQ.DWDM, 'tq' AS TYPE
+			FROM G_XLTQGX RA, G_TQ TQ
+			WHERE TQ.TQID = RA.TQID
+			AND RA.XLID = ?
+			ORDER BY TQ.TQMC
+			</value>
+		</property>
+		
+		<property name="sqlGetTransformer">
+			<value>
+			SELECT BYQ.BYQID AS DWBM,
+			BYQ.MC AS DWMC,
+			BYQ.DWDM AS DWDM,
+			'byq' AS TYPE
+			FROM G_BYQ BYQ
+			WHERE BYQ.TQID = ?
+			ORDER BY BYQ.MC
+			</value>
+		</property>
+		
+		<property name="sqlGetTerminal">
+			<value>
+			SELECT T.ZDLJDZ AS DWBM, T.ZDLJDZ AS DWMC, T.DWDM, 'sb' AS TYPE
+			FROM DA_ZD T
+			WHERE BYQID = ?
+			ORDER BY T.ZDJH
+			</value>
+		</property>
+		
+	</bean>
+	
+	<bean id="rmiDbService" class="cn.hexing.rmi.client.control.RmiClientDbService" factory-method="getInstance">
+		<property name="dbClient" ref="rmiDb"/>
+	</bean>
+	
+	<bean id="rtuInfoClient" class="cn.hexing.rmi.client.model.RtuInfoClient" factory-method="getInstance"
+		init-method="init">
+		<property name="ip" value="${rmi.server.ip}"/>
+		<property name="port" value="${rmi.server.port}"></property>
+	</bean>
+	
+	
+	
+</beans>

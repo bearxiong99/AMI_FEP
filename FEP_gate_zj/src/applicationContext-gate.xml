@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Application context definition for PetClinic on JDBC.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:p="http://www.springframework.org/schema/p" xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:context="http://www.springframework.org/schema/context" xmlns:jee="http://www.springframework.org/schema/jee"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>application.properties</value>
+			</list>
+		</property>
+	</bean>
+	<!-- ========================= 网关对象定义 ========================= -->
+	<bean id="gate.event.handler.rtu"
+		class="cn.hexing.fk.gate.event.GateRTUEventHandler"
+		parent="SimpleEventHandler" >
+		<property name="name" value="EH.RTU" />
+		<property name="queue" ref="gate.messageQueue"/>
+		<property name="timeoutAlarm"><value>1</value></property>
+		<property name="minSize"><value>4</value></property>
+		<property name="maxSize"><value>10</value></property>
+	</bean>
+	<bean id="gate.event.handler.csd"
+		class="cn.hexing.fk.gate.event.CSDServerEventHandler"
+		parent="SimpleEventHandler" >
+		<property name="name" value="EH.RTU" />
+		<property name="timeoutAlarm"><value>1</value></property>
+		<property name="minSize"><value>4</value></property>
+		<property name="maxSize"><value>10</value></property>
+	</bean>
+	<bean id="gate.ex.event.handle.rtu"
+		class="cn.hexing.fk.gate.event.GateExRTUEventHandler"
+		parent="SimpleEventHandler" >
+		<property name="name" value="EH.RTU" />
+		<property name="queue" ref="gate.messageQueue"/>
+		<property name="timeoutAlarm"><value>1</value></property>
+		<property name="minSize"><value>4</value></property>
+		<property name="maxSize"><value>10</value></property>
+	</bean>
+	<bean id="gate.event.handler.fe"
+		class="cn.hexing.fk.gate.event.GateFEEventHandler"
+		parent="SimpleEventHandler" >
+		<property name="queue" ref="gate.messageQueue"/>
+		<property name="name" value="EH.FE" />
+		<property name="timeoutAlarm"><value>4</value></property>
+		<property name="minSize"><value>2</value></property>
+		<property name="maxSize"><value>4</value></property>
+	</bean>
+
+	<bean id="gate.cacheQueue"
+			class="cn.hexing.fk.common.queue.CacheQueue">
+		<property name="maxSize" value="20000"/>
+		<property name="minSize" value="2000"/>
+		<property name="maxFileSize" value="200"/>
+		<property name="fileCount" value="30"/>
+		<property name="key" value="gate1"/>
+	</bean>
+	<bean id="gate.messageQueue"
+			class="cn.hexing.fk.gate.MessageQueue">
+		<property name="noConvert"><value>false</value></property>
+		<property name="queue" ref="gate.cacheQueue"/>
+	</bean>
+	<bean id="fasSystem" class="cn.hexing.fk.FasSystem" init-method="initialize">
+		<property name="eventHooks">
+			<list>
+			</list>
+		</property>
+		<property name="modules">
+			<list>
+			</list>
+		</property>
+	</bean>
+	<bean id="applicationPropertiesConfig" class="cn.hexing.fk.gate.config.ApplicationPropertiesConfig"
+		factory-method="getInstance">
+		<property name="gateTcpServers"><value>${gate.tcp.servers}</value></property>
+		<property name="gateUdpServers"><value>${gate.udp.servers}</value></property>
+		<property name="gateExTcpServers"><value>${gate.ex.tcp.servers}</value></property>
+		<property name="gateCSDTcpServers"><value>${gate.csd.tcp.servers}</value></property>
+		<property name="feServer"><value>${fe.server}</value></property>
+		<property name="monitorServer"><value>${monitor.server.port}</value></property>
+		<property name="rtuServerEventHandler" ref="gate.event.handler.rtu"/>
+		<property name="exRtuServerEventHandler" ref="gate.ex.event.handle.rtu"></property>
+		<property name="feServerEventHandler" ref="gate.event.handler.fe"/>
+		<property name="csdServerEventHandler" ref="gate.event.handler.csd"></property>
+	</bean>
+	<!-- 定义定时任务 -->
+	<bean id="job.showProfile" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="fasSystem" />
+		<property name="targetMethod" value="showProfile" />
+	</bean>
+	<bean id="cronTrigger.showProfile" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="job.showProfile" />
+		<property name="cronExpression"><value>${sys.showprofile.cronExpression}</value></property>
+	</bean>
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="cronTrigger.showProfile" />
+			</list>
+		</property>
+	</bean>
+
+</beans>

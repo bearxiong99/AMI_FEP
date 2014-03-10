@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Application context definition for ... -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<!-- ========================= 通信前置机对象定义 ========================= -->
+	<!-- <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> 
+		<property name="locations"> <list> <value>application.properties</value> 
+		<value>jdbc.properties</value> </list> </property> </bean> -->
+	<bean id="propertyConfigurer" class="cn.hexing.fk.utils.EncryptPlaceholderConfigurer">
+		<property name="encryptFileName" value="jdbc.properties" />
+		<property name="encryptPropNames">
+			<list>
+				<value>master.jdbc.username</value>
+				<value>master.jdbc.password</value>
+			</list>
+		</property>
+		<property name="locations">
+			<list>
+				<value>application.properties</value>
+				<value>jdbc.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- ========前置机客户端（/漏点补召服务端）收发消息事件处理器 ========================= -->
+	<bean id="dpEventHandler" class="cn.hexing.dp.bpserver.TaskPollingEventHandler"
+		parent="SimpleEventHandler">
+		<property name="name" value="FillLeakServerHandler" />
+		<property name="com" ref="dp.client.cluster" />
+	</bean>
+
+	<!-- ========================= 漏点补召：BP客户端对象 ========================= -->
+	<bean id="dp.client.cluster" class="cn.hexing.fk.clientmod.ClusterClientModule">
+		<property name="name" value="bpClinets" />
+		<property name="clientsUrl" value="${bp.clients.url}" />
+		<property name="bufLength" value="10240" />
+		<property name="timeout" value="4" />
+		<property name="heartInterval" value="10" />
+		<property name="requestNum" value="500" />
+		<property name="eventHandler" ref="dpEventHandler" />
+		<property name="messageCreator" ref="messageCreator.TPMessage" />
+	</bean>
+	<bean id="messageCreator.TPMessage" class="cn.hexing.dp.bpserver.TPMessageCreator">
+	</bean>
+
+	<bean id="dp.dlms.processor" class="cn.hexing.dp.bpserver.dlms.DlmsProcessor">
+		<property name="com" ref="dp.client.cluster" />
+		<property name="loadDatasDao" ref="tp.jdbc.dao" />
+		<property name="iranTime" value="${dlms.task.isIranTime}" />
+		<property name="oldProtocols" value="${dlms.protocol.old}"/>
+	</bean>
+	<bean id="tp.dlms.constant" class="cn.hexing.dp.bpserver.TPConstant" factory-method="getInstance">
+		<property name="maxSendOneTime" value="1000"/>
+		<property name="sleepWhenOverMaxSendTime" value="5"/>
+	</bean>
+	<bean id="dp.gg.processor" class="cn.hexing.dp.bpserver.gg.GgTaskProcessor">
+		<property name="com" ref="dp.client.cluster" />
+		<property name="loadGgDatasDao" ref="tp.jdbc.dao" />
+	</bean>
+
+	<bean id="dp.dlms.queue" class="cn.hexing.dp.queue.DlmsReqestQueue"
+		factory-method="getInstance">
+		<property name="loadDatasDao" ref="tp.jdbc.dao" />
+	</bean>
+	<bean id="dp.gg.queue" class="cn.hexing.dp.queue.GdgyRequestQueue"
+		factory-method="getInstance">
+		<property name="loadGgDatasDao" ref="tp.jdbc.dao" />
+	</bean>
+	
+	<bean id="tp.jdbc.dao" class="cn.hexing.dp.jdbc.LoadDatasDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+		<property name="sqlLoadItemRelated">
+			<value>
+			<![CDATA[
+			select sjxbm, item_id from p_dlmssjxgx 
+			]]> 
+			</value>
+		</property>
+		<property name="mapperLoadItemRelated">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.DlmsItemRelated" />
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="code" />
+							<property name="index" value="1" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="attribute" />
+							<property name="index" value="2" />
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+		<property name="sqlGetTaskCodes">
+			<value>
+				<![CDATA[
+				select MBID,SJXBM from mb_zzrwsjx 
+				]]>
+			</value>
+		</property>
+		<property name="mapperLoadTaskCodes">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.dp.model.TaskCode" />
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="templateId" />
+							<property name="index" value="1" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="code" />
+							<property name="index" value="2" />
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+		<property name="sqlGetMasterTaskTemplate">
+			<value>
+				<![CDATA[
+				select MBID,CYJGSJ,CYJGSJDW ,CYKSJZSJ,CYKSJZSJDW from mb_zzrw where sjlx=?
+				]]>
+			</value>
+		</property>
+		<property name="sqlGetMasterTaskTemplateById">
+			<value>
+				<![CDATA[
+				select MBID,CYJGSJ,CYJGSJDW ,CYKSJZSJ,CYKSJZSJDW from mb_zzrw where sjlx=? and mbid=?
+				]]>
+			</value>
+		</property>
+		<property name="sqlGetTaskTemplate">
+			<value>
+				<![CDATA[
+				select MBID,SBJGSJ,SBJGSJDW,SBJZSJ,SBJZSJDW from mb_zdrw where sjlx=?
+				]]>
+			</value>
+		</property>
+		<property name="sqlGetTaskTemplateById">
+			<value>
+				<![CDATA[
+				select MBID,SBJGSJ,SBJGSJDW,SBJZSJ,SBJZSJDW from mb_zdrw where sjlx=? and mbid =?
+				]]>
+			</value>
+		</property>
+		<property name="mapperGetTaskTemplate">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.dp.model.TaskTemplate" />
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskTemplateID" />
+							<property name="index" value="1" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="sampleInterval" />
+							<property name="index" value="2" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="sampleIntervalUnit" />
+							<property name="index" value="3" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="sampleStartTime" />
+							<property name="index" value="4" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="sampleStartTimeUnit" />
+							<property name="index" value="5" />
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+		<!--获取DLMS的GPRS表档案	-->
+		<property name="sqlGetDLMSGPRSMeter">
+			<value>
+				<![CDATA[
+				
+			       			SELECT a.ZDLJDZ 
+					FROM DA_ZD a,TX_ZXQK b 
+					WHERE a.ZDGYLX=?
+					AND a.zdljdz=b.zdljdz 
+					AND ((b.zjxtsj + 1 > DATE_FORMAT(?,'%Y-%m-%d %H:%i:%s')) 
+					
+					OR (b.ZJGPRSSXSJ + 1 > DATE_FORMAT(?,'%Y-%m-%d %H:%i:%s')))
+					
+				]]>
+			</value>
+		</property>
+		<property name="mapperGprsMeter">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.DlmsMeterRtu"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="logicAddress"/>
+							<property name="index" value="1"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>			
+		<property name="sqlGetRtuTask">
+			<value>
+				<![CDATA[
+				select a.zdljdz,b.rwh,b.mbid,b.rwsx from da_zd a,rw_zdrw b where a.zdjh=b.zdjh and a.zdgylx=? and b.sfyx=1 order by b.mbid
+				]]>
+			</value>
+		</property>
+		<property name="sqlGetRtuTaskById">
+			<value>
+				<![CDATA[
+				select a.zdljdz,b.rwh,b.mbid ,b.rwsx from da_zd a,rw_zdrw b where a.zdjh=b.zdjh and a.zdgylx=? and a.zdjh=? and b.sfyx=1 order by b.mbid
+				]]>
+			</value>
+		</property>
+		<property name="sqlGetMasterTask">
+			<value>
+				<![CDATA[
+				select a.zdljdz,b.rwh,b.mbid ,b.rwsx from da_zd a,rw_zzrw b where a.zdjh=b.zdjh and a.zdgylx=? and b.sfyx=1 order by b.mbid
+				]]>
+			</value>
+		</property>
+		<property name="sqlGetMasterTaskById">
+			<value>
+				<![CDATA[
+				select a.zdljdz,b.rwh,b.mbid ,b.rwsx from da_zd a,rw_zzrw b where a.zdjh=b.zdjh and a.zdgylx=? and a.zdjh=? and b.sfyx=1 order by b.mbid
+				]]>
+			</value>
+		</property>
+		<property name="mapperGetRtuTask">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.dp.model.RtuTask" />
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rtuId" />
+							<property name="index" value="1" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskNo" />
+							<property name="index" value="2" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskTemplateID" />
+							<property name="index" value="3" />
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskProperty" />
+							<property name="index" value="4" />
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+
+	<bean id="fasSystem" class="cn.hexing.fk.FasSystem"
+		factory-method="getFasSystem" init-method="initialize">
+		<!-- 对于简化方式配置模块，下面属性列表可以不定义或者列表为空。 -->
+		<property name="eventHooks">
+			<list>
+				<ref bean="dpEventHandler" />
+			</list>
+		</property>
+		<!-- 对于简化方式配置模块，下面属性列表可以不定义或者列表为空。 -->
+		<property name="modules">
+			<list>
+				<!-- 下面两个bean属性，用于漏点补召 -->
+				<ref bean="dp.client.cluster" />
+				<ref bean="dp.dlms.processor" />  
+				<ref bean="dp.gg.processor" />
+				<!-- -->
+			</list>
+		</property>
+		<!-- 特殊的Module，不被监控管理组件管理，但是有FasSystem进行启动和停止 -->
+		<property name="unMonitoredModules">
+			<list>
+			</list>
+		</property>
+	</bean>
+	<!-- 定时任务定义 -->
+	<bean id="job.loadLeakPoints"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="dp.dlms.queue" />
+		<property name="targetMethod" value="initTaskData" />
+	</bean>
+	<bean id="cronTrigger.loadLeakPoints" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="job.loadLeakPoints" />
+		<property name="cronExpression" value="${dlms.task.init.cronExpression}" />
+	</bean>
+
+	<!-- GG定时任务定义 -->
+	<bean id="job.ggLoadLeakPoints"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="dp.gg.queue" />
+		<property name="targetMethod" value="initTaskData" />
+	</bean>
+	<bean id="cronTrigger.ggLoadLeakPoints" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="job.ggLoadLeakPoints" />
+		<property name="cronExpression" value="${gg.task.init.cronExpression}" />
+	</bean>
+
+	<bean id="bp.refreshRtu" class="cn.hexing.dp.queue.RequestQueueRefreshManager">
+		<property name="masterDbService" ref="master.dbservice"/>
+		<property name="manageRtu" ref="manageRtu"/>	
+		<property name="loadDatasDao" ref="tp.jdbc.dao"></property>
+	</bean>
+	<bean id="job.refreshRtu" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="bp.refreshRtu" />
+		<property name="targetMethod" value="refreshRtuCache" />
+	</bean>
+	<bean id="cronTrigger.refreshRtuCache" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="job.refreshRtu" />
+		<property name="cronExpression" value="0 0 0/1 * * ?"/>
+	</bean>
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="cronTrigger.loadLeakPoints" />
+				<ref bean="cronTrigger.ggLoadLeakPoints"/>
+				<ref bean="cronTrigger.refreshRtuCache" />
+			</list>
+		</property>
+	</bean>
+
+</beans>

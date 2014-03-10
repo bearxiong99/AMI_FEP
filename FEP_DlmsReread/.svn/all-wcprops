@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ami3.0/!svn/ver/11078/trunk/fep/FEP_DlmsReread
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ami3.0/!svn/ver/7406/trunk/fep/FEP_DlmsReread/.classpath
+END
+key.data
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ami3.0/!svn/ver/3897/trunk/fep/FEP_DlmsReread/key.data
+END
+dr_deploy.cmd
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ami3.0/!svn/ver/8732/trunk/fep/FEP_DlmsReread/dr_deploy.cmd
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ami3.0/!svn/ver/3897/trunk/fep/FEP_DlmsReread/.project
+END
+stopdr.sh
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/ami3.0/!svn/ver/8097/trunk/fep/FEP_DlmsReread/stopdr.sh
+END
+startdr.bat
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ami3.0/!svn/ver/10618/trunk/fep/FEP_DlmsReread/startdr.bat
+END
+build.properties
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ami3.0/!svn/ver/7698/trunk/fep/FEP_DlmsReread/build.properties
+END
+drdeploy.sh
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/ami3.0/!svn/ver/8732/trunk/fep/FEP_DlmsReread/drdeploy.sh
+END
+startdr.sh
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/ami3.0/!svn/ver/16604/trunk/fep/FEP_DlmsReread/startdr.sh
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/ami3.0/!svn/ver/8101/trunk/fep/FEP_DlmsReread/build.xml
+END

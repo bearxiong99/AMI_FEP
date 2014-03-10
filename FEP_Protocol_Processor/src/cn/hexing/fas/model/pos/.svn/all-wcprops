@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/ami3.0/!svn/ver/12889/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/pos
+END
+PosCommandResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/ami3.0/!svn/ver/12475/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/pos/PosCommandResult.java
+END
+PosCommandRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/ami3.0/!svn/ver/12889/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/pos/PosCommandRequest.java
+END

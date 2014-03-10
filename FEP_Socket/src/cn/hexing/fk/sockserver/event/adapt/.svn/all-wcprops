@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockserver/event/adapt
+END
+ClientCloseEventAdapt.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockserver/event/adapt/ClientCloseEventAdapt.java
+END
+ClientTimeoutEventAdapt.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockserver/event/adapt/ClientTimeoutEventAdapt.java
+END
+ModuleProfileEventAdapt.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockserver/event/adapt/ModuleProfileEventAdapt.java
+END
+ReceiveMessageEventAdapt.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockserver/event/adapt/ReceiveMessageEventAdapt.java
+END
+SentSimpleMessageEventAdapt.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockserver/event/adapt/SentSimpleMessageEventAdapt.java
+END
+MessageSendFailEventAdapt.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockserver/event/adapt/MessageSendFailEventAdapt.java
+END
+ServerStopEventAdapt.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockserver/event/adapt/ServerStopEventAdapt.java
+END
+ServerStartedEventAdapt.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockserver/event/adapt/ServerStartedEventAdapt.java
+END
+RecvSimpleMessageEventAdapt.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockserver/event/adapt/RecvSimpleMessageEventAdapt.java
+END
+SendMessageEventAdapt.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockserver/event/adapt/SendMessageEventAdapt.java
+END
+AcceptEventAdapt.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockserver/event/adapt/AcceptEventAdapt.java
+END

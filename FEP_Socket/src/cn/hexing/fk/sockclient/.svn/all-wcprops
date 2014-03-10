@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ami3.0/!svn/ver/7779/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockclient
+END
+JSocket.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ami3.0/!svn/ver/11154/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockclient/JSocket.java
+END
+SimpleSocket.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockclient/SimpleSocket.java
+END
+DumyJSocketListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockclient/DumyJSocketListener.java
+END
+JSocketListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockclient/JSocketListener.java
+END

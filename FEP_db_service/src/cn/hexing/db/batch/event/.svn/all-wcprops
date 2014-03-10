@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/src/cn/hexing/db/batch/event
+END
+BpReadTaskEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/src/cn/hexing/db/batch/event/BpReadTaskEvent.java
+END
+BpBatchDelayEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/src/cn/hexing/db/batch/event/BpBatchDelayEvent.java
+END
+FeUpdateRtuStatus.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/src/cn/hexing/db/batch/event/FeUpdateRtuStatus.java
+END
+BpExpAlarmEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/src/cn/hexing/db/batch/event/BpExpAlarmEvent.java
+END
+BpLog2DbEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/src/cn/hexing/db/batch/event/BpLog2DbEvent.java
+END

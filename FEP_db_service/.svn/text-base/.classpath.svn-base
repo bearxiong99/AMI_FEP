@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="libs/commons-dbcp.jar"/>
+	<classpathentry kind="lib" path="libs/commons-lang.jar"/>
+	<classpathentry kind="lib" path="libs/commons-logging.jar"/>
+	<classpathentry kind="lib" path="libs/commons-pool.jar"/>
+	<classpathentry kind="lib" path="libs/ibatis-2.3.0.677.jar"/>
+	<classpathentry kind="lib" path="libs/mysql-connector-java-5.1.0-bin.jar"/>
+	<classpathentry kind="lib" path="libs/ojdbc14.jar"/>
+	<classpathentry kind="lib" path="libs/proxool-0.9.1.jar"/>
+	<classpathentry kind="lib" path="libs/proxool-cglib.jar"/>
+	<classpathentry kind="lib" path="libs/spring-sources.jar"/>
+	<classpathentry kind="lib" path="libs/spring.jar" sourcepath="libs/spring-sources.jar"/>
+	<classpathentry kind="lib" path="libs/log4j.jar"/>
+	<classpathentry kind="lib" path="libs/ttjdbc5.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/FEP_Common"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="libs/commons-beanutils-1.8.3.jar"/>
+	<classpathentry kind="lib" path="libs/c3p0-0.9.1.2.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

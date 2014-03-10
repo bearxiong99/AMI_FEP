@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ami3.0/!svn/ver/12891/trunk/fep/FEP_Common/src/com/hx/dlms/aa
+END
+InitiateRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/ami3.0/!svn/ver/1959/trunk/fep/FEP_Common/src/com/hx/dlms/aa/InitiateRequest.java
+END
+AareApdu.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/ami3.0/!svn/ver/15486/trunk/fep/FEP_Common/src/com/hx/dlms/aa/AareApdu.java
+END
+DlmsContext.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/ami3.0/!svn/ver/19789/trunk/fep/FEP_Common/src/com/hx/dlms/aa/DlmsContext.java
+END
+AuthenticationMechanismName.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ami3.0/!svn/ver/1959/trunk/fep/FEP_Common/src/com/hx/dlms/aa/AuthenticationMechanismName.java
+END
+InitiateResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/ami3.0/!svn/ver/1959/trunk/fep/FEP_Common/src/com/hx/dlms/aa/InitiateResponse.java
+END
+DlmsMeterConformance.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/ami3.0/!svn/ver/4752/trunk/fep/FEP_Common/src/com/hx/dlms/aa/DlmsMeterConformance.java
+END
+ApplicationContextName.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/ami3.0/!svn/ver/1959/trunk/fep/FEP_Common/src/com/hx/dlms/aa/ApplicationContextName.java
+END
+AuthenticationValue.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/ami3.0/!svn/ver/1959/trunk/fep/FEP_Common/src/com/hx/dlms/aa/AuthenticationValue.java
+END
+AarqApdu.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ami3.0/!svn/ver/8513/trunk/fep/FEP_Common/src/com/hx/dlms/aa/AarqApdu.java
+END

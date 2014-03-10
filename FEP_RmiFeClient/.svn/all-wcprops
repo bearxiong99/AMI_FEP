@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ami3.0/!svn/ver/17285/trunk/fep/FEP_RmiFeClient
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ami3.0/!svn/ver/17288/trunk/fep/FEP_RmiFeClient/.classpath
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ami3.0/!svn/ver/17284/trunk/fep/FEP_RmiFeClient/.project
+END
+info.txt
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ami3.0/!svn/ver/17285/trunk/fep/FEP_RmiFeClient/info.txt
+END
+build.properties
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ami3.0/!svn/ver/17288/trunk/fep/FEP_RmiFeClient/build.properties
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/ami3.0/!svn/ver/17302/trunk/fep/FEP_RmiFeClient/build.xml
+END

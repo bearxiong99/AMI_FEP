@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE project [
+<!ENTITY build-properties  SYSTEM "build-properties.xml">
+]>
+<project name="DCI.XXX" basedir="." default="build-many-project">
+	<!-- ============================================================== -->
+	<!--                       Compile Settings                         -->
+	<!-- ============================================================== -->
+	<property name="build.debug" value="on" />
+	<property name="build.debuglevel" value="lines,vars,source" />
+	<property name="build.optimize" value="off" />
+	<property name="build.deprecation" value="off" />
+	<property name="build.source" value="1.4" />
+
+	<property name="workspace.dir" location="../../../" />
+	<property name="target.project.dir" location="../../" />
+
+
+	<path id="ant.contrib.lib">
+		<fileset dir="lib">
+			<include name="**/*jar" />
+		</fileset>
+	</path>
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties">
+		<classpath>
+			<path refid="ant.contrib.lib" />
+		</classpath>
+	</taskdef>
+	<taskdef name="foreach" classname="net.sf.antcontrib.logic.ForEach">
+		<classpath>
+			<path refid="ant.contrib.lib" />
+		</classpath>
+	</taskdef>
+	
+	<!-- ============================================================== -->
+	<!--                       循环构建每一个工程                              -->
+	<!-- ============================================================== -->
+	<target name="build-many-project">
+		<foreach target="build-one-project" param="projectName" list="cip;hnppb_bap" delimiter=";" />
+	</target>
+	<!-- ============================================================== -->
+	<!--                       构建每一个工程                                  -->
+	<!-- ============================================================== -->
+	<target name="build-one-project">		
+		<!--把java文件拷贝到src/java目录-->
+		<copy todir="${target.project.dir}/src/java" overwrite="true">
+			<fileset dir="${workspace.dir}/${projectName}/src/java">
+				<include name="**/*" />
+			</fileset>
+		</copy>			
+	</target>
+</project>

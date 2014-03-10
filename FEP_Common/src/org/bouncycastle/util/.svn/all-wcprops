@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/util
+END
+Selector.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/util/Selector.java
+END
+Arrays.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/util/Arrays.java
+END
+BigIntegers.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/util/BigIntegers.java
+END
+CollectionStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/util/CollectionStore.java
+END
+StreamParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/util/StreamParser.java
+END
+Strings.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/util/Strings.java
+END
+StoreException.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/util/StoreException.java
+END
+Store.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/util/Store.java
+END
+IPAddress.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/util/IPAddress.java
+END
+StreamParsingException.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/util/StreamParsingException.java
+END

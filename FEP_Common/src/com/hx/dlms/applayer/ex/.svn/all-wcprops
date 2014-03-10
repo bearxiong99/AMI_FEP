@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ami3.0/!svn/ver/13156/trunk/fep/FEP_Common/src/com/hx/dlms/applayer/ex
+END
+HexingExResponseTransparent.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/ami3.0/!svn/ver/13155/trunk/fep/FEP_Common/src/com/hx/dlms/applayer/ex/HexingExResponseTransparent.java
+END
+HexingExRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/ami3.0/!svn/ver/13153/trunk/fep/FEP_Common/src/com/hx/dlms/applayer/ex/HexingExRequest.java
+END
+HexingExRequestTransparent.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ami3.0/!svn/ver/13153/trunk/fep/FEP_Common/src/com/hx/dlms/applayer/ex/HexingExRequestTransparent.java
+END
+HexingExResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ami3.0/!svn/ver/13156/trunk/fep/FEP_Common/src/com/hx/dlms/applayer/ex/HexingExResponse.java
+END

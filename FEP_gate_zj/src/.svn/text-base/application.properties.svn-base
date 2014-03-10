@@ -1,0 +1,19 @@
+#GATE tcp servers
+#format= [ip:]port [?param1][=value1][&param2][=value2]... ; [ip:]port [?param1][=value1]...
+#example=127.0.0.1:1002?name=gprs6-1&bufLength=10240;127.0.0.1:10004?name=gprs6-2 
+gate.tcp.servers=3089?name=gprs-t-1
+#GATE udp servers
+gate.udp.servers=3089?name=gprs-u-1
+#gate external servers  &overtime=15&heartInterval=70,atuoHeart means exModule send heartBeat
+gate.ex.tcp.servers=3080?name=ex-gprs-t-1&autoHeart=true
+#gate csd servers
+gate.csd.tcp.servers=8002?name=csd.gprs-t-1
+
+#Front End interface socket server
+fe.server=8087?name=fe-server
+
+#monitor server definition
+monitor.server.port=10022
+
+#showprofile timer define
+sys.showprofile.cronExpression=0 0/10 * * * ?

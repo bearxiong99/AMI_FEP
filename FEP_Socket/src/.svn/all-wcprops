@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ami3.0/!svn/ver/8853/trunk/fep/FEP_Socket/src
+END
+applicationContext-socket-client.xml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/applicationContext-socket-client.xml
+END
+applicationContext-socket.xml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/applicationContext-socket.xml
+END

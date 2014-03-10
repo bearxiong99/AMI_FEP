@@ -1,0 +1,191 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/ami3.0/!svn/ver/1320/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls
+END
+AlertLevel.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/AlertLevel.java
+END
+EncryptionAlgorithm.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/EncryptionAlgorithm.java
+END
+TlsFatalAlert.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/TlsFatalAlert.java
+END
+KeyExchangeAlgorithm.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/KeyExchangeAlgorithm.java
+END
+TlsClientContext.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/TlsClientContext.java
+END
+ProtocolVersion.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/ProtocolVersion.java
+END
+ByteQueue.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/ByteQueue.java
+END
+ECPointFormat.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/ECPointFormat.java
+END
+AlertDescription.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/AlertDescription.java
+END
+ContentType.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/ContentType.java
+END
+TlsRSASigner.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/TlsRSASigner.java
+END
+ClientCertificateType.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/ClientCertificateType.java
+END
+TlsCompression.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/TlsCompression.java
+END
+CipherSuite.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/CipherSuite.java
+END
+TlsRuntimeException.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/TlsRuntimeException.java
+END
+TlsCipherFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/TlsCipherFactory.java
+END
+TlsNullCipher.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/TlsNullCipher.java
+END
+HandshakeType.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/HandshakeType.java
+END
+TlsPSKIdentity.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/TlsPSKIdentity.java
+END
+SecurityParameters.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/SecurityParameters.java
+END
+CertificateRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/CertificateRequest.java
+END
+TlsCipher.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/TlsCipher.java
+END
+ECCurveType.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/ECCurveType.java
+END
+CompressionMethod.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/CompressionMethod.java
+END
+SSL3Mac.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/SSL3Mac.java
+END
+TlsSigner.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/TlsSigner.java
+END
+ExtensionType.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/ExtensionType.java
+END
+TlsNullCompression.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/TlsNullCompression.java
+END
+CombinedHash.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/CombinedHash.java
+END
+DigestAlgorithm.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/DigestAlgorithm.java
+END
+TlsClientContextImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/tls/TlsClientContextImpl.java
+END

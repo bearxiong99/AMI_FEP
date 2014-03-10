@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/prng
+END
+DigestRandomGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/prng/DigestRandomGenerator.java
+END
+RandomGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/prng/RandomGenerator.java
+END
+ThreadedSeedGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/prng/ThreadedSeedGenerator.java
+END
+VMPCRandomGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/prng/VMPCRandomGenerator.java
+END
+ReversedWindowGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/prng/ReversedWindowGenerator.java
+END

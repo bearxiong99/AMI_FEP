@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ami3.0/!svn/ver/14447/trunk/fep/FEP_DlmsPolling/src/cn/hexing/dp/model
+END
+RtuTaskRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ami3.0/!svn/ver/2398/trunk/fep/FEP_DlmsPolling/src/cn/hexing/dp/model/RtuTaskRequest.java
+END
+RtuTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ami3.0/!svn/ver/14447/trunk/fep/FEP_DlmsPolling/src/cn/hexing/dp/model/RtuTask.java
+END
+TaskCode.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ami3.0/!svn/ver/6274/trunk/fep/FEP_DlmsPolling/src/cn/hexing/dp/model/TaskCode.java
+END
+TaskTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/ami3.0/!svn/ver/11949/trunk/fep/FEP_DlmsPolling/src/cn/hexing/dp/model/TaskTemplate.java
+END

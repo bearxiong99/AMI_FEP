@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ami3.0/!svn/ver/1320/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/agreement
+END
+DHAgreement.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/agreement/DHAgreement.java
+END
+DHBasicAgreement.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/agreement/DHBasicAgreement.java
+END

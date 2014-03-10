@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<protocol-meter-data>
+	<!-- 表规约名称 -->
+	<proto-name>ZJMeter</proto-name>
+	<!-- 表规约数据集合 -->	
+	<data-item code="01001000FF" parentCode1="0110" parentCode2="" length="0" type="" fraction="" familycode="0110" description="当前正向有功电量">
+		<data-item code="0100100000" parentCode1="0111" parentCode2=""  length="4" type="1" fraction="2" familycode="0110" description="当前正向有功总电量"/>
+		<data-item code="0100100001" parentCode1="0112" parentCode2=""  length="4" type="1" fraction="2" familycode="0110" description="当前正向有功总峰电量"/>
+		<data-item code="0100100002" parentCode1="0113" parentCode2=""  length="4" type="1" fraction="2" familycode="0110" description="当前正向有功总平电量"/>
+		<data-item code="0100100003" parentCode1="0114" parentCode2=""  length="4" type="1" fraction="2" familycode="0110" description="当前正向有功总谷电量"/>
+		<data-item code="0100100004" parentCode1="0115" parentCode2=""  length="4" type="1" fraction="2" familycode="0110" description="当前正向有功总尖峰电量"/>			
+	</data-item>
+	<data-item code="01001001FF" parentCode1="0120" parentCode2=""  length="0" type="" fraction="" familycode="0120" description="当前反向有功电量">
+		<data-item code="0100100100" parentCode1="0121" parentCode2=""  length="4" type="1" fraction="2" familycode="0120" description="当前反向有功总电量"/>
+		<data-item code="0100100101" parentCode1="0122" parentCode2=""  length="4" type="1" fraction="2" familycode="0120" description="当前反向有功总峰电量"/>
+		<data-item code="0100100102" parentCode1="0123" parentCode2=""  length="4" type="1" fraction="2" familycode="0120" description="当前反向有功总平电量"/>
+		<data-item code="0100100103" parentCode1="0124" parentCode2=""  length="4" type="1" fraction="2" familycode="0120" description="当前反向有功总谷电量"/>
+		<data-item code="0100100104" parentCode1="0125" parentCode2=""  length="4" type="1" fraction="2" familycode="0120" description="当前反向有功总尖峰电量"/>			
+	</data-item>
+	<data-item code="01001004FF" parentCode1="0130" parentCode2=""  length="0" type="" fraction="" familycode="0130" description="当前总感性无功电量">
+		<data-item code="0100100400" parentCode1="0131" parentCode2=""  length="4" type="1" fraction="2" familycode="0130" description="当前总感性无功总电量"/>
+		<data-item code="0100100401" parentCode1="0132" parentCode2=""  length="4" type="1" fraction="2" familycode="0130" description="当前总感性无功总峰电量"/>
+		<data-item code="0100100402" parentCode1="0133" parentCode2=""  length="4" type="1" fraction="2" familycode="0130" description="当前总感性无功总平电量"/>
+		<data-item code="0100100403" parentCode1="0134" parentCode2=""  length="4" type="1" fraction="2" familycode="0130" description="当前总感性无功总谷电量"/>
+		<data-item code="0100100404" parentCode1="0135" parentCode2=""  length="4" type="1" fraction="2" familycode="0130" description="当前总感性无功总尖峰电量"/>			
+	</data-item>
+	<data-item code="01001005FF" parentCode1="0140" parentCode2=""  length="0" type="" fraction="" familycode="0140" description="当前总容性无功电量">
+		<data-item code="0100100500" parentCode1="0141" parentCode2=""  length="4" type="1" fraction="2" familycode="0140" description="当前总容性无功总电量"/>
+		<data-item code="0100100501" parentCode1="0142" parentCode2=""  length="4" type="1" fraction="2" familycode="0140" description="当前总容性无功总峰电量"/>
+		<data-item code="0100100502" parentCode1="0143" parentCode2=""  length="4" type="1" fraction="2" familycode="0140" description="当前总容性无功总平电量"/>
+		<data-item code="0100100503" parentCode1="0144" parentCode2=""  length="4" type="1" fraction="2" familycode="0140" description="当前总容性无功总谷电量"/>
+		<data-item code="0100100504" parentCode1="0145" parentCode2=""  length="4" type="1" fraction="2" familycode="0140" description="当前总容性无功总尖峰电量"/>			
+	</data-item>
+	<data-item code="02011008FF" parentCode1="0150" parentCode2=""  length="0" type="" fraction="" familycode="0150" description="当前正向最大需量及发生时间">
+		<data-item code="0201100800" parentCode1="0151" parentCode2=""  length="7" type="40" fraction="0" familycode="0150" description="当前正向总最大需量发生时间"/>
+		<data-item code="0201100801" parentCode1="0152" parentCode2=""  length="7" type="40" fraction="0" familycode="0150" description="当前正向峰最大需量发生时间"/>
+		<data-item code="0201100802" parentCode1="0153" parentCode2=""  length="7" type="40" fraction="0" familycode="0150" description="当前正向平最大需量发生时间"/>
+		<data-item code="0201100803" parentCode1="0154" parentCode2=""  length="7" type="40" fraction="0" familycode="0150" description="当前正向谷最大需量发生时间"/>
+		<data-item code="0201100804" parentCode1="0155" parentCode2=""  length="7" type="40" fraction="0" familycode="0150" description="当前正向尖峰最大需量发生时间"/>			
+	</data-item>
+	<data-item code="02011000FF" parentCode1="0150" parentCode2=""  length="0" type="" fraction="" familycode="0150" description="当前正向最大需量及发生时间">
+		<data-item code="0201100000" parentCode1="0151" parentCode2=""  length="7" type="40" fraction="0" familycode="0150" description="当前正向总最大需量"/>
+		<data-item code="0201100001" parentCode1="0152" parentCode2=""  length="7" type="40" fraction="0" familycode="0150" description="当前正向峰最大需量"/>
+		<data-item code="0201100002" parentCode1="0153" parentCode2=""  length="7" type="40" fraction="0" familycode="0150" description="当前正向平最大需量"/>
+		<data-item code="0201100003" parentCode1="0154" parentCode2=""  length="7" type="40" fraction="0" familycode="0150" description="当前正向谷最大需量"/>
+		<data-item code="0201100004" parentCode1="0155" parentCode2=""  length="7" type="40" fraction="0" familycode="0150" description="当前正向尖峰最大需量"/>			
+	</data-item>
+	<data-item code="02011009FF" parentCode1="0160" parentCode2=""  length="0" type="" fraction="" familycode="0160" description="当前反向最大需量发生时间">
+		<data-item code="0201100900" parentCode1="0161" parentCode2=""  length="7" type="40" fraction="0" familycode="0160" description="当前反向总最大需量发生时间"/>
+		<data-item code="0201100901" parentCode1="0162" parentCode2=""  length="7" type="40" fraction="0" familycode="0160" description="当前反向峰最大需量发生时间"/>
+		<data-item code="0201100902" parentCode1="0163" parentCode2=""  length="7" type="40" fraction="0" familycode="0160" description="当前反向平最大需量发生时间"/>
+		<data-item code="0201100903" parentCode1="0164" parentCode2=""  length="7" type="40" fraction="0" familycode="0160" description="当前反向谷最大需量发生时间"/>
+		<data-item code="0201100904" parentCode1="0165" parentCode2=""  length="7" type="40" fraction="0" familycode="0160" description="当前反向尖峰最大需量发生时间"/>			
+	</data-item>		
+	<data-item code="02011001FF" parentCode1="0160" parentCode2=""  length="0" type="" fraction="" familycode="0160" description="当前反向最大需量">
+		<data-item code="0201100100" parentCode1="0161" parentCode2=""  length="7" type="40" fraction="0" familycode="0160" description="当前反向总最大需量"/>
+		<data-item code="0201100101" parentCode1="0162" parentCode2=""  length="7" type="40" fraction="0" familycode="0160" description="当前反向峰最大需量"/>
+		<data-item code="0201100102" parentCode1="0163" parentCode2=""  length="7" type="40" fraction="0" familycode="0160" description="当前反向平最大需量"/>
+		<data-item code="0201100103" parentCode1="0164" parentCode2=""  length="7" type="40" fraction="0" familycode="0160" description="当前反向谷最大需量"/>
+		<data-item code="0201100104" parentCode1="0165" parentCode2=""  length="7" type="40" fraction="0" familycode="0160" description="当前反向尖峰最大需量"/>			
+	</data-item>	
+	
+	<!--	
+	<data-item code="0210" zjcode="" zjcode2=""  length="0" type="" fraction="" familycode="0210" description="上月正向有功电量">
+		<data-item code="0211" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0210" description="上月正向有功总电量"/>
+		<data-item code="0212" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0210" description="上月正向有功总峰电量"/>
+		<data-item code="0213" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0210" description="上月正向有功总平电量"/>
+		<data-item code="0214" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0210" description="上月正向有功总谷电量"/>
+		<data-item code="0215" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0210" description="上月正向有功总尖峰电量"/>			
+	</data-item>
+	<data-item code="0220" zjcode="" zjcode2=""  length="0" type="" fraction="" familycode="0220" description="上月反向有功电量">
+		<data-item code="0221" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0220" description="上月反向有功总电量"/>
+		<data-item code="0222" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0220" description="上月反向有功总峰电量"/>
+		<data-item code="0223" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0220" description="上月反向有功总平电量"/>
+		<data-item code="0224" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0220" description="上月反向有功总谷电量"/>
+		<data-item code="0225" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0220" description="上月反向有功总尖峰电量"/>			
+	</data-item>
+	<data-item code="0230" zjcode="" zjcode2=""  length="0" type="" fraction="" familycode="0230" description="上月总感性无功电量">
+		<data-item code="0231" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0230" description="上月总感性无功总电量"/>
+		<data-item code="0232" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0230" description="上月总感性无功总峰电量"/>
+		<data-item code="0233" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0230" description="上月总感性无功总平电量"/>
+		<data-item code="0234" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0230" description="上月总感性无功总谷电量"/>
+		<data-item code="0235" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0230" description="上月总感性无功总尖峰电量"/>			
+	</data-item>
+	<data-item code="0240" zjcode="" zjcode2=""  length="0" type="" fraction="" familycode="0240" description="上月总容性无功电量">
+		<data-item code="0241" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0240" description="上月总容性无功总电量"/>
+		<data-item code="0242" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0240" description="上月总容性无功总峰电量"/>
+		<data-item code="0243" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0240" description="上月总容性无功总平电量"/>
+		<data-item code="0244" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0240" description="上月总容性无功总谷电量"/>
+		<data-item code="0245" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0240" description="上月总容性无功总尖峰电量"/>			
+	</data-item>
+	-->	
+	<data-item code="02041008FF" parentCode1="0250" parentCode2=""  length="0" type="" fraction="" familycode="0250" description="上月正向最大需量及发生时间">
+		<data-item code="0204100800" parentCode1="0251" parentCode2=""  length="7" type="40" fraction="0" familycode="0250" description="上月正向总最大需量发生时间"/>
+		<data-item code="0204100801" parentCode1="0252" parentCode2=""  length="7" type="40" fraction="0" familycode="0250" description="上月正向峰最大需量发生时间"/>
+		<data-item code="0204100802" parentCode1="0253" parentCode2=""  length="7" type="40" fraction="0" familycode="0250" description="上月正向平最大需量发生时间"/>
+		<data-item code="0204100803" parentCode1="0254" parentCode2=""  length="7" type="40" fraction="0" familycode="0250" description="上月正向谷最大需量发生时间"/>
+		<data-item code="0204100804" parentCode1="0255" parentCode2=""  length="7" type="40" fraction="0" familycode="0250" description="上月正向尖峰最大需量发生时间"/>			
+	</data-item>	
+	<data-item code="02041000FF" parentCode1="0250" parentCode2=""  length="0" type="" fraction="" familycode="0250" description="上月正向最大需量及发生时间">
+		<data-item code="0204100000" parentCode1="0251" parentCode2=""  length="7" type="40" fraction="0" familycode="0250" description="上月正向总最大需量"/>
+		<data-item code="0204100001" parentCode1="0252" parentCode2=""  length="7" type="40" fraction="0" familycode="0250" description="上月正向峰最大需量"/>
+		<data-item code="0204100002" parentCode1="0253" parentCode2=""  length="7" type="40" fraction="0" familycode="0250" description="上月正向平最大需量"/>
+		<data-item code="0204100003" parentCode1="0254" parentCode2=""  length="7" type="40" fraction="0" familycode="0250" description="上月正向谷最大需量"/>
+		<data-item code="0204100004" parentCode1="0255" parentCode2=""  length="7" type="40" fraction="0" familycode="0250" description="上月正向尖峰最大需量"/>			
+	</data-item>
+	<data-item code="02041009FF" parentCode1="0260" parentCode2=""  length="0" type="" fraction="" familycode="0260" description="上月反向最大需量发生时间">
+		<data-item code="0204100900" parentCode1="0261" parentCode2=""  length="7" type="40" fraction="0" familycode="0260" description="上月反向总最大需量发生时间"/>
+		<data-item code="0204100901" parentCode1="0262" parentCode2=""  length="7" type="40" fraction="0" familycode="0260" description="上月反向峰最大需量发生时间"/>
+		<data-item code="0204100902" parentCode1="0263" parentCode2=""  length="7" type="40" fraction="0" familycode="0260" description="上月反向平最大需量发生时间"/>
+		<data-item code="0204100903" parentCode1="0264" parentCode2=""  length="7" type="40" fraction="0" familycode="0260" description="上月反向谷最大需量发生时间"/>
+		<data-item code="0204100904" parentCode1="0265" parentCode2=""  length="7" type="40" fraction="0" familycode="0260" description="上月反向尖峰最大需量发生时间"/>			
+	</data-item>		
+	<data-item code="02041001FF" parentCode1="0260" parentCode2=""  length="0" type="" fraction="" familycode="0260" description="上月反向最大需量">
+		<data-item code="0204100100" parentCode1="0261" parentCode2=""  length="7" type="40" fraction="0" familycode="0260" description="上月反向总最大需量"/>
+		<data-item code="0204100101" parentCode1="0262" parentCode2=""  length="7" type="40" fraction="0" familycode="0260" description="上月反向峰最大需量"/>
+		<data-item code="0204100102" parentCode1="0263" parentCode2=""  length="7" type="40" fraction="0" familycode="0260" description="上月反向平最大需量"/>
+		<data-item code="0204100103" parentCode1="0264" parentCode2=""  length="7" type="40" fraction="0" familycode="0260" description="上月反向谷最大需量"/>
+		<data-item code="0204100104" parentCode1="0265" parentCode2=""  length="7" type="40" fraction="0" familycode="0260" description="上月反向尖峰最大需量"/>			
+	</data-item>	
+		
+	<data-item code="04001006FF" parentCode1="0310" parentCode2=""  length="0" type="" fraction="" familycode="0310" description="失压记录">
+		<data-item code="0400100600" parentCode1="0311" parentCode2=""  length="3" type="1" fraction="0" familycode="0310" description="总失压时间"/>
+		<data-item code="0400100601" parentCode1="0312" parentCode2=""  length="3" type="1" fraction="0" familycode="0310" description="A相失压时间"/>
+		<data-item code="0400100602" parentCode1="0313" parentCode2=""  length="3" type="1" fraction="0" familycode="0310" description="B相失压时间"/>
+		<data-item code="0400100603" parentCode1="0314" parentCode2=""  length="3" type="1" fraction="0" familycode="0310" description="C相失压时间"/>
+		<!--	
+		<data-item code="0315" parentCode1="" parentCode2=""  length="4" type="1" fraction="2" familycode="0310" description="A相失压电量"/>
+		<data-item code="0316" parentCode1="" parentCode2=""  length="4" type="1" fraction="2" familycode="0310" description="B相失压电量"/>
+		<data-item code="0317" parentCode1="" parentCode2=""  length="4" type="1" fraction="2" familycode="0310" description="C相失压电量"/>
+		<data-item code="0318" parentCode1="" parentCode2=""  length="1" type="5" fraction="0" familycode="0310" description="电池失压报警"/>
+		-->
+	</data-item>
+		
+	
+	<data-item code="0200110000" parentCode1="0411" parentCode2=""  length="3" type="1" fraction="4" familycode="0410" description="正向有功功率"/>
+	<!--<data-item code="0412" parentCode1="" parentCode2=""  length="3" type="1" fraction="4" familycode="0410" description="反向有功功率"/>-->	
+	<data-item code="0200110100" parentCode1="0413" parentCode2=""  length="3" type="1" fraction="4" familycode="0410" description="正向无功功率"/>
+	<!--<data-item code="0414" parentCode1="" parentCode2=""  length="3" type="1" fraction="4" familycode="0410" description="反向无功功率"/>-->	
+	<data-item code="0200110301" parentCode1="0415" parentCode2=""  length="2" type="1" fraction="1" familycode="0410" description="A相相电压有效值"/>
+	<data-item code="0200110302" parentCode1="0416" parentCode2=""  length="2" type="1" fraction="1" familycode="0410" description="B相相电压有效值"/>
+	<data-item code="0200110303" parentCode1="0417" parentCode2=""  length="2" type="1" fraction="1" familycode="0410" description="C相相电压有效值"/>
+	<data-item code="0200110401" parentCode1="0418" parentCode2=""  length="2" type="1" fraction="1" familycode="0410" description="A相相电流有效值"/>
+	<data-item code="0200110401" parentCode1="0419" parentCode2=""  length="2" type="1" fraction="1" familycode="0410" description="B相相电流有效值"/>
+	<data-item code="0200110401" parentCode1="041A" parentCode2=""  length="2" type="1" fraction="1" familycode="0410" description="C相相电流有效值"/>			
+	
+	<data-item code="0500000002" parentCode1="0514" parentCode2=""  length="6" type="19" fraction="0" familycode="0514" description="系统时钟"/>
+
+	<!--	
+	<data-item code="0500" zjcode="" zjcode2=""  length="0" type="" fraction="" familycode="0500" description="系统参数及状态">
+		<data-item code="0510" zjcode="890F" zjcode2="C01F"  length="0" type="" fraction="" familycode="0510" description="系统参数">
+			<data-item code="0511" zjcode="" zjcode2=""  length="5" type="5" fraction="0" familycode="0510" description="用户号"/>
+			<data-item code="0512" zjcode="" zjcode2=""  length="4" type="5" fraction="0" familycode="0510" description="表号"/>
+			<data-item code="0513" zjcode="8902" zjcode2=""  length="1" type="5" fraction="0" familycode="0510" description="表地址"/>
+			<data-item code="0514" zjcode="C011" zjcode2="C011"  length="6" type="19" fraction="0" familycode="0514" description="系统时钟"/>			
+			<data-item code="0515" zjcode="" zjcode2=""  length="1" type="1" fraction="0" familycode="0510" description="结算日"/>
+			<data-item code="0516" zjcode="" zjcode2=""  length="1" type="1" fraction="0" familycode="0510" description="波特率"/>			
+		</data-item>
+		<data-item code="0520" zjcode="" zjcode2=""  length="0" type="" fraction="" familycode="0520" description="系统状态">
+			<data-item code="0521" zjcode="" zjcode2=""  length="6" type="19" fraction="0" familycode="0520" description="时钟设置日期、时间"/>
+			<data-item code="0522" zjcode="" zjcode2=""  length="6" type="19" fraction="0" familycode="0520" description="时段设置日期、时间"/>
+			<data-item code="0523" zjcode="" zjcode2=""  length="6" type="19" fraction="0" familycode="0520" description="用户号设置日期、时间"/>
+			<data-item code="0524" zjcode="" zjcode2=""  length="6" type="19" fraction="0" familycode="0520" description="表号设置日期、时间"/>
+			<data-item code="0525" zjcode="" zjcode2=""  length="6" type="19" fraction="0" familycode="0520" description="表地址设置日期、时间"/>
+			<data-item code="0526" zjcode="" zjcode2=""  length="6" type="19" fraction="0" familycode="0520" description="结算日设置日期、时间"/>			
+			<data-item code="0527" zjcode="" zjcode2=""  length="6" type="19" fraction="0" familycode="0520" description="电表初始值设置日期、时间"/>
+		</data-item>			
+	</data-item>	
+	<data-item code="0600" zjcode="" zjcode2=""  length="0" type="" fraction="" familycode="0600" description="电表初始设置">
+		<data-item code="0610" zjcode="" zjcode2=""  length="0" type="" fraction="" familycode="0610" description="总有功初始电量">
+			<data-item code="0611" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0610" description="总有功电量初始"/>
+			<data-item code="0612" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0610" description="总有功峰初始"/>
+			<data-item code="0613" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0610" description="总有功平初始"/>
+			<data-item code="0614" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0610" description="总有功谷初始"/>
+			<data-item code="0615" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0610" description="总有功尖峰初始"/>					
+		</data-item>
+		<data-item code="0620" zjcode="" zjcode2=""  length="0" type="" fraction="" familycode="0620" description="总无功初始电量">
+			<data-item code="0621" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0620" description="总无功初始电量"/>
+			<data-item code="0622" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0620" description="总无功峰初始电量"/>
+			<data-item code="0623" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0620" description="总无功平初始电量"/>
+			<data-item code="0624" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0620" description="总无功谷初始电量"/>
+			<data-item code="0625" zjcode="" zjcode2=""  length="4" type="1" fraction="2" familycode="0620" description="总无功尖峰初始电量"/>			
+		</data-item>		
+	</data-item>
+	
+	<data-item code="0700" zjcode="" zjcode2=""  length="0" type="" fraction="" familycode="0700" description="时段设置">
+		<data-item code="0710" zjcode="" zjcode2=""  length="0" type="" fraction="" familycode="0710" description="日时段1设置">
+			<data-item code="0711" zjcode="" zjcode2=""  length="1" type="1" fraction="0" familycode="0710" description="时段数"/>
+			<data-item code="0712" zjcode="" zjcode2=""  length="2" type="41" fraction="0" familycode="0710" description="开始日月"/>
+			<data-item code="0713" zjcode="" zjcode2=""  length="3" type="42" fraction="0" familycode="0710" description="时段1"/>
+			<data-item code="0714" zjcode="" zjcode2=""  length="3" type="42" fraction="0" familycode="0710" description="时段2"/>
+			<data-item code="0715" zjcode="" zjcode2=""  length="3" type="42" fraction="0" familycode="0710" description="时段3"/>
+			<data-item code="0716" zjcode="" zjcode2=""  length="3" type="42" fraction="0" familycode="0710" description="时段4"/>
+			<data-item code="0717" zjcode="" zjcode2=""  length="3" type="42" fraction="0" familycode="0710" description="时段5"/>
+			<data-item code="0718" zjcode="" zjcode2=""  length="3" type="42" fraction="0" familycode="0710" description="时段6"/>
+			<data-item code="0719" zjcode="" zjcode2=""  length="3" type="42" fraction="0" familycode="0710" description="时段7"/>
+			<data-item code="071A" zjcode="" zjcode2=""  length="3" type="42" fraction="0" familycode="0710" description="时段8"/>
+			<data-item code="071B" zjcode="" zjcode2=""  length="3" type="42" fraction="0" familycode="0710" description="时段9"/>
+			<data-item code="071C" zjcode="" zjcode2=""  length="3" type="42" fraction="0" familycode="0710" description="时段10"/>
+			<data-item code="071D" zjcode="" zjcode2=""  length="3" type="42" fraction="0" familycode="0710" description="时段11"/>
+			<data-item code="071E" zjcode="" zjcode2=""  length="3" type="42" fraction="0" familycode="0710" description="时段12"/>
+		</data-item>
+		<data-item code="0720" zjcode="" zjcode2=""  length="0" type="" fraction="" familycode="0720" description="日时段2设置">
+			<data-item code="0721" zjcode="" zjcode2=""  length="1" type="1" fraction="0" familycode="0720" description="时段数"/>
+			<data-item code="0722" zjcode="" zjcode2=""  length="2" type="41" fraction="0" familycode="0720" description="开始日月"/>
+			<data-item code="0723" zjcode="" zjcode2=""  length="3" type="42" fraction="0" familycode="0720" description="时段1"/>
+			<data-item code="0724" zjcode="" zjcode2=""  length="3" type="42" fraction="0" familycode="0720" description="时段2"/>
+			<data-item code="0725" zjcode="" zjcode2=""  length="3" type="42" fraction="0" familycode="0720" description="时段3"/>
+			<data-item code="0726" zjcode="" zjcode2=""  length="3" type="42" fraction="0" familycode="0720" description="时段4"/>
+			<data-item code="0727" zjcode="" zjcode2=""  length="3" type="42" fraction="0" familycode="0720" description="时段5"/>
+			<data-item code="0728" zjcode="" zjcode2=""  length="3" type="42" fraction="0" familycode="0720" description="时段6"/>
+			<data-item code="0729" zjcode="" zjcode2=""  length="3" type="42" fraction="0" familycode="0720" description="时段7"/>
+			<data-item code="072A" zjcode="" zjcode2=""  length="3" type="42" fraction="0" familycode="0720" description="时段8"/>
+			<data-item code="072B" zjcode="" zjcode2=""  length="3" type="42" fraction="0" familycode="0720" description="时段9"/>
+			<data-item code="072C" zjcode="" zjcode2=""  length="3" type="42" fraction="0" familycode="0720" description="时段10"/>
+			<data-item code="072D" zjcode="" zjcode2=""  length="3" type="42" fraction="0" familycode="0720" description="时段11"/>
+			<data-item code="072E" zjcode="" zjcode2=""  length="3" type="42" fraction="0" familycode="0720" description="时段12"/>
+		</data-item>
+	</data-item>
+	-->
+</protocol-meter-data>

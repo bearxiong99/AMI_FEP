@@ -1,0 +1,1006 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="gCMEncryption">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iHSType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iUpdateFlag" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ikeyType" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pMeterFactor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pConcentFactor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKeyVersion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pIv" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAdd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPlainData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="gCMEncryptionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="gCMEncryptionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="gCMDecryption">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iHSType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iUpdateFlag" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ikeyType" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pMeterFactor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pConcentFactor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKeyVersion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pIv" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAdd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCipherData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="gCMDecryptionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="gCMDecryptionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eCCPriKeySign">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iUpdateFlag" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eCCPriKeySignResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eCCPriKeySignResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eCCPubKeyVeri">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iHSType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iUpdateFlag" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pEquipIdx" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pECCPubKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSignature" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eCCPubKeyVeriResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eCCPubKeyVeriResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="createSPK">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iUpdateType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iUpdateFlag" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pMeterFactor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pConcentFactor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKeyVersion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pIv" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAdd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="createSPKResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="createSPKResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="createKeyPair">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iUpdateType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iUpdateFlag" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pMeterFactor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pConcentFactor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKeyVersion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pIv" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAdd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="createKeyPairResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="createKeyPairResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateSYMKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iUpdateType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iUpdateFlag" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iCurrKeyVersion" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pMeterFactor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pConcentFactor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKeyVersion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pIv" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pAdd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateSYMKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateSYMKeyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="jmjConnect">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pIpaddr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pPort" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="jmjConnectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jmjConnectResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="jmjDisconnect">
+        <s:complexType />
+      </s:element>
+      <s:element name="jmjDisconnectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jmjDisconnectResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="exportsSYMKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iUpdateType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iUpdateFlag" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ikeyType" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pMeterFactor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pConcentFactor" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ikeyindex" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pKeyVersion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="exportsSYMKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="exportsSYMKeyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="gCMEncryptionSoapIn">
+    <wsdl:part name="parameters" element="tns:gCMEncryption" />
+  </wsdl:message>
+  <wsdl:message name="gCMEncryptionSoapOut">
+    <wsdl:part name="parameters" element="tns:gCMEncryptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="gCMDecryptionSoapIn">
+    <wsdl:part name="parameters" element="tns:gCMDecryption" />
+  </wsdl:message>
+  <wsdl:message name="gCMDecryptionSoapOut">
+    <wsdl:part name="parameters" element="tns:gCMDecryptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="eCCPriKeySignSoapIn">
+    <wsdl:part name="parameters" element="tns:eCCPriKeySign" />
+  </wsdl:message>
+  <wsdl:message name="eCCPriKeySignSoapOut">
+    <wsdl:part name="parameters" element="tns:eCCPriKeySignResponse" />
+  </wsdl:message>
+  <wsdl:message name="eCCPubKeyVeriSoapIn">
+    <wsdl:part name="parameters" element="tns:eCCPubKeyVeri" />
+  </wsdl:message>
+  <wsdl:message name="eCCPubKeyVeriSoapOut">
+    <wsdl:part name="parameters" element="tns:eCCPubKeyVeriResponse" />
+  </wsdl:message>
+  <wsdl:message name="createSPKSoapIn">
+    <wsdl:part name="parameters" element="tns:createSPK" />
+  </wsdl:message>
+  <wsdl:message name="createSPKSoapOut">
+    <wsdl:part name="parameters" element="tns:createSPKResponse" />
+  </wsdl:message>
+  <wsdl:message name="createKeyPairSoapIn">
+    <wsdl:part name="parameters" element="tns:createKeyPair" />
+  </wsdl:message>
+  <wsdl:message name="createKeyPairSoapOut">
+    <wsdl:part name="parameters" element="tns:createKeyPairResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateSYMKeySoapIn">
+    <wsdl:part name="parameters" element="tns:updateSYMKey" />
+  </wsdl:message>
+  <wsdl:message name="updateSYMKeySoapOut">
+    <wsdl:part name="parameters" element="tns:updateSYMKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="jmjConnectSoapIn">
+    <wsdl:part name="parameters" element="tns:jmjConnect" />
+  </wsdl:message>
+  <wsdl:message name="jmjConnectSoapOut">
+    <wsdl:part name="parameters" element="tns:jmjConnectResponse" />
+  </wsdl:message>
+  <wsdl:message name="jmjDisconnectSoapIn">
+    <wsdl:part name="parameters" element="tns:jmjDisconnect" />
+  </wsdl:message>
+  <wsdl:message name="jmjDisconnectSoapOut">
+    <wsdl:part name="parameters" element="tns:jmjDisconnectResponse" />
+  </wsdl:message>
+  <wsdl:message name="exportsSYMKeySoapIn">
+    <wsdl:part name="parameters" element="tns:exportsSYMKey" />
+  </wsdl:message>
+  <wsdl:message name="exportsSYMKeySoapOut">
+    <wsdl:part name="parameters" element="tns:exportsSYMKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="gCMEncryptionHttpGetIn">
+    <wsdl:part name="iHSType" type="s:string" />
+    <wsdl:part name="iUpdateFlag" type="s:string" />
+    <wsdl:part name="ikeyType" type="s:string" />
+    <wsdl:part name="pMeterFactor" type="s:string" />
+    <wsdl:part name="pConcentFactor" type="s:string" />
+    <wsdl:part name="pKeyVersion" type="s:string" />
+    <wsdl:part name="pIv" type="s:string" />
+    <wsdl:part name="pAdd" type="s:string" />
+    <wsdl:part name="pPlainData" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="gCMEncryptionHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="gCMDecryptionHttpGetIn">
+    <wsdl:part name="iHSType" type="s:string" />
+    <wsdl:part name="iUpdateFlag" type="s:string" />
+    <wsdl:part name="ikeyType" type="s:string" />
+    <wsdl:part name="pMeterFactor" type="s:string" />
+    <wsdl:part name="pConcentFactor" type="s:string" />
+    <wsdl:part name="pKeyVersion" type="s:string" />
+    <wsdl:part name="pIv" type="s:string" />
+    <wsdl:part name="pAdd" type="s:string" />
+    <wsdl:part name="pCipherData" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="gCMDecryptionHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="eCCPriKeySignHttpGetIn">
+    <wsdl:part name="iUpdateFlag" type="s:string" />
+    <wsdl:part name="pData" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="eCCPriKeySignHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="eCCPubKeyVeriHttpGetIn">
+    <wsdl:part name="iHSType" type="s:string" />
+    <wsdl:part name="iUpdateFlag" type="s:string" />
+    <wsdl:part name="pEquipIdx" type="s:string" />
+    <wsdl:part name="pECCPubKey" type="s:string" />
+    <wsdl:part name="pData" type="s:string" />
+    <wsdl:part name="pSignature" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="eCCPubKeyVeriHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="createSPKHttpGetIn">
+    <wsdl:part name="iUpdateType" type="s:string" />
+    <wsdl:part name="iUpdateFlag" type="s:string" />
+    <wsdl:part name="pMeterFactor" type="s:string" />
+    <wsdl:part name="pConcentFactor" type="s:string" />
+    <wsdl:part name="pKeyVersion" type="s:string" />
+    <wsdl:part name="pIv" type="s:string" />
+    <wsdl:part name="pAdd" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="createSPKHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="createKeyPairHttpGetIn">
+    <wsdl:part name="iUpdateType" type="s:string" />
+    <wsdl:part name="iUpdateFlag" type="s:string" />
+    <wsdl:part name="pMeterFactor" type="s:string" />
+    <wsdl:part name="pConcentFactor" type="s:string" />
+    <wsdl:part name="pKeyVersion" type="s:string" />
+    <wsdl:part name="pIv" type="s:string" />
+    <wsdl:part name="pAdd" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="createKeyPairHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="updateSYMKeyHttpGetIn">
+    <wsdl:part name="iUpdateType" type="s:string" />
+    <wsdl:part name="iUpdateFlag" type="s:string" />
+    <wsdl:part name="iCurrKeyVersion" type="s:string" />
+    <wsdl:part name="pMeterFactor" type="s:string" />
+    <wsdl:part name="pConcentFactor" type="s:string" />
+    <wsdl:part name="pKeyVersion" type="s:string" />
+    <wsdl:part name="pIv" type="s:string" />
+    <wsdl:part name="pAdd" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="updateSYMKeyHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="jmjConnectHttpGetIn">
+    <wsdl:part name="pIpaddr" type="s:string" />
+    <wsdl:part name="pPort" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="jmjConnectHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="jmjDisconnectHttpGetIn" />
+  <wsdl:message name="jmjDisconnectHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="exportsSYMKeyHttpGetIn">
+    <wsdl:part name="iUpdateType" type="s:string" />
+    <wsdl:part name="iUpdateFlag" type="s:string" />
+    <wsdl:part name="ikeyType" type="s:string" />
+    <wsdl:part name="pMeterFactor" type="s:string" />
+    <wsdl:part name="pConcentFactor" type="s:string" />
+    <wsdl:part name="ikeyindex" type="s:string" />
+    <wsdl:part name="pKeyVersion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="exportsSYMKeyHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="gCMEncryptionHttpPostIn">
+    <wsdl:part name="iHSType" type="s:string" />
+    <wsdl:part name="iUpdateFlag" type="s:string" />
+    <wsdl:part name="ikeyType" type="s:string" />
+    <wsdl:part name="pMeterFactor" type="s:string" />
+    <wsdl:part name="pConcentFactor" type="s:string" />
+    <wsdl:part name="pKeyVersion" type="s:string" />
+    <wsdl:part name="pIv" type="s:string" />
+    <wsdl:part name="pAdd" type="s:string" />
+    <wsdl:part name="pPlainData" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="gCMEncryptionHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="gCMDecryptionHttpPostIn">
+    <wsdl:part name="iHSType" type="s:string" />
+    <wsdl:part name="iUpdateFlag" type="s:string" />
+    <wsdl:part name="ikeyType" type="s:string" />
+    <wsdl:part name="pMeterFactor" type="s:string" />
+    <wsdl:part name="pConcentFactor" type="s:string" />
+    <wsdl:part name="pKeyVersion" type="s:string" />
+    <wsdl:part name="pIv" type="s:string" />
+    <wsdl:part name="pAdd" type="s:string" />
+    <wsdl:part name="pCipherData" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="gCMDecryptionHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="eCCPriKeySignHttpPostIn">
+    <wsdl:part name="iUpdateFlag" type="s:string" />
+    <wsdl:part name="pData" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="eCCPriKeySignHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="eCCPubKeyVeriHttpPostIn">
+    <wsdl:part name="iHSType" type="s:string" />
+    <wsdl:part name="iUpdateFlag" type="s:string" />
+    <wsdl:part name="pEquipIdx" type="s:string" />
+    <wsdl:part name="pECCPubKey" type="s:string" />
+    <wsdl:part name="pData" type="s:string" />
+    <wsdl:part name="pSignature" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="eCCPubKeyVeriHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="createSPKHttpPostIn">
+    <wsdl:part name="iUpdateType" type="s:string" />
+    <wsdl:part name="iUpdateFlag" type="s:string" />
+    <wsdl:part name="pMeterFactor" type="s:string" />
+    <wsdl:part name="pConcentFactor" type="s:string" />
+    <wsdl:part name="pKeyVersion" type="s:string" />
+    <wsdl:part name="pIv" type="s:string" />
+    <wsdl:part name="pAdd" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="createSPKHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="createKeyPairHttpPostIn">
+    <wsdl:part name="iUpdateType" type="s:string" />
+    <wsdl:part name="iUpdateFlag" type="s:string" />
+    <wsdl:part name="pMeterFactor" type="s:string" />
+    <wsdl:part name="pConcentFactor" type="s:string" />
+    <wsdl:part name="pKeyVersion" type="s:string" />
+    <wsdl:part name="pIv" type="s:string" />
+    <wsdl:part name="pAdd" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="createKeyPairHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="updateSYMKeyHttpPostIn">
+    <wsdl:part name="iUpdateType" type="s:string" />
+    <wsdl:part name="iUpdateFlag" type="s:string" />
+    <wsdl:part name="iCurrKeyVersion" type="s:string" />
+    <wsdl:part name="pMeterFactor" type="s:string" />
+    <wsdl:part name="pConcentFactor" type="s:string" />
+    <wsdl:part name="pKeyVersion" type="s:string" />
+    <wsdl:part name="pIv" type="s:string" />
+    <wsdl:part name="pAdd" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="updateSYMKeyHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="jmjConnectHttpPostIn">
+    <wsdl:part name="pIpaddr" type="s:string" />
+    <wsdl:part name="pPort" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="jmjConnectHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="jmjDisconnectHttpPostIn" />
+  <wsdl:message name="jmjDisconnectHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="exportsSYMKeyHttpPostIn">
+    <wsdl:part name="iUpdateType" type="s:string" />
+    <wsdl:part name="iUpdateFlag" type="s:string" />
+    <wsdl:part name="ikeyType" type="s:string" />
+    <wsdl:part name="pMeterFactor" type="s:string" />
+    <wsdl:part name="pConcentFactor" type="s:string" />
+    <wsdl:part name="ikeyindex" type="s:string" />
+    <wsdl:part name="pKeyVersion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="exportsSYMKeyHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="Service1Soap">
+    <wsdl:operation name="gCMEncryption">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">GCM加密</wsdl:documentation>
+      <wsdl:input message="tns:gCMEncryptionSoapIn" />
+      <wsdl:output message="tns:gCMEncryptionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="gCMDecryption">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">GCM解密</wsdl:documentation>
+      <wsdl:input message="tns:gCMDecryptionSoapIn" />
+      <wsdl:output message="tns:gCMDecryptionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="eCCPriKeySign">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ECC私钥签名</wsdl:documentation>
+      <wsdl:input message="tns:eCCPriKeySignSoapIn" />
+      <wsdl:output message="tns:eCCPriKeySignSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="eCCPubKeyVeri">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ECC公钥验签</wsdl:documentation>
+      <wsdl:input message="tns:eCCPubKeyVeriSoapIn" />
+      <wsdl:output message="tns:eCCPubKeyVeriSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="createSPK">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">生成主站公钥</wsdl:documentation>
+      <wsdl:input message="tns:createSPKSoapIn" />
+      <wsdl:output message="tns:createSPKSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="createKeyPair">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">生成密钥对</wsdl:documentation>
+      <wsdl:input message="tns:createKeyPairSoapIn" />
+      <wsdl:output message="tns:createKeyPairSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateSYMKey">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">更新对称密钥</wsdl:documentation>
+      <wsdl:input message="tns:updateSYMKeySoapIn" />
+      <wsdl:output message="tns:updateSYMKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="jmjConnect">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">连接加密机</wsdl:documentation>
+      <wsdl:input message="tns:jmjConnectSoapIn" />
+      <wsdl:output message="tns:jmjConnectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="jmjDisconnect">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">断开加密机</wsdl:documentation>
+      <wsdl:input message="tns:jmjDisconnectSoapIn" />
+      <wsdl:output message="tns:jmjDisconnectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="exportsSYMKey">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">HHU密钥导出</wsdl:documentation>
+      <wsdl:input message="tns:exportsSYMKeySoapIn" />
+      <wsdl:output message="tns:exportsSYMKeySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="Service1HttpGet">
+    <wsdl:operation name="gCMEncryption">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">GCM加密</wsdl:documentation>
+      <wsdl:input message="tns:gCMEncryptionHttpGetIn" />
+      <wsdl:output message="tns:gCMEncryptionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="gCMDecryption">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">GCM解密</wsdl:documentation>
+      <wsdl:input message="tns:gCMDecryptionHttpGetIn" />
+      <wsdl:output message="tns:gCMDecryptionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="eCCPriKeySign">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ECC私钥签名</wsdl:documentation>
+      <wsdl:input message="tns:eCCPriKeySignHttpGetIn" />
+      <wsdl:output message="tns:eCCPriKeySignHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="eCCPubKeyVeri">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ECC公钥验签</wsdl:documentation>
+      <wsdl:input message="tns:eCCPubKeyVeriHttpGetIn" />
+      <wsdl:output message="tns:eCCPubKeyVeriHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="createSPK">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">生成主站公钥</wsdl:documentation>
+      <wsdl:input message="tns:createSPKHttpGetIn" />
+      <wsdl:output message="tns:createSPKHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="createKeyPair">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">生成密钥对</wsdl:documentation>
+      <wsdl:input message="tns:createKeyPairHttpGetIn" />
+      <wsdl:output message="tns:createKeyPairHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateSYMKey">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">更新对称密钥</wsdl:documentation>
+      <wsdl:input message="tns:updateSYMKeyHttpGetIn" />
+      <wsdl:output message="tns:updateSYMKeyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="jmjConnect">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">连接加密机</wsdl:documentation>
+      <wsdl:input message="tns:jmjConnectHttpGetIn" />
+      <wsdl:output message="tns:jmjConnectHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="jmjDisconnect">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">断开加密机</wsdl:documentation>
+      <wsdl:input message="tns:jmjDisconnectHttpGetIn" />
+      <wsdl:output message="tns:jmjDisconnectHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="exportsSYMKey">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">HHU密钥导出</wsdl:documentation>
+      <wsdl:input message="tns:exportsSYMKeyHttpGetIn" />
+      <wsdl:output message="tns:exportsSYMKeyHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="Service1HttpPost">
+    <wsdl:operation name="gCMEncryption">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">GCM加密</wsdl:documentation>
+      <wsdl:input message="tns:gCMEncryptionHttpPostIn" />
+      <wsdl:output message="tns:gCMEncryptionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="gCMDecryption">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">GCM解密</wsdl:documentation>
+      <wsdl:input message="tns:gCMDecryptionHttpPostIn" />
+      <wsdl:output message="tns:gCMDecryptionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="eCCPriKeySign">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ECC私钥签名</wsdl:documentation>
+      <wsdl:input message="tns:eCCPriKeySignHttpPostIn" />
+      <wsdl:output message="tns:eCCPriKeySignHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="eCCPubKeyVeri">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ECC公钥验签</wsdl:documentation>
+      <wsdl:input message="tns:eCCPubKeyVeriHttpPostIn" />
+      <wsdl:output message="tns:eCCPubKeyVeriHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="createSPK">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">生成主站公钥</wsdl:documentation>
+      <wsdl:input message="tns:createSPKHttpPostIn" />
+      <wsdl:output message="tns:createSPKHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="createKeyPair">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">生成密钥对</wsdl:documentation>
+      <wsdl:input message="tns:createKeyPairHttpPostIn" />
+      <wsdl:output message="tns:createKeyPairHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateSYMKey">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">更新对称密钥</wsdl:documentation>
+      <wsdl:input message="tns:updateSYMKeyHttpPostIn" />
+      <wsdl:output message="tns:updateSYMKeyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="jmjConnect">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">连接加密机</wsdl:documentation>
+      <wsdl:input message="tns:jmjConnectHttpPostIn" />
+      <wsdl:output message="tns:jmjConnectHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="jmjDisconnect">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">断开加密机</wsdl:documentation>
+      <wsdl:input message="tns:jmjDisconnectHttpPostIn" />
+      <wsdl:output message="tns:jmjDisconnectHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="exportsSYMKey">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">HHU密钥导出</wsdl:documentation>
+      <wsdl:input message="tns:exportsSYMKeyHttpPostIn" />
+      <wsdl:output message="tns:exportsSYMKeyHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="gCMEncryption">
+      <soap:operation soapAction="http://tempuri.org/gCMEncryption" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gCMDecryption">
+      <soap:operation soapAction="http://tempuri.org/gCMDecryption" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eCCPriKeySign">
+      <soap:operation soapAction="http://tempuri.org/eCCPriKeySign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eCCPubKeyVeri">
+      <soap:operation soapAction="http://tempuri.org/eCCPubKeyVeri" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createSPK">
+      <soap:operation soapAction="http://tempuri.org/createSPK" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createKeyPair">
+      <soap:operation soapAction="http://tempuri.org/createKeyPair" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateSYMKey">
+      <soap:operation soapAction="http://tempuri.org/updateSYMKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="jmjConnect">
+      <soap:operation soapAction="http://tempuri.org/jmjConnect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="jmjDisconnect">
+      <soap:operation soapAction="http://tempuri.org/jmjDisconnect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="exportsSYMKey">
+      <soap:operation soapAction="http://tempuri.org/exportsSYMKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="gCMEncryption">
+      <soap12:operation soapAction="http://tempuri.org/gCMEncryption" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gCMDecryption">
+      <soap12:operation soapAction="http://tempuri.org/gCMDecryption" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eCCPriKeySign">
+      <soap12:operation soapAction="http://tempuri.org/eCCPriKeySign" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eCCPubKeyVeri">
+      <soap12:operation soapAction="http://tempuri.org/eCCPubKeyVeri" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createSPK">
+      <soap12:operation soapAction="http://tempuri.org/createSPK" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createKeyPair">
+      <soap12:operation soapAction="http://tempuri.org/createKeyPair" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateSYMKey">
+      <soap12:operation soapAction="http://tempuri.org/updateSYMKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="jmjConnect">
+      <soap12:operation soapAction="http://tempuri.org/jmjConnect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="jmjDisconnect">
+      <soap12:operation soapAction="http://tempuri.org/jmjDisconnect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="exportsSYMKey">
+      <soap12:operation soapAction="http://tempuri.org/exportsSYMKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1HttpGet" type="tns:Service1HttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="gCMEncryption">
+      <http:operation location="/gCMEncryption" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gCMDecryption">
+      <http:operation location="/gCMDecryption" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eCCPriKeySign">
+      <http:operation location="/eCCPriKeySign" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eCCPubKeyVeri">
+      <http:operation location="/eCCPubKeyVeri" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createSPK">
+      <http:operation location="/createSPK" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createKeyPair">
+      <http:operation location="/createKeyPair" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateSYMKey">
+      <http:operation location="/updateSYMKey" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="jmjConnect">
+      <http:operation location="/jmjConnect" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="jmjDisconnect">
+      <http:operation location="/jmjDisconnect" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="exportsSYMKey">
+      <http:operation location="/exportsSYMKey" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1HttpPost" type="tns:Service1HttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="gCMEncryption">
+      <http:operation location="/gCMEncryption" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gCMDecryption">
+      <http:operation location="/gCMDecryption" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eCCPriKeySign">
+      <http:operation location="/eCCPriKeySign" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eCCPubKeyVeri">
+      <http:operation location="/eCCPubKeyVeri" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createSPK">
+      <http:operation location="/createSPK" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createKeyPair">
+      <http:operation location="/createKeyPair" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateSYMKey">
+      <http:operation location="/updateSYMKey" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="jmjConnect">
+      <http:operation location="/jmjConnect" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="jmjDisconnect">
+      <http:operation location="/jmjDisconnect" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="exportsSYMKey">
+      <http:operation location="/exportsSYMKey" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="Service1Soap" binding="tns:Service1Soap">
+      <soap:address location="http://localhost:1700/Service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1Soap12" binding="tns:Service1Soap12">
+      <soap12:address location="http://localhost:1700/Service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1HttpGet" binding="tns:Service1HttpGet">
+      <http:address location="http://localhost:1700/Service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1HttpPost" binding="tns:Service1HttpPost">
+      <http:address location="http://localhost:1700/Service1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ami3.0/!svn/ver/16539/trunk/fep/FEP_Common/src/cn/hexing/fk/message
+END
+MessageBase.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ami3.0/!svn/ver/13598/trunk/fep/FEP_Common/src/cn/hexing/fk/message/MessageBase.java
+END
+MessageType.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ami3.0/!svn/ver/13598/trunk/fep/FEP_Common/src/cn/hexing/fk/message/MessageType.java
+END
+MultiProtoRecognizer.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ami3.0/!svn/ver/19702/trunk/fep/FEP_Common/src/cn/hexing/fk/message/MultiProtoRecognizer.java
+END
+KillThreadMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ami3.0/!svn/ver/1959/trunk/fep/FEP_Common/src/cn/hexing/fk/message/KillThreadMessage.java
+END
+MultiProtoMessageLoader.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ami3.0/!svn/ver/20347/trunk/fep/FEP_Common/src/cn/hexing/fk/message/MultiProtoMessageLoader.java
+END
+MessageConst.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/ami3.0/!svn/ver/16539/trunk/fep/FEP_Common/src/cn/hexing/fk/message/MessageConst.java
+END
+MessageLoader.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/message/MessageLoader.java
+END
+IMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/ami3.0/!svn/ver/13684/trunk/fep/FEP_Common/src/cn/hexing/fk/message/IMessage.java
+END
+IMessageCreator.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/message/IMessageCreator.java
+END

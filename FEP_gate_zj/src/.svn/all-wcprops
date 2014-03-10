@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ami3.0/!svn/ver/8769/trunk/fep/FEP_gate_zj/src
+END
+applicationContext-gate.xml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/ami3.0/!svn/ver/11865/trunk/fep/FEP_gate_zj/src/applicationContext-gate.xml
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ami3.0/!svn/ver/11244/trunk/fep/FEP_gate_zj/src/log4j.properties
+END
+traceLog.properties
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ami3.0/!svn/ver/15127/trunk/fep/FEP_gate_zj/src/traceLog.properties
+END
+applicationContext-monitor.xml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/ami3.0/!svn/ver/20358/trunk/fep/FEP_gate_zj/src/applicationContext-monitor.xml
+END
+applicationContext-common.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/ami3.0/!svn/ver/7795/trunk/fep/FEP_gate_zj/src/applicationContext-common.xml
+END
+applicationContext-socket.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/ami3.0/!svn/ver/7795/trunk/fep/FEP_gate_zj/src/applicationContext-socket.xml
+END
+application.properties
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ami3.0/!svn/ver/12938/trunk/fep/FEP_gate_zj/src/application.properties
+END

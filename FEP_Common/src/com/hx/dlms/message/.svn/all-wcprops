@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/ami3.0/!svn/ver/13410/trunk/fep/FEP_Common/src/com/hx/dlms/message
+END
+DlmsHDLCMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ami3.0/!svn/ver/13104/trunk/fep/FEP_Common/src/com/hx/dlms/message/DlmsHDLCMessage.java
+END
+DlmsHdlcMessageCreator.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ami3.0/!svn/ver/11910/trunk/fep/FEP_Common/src/com/hx/dlms/message/DlmsHdlcMessageCreator.java
+END
+DlmsMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ami3.0/!svn/ver/15139/trunk/fep/FEP_Common/src/com/hx/dlms/message/DlmsMessage.java
+END
+DlmsMessageCreator.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/com/hx/dlms/message/DlmsMessageCreator.java
+END

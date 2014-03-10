@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Application context definition for ...
+-->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:p="http://www.springframework.org/schema/p" xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:context="http://www.springframework.org/schema/context" xmlns:jee="http://www.springframework.org/schema/jee"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<!-- ========================= 通信前置机对象定义 ========================= -->
+	<bean id="propertyConfigurer" class="cn.hexing.fk.utils.EncryptPlaceholderConfigurer">
+		<property name="encryptFileName" value="jdbc.properties"/>
+		<property name="locations">
+			<list>
+				<value>application.properties</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<bean id="dp.client.cluster" class="cn.hexing.fk.clientmod.ClusterClientModule">
+		<property name="name" value="bpClinets"/>
+		<property name="clientsUrl" value="${bp.clients.url}"/>
+		<property name="bufLength" value="10240"/>
+		<property name="timeout" value="4"/>
+		<property name="heartInterval" value="10"/>
+		<property name="requestNum" value="500"/>
+	</bean>	
+
+	
+	
+</beans>

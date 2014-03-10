@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ami3.0/!svn/ver/7026/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/pos
+END
+PosItemConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/ami3.0/!svn/ver/14485/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/pos/PosItemConfig.java
+END
+PosMessageEncoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/ami3.0/!svn/ver/21787/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/pos/PosMessageEncoder.java
+END
+AbstractMessageEncoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/ami3.0/!svn/ver/6982/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/pos/AbstractMessageEncoder.java
+END
+PosMessageDecoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/ami3.0/!svn/ver/21787/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/pos/PosMessageDecoder.java
+END
+AbstractMessageDecoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/ami3.0/!svn/ver/6982/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/pos/AbstractMessageDecoder.java
+END

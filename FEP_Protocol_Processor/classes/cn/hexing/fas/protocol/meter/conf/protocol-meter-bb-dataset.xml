@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<protocol-meter-data>
+	<!-- 表规约名称 -->
+	<proto-name>BBMeter</proto-name>
+	<!-- 表规约数据集合 -->
+	<data-item code="01001000FF" parentCode1="901F" parentCode2="000100FF" length="0" type="" fraction="" familycode="901F" description="正向有功总数据块">
+		<data-item code="0100100000" parentCode1="9010" parentCode2="00010000" length="4" type="01"  fraction="02" description="当前正向有功总电能" />
+		<data-item code="0100100001" parentCode1="9011" parentCode2="00010100" length="4" type="01"  fraction="02" description="当前费率1正向有功总电能" />
+		<data-item code="0100100002" parentCode1="9012" parentCode2="00010200" length="4" type="01"  fraction="02" description="当前费率2正向有功总电能" />
+		<data-item code="0100100003" parentCode1="9013" parentCode2="00010300" length="4" type="01"  fraction="02" description="当前费率3正向有功总电能" />
+		<data-item code="0100100004" parentCode1="9014" parentCode2="00010400" length="4" type="01"  fraction="02" description="当前费率4正向有功总电能" />						
+	</data-item>
+			
+	<data-item code="01001001FF" parentCode1="902F" parentCode2="0002FF00" length="0" type="" fraction="" familycode="902F" description="反向有功总数据块">
+		<data-item code="0100100100" parentCode1="9020" parentCode2="00020000" length="4" type="01"  fraction="02" description="当前反向有功总电能" />
+		<data-item code="0100100101" parentCode1="9021" parentCode2="00020100" length="4" type="01"  fraction="02" description="当前费率1反向有功总电能" />
+		<data-item code="0100100102" parentCode1="9022" parentCode2="00020200" length="4" type="01"  fraction="02" description="当前费率2反向有功总电能" />
+		<data-item code="0100100103" parentCode1="9023" parentCode2="00020300" length="4" type="01"  fraction="02" description="当前费率3反向有功总电能" />
+		<data-item code="0100100104" parentCode1="9024" parentCode2="00020400" length="4" type="01"  fraction="02" description="当前费率4反向有功总电能" />		
+	</data-item>
+	
+	<data-item code="01001002FF" parentCode1="911F" parentCode2="0003FF00" length="0" type="" fraction="" familycode="911F" description="正向无功总数据块">
+		<data-item code="0100100200" parentCode1="9110" parentCode2="00030000" length="4" type="01"  fraction="02" description="正向无功总电能" />
+		<data-item code="0100100201" parentCode1="9111" parentCode2="00030100" length="4" type="01"  fraction="02" description="当前费率1正向无功总电能" />
+		<data-item code="0100100202" parentCode1="9112" parentCode2="00030200" length="4" type="01"  fraction="02" description="当前费率2正向无功总电能" />
+		<data-item code="0100100203" parentCode1="9113" parentCode2="00030300" length="4" type="01"  fraction="02" description="当前费率3正向无功总电能" />
+		<data-item code="0100100204" parentCode1="9114" parentCode2="00030400" length="4" type="01"  fraction="02" description="当前费率4正向无功总电能" />		
+	</data-item>
+	
+	<data-item code="01001003FF" parentCode1="912F" parentCode2="0004FF00" length="0" type="" fraction="" familycode="912F" description="反向无功总数据块">
+		<data-item code="0100100300" parentCode1="9120" parentCode2="00040000" length="4" type="01"  fraction="02" description="反向无功总电能" />
+		<data-item code="0100100301" parentCode1="9121" parentCode2="00040100" length="4" type="01"  fraction="02" description="当前费率1反向无功总电能" />
+		<data-item code="0100100302" parentCode1="9122" parentCode2="00040200" length="4" type="01"  fraction="02" description="当前费率2反向无功总电能" />
+		<data-item code="0100100303" parentCode1="9123" parentCode2="00040300" length="4" type="01"  fraction="02" description="当前费率3反向无功总电能" />
+		<data-item code="0100100304" parentCode1="9124" parentCode2="00040400" length="4" type="01"  fraction="02" description="当前费率4反向无功总电能" />		
+	</data-item>
+	
+	<data-item code="01001004FF" parentCode1="913F" parentCode2="0005FF00" length="0" type="" fraction="" familycode="913F" description="一象限无功总数据块">
+		<data-item code="0100100400" parentCode1="9130" parentCode2="00050000" length="4" type="01"  fraction="02" description="一象限无功总电能" />
+		<data-item code="0100100401" parentCode1="9131" parentCode2="00050100" length="4" type="01"  fraction="02" description="当前费率1一象限无功总电能" />
+		<data-item code="0100100402" parentCode1="9132" parentCode2="00050200" length="4" type="01"  fraction="02" description="当前费率2一象限无功总电能" />
+		<data-item code="0100100403" parentCode1="9133" parentCode2="00050300" length="4" type="01"  fraction="02" description="当前费率3一象限无功总电能" />
+		<data-item code="0100100404" parentCode1="9134" parentCode2="00050400" length="4" type="01"  fraction="02" description="当前费率4一象限无功总电能" />		
+	</data-item>
+	
+	<data-item code="01001005FF" parentCode1="914F" parentCode2="0008FF00" length="0" type="" fraction="" familycode="914F" description="四象限无功总数据块">
+		<data-item code="0100100500" parentCode1="9140" parentCode2="00080000" length="4" type="01"  fraction="02" description="四象限无功总电能" />
+		<data-item code="0100100501" parentCode1="9141" parentCode2="00080100" length="4" type="01"  fraction="02" description="当前费率1四象限无功总电能" />
+		<data-item code="0100100502" parentCode1="9142" parentCode2="00080100" length="4" type="01"  fraction="02" description="当前费率2四象限无功总电能" />
+		<data-item code="0100100503" parentCode1="9143" parentCode2="00080100" length="4" type="01"  fraction="02" description="当前费率3四象限无功总电能" />
+		<data-item code="0100100504" parentCode1="9144" parentCode2="00080100" length="4" type="01"  fraction="02" description="当前费率4四象限无功总电能" />		
+	</data-item>
+	
+	<data-item code="01001006FF" parentCode1="915F" parentCode2="0006FF00" length="0" type="" fraction="" familycode="915F" description="二象限无功总数据块">
+		<data-item code="0100100600" parentCode1="9150" parentCode2="00060000" length="4" type="01"  fraction="02" description="二象限无功总电能" />
+		<data-item code="0100100601" parentCode1="9151" parentCode2="00060100" length="4" type="01"  fraction="02" description="当前费率1二象限无功总电能" />
+		<data-item code="0100100602" parentCode1="9152" parentCode2="00060200" length="4" type="01"  fraction="02" description="当前费率2二象限无功总电能" />
+		<data-item code="0100100603" parentCode1="9153" parentCode2="00060300" length="4" type="01"  fraction="02" description="当前费率3二象限无功总电能" />
+		<data-item code="0100100604" parentCode1="9154" parentCode2="00060400" length="4" type="01"  fraction="02" description="当前费率4二象限无功总电能" />		
+	</data-item>
+	
+	<data-item code="01001007FF" parentCode1="916F" parentCode2="0007FF00" length="0" type="" fraction="" familycode="916F" description="三象限无功总数据块">
+		<data-item code="0100100700" parentCode1="9160" parentCode2="00070000" length="4" type="01"  fraction="02" description="三象限无功总电能" />
+		<data-item code="0100100701" parentCode1="9161" parentCode2="00070100" length="4" type="01"  fraction="02" description="当前费率1三象限无功总电能" />
+		<data-item code="0100100702" parentCode1="9162" parentCode2="00070200" length="4" type="01"  fraction="02" description="当前费率2三象限无功总电能" />
+		<data-item code="0100100703" parentCode1="9163" parentCode2="00070300" length="4" type="01"  fraction="02" description="当前费率3三象限无功总电能" />
+		<data-item code="0100100704" parentCode1="9164" parentCode2="00070400" length="4" type="01"  fraction="02" description="当前费率4三象限无功总电能" />		
+	</data-item>
+	
+	<data-item code="02011000FF" parentCode1="A01F" parentCode2="" length="0" type="" fraction="" familycode="A01F" description="正向有功总最大需量数据块">
+		<data-item code="0201100000" parentCode1="A010" parentCode2="" length="3" type="01"  fraction="04" description="当前正向有功总最大需量" />
+		<data-item code="0201100001" parentCode1="A011" parentCode2="" length="3" type="01"  fraction="04" description="当前费率1正向有功最大需量" />
+		<data-item code="0201100002" parentCode1="A012" parentCode2="" length="3" type="01"  fraction="04" description="当前费率2正向有功最大需量" />
+		<data-item code="0201100003" parentCode1="A013" parentCode2="" length="3" type="01"  fraction="04" description="当前费率3正向有功最大需量" />
+		<data-item code="0201100004" parentCode1="A014" parentCode2="" length="3" type="01"  fraction="04" description="当前费率4正向有功最大需量" />		
+	</data-item>
+	
+	<data-item code="02011001FF" parentCode1="A02F" parentCode2="" length="0" type="" fraction="" familycode="A02F" description="反向有功总最大需量数据块">
+		<data-item code="0201100100" parentCode1="A020" parentCode2="" length="3" type="01"  fraction="04" description="当前反向有功总最大需量" />
+		<data-item code="0201100101" parentCode1="A021" parentCode2="" length="3" type="01"  fraction="04" description="当前费率1反向有功最大需量" />
+		<data-item code="0201100102" parentCode1="A022" parentCode2="" length="3" type="01"  fraction="04" description="当前费率2反向有功最大需量" />
+		<data-item code="0201100103" parentCode1="A023" parentCode2="" length="3" type="01"  fraction="04" description="当前费率3反向有功最大需量" />
+		<data-item code="0201100104" parentCode1="A024" parentCode2="" length="3" type="01"  fraction="04" description="当前费率4反向有功最大需量" />		
+	</data-item>
+	
+	<data-item code="02011002FF" parentCode1="A11F" parentCode2="" length="0" type="" fraction="" familycode="A11F" description="正向无功总最大需量数据块">
+		<data-item code="0201100200" parentCode1="A110" parentCode2="" length="3" type="01"  fraction="04" description="当前正向无功总最大需量" />
+		<data-item code="0201100201" parentCode1="A111" parentCode2="" length="3" type="01"  fraction="04" description="当前费率1正向无功最大需量" />
+		<data-item code="0201100202" parentCode1="A112" parentCode2="" length="3" type="01"  fraction="04" description="当前费率2正向无功最大需量" />
+		<data-item code="0201100203" parentCode1="A113" parentCode2="" length="3" type="01"  fraction="04" description="当前费率3正向无功最大需量" />
+		<data-item code="0201100204" parentCode1="A114" parentCode2="" length="3" type="01"  fraction="04" description="当前费率4正向无功最大需量" />		
+	</data-item>
+	
+	<data-item code="02011003FF" parentCode1="A12F" parentCode2="" length="0" type="" fraction="" familycode="A12F" description="反向无功总最大需量数据块">
+		<data-item code="0201100300" parentCode1="A120" parentCode2="" length="3" type="01"  fraction="04" description="当前反向无功总最大需量" />
+		<data-item code="0201100301" parentCode1="A121" parentCode2="" length="3" type="01"  fraction="04" description="当前费率1反向无功最大需量" />
+		<data-item code="0201100302" parentCode1="A122" parentCode2="" length="3" type="01"  fraction="04" description="当前费率2反向无功最大需量" />
+		<data-item code="0201100303" parentCode1="A123" parentCode2="" length="3" type="01"  fraction="04" description="当前费率3反向无功最大需量" />
+		<data-item code="0201100304" parentCode1="A124" parentCode2="" length="3" type="01"  fraction="04" description="当前费率4反向无功最大需量" />		
+	</data-item>
+	
+	<data-item code="02011004FF" parentCode1="A13F" parentCode2="" length="0" type="" fraction="" familycode="A13F" description="一象限最大需量数据块">
+		<data-item code="0201100400" parentCode1="A130" parentCode2="" length="3" type="01"  fraction="04" description="当前一象限最大需量" />
+		<data-item code="0201100401" parentCode1="A131" parentCode2="" length="3" type="01"  fraction="04" description="当前费率1一象限最大需量" />
+		<data-item code="0201100402" parentCode1="A132" parentCode2="" length="3" type="01"  fraction="04" description="当前费率2一象限最大需量" />
+		<data-item code="0201100403" parentCode1="A133" parentCode2="" length="3" type="01"  fraction="04" description="当前费率3一象限最大需量" />
+		<data-item code="0201100404" parentCode1="A134" parentCode2="" length="3" type="01"  fraction="04" description="当前费率4一象限最大需量" />		
+	</data-item>
+	
+	<data-item code="02011005FF" parentCode1="A14F" parentCode2="" length="0" type="" fraction="" familycode="A14F" description="四象限最大需量数据块">
+		<data-item code="0201100500" parentCode1="A140" parentCode2="" length="3" type="01"  fraction="04" description="当前四象限最大需量" />
+		<data-item code="0201100501" parentCode1="A141" parentCode2="" length="3" type="01"  fraction="04" description="当前费率1四象限最大需量" />
+		<data-item code="0201100502" parentCode1="A142" parentCode2="" length="3" type="01"  fraction="04" description="当前费率2四象限最大需量" />
+		<data-item code="0201100503" parentCode1="A143" parentCode2="" length="3" type="01"  fraction="04" description="当前费率3四象限最大需量" />
+		<data-item code="0201100504" parentCode1="A144" parentCode2="" length="3" type="01"  fraction="04" description="当前费率4四象限最大需量" />		
+	</data-item>
+	
+	<data-item code="02011006FF" parentCode1="A15F" parentCode2="" length="0" type="" fraction="" familycode="A15F" description="二象限最大需量数据块">
+		<data-item code="0201100600" parentCode1="A150" parentCode2="" length="3" type="01"  fraction="04" description="当前二象限最大需量" />
+		<data-item code="0201100601" parentCode1="A151" parentCode2="" length="3" type="01"  fraction="04" description="当前费率1二象限最大需量" />
+		<data-item code="0201100602" parentCode1="A152" parentCode2="" length="3" type="01"  fraction="04" description="当前费率2二象限最大需量" />
+		<data-item code="0201100603" parentCode1="A153" parentCode2="" length="3" type="01"  fraction="04" description="当前费率3二象限最大需量" />
+		<data-item code="0201100604" parentCode1="A154" parentCode2="" length="3" type="01"  fraction="04" description="当前费率4二象限最大需量" />			
+	</data-item>
+	
+	<data-item code="02011007FF" parentCode1="A16F" parentCode2="" length="0" type="" fraction="" familycode="A16F" description="三象限最大需量数据块">
+		<data-item code="0201100700" parentCode1="A160" parentCode2="" length="3" type="01"  fraction="04" description="当前三象限最大需量" />
+		<data-item code="0201100701" parentCode1="A161" parentCode2="" length="3" type="01"  fraction="04" description="当前费率1三象限最大需量" />
+		<data-item code="0201100702" parentCode1="A162" parentCode2="" length="3" type="01"  fraction="04" description="当前费率2三象限最大需量" />
+		<data-item code="0201100703" parentCode1="A163" parentCode2="" length="3" type="01"  fraction="04" description="当前费率3三象限最大需量" />
+		<data-item code="0201100704" parentCode1="A164" parentCode2="" length="3" type="01"  fraction="04" description="当前费率4三象限最大需量" />		
+	</data-item>
+	
+	<data-item code="02011008FF" parentCode1="B01F" parentCode2="" length="0" type="" frBction="" familycode="B01F" description="正向有功总最大需量发生时间数据块">
+		<data-item code="0201100800" parentCode1="B010" parentCode2="" length="4" type="07"  fraction="00" description="当前正向有功总最大需量发生时间" />
+		<data-item code="0201100801" parentCode1="B011" parentCode2="" length="4" type="07"  fraction="00" description="当前费率1正向有功最大需量发生时间" />
+		<data-item code="0201100802" parentCode1="B012" parentCode2="" length="4" type="07"  fraction="00" description="当前费率2正向有功最大需量发生时间" />
+		<data-item code="0201100803" parentCode1="B013" parentCode2="" length="4" type="07"  fraction="00" description="当前费率3正向有功最大需量发生时间" />
+		<data-item code="0201100804" parentCode1="B014" parentCode2="" length="4" type="07"  fraction="00" description="当前费率4正向有功最大需量发生时间" />
+	</data-item>
+	
+	<data-item code="02011009FF" parentCode1="B02F" parentCode2="" length="0" type="" fraction="" familycode="B02F" description="反向有功总最大需量发生时间数据块">
+		<data-item code="0201100900" parentCode1="B020" parentCode2="" length="4" type="07"  fraction="00" description="当前反向有功总最大需量发生时间" />
+		<data-item code="0201100901" parentCode1="B021" parentCode2="" length="4" type="07"  fraction="00" description="当前费率1反向有功最大需量发生时间" />
+		<data-item code="0201100902" parentCode1="B022" parentCode2="" length="4" type="07"  fraction="00" description="当前费率2反向有功最大需量发生时间" />
+		<data-item code="0201100903" parentCode1="B023" parentCode2="" length="4" type="07"  fraction="00" description="当前费率3反向有功最大需量发生时间" />
+		<data-item code="0201100904" parentCode1="B024" parentCode2="" length="4" type="07"  fraction="00" description="当前费率4反向有功最大需量发生时间" />		
+	</data-item>
+	
+	<data-item code="02011010FF" parentCode1="B11F" parentCode2="" length="0" type="" fraction="" familycode="B11F" description="正向无功总最大需量发生时间数据块">
+		<data-item code="0201101000" parentCode1="B110" parentCode2="" length="4" type="07"  fraction="00" description="当前正向无功总最大需量发生时间" />
+		<data-item code="0201101001" parentCode1="B111" parentCode2="" length="4" type="07"  fraction="00" description="当前费率1正向无功最大需量发生时间" />
+		<data-item code="0201101002" parentCode1="B112" parentCode2="" length="4" type="07"  fraction="00" description="当前费率2正向无功最大需量发生时间" />
+		<data-item code="0201101003" parentCode1="B113" parentCode2="" length="4" type="07"  fraction="00" description="当前费率3正向无功最大需量发生时间" />
+		<data-item code="0201101004" parentCode1="B114" parentCode2="" length="4" type="07"  fraction="00" description="当前费率4正向无功最大需量发生时间" />		
+	</data-item>
+	
+	<data-item code="02011011FF" parentCode1="B12F" parentCode2="" length="0" type="" fraction="" familycode="B12F" description="反向无功总最大需量发生时间数据块">
+		<data-item code="0201101100" parentCode1="B120" parentCode2="" length="4" type="07"  fraction="00" description="当前反向无功总最大需量发生时间" />
+		<data-item code="0201101101" parentCode1="B121" parentCode2="" length="4" type="07"  fraction="00" description="当前费率1反向无功最大需量发生时间" />
+		<data-item code="0201101102" parentCode1="B122" parentCode2="" length="4" type="07"  fraction="00" description="当前费率2反向无功最大需量发生时间" />
+		<data-item code="0201101103" parentCode1="B123" parentCode2="" length="4" type="07"  fraction="00" description="当前费率3反向无功最大需量发生时间" />
+		<data-item code="0200101104" parentCode1="B124" parentCode2="" length="4" type="07"  fraction="00" description="当前费率4反向无功最大需量发生时间" />	
+	</data-item>
+	
+	<data-item code="02011012FF" parentCode1="B13F" parentCode2="" length="0" type="" fraction="" familycode="B13F" description="一象限最大需量发生时间数据块">
+		<data-item code="0201101200" parentCode1="B130" parentCode2="" length="4" type="07"  fraction="00" description="当前一象限最大需量发生时间" />
+		<data-item code="0201101201" parentCode1="B131" parentCode2="" length="4" type="07"  fraction="00" description="当前费率1一象限最大需量发生时间" />
+		<data-item code="0201101202" parentCode1="B132" parentCode2="" length="4" type="07"  fraction="00" description="当前费率2一象限最大需量发生时间" />
+		<data-item code="0201101203" parentCode1="B133" parentCode2="" length="4" type="07"  fraction="00" description="当前费率3一象限最大需量发生时间" />
+		<data-item code="0201101204" parentCode1="B134" parentCode2="" length="4" type="07"  fraction="00" description="当前费率4一象限最大需量发生时间" />		
+	</data-item>
+	
+	<data-item code="02011013FF" parentCode1="B14F" parentCode2="" length="0" type="" fraction="" familycode="B14F" description="四象限最大需量发生时间数据块">
+		<data-item code="0201101300" parentCode1="B140" parentCode2="" length="4" type="07"  fraction="00" description="当前四象限最大需量发生时间" />
+		<data-item code="0201101301" parentCode1="B141" parentCode2="" length="4" type="07"  fraction="00" description="当前费率1四象限最大需量发生时间" />
+		<data-item code="0201101302" parentCode1="B142" parentCode2="" length="4" type="07"  fraction="00" description="当前费率2四象限最大需量发生时间" />
+		<data-item code="0201101303" parentCode1="B143" parentCode2="" length="4" type="07"  fraction="00" description="当前费率3四象限最大需量发生时间" />
+		<data-item code="0201101304" parentCode1="B144" parentCode2="" length="4" type="07"  fraction="00" description="当前费率4四象限最大需量发生时间" />		
+	</data-item>
+	
+	<data-item code="02011014FF" parentCode1="B15F" parentCode2="" length="0" type="" fraction="" familycode="B15F" description="二象限最大需量发生时间数据块">
+		<data-item code="0201101400" parentCode1="B150" parentCode2="" length="4" type="07"  fraction="00" description="当前二象限最大需量发生时间" />
+		<data-item code="0201101401" parentCode1="B151" parentCode2="" length="4" type="07"  fraction="00" description="当前费率1二象限最大需量发生时间" />
+		<data-item code="0201101402" parentCode1="B152" parentCode2="" length="4" type="07"  fraction="00" description="当前费率2二象限最大需量发生时间" />
+		<data-item code="0201101403" parentCode1="B153" parentCode2="" length="4" type="07"  fraction="00" description="当前费率3二象限最大需量发生时间" />
+		<data-item code="0201101404" parentCode1="B154" parentCode2="" length="4" type="07"  fraction="00" description="当前费率4二象限最大需量发生时间" />	
+	</data-item>
+	
+	<data-item code="02011015FF" parentCode1="B16F" parentCode2="" length="0" type="" fraction="" familycode="B16F" description="三象限最大需量发生时间数据块">
+		<data-item code="0201101500" parentCode1="B160" parentCode2="" length="4" type="07"  fraction="00" description="当前三象限最大需量发生时间" />
+		<data-item code="0201101501" parentCode1="B161" parentCode2="" length="4" type="07"  fraction="00" description="当前费率1三象限最大需量发生时间" />
+		<data-item code="0201101502" parentCode1="B162" parentCode2="" length="4" type="07"  fraction="00" description="当前费率2三象限最大需量发生时间" />
+		<data-item code="0201101503" parentCode1="B163" parentCode2="" length="4" type="07"  fraction="00" description="当前费率3三象限最大需量发生时间" />
+		<data-item code="0201101504" parentCode1="B164" parentCode2="" length="4" type="07"  fraction="00" description="当前费率4三象限最大需量发生时间" />	
+	</data-item>
+	
+	<data-item code="02001103FF" parentCode1="B61F" parentCode2="0201FF00" length="0" type="" fraction="" familycode="B16F" description="电压数据块">
+		<data-item code="0200110301" parentCode1="B611" parentCode2="02010100" length="2" type="01"  fraction="00" fraction2="01" description="A相电压" />
+		<data-item code="0200110302" parentCode1="B612" parentCode2="02010200" length="2" type="01"  fraction="00" fraction2="01" description="B相电压" />
+		<data-item code="0200110303" parentCode1="B613" parentCode2="02010300" length="2" type="01"  fraction="00" fraction2="01" description="C相电压" />
+	</data-item>
+	
+	<data-item code="02001104FF" parentCode1="B62F" parentCode2="0202FF00" length="0" type="" fraction="" familycode="B62F" description="电流数据块">
+		<data-item code="0200110401" parentCode1="B621" parentCode2="02020100" length="2" length2="3" type="01"  fraction="02" fraction2="03" description="A相电流" />
+		<data-item code="0200110402" parentCode1="B622" parentCode2="02020200" length="2" length2="3" type="01"  fraction="02" fraction2="03" description="B相电流" />
+		<data-item code="0200110403" parentCode1="B623" parentCode2="02020300" length="2" length2="3" type="01"  fraction="02" fraction2="03" description="C相电流" />
+	</data-item>
+	
+	<data-item code="02001100FF" parentCode1="B63F" parentCode2="0203FF00" length="0" type="" fraction="" familycode="B63F" description="有功功率数据块">
+		<data-item code="0200110000" parentCode1="B630" parentCode2="02030000" length="3" type="01"  fraction="04" description="瞬时有功功率" />
+		<data-item code="0200110001" parentCode1="B631" parentCode2="02030100" length="3" type="01"  fraction="04" description="A相有功功率" />
+		<data-item code="0200110002" parentCode1="B632" parentCode2="02030200" length="3" type="01"  fraction="04" description="B相有功功率" />
+		<data-item code="0200110003" parentCode1="B633" parentCode2="02030300" length="3" type="01"  fraction="04" description="C相有功功率" />
+	</data-item>
+	
+	<data-item code="02001101FF" parentCode1="B64F" parentCode2="0204FF00" length="0" type="" fraction="" familycode="B64F" description="无功功率数据块">
+		<data-item code="0200110100" parentCode1="B640" parentCode2="02040000" length="2" length2="3" type="01"  fraction="02" fraction2="04" description="瞬时无功功率" />
+		<data-item code="0200110101" parentCode1="B641" parentCode2="02040100" length="2" length2="3" type="01"  fraction="02" fraction2="04" description="A相无功功率" />
+		<data-item code="0200110102" parentCode1="B642" parentCode2="02040200" length="2" length2="3" type="01"  fraction="02" fraction2="04" description="B相无功功率" />
+		<data-item code="0200110103" parentCode1="B643" parentCode2="02040300" length="2" length2="3" type="01"  fraction="02" fraction2="04" description="C相无功功率" />
+	</data-item>
+	
+	<data-item code="02001102FF" parentCode1="B65F" parentCode2="0206FF00" length="0" type="" fraction="" familycode="B65F" description="功率因数数据块">
+		<data-item code="0200110200" parentCode1="B650" parentCode2="02060000" length="2" type="01"  fraction="03" description="功率因数" />
+		<data-item code="0200110201" parentCode1="B651" parentCode2="02060100" length="2" type="01"  fraction="03" description="A相功率因数" />
+		<data-item code="0200110202" parentCode1="B652" parentCode2="02060200" length="2" type="01"  fraction="03" description="B相功率因数" />
+		<data-item code="0200110203" parentCode1="B653" parentCode2="02060300" length="2" type="01"  fraction="03" description="C相功率因数" />
+	</data-item>
+	
+	<data-item code="05000000FF" parentCode1="C01F" parentCode2="" length="0" type="" fraction="" familycode="C01F" description="日期时间及周次">
+		<data-item code="0500000001" parentCode1="C010" parentCode2="04000101" length="4" type="08" fraction="00" description="日期及周次" />
+		<data-item code="0500000002" parentCode1="C011" parentCode2="04000102" length="3" type="09" fraction="00" description="时间" />
+		<data-item code="0500000003" parentCode1="C012" parentCode2="04000103" length="" type="" fraction="00" description="广播对时"/>
+	</data-item>
+
+	<data-item code="05000002FF" parentCode1="C03F" parentCode2="" length="0" type="" fraction="" familycode="C03F" description="电表参数">
+		<data-item code="0500000201" parentCode1="C030" parentCode2="" length="3" type="01" fraction="00" description="电表常数(有功)" />
+		<data-item code="0500000202" parentCode1="C031" parentCode2="" length="3" type="01" fraction="00" description="电表常数(无功)" />
+		<data-item code="0500000203" parentCode1="C032" parentCode2="" length="6" type="46" fraction="00" description="表号" />
+		<data-item code="0500000204" parentCode1="C033" parentCode2="" length="6" type="46" fraction="00" description="用户号" />
+		<data-item code="0500000205" parentCode1="C034" parentCode2="" length="6" type="46" fraction="00" description="设备码" />
+	</data-item>	
+	
+	<data-item code="0500000501" parentCode1="C117" parentCode2="04000B01" length="2" type="56" fraction="00" description="自动抄表日期" />
+	<data-item code="0500000301" parentCode1="C119" parentCode2="" length="4" type="01" fraction="01" description="有功电能表起始读数" />
+	<data-item code="0500000302" parentCode1="C11A" parentCode2="" length="4" type="01" fraction="01" description="无功电能表起始读数" />
+	
+	<data-item code="05000004FF" parentCode1="C33F" parentCode2="" length="0" type="" fraction="" familycode="C33F" description="时段费率数据块">
+		<data-item code="0500000401" parentCode1="C331" parentCode2="" length="3" type="12"  fraction="00" description="第一日时段表第1时段起始时间及费率号" />
+		<data-item code="0500000402" parentCode1="C332" parentCode2="" length="3" type="12"  fraction="00" description="第一日时段表第2时段起始时间及费率号" />
+		<data-item code="0500000403" parentCode1="C333" parentCode2="" length="3" type="12"  fraction="00" description="第一日时段表第3时段起始时间及费率号" />
+		<data-item code="0500000404" parentCode1="C334" parentCode2="" length="3" type="12"  fraction="00" description="第一日时段表第4时段起始时间及费率号" />
+		<data-item code="0500000405" parentCode1="C335" parentCode2="" length="3" type="12"  fraction="00" description="第一日时段表第5时段起始时间及费率号" />
+		<data-item code="0500000406" parentCode1="C336" parentCode2="" length="3" type="12"  fraction="00" description="第一日时段表第6时段起始时间及费率号" />		
+		<data-item code="0500000407" parentCode1="C337" parentCode2="" length="3" type="12"  fraction="00" description="第一日时段表第7时段起始时间及费率号" />
+		<data-item code="0500000408" parentCode1="C338" parentCode2="" length="3" type="12"  fraction="00" description="第一日时段表第8时段起始时间及费率号" />
+	</data-item>
+	
+	<data-item code="0400123300" parentCode1="" parentCode2="03100000"  length="27" type="58"  fraction="00" description="电压合格率统计数据" />
+	<data-item code="07000000FF" parentCode1="" parentCode2="070000FF"  length="12" type="6"  fraction="00" description="身份认证" />		
+	<data-item code="0700000100" parentCode1="" parentCode2="0700000100"  length="0" type=""  fraction="00" description="电表控制命令" />	
+	<data-item code="0400102603" parentCode1="" parentCode2="04000503"  length="2" type="44"  fraction="00" description="电表控制命令" />	
+	<data-item code="07000002FF" parentCode1="" parentCode2="070204FF"  length="0" type=""  fraction="00" description="主控密钥更新" />
+	<data-item code="07000003FF" parentCode1="" parentCode2="070201FF"  length="0" type=""  fraction="00" description="远程控制密钥更新" />
+	<data-item code="07000004FF" parentCode1="" parentCode2="070202FF"  length="0" type=""  fraction="00" description="参数密钥更新" />
+	<data-item code="07000005FF" parentCode1="" parentCode2="070203FF"  length="0" type=""  fraction="00" description="身份认证密钥更新" />	
+	
+	<data-item code="0500000700" parentCode1="C011" parentCode2="04000102"  length="3" type="09"  fraction="00" description="表计时钟" />
+<!--	<data-item code="0500000701" parentCode1="EA20" parentCode2="04000101"  length="4" type="08"  fraction="00" description="表计时钟及星期" />  07规约表示年月日周 -->
+	<data-item code="0700001300" parentCode1="EE09" parentCode2=""  length="1" type="06"  fraction="00" description="拉闸" />
+	<data-item code="0700001301" parentCode1="EE04" parentCode2=""  length="1" type="06"  fraction="00" description="合闸" />
+	<data-item code="0700001400" parentCode1="EE01" parentCode2=""  length="1" type="06"  fraction="00" description="保电" />
+	<data-item code="0700001401" parentCode1="EE02" parentCode2=""  length="1" type="06"  fraction="00" description="退出保电" />
+	<data-item code="0700001500" parentCode1="EE0A" parentCode2=""  length="1" type="06"  fraction="00" description="继电器状态读取" />
+<!--	<data-item code="0700001600" parentCode1="EE20" parentCode2=""  length="33" type="09"  fraction="00" description="充值输入TOKEN" >-->
+<!--		<data-item code="0700001601" parentCode1="C030" parentCode2="" length="1" type="01" fraction="00" description="STS解析结果" />-->
+<!--		<data-item code="0100100000" parentCode1="9010" parentCode2="00010000" length="4" type="01"  fraction="02" description="当前正向有功总电能" />-->
+<!--		<data-item code="0100100001" parentCode1="9011" parentCode2="00010100" length="4" type="01"  fraction="02" description="当前费率1正向有功总电能" />-->
+<!--		<data-item code="0100100002" parentCode1="9012" parentCode2="00010200" length="4" type="01"  fraction="02" description="当前费率2正向有功总电能" />-->
+<!--		<data-item code="0100100003" parentCode1="9013" parentCode2="00010300" length="4" type="01"  fraction="02" description="当前费率3正向有功总电能" />-->
+<!--		<data-item code="0100100004" parentCode1="9014" parentCode2="00010400" length="4" type="01"  fraction="02" description="当前费率4正向有功总电能" />-->
+<!--		<data-item code="0700001602" parentCode1="C030" parentCode2="" length="4" type="01" fraction="00" description="余额" />-->
+<!--		<data-item code="0700001603" parentCode1="C030" parentCode2="" length="4" type="01" fraction="00" description="余额状态" />-->
+<!--		<data-item code="0700001604" parentCode1="C030" parentCode2="" length="4" type="01" fraction="00" description="继电器状态" />-->
+<!--		<data-item code="0700001605" parentCode1="C030" parentCode2="" length="4" type="01" fraction="00" description="电表模式" />-->
+<!--		<data-item code="0700001606" parentCode1="C030" parentCode2="" length="4" type="01" fraction="00" description="继电器操作原因" />-->
+<!--		<data-item code="0700001607" parentCode1="C030" parentCode2="" length="4" type="01" fraction="00" description="当前电表事件" />-->
+<!--	</data-item>-->
+	<data-item code="0700001600" parentCode1="EE20" parentCode2=""  length="1" type="01"  fraction="00" description="充值输入TOKEN" />
+	<data-item code="0700001601" parentCode1="EE21" parentCode2=""  length="43" type="09"  fraction="00" description="输入注销码" />
+	<data-item code="0700001608" parentCode1="" parentCode2="04F0FF17"  length="20" type="38"  fraction="00" description="读注销码" />
+	<data-item code="0700001000" parentCode1="" parentCode2="CA820902"  length="2" type="05"  fraction="00" description="深圳长城电表计量芯片初始化值" />
+	<data-item code="0700001700" parentCode1="EA30" parentCode2="" length="0" type="" fraction="" familycode="901F" description="预付费信息包">
+		<data-item code="0100100000" parentCode1="9010" parentCode2="00010000" length="4" type="01"  fraction="02" description="当前正向有功总电能" />
+		<data-item code="0100100001" parentCode1="9011" parentCode2="00010100" length="4" type="01"  fraction="02" description="当前费率1正向有功总电能" />
+		<data-item code="0100100002" parentCode1="9012" parentCode2="00010200" length="4" type="01"  fraction="02" description="当前费率2正向有功总电能" />
+		<data-item code="0100100003" parentCode1="9013" parentCode2="00010300" length="4" type="01"  fraction="02" description="当前费率3正向有功总电能" />
+		<data-item code="0100100004" parentCode1="9014" parentCode2="00010400" length="4" type="01"  fraction="02" description="当前费率4正向有功总电能" />
+		<data-item code="0822000001" parentCode1="C030" parentCode2="00900200" length="4" type="01" fraction="02" description="余额" />						
+	</data-item>
+	
+	<!-- 配变检测用到数据id -->
+	<data-item code="D307" parentCode1="D307" parentCode2="" length="1" type="03" fraction="0" description="设备类型"/>
+	<data-item code="D308" parentCode1="D308" parentCode2="" length="1" type="03" fraction="0" description="支路数量"/>
+	<data-item code="D300" parentCode1="D300" parentCode2="" length="8" type="45" fraction="0" description="设备事件状态字"/>
+	<data-item code="D30A" parentCode1="D30A" parentCode2="" length="2" type="45" fraction="0" description="支路1-12状态"/>
+	<data-item code="D309" parentCode1="D309" parentCode2="" length="1" type="03" fraction="0" description="设备事件状态字屏蔽字"/>
+	<data-item code="D301" parentCode1="D301" parentCode2="" length="1" type="03" fraction="0" description="设备事件状态字屏蔽字"/>
+	
+
+	<!-- 国网预付费表扩展数据项07规约   下发TOKEN控制码是20  pCode2 都是自己编的，这个项目没有ID-->
+	<data-item code="0800000100" parentCode1="" parentCode2="0800000100" length="20" type="" fraction="" description="写TOKEN"/>
+</protocol-meter-data>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<protocol-meter-data>
+	<!-- 表规约名称 -->
+	<proto-name>HX645Meter</proto-name>
+	<data-item code="CB04" parentCode1="CB04" parentCode2=""  length="1" type="05"  format="HTB1" fraction="00" operationTo="0" description="进入=0、退出安装模式=1、开始=2、结束搜表=3、清表信息=4" />
+	<data-item code="C011" parentCode1="C011" parentCode2="" length="1" format="HTB1" fraction="00" operationTo="0" description="更改密钥"/>
+	<data-item code="EE0A" parentCode1="EE0A" parentCode2=""  length="3" type="05" format="HTB1#HTB1#HTB1" fraction="00" operationTo="1" description="读取继电器状态"/>
+	<data-item code="EE03" parentCode1="EE03" parentCode2=""  length="0" type="05"  format="HTB1" fraction="00" operationTo="1" description="遥控断开主继电器" />
+	<data-item code="EE04" parentCode1="EE04" parentCode2=""  length="0" type="05"  format="HTB1" fraction="00" operationTo="1" description="电表退出遥控模式" />
+	<data-item code="EE20" parentCode1="EE20" parentCode2=""  length="10" type=""   format="HTB1#Z00#Z00#Z00#Z00#Z00#Z00#HTB1#HTB1#HTB1#HTB1#HTB4" fraction="00" operationTo="1" description="下发TOKEN"/>
+	<data-item code="EE21" parentCode1="EE21" parentCode2=""  length="10" type=""  format="HTB1#Z00#Z00#Z00#Z00#Z00#Z00#HTB1#HTB1#HTB1#HTB1#HTB4#RVR10"  fraction="00" operationTo="1" description="输入注销码"/>
+	<data-item code="EA10" parentCode1="EE10" parentCode2=""  length="4" type="" format="Z00" fraction="00" operationTo="1" description="余额查询"/>
+	<data-item code="EA20" parentCode1="EA20" parentCode2=""  length="7" type="" format="FTM" fraction="00" operationTo="1" description="对时"/>
+	
+	<data-item code="901F" parentCode1="901F" parentCode2=""  length="0" type="" format="" fraction="00" operationTo="1" description="正向有功总＋4费率电能量">
+		<data-item code="9010" parentCode1="901F" parentCode2=""  length="0" type="" format="BCD4" fraction="00" operationTo="1" description="正向有功总电能量"/>
+		<data-item code="9011" parentCode1="901F" parentCode2=""  length="0" type="" format="BCD4" fraction="00" operationTo="1" description="正向有功1费率电能量"/>
+		<data-item code="9012" parentCode1="901F" parentCode2=""  length="0" type="" format="BCD4" fraction="00" operationTo="1" description="正向有功2费率电能量"/>
+		<data-item code="9013" parentCode1="901F" parentCode2=""  length="0" type="" format="BCD4" fraction="00" operationTo="1" description="正向有功3费率电能量"/>
+		<data-item code="9014" parentCode1="901F" parentCode2=""  length="0" type="" format="BCD4" fraction="00" operationTo="1" description="正向有功4费率电能量"/>
+	</data-item>
+	
+</protocol-meter-data>

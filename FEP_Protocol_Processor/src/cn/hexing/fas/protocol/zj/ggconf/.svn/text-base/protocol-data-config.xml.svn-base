@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<protocol-data>
+	<data-item code="7002" length="1" type="0100" unit="" description="心跳间隔" />
+	<data-item code="7003" length="1" type="0100" unit="" description="抄表策略" />
+	<data-item code="7105" length="8" type="0100" unit="" description="客户端号码" />
+<!--	<data-item code="8001" length="1" type="0100" unit="" description="上行通信协议类型" />-->
+<!--	<data-item code="8002" length="1" type="0100" unit="" description="上行通讯设备类型" />-->
+<!--	<data-item code="8003" length="1" type="0100" unit="" description="下行协议类型" />-->
+<!--	<data-item code="8004" length="1" type="0100" unit="" description="下行通讯设备类型" />-->
+	<data-item code="8009" length="1" type="0100" unit="" description="主通道类型" />
+	
+	<data-item code="801F" description="801X">
+		<data-item code="8010" length="9" type="1400" unit="" description="主站通讯地址" />
+		<data-item code="8011" length="9" type="1400" unit="" description="备用主站通讯地址1" />
+		<data-item code="8012" length="9" type="1400" unit="" description="备用主站通讯地址2" />
+		<data-item code="8013" length="8" type="1500" unit="" description="短信中心号码" />
+		<data-item code="8014" length="8" type="1600" unit="" description="网关地址" />
+		<data-item code="8015" length="64" type="4300" unit="" description="APN" />
+		<data-item code="8016" length="2" type="0600" unit="" description="集中器号" />
+		<data-item code="8017" length="2" type="0500" unit="" description="集中器地址" />	
+		<data-item code="8019" length="32" type="4300" unit="" description="GPRS用户名" />
+		<data-item code="801A" length="32" type="4300" unit="" description="GPRS密码" />	
+	</data-item>
+		
+	<data-item code="802F" description="802X">
+		<data-item code="8020" length="3" type="4600" unit="" description="普通密码" />
+		<data-item code="8021" length="3" type="4600" unit="" description="设置密码（低级权限）" />
+		<data-item code="8022" length="3" type="4600" unit="" description="管理员密码（高级权限）" />
+		<data-item code="8023" length="1" type="0100" unit="" description="集中器操作命令1" />		
+		<data-item code="8025" length="1" type="0100" unit="" description="集中器操作命令2" />
+		<data-item code="8026" length="1" type="0100" unit="" description="集中器操作命令3" />
+	</data-item>
+		
+		<data-item code="8030" parentCode="8030"  length="6" type="1900" unit="" description="集中器时间" />
+		<data-item code="8031" parentCode="8031"  length="6" type="5900" unit="" description="表计时间" />
+		<data-item code="EE09" parentCode="EE09"  length="3" type="0600" unit="" description="继电器拉闸" />
+		<data-item code="EE0A" parentCode="EE0A"  length="3" type="0600" unit="" description="继电器状态" />
+		<data-item code="EE04" parentCode="EE04"  length="1" type="0600" unit="" description="继电器合闸" />
+		<data-item code="EE01" parentCode="EE01"  length="1" type="0600" unit="" description="保电" />
+		<data-item code="EE02" parentCode="EE02"  length="1" type="0600" unit="" description="退出保电" />
+		<data-item code="CA86" parentCode="CA86"  length="1" type="0100" unit="" description="表计工作模式切换" />
+		<data-item code="7501" parentCode="7501"  length="2" type="0101" unit="" description="最大电流设置" />
+		<data-item code="7500" parentCode="7500"  length="4" type="0102" unit="" description="最大功率设置" />
+		<data-item code="7502" parentCode="7502"  length="4" type="0102" unit="" description="最大需量设置" />
+		<data-item code="EA30" parentCode="EA30"  length="32" type="0100" unit="" description="预付费信息类" />
+		<data-item code="EE20" parentCode="EE20"  length="10" type="0100" unit="" description="网络预付费写TOKEN码" />
+		
+		
+		
+	<data-item code="880F" description="880X">
+		<data-item code="8809" length="8" type="3300" unit="" description="终端软件版本号" />
+		<data-item code="880A" length="2" type="3300" unit="" description="终端硬件版本号" />
+	</data-item>
+	
+	<data-item code="881F" description="881X">
+		<data-item code="8810" length="1" type="0100" unit="" description="拨号振铃次数" />
+		<data-item code="8811" length="2" type="0300" unit="" description="集中器管理表总数" />
+		<data-item code="8812" length="2" type="0300" unit="" description="居民表总数" />
+		<data-item code="8813" length="2" type="0300" unit="" description="简易多功能表数" />
+		<data-item code="8814" length="1" type="0300" unit="" description="重点客户数" />
+		<data-item code="881C" length="3" type="0100" unit="" description="当前线损率" />
+	</data-item>
+	
+	<data-item code="8823" length="1" type="0300" unit="" description="变压器总表数" />
+	<data-item code="5002" length="2" type="0300" unit="" description="集中器温度" />
+	<data-item code="5003" length="1" type="0300" unit="" description="集中器模式" />
+	<data-item code="894E" length="21" type="0600" unit="" description="表计参数下装" />
+	
+	
+	<!--测量点数据-->
+	<data-item code="01001000FF" parentCode="901F">
+		<data-item code="0100100000" parentCode="9010" length="4" type="0102"  property="zxygzdn" unit="kWh" description="当前正向有功总电能" />
+		<data-item code="0100100001" parentCode="9011" length="4" type="0102"  property="fl1zxygzdn" unit="kWh" description="当前费率1正向有功总电能" />
+		<data-item code="0100100002" parentCode="9012" length="4" type="0102"  property="fl2zxygzdn" unit="kWh" description="当前费率2正向有功总电能" />
+		<data-item code="0100100003" parentCode="9013" length="4" type="0102"  property="fl3zxygzdn" unit="kWh" description="当前费率3正向有功总电能" />
+		<data-item code="0100100004" parentCode="9014" length="4" type="0102"  property="fl4zxygzdn" unit="kWh" description="当前费率4正向有功总电能" />
+	</data-item>
+	
+	<data-item code="01001001FF" parentCode="902F">
+		<data-item code="0100100100" parentCode="9020" length="4" type="0102"  property="fxygzdn" unit="kWh" description="当前反向有功总电能" />
+		<data-item code="0100100101" parentCode="9021" length="4" type="0102"  property="fl1fxygzdn" unit="kWh" description="当前费率1反向有功总电能" />
+		<data-item code="0100100102" parentCode="9022" length="4" type="0102"  property="fl2fxygzdn" unit="kWh" description="当前费率2反向有功总电能" />
+		<data-item code="0100100103" parentCode="9023" length="4" type="0102"  property="fl3fxygzdn" unit="kWh" description="当前费率3反向有功总电能" />
+		<data-item code="0100100104" parentCode="9024" length="4" type="0102"  property="fl4fxygzdn" unit="kWh" description="当前费率4反向有功总电能" />
+	</data-item>
+	
+	<data-item code="01001002FF" parentCode="911F">
+		<data-item code="0100100200" parentCode="9110" length="4" type="0102"  property="zxwgzdn" unit="kWh" description="当前正向无功总电能" />
+		<data-item code="0100100201" parentCode="9111" length="4" type="0102"  property="fl1zxwgzdn" unit="kWh" description="当前费率1正向无功总电能" />
+		<data-item code="0100100202" parentCode="9112" length="4" type="0102"  property="fl2zxwgzdn" unit="kWh" description="当前费率2正向无功总电能" />
+		<data-item code="0100100203" parentCode="9113" length="4" type="0102"  property="fl3zxwgzdn" unit="kWh" description="当前费率3正向无功总电能" />
+		<data-item code="0100100204" parentCode="9114" length="4" type="0102"  property="fl4zxwgzdn" unit="kWh" description="当前费率4正向无功总电能" />
+	</data-item>
+	
+	<data-item code="01001003FF" parentCode="912F">
+		<data-item code="0100100300" parentCode="9120" length="4" type="0102"  property="fxwgzdn" unit="kWh" description="当前反向无功总电能" />
+		<data-item code="0100100301" parentCode="9121" length="4" type="0102"  property="fl1fxwgzdn" unit="kWh" description="当前费率1反向无功总电能" />
+		<data-item code="0100100302" parentCode="9122" length="4" type="0102"  property="fl2fxwgzdn" unit="kWh" description="当前费率2反向无功总电能" />
+		<data-item code="0100100303" parentCode="9123" length="4" type="0102"  property="fl3fxwgzdn" unit="kWh" description="当前费率3反向无功总电能" />
+		<data-item code="0100100304" parentCode="9124" length="4" type="0102"  property="fl4fxwgzdn" unit="kWh" description="当前费率4反向无功总电能" />
+	</data-item>
+	
+	<data-item code="01221000FF" parentCode="921F">
+		<data-item code="0122100000" parentCode="9210" length="4" type="0102"  property="zxygzdn" unit="kWh" description="日冻结正向有功总电能" />
+		<data-item code="0122100001" parentCode="9211" length="4" type="0102"  property="fl1zxygzdn" unit="kWh" description="日冻结费率1正向有功总电能" />
+		<data-item code="0122100002" parentCode="9212" length="4" type="0102"  property="fl2zxygzdn" unit="kWh" description="日冻结费率2正向有功总电能" />
+		<data-item code="0122100003" parentCode="9213" length="4" type="0102"  property="fl3zxygzdn" unit="kWh" description="日冻结费率3正向有功总电能" />
+		<data-item code="0122100004" parentCode="9214" length="4" type="0102"  property="fl4zxygzdn" unit="kWh" description="日冻结费率4正向有功总电能" />
+	</data-item>
+
+	<data-item code="01221001FF" parentCode="922F">
+		<data-item code="0122100100" parentCode="9220" length="4" type="0102"  property="fxygzdn" unit="kWh" description="日冻结反向有功总电能" />
+		<data-item code="0122100101" parentCode="9221" length="4" type="0102"  property="fl1fxygzdn" unit="kWh" description="日冻结费率1反向有功总电能" />
+		<data-item code="0122100102" parentCode="9222" length="4" type="0102"  property="fl2fxygzdn" unit="kWh" description="日冻结费率2反向有功总电能" />
+		<data-item code="0122100103" parentCode="9223" length="4" type="0102"  property="fl3fxygzdn" unit="kWh" description="日冻结费率3反向有功总电能" />
+		<data-item code="0122100104" parentCode="9224" length="4" type="0102"  property="fl4fxygzdn" unit="kWh" description="日冻结费率4反向有功总电能" />
+	</data-item>
+	
+	<data-item code="01221002FF" parentCode="923F">
+		<data-item code="0122100200" parentCode="9230" length="4" type="0102"  property="zxwgzdn" unit="kWh" description="日冻结正向无功总电能" />
+		<data-item code="0122100201" parentCode="9231" length="4" type="0102"  property="fl1zxwgzdn" unit="kWh" description="日冻结费率1正向无功总电能" />
+		<data-item code="0122100202" parentCode="9232" length="4" type="0102"  property="fl2zxwgzdn" unit="kWh" description="日冻结费率2正向无功总电能" />
+		<data-item code="0122100203" parentCode="9233" length="4" type="0102"  property="fl3zxwgzdn" unit="kWh" description="日冻结费率3正向无功总电能" />
+		<data-item code="0122100204" parentCode="9234" length="4" type="0102"  property="fl4zxwgzdn" unit="kWh" description="日冻结费率4正向无功总电能" />
+	</data-item>
+	
+	<data-item code="01221003FF" parentCode="924F">
+		<data-item code="0122100300" parentCode="9240" length="4" type="0102"  property="fxwgzdn" unit="kWh" description="日冻结反向无功总电能" />
+		<data-item code="0122100301" parentCode="9241" length="4" type="0102"  property="fl1fxwgzdn" unit="kWh" description="日冻结费率1反向无功总电能" />
+		<data-item code="0122100302" parentCode="9242" length="4" type="0102"  property="fl2fxwgzdn" unit="kWh" description="日冻结费率2反向无功总电能" />
+		<data-item code="0122100303" parentCode="9243" length="4" type="0102"  property="fl3fxwgzdn" unit="kWh" description="日冻结费率3反向无功总电能" />
+		<data-item code="0122100304" parentCode="9244" length="4" type="0102"  property="fl4fxwgzdn" unit="kWh" description="日冻结费率4反向无功总电能" />
+	</data-item>
+		
+	<data-item code="01231000FF" parentCode="925F">
+		<data-item code="0123100000" parentCode="9250" length="4" type="0102"  property="zxygzdn" unit="kWh" description="月冻结正向有功总电能" />
+		<data-item code="0123100001" parentCode="9251" length="4" type="0102"  property="fl1zxygzdn" unit="kWh" description="月冻结费率1正向有功总电能" />
+		<data-item code="0123100002" parentCode="9252" length="4" type="0102"  property="fl2zxygzdn" unit="kWh" description="月冻结费率2正向有功总电能" />
+		<data-item code="0123100003" parentCode="9253" length="4" type="0102"  property="fl3zxygzdn" unit="kWh" description="月冻结费率3正向有功总电能" />
+		<data-item code="0123100004" parentCode="9254" length="4" type="0102"  property="fl4zxygzdn" unit="kWh" description="月冻结费率4正向有功总电能" />
+	</data-item>
+		
+	<data-item code="01231001FF" parentCode="926F">
+		<data-item code="0123100100" parentCode="9260" length="4" type="0102"  property="fxygzdn" unit="kWh" description="月冻结反向有功总电能" />
+		<data-item code="0123100101" parentCode="9261" length="4" type="0102"  property="fl1fxygzdn" unit="kWh" description="月冻结费率1反向有功总电能" />
+		<data-item code="0123100102" parentCode="9262" length="4" type="0102"  property="fl2fxygzdn" unit="kWh" description="月冻结费率2反向有功总电能" />
+		<data-item code="0123100103" parentCode="9263" length="4" type="0102"  property="fl3fxygzdn" unit="kWh" description="月冻结费率3反向有功总电能" />
+		<data-item code="0123100104" parentCode="9264" length="4" type="0102"  property="fl4fxygzdn" unit="kWh" description="月冻结费率4反向有功总电能" />
+	</data-item>
+		
+	<data-item code="01231002FF" parentCode="927F">
+		<data-item code="0123100200" parentCode="9270" length="4" type="0102"  property="zxwgzdn" unit="kWh" description="月冻结正向无功总电能" />
+		<data-item code="0123100201" parentCode="9271" length="4" type="0102"  property="fl1zxwgzdn" unit="kWh" description="月冻结费率1正向无功总电能" />
+		<data-item code="0123100202" parentCode="9272" length="4" type="0102"  property="fl2zxwgzdn" unit="kWh" description="月冻结费率2正向无功总电能" />
+		<data-item code="0123100203" parentCode="9273" length="4" type="0102"  property="fl3zxwgzdn" unit="kWh" description="月冻结费率3正向无功总电能" />
+		<data-item code="0123100204" parentCode="9274" length="4" type="0102"  property="fl4zxwgzdn" unit="kWh" description="月冻结费率4正向无功总电能" />
+	</data-item>
+	
+	<data-item code="01231003FF" parentCode="928F">
+		<data-item code="0123100300" parentCode="9280" length="4" type="0102"  property="fxwgzdn" unit="kWh" description="月冻结反向无功总电能" />
+		<data-item code="0123100301" parentCode="9281" length="4" type="0102"  property="fl1fxwgzdn" unit="kWh" description="月冻结费率1反向无功总电能" />
+		<data-item code="0123100302" parentCode="9282" length="4" type="0102"  property="fl2fxwgzdn" unit="kWh" description="月冻结费率2反向无功总电能" />
+		<data-item code="0123100303" parentCode="9283" length="4" type="0102"  property="fl3fxwgzdn" unit="kWh" description="月冻结费率3反向无功总电能" />
+		<data-item code="0123100304" parentCode="9284" length="4" type="0102"  property="fl4fxwgzdn" unit="kWh" description="月冻结费率4反向无功总电能" />
+	</data-item>		
+	
+	<data-item code="0201100000" parentCode="A010" length="3" type="0104"  property="zzzdxl" unit="kW" description="当前正向有功总最大需量" />
+	<data-item code="0201100800" parentCode="B010" length="4" type="0700"  property="zzzdxlsj" unit="" description="当前正向有功总最大需量发生时间" />
+	<data-item code="0204100800" parentCode="B410" length="4" type="0700" unit="" description="上月正向有功总最大需量发生时间" />
+	
+	<data-item code="02001103FF" parentCode="B61F">
+		<data-item code="0200110301" parentCode="B611" length="3" type="0102"  property="axdy" unit="V" description="A相电压" />
+		<data-item code="0200110302" parentCode="B612" length="3" type="0102"  property="bxdy" unit="V" description="B相电压" />
+		<data-item code="0200110303" parentCode="B613" length="3" type="0102"  property="cxdy" unit="V" description="C相电压" />	
+	</data-item>
+
+	<data-item code="02001104FF" parentCode="B62F">
+		<data-item code="0200110401" parentCode="B621" length="3" type="0103"  property="axdl" unit="A" description="A相电流" />
+		<data-item code="0200110402" parentCode="B622" length="3" type="0103"  property="bxdl" unit="A" description="B相电流" />
+		<data-item code="0200110403" parentCode="B623" length="3" type="0103"  property="cxdl" unit="A" description="C相电流" />	
+	</data-item>
+	
+	<data-item code="0200121901" parentCode="B615" length="3" type="0102"  property="cxdy" unit="V" description="AB相电压" />
+	<data-item code="0200121902" parentCode="B616" length="3" type="0102"  property="cxdy" unit="V" description="BC相电压" />
+	<data-item code="0200121903" parentCode="B617" length="3" type="0102"  property="cxdy" unit="V" description="BA相电压" />
+	
+	<data-item code="02001100FF" parentCode="B63F">
+		<data-item code="0200110000" parentCode="B630" length="3" type="0102"  property="sjyggl" unit="kW" description="瞬时有功功率" />
+		<data-item code="0200110001" parentCode="B631" length="3" type="0102" unit="kW" description="A相有功功率" />
+		<data-item code="0200110002" parentCode="B632" length="3" type="0102" unit="kW" description="B相有功功率" />
+		<data-item code="0200110003" parentCode="B633" length="3" type="0102" unit="kW" description="C相有功功率" />	
+	</data-item>
+	
+	<data-item code="02001101FF" parentCode="B64F">
+		<data-item code="0200110100" parentCode="B640" length="2" type="0102"  property="sjwggl" unit="kvar" description="瞬时无功功率" />
+		<data-item code="0200110101" parentCode="B641" length="2" type="0102" unit="kvar" description="A相无功功率" />
+		<data-item code="0200110102" parentCode="B642" length="2" type="0102" unit="kvar" description="B相无功功率" />
+		<data-item code="0200110103" parentCode="B643" length="2" type="0102" unit="kvar" description="C相无功功率" />		
+	</data-item>
+	
+	<data-item code="02001102FF" parentCode="B65F">
+		<data-item code="0200110200" parentCode="B650" length="2" type="0103"  property="zglys" unit="" description="总功率因数" />
+		<data-item code="0200110201" parentCode="B651" length="2" type="0103" unit="" description="A相功率因数" />
+		<data-item code="0200110202" parentCode="B652" length="2" type="0103" unit="" description="B相功率因数" />
+		<data-item code="0200110203" parentCode="B653" length="2" type="0103" unit="" description="C相功率因数" />		
+	</data-item>
+	
+	<data-item code="0500000001" parentCode="C010" length="4" type="0800" unit="" description="日期及周日" />
+	<data-item code="0500000002" parentCode="C011" length="3" type="0900" unit="" description="时间" />
+	
+	<data-item code="0400122417" parentCode="7250" length="2" type="0102" unit="" description="频率" />
+	<data-item code="0200122001" parentCode="7251" length="2" type="0101" unit="" description="BA电压夹角" />
+	<data-item code="0200122002" parentCode="7252" length="2" type="0101" unit="" description="CA电压夹角" />
+	<data-item code="0200122003" parentCode="7253" length="2" type="0101" unit="" description="AB电压夹角" />
+	
+		<!--任务数据-->
+	<data-item code="01221000FE" parentCode="4001">
+		<data-item code="0122100000" parentCode="9210" length="4" type="0102"  property="zxygzdn" unit="kWh" description="日冻结正向有功总电能" />
+		<data-item code="0122100001" parentCode="9211" length="4" type="0102"  property="fl1zxygzdn" unit="kWh" description="日冻结费率1正向有功总电能" />
+		<data-item code="0122100002" parentCode="9212" length="4" type="0102"  property="fl2zxygzdn" unit="kWh" description="日冻结费率2正向有功总电能" />
+		<data-item code="0122100003" parentCode="9213" length="4" type="0102"  property="fl3zxygzdn" unit="kWh" description="日冻结费率3正向有功总电能" />
+		<data-item code="0122100004" parentCode="9214" length="4" type="0102"  property="fl4zxygzdn" unit="kWh" description="日冻结费率4正向有功总电能" />
+	</data-item>
+	
+	<data-item code="01221001FE" parentCode="4002">
+		<data-item code="0122100100" parentCode="9220" length="4" type="0102"  property="fxygzdn" unit="kWh" description="日冻结反向有功总电能" />
+		<data-item code="0122100101" parentCode="9221" length="4" type="0102"  property="fl1fxygzdn" unit="kWh" description="日冻结费率1反向有功总电能" />
+		<data-item code="0122100102" parentCode="9222" length="4" type="0102"  property="fl2fxygzdn" unit="kWh" description="日冻结费率2反向有功总电能" />
+		<data-item code="0122100103" parentCode="9223" length="4" type="0102"  property="fl3fxygzdn" unit="kWh" description="日冻结费率3反向有功总电能" />
+		<data-item code="0122100104" parentCode="9224" length="4" type="0102"  property="fl4fxygzdn" unit="kWh" description="日冻结费率4反向有功总电能" />
+	</data-item>
+	
+	<data-item code="01221002FE" parentCode="4003">
+		<data-item code="0122100200" parentCode="9230" length="4" type="0102"  property="zxwgzdn" unit="kWh" description="日冻结正向无功总电能" />
+		<data-item code="0122100201" parentCode="9231" length="4" type="0102"  property="fl1zxwgzdn" unit="kWh" description="日冻结费率1正向无功总电能" />
+		<data-item code="0122100202" parentCode="9232" length="4" type="0102"  property="fl2zxwgzdn" unit="kWh" description="日冻结费率2正向无功总电能" />
+		<data-item code="0122100203" parentCode="9233" length="4" type="0102"  property="fl3zxwgzdn" unit="kWh" description="日冻结费率3正向无功总电能" />
+		<data-item code="0122100204" parentCode="9234" length="4" type="0102"  property="fl4zxwgzdn" unit="kWh" description="日冻结费率4正向无功总电能" />
+	</data-item>
+	
+	<data-item code="01221003FE" parentCode="4004">
+		<data-item code="0122100300" parentCode="9240" length="4" type="0102"  property="fxwgzdn" unit="kWh" description="日冻结反向无功总电能" />
+		<data-item code="0122100301" parentCode="9241" length="4" type="0102"  property="fl1fxwgzdn" unit="kWh" description="日冻结费率1反向无功总电能" />
+		<data-item code="0122100302" parentCode="9242" length="4" type="0102"  property="fl2fxwgzdn" unit="kWh" description="日冻结费率2反向无功总电能" />
+		<data-item code="0122100303" parentCode="9243" length="4" type="0102"  property="fl3fxwgzdn" unit="kWh" description="日冻结费率3反向无功总电能" />
+		<data-item code="0122100304" parentCode="9244" length="4" type="0102"  property="fl4fxwgzdn" unit="kWh" description="日冻结费率4反向无功总电能" />
+	</data-item>
+	
+	<data-item code="01231000FE" parentCode="8001">
+		<data-item code="0123100000" parentCode="9250" length="4" type="0102"  property="zxygzdn" unit="kWh" description="月冻结正向有功总电能" />
+		<data-item code="0123100001" parentCode="9251" length="4" type="0102"  property="fl1zxygzdn" unit="kWh" description="月冻结费率1正向有功总电能" />
+		<data-item code="0123100002" parentCode="9252" length="4" type="0102"  property="fl2zxygzdn" unit="kWh" description="月冻结费率2正向有功总电能" />
+		<data-item code="0123100003" parentCode="9253" length="4" type="0102"  property="fl3zxygzdn" unit="kWh" description="月冻结费率3正向有功总电能" />
+		<data-item code="0123100004" parentCode="9254" length="4" type="0102"  property="fl4zxygzdn" unit="kWh" description="月冻结费率4正向有功总电能" />
+	</data-item>
+	
+	<data-item code="01231001FE" parentCode="8002">
+		<data-item code="0123100100" parentCode="9260" length="4" type="0102"  property="fxygzdn" unit="kWh" description="月冻结反向有功总电能" />
+		<data-item code="0123100101" parentCode="9261" length="4" type="0102"  property="fl1fxygzdn" unit="kWh" description="月冻结费率1反向有功总电能" />
+		<data-item code="0123100102" parentCode="9262" length="4" type="0102"  property="fl2fxygzdn" unit="kWh" description="月冻结费率2反向有功总电能" />
+		<data-item code="0123100103" parentCode="9263" length="4" type="0102"  property="fl3fxygzdn" unit="kWh" description="月冻结费率3反向有功总电能" />
+		<data-item code="0123100104" parentCode="9264" length="4" type="0102"  property="fl4fxygzdn" unit="kWh" description="月冻结费率4反向有功总电能" />
+	</data-item>
+	
+	<data-item code="01231002FE" parentCode="8003">
+		<data-item code="0123100200" parentCode="9270" length="4" type="0102"  property="zxwgzdn" unit="kWh" description="月冻结正向无功总电能" />
+		<data-item code="0123100201" parentCode="9271" length="4" type="0102"  property="fl1zxwgzdn" unit="kWh" description="月冻结费率1正向无功总电能" />
+		<data-item code="0123100202" parentCode="9272" length="4" type="0102"  property="fl2zxwgzdn" unit="kWh" description="月冻结费率2正向无功总电能" />
+		<data-item code="0123100203" parentCode="9273" length="4" type="0102"  property="fl3zxwgzdn" unit="kWh" description="月冻结费率3正向无功总电能" />
+		<data-item code="0123100204" parentCode="9274" length="4" type="0102"  property="fl4zxwgzdn" unit="kWh" description="月冻结费率4正向无功总电能" />
+	</data-item>
+	
+	<data-item code="01231003FE" parentCode="8004">
+		<data-item code="0123100300" parentCode="9280" length="4" type="0102"  property="fxwgzdn" unit="kWh" description="月冻结反向无功总电能" />
+		<data-item code="0123100301" parentCode="9281" length="4" type="0102"  property="fl1fxwgzdn" unit="kWh" description="月冻结费率1反向无功总电能" />
+		<data-item code="0123100302" parentCode="9282" length="4" type="0102"  property="fl2fxwgzdn" unit="kWh" description="月冻结费率2反向无功总电能" />
+		<data-item code="0123100303" parentCode="9283" length="4" type="0102"  property="fl3fxwgzdn" unit="kWh" description="月冻结费率3反向无功总电能" />
+		<data-item code="0123100304" parentCode="9284" length="4" type="0102"  property="fl4fxwgzdn" unit="kWh" description="月冻结费率4反向无功总电能" />
+	</data-item>
+	
+	<data-item code="01001000FE" parentCode="0201">
+		<data-item code="0100100000" parentCode="9010" length="4" type="0102"  property="zxygzdn" unit="kWh" description="当前正向有功总电能" />
+		<data-item code="0100100001" parentCode="9011" length="4" type="0102"  property="fl1zxygzdn" unit="kWh" description="当前费率1正向有功总电能" />
+		<data-item code="0100100002" parentCode="9012" length="4" type="0102"  property="fl2zxygzdn" unit="kWh" description="当前费率2正向有功总电能" />
+		<data-item code="0100100003" parentCode="9013" length="4" type="0102"  property="fl3zxygzdn" unit="kWh" description="当前费率3正向有功总电能" />
+		<data-item code="0100100004" parentCode="9014" length="4" type="0102"  property="fl4zxygzdn" unit="kWh" description="当前费率4正向有功总电能" />
+	</data-item>
+	
+	<data-item code="01001001FE" parentCode="0101">
+		<data-item code="0100100100" parentCode="9020" length="4" type="0102"  property="fxygzdn" unit="kWh" description="当前反向有功总电能" />
+		<data-item code="0100100101" parentCode="9021" length="4" type="0102"  property="fl1fxygzdn" unit="kWh" description="当前费率1反向有功总电能" />
+		<data-item code="0100100102" parentCode="9022" length="4" type="0102"  property="fl2fxygzdn" unit="kWh" description="当前费率2反向有功总电能" />
+		<data-item code="0100100103" parentCode="9023" length="4" type="0102"  property="fl3fxygzdn" unit="kWh" description="当前费率3反向有功总电能" />
+		<data-item code="0100100104" parentCode="9024" length="4" type="0102"  property="fl4fxygzdn" unit="kWh" description="当前费率4反向有功总电能" />
+	</data-item>
+	
+	<data-item code="01001002FE" parentCode="0081">
+		<data-item code="0100100200" parentCode="9110" length="4" type="0102"  property="zxwgzdn" unit="kWh" description="当前正向无功总电能" />
+		<data-item code="0100100201" parentCode="9111" length="4" type="0102"  property="fl1zxwgzdn" unit="kWh" description="当前费率1正向无功总电能" />
+		<data-item code="0100100202" parentCode="9112" length="4" type="0102"  property="fl2zxwgzdn" unit="kWh" description="当前费率2正向无功总电能" />
+		<data-item code="0100100203" parentCode="9113" length="4" type="0102"  property="fl3zxwgzdn" unit="kWh" description="当前费率3正向无功总电能" />
+		<data-item code="0100100204" parentCode="9114" length="4" type="0102"  property="fl4zxwgzdn" unit="kWh" description="当前费率4正向无功总电能" />
+	</data-item>
+	
+	<data-item code="01001003FE" parentCode="0041">
+		<data-item code="0100100300" parentCode="9120" length="4" type="0102"  property="fxwgzdn" unit="kWh" description="当前反向无功总电能" />
+		<data-item code="0100100301" parentCode="9121" length="4" type="0102"  property="fl1fxwgzdn" unit="kWh" description="当前费率1反向无功总电能" />
+		<data-item code="0100100302" parentCode="9122" length="4" type="0102"  property="fl2fxwgzdn" unit="kWh" description="当前费率2反向无功总电能" />
+		<data-item code="0100100303" parentCode="9123" length="4" type="0102"  property="fl3fxwgzdn" unit="kWh" description="当前费率3反向无功总电能" />
+		<data-item code="0100100304" parentCode="9124" length="4" type="0102"  property="fl4fxwgzdn" unit="kWh" description="当前费率4反向无功总电能" />
+	</data-item>
+	
+	<data-item code="01142000FF" parentCode="1001">
+		<data-item code="0114200000" parentCode="1F01" length="4" type="0102"  property="ygzdl" unit="kWh" description="有功总电量" />
+		<data-item code="0114200001" parentCode="1F11" length="4" type="0102"  property="fl1ygzdl" unit="kWh" description="当前费率1有功总电量" />
+		<data-item code="0114200002" parentCode="1F21" length="4" type="0102"  property="fl2ygzdl" unit="kWh" description="当前费率2有功总电量" />
+		<data-item code="0114200003" parentCode="1F31" length="4" type="0102"  property="fl3ygzdl" unit="kWh" description="当前费率3有功总电量" />
+		<data-item code="0114200004" parentCode="1F41" length="4" type="0102"  property="fl4ygzdl" unit="kWh" description="当前费率4有功总电量" />
+	</data-item>
+	
+	<data-item code="01142001FF" parentCode="1002">
+		<data-item code="0114200100" parentCode="1F02" length="4" type="0102"  property="wgzdl" unit="kWh" description="无功总电量" />
+		<data-item code="0114200101" parentCode="1F12" length="4" type="0102"  property="fl1wgzdl" unit="kWh" description="当前费率1无功总电量" />
+		<data-item code="0114200102" parentCode="1F22" length="4" type="0102"  property="fl2wgzdl" unit="kWh" description="当前费率2无功总电量" />
+		<data-item code="0114200103" parentCode="1F32" length="4" type="0102"  property="fl3wgzdl" unit="kWh" description="当前费率3无功总电量" />
+		<data-item code="0114200104" parentCode="1F42" length="4" type="0102"  property="fl4wgzdl" unit="kWh" description="当前费率4无功总电量" />
+	</data-item>
+	
+	<data-item code="02321015FF" parentCode="1003">
+		<data-item code="0232101500" parentCode="1F03" length="4" type="0102"  property="ygxl" unit="kWh" description="总有功需量" />
+		<data-item code="0232101501" parentCode="1F13" length="4" type="0102"  property="fl1ygxl" unit="kWh" description="当前费率1总有功需量" />
+		<data-item code="0232101502" parentCode="1F23" length="4" type="0102"  property="fl2ygxl" unit="kWh" description="当前费率2总有功需量" />
+		<data-item code="0232101503" parentCode="1F33" length="4" type="0102"  property="fl3ygxl" unit="kWh" description="当前费率3总有功需量" />
+		<data-item code="0232101504" parentCode="1F43" length="4" type="0102"  property="fl4ygxl" unit="kWh" description="当前费率4总有功需量" />
+	</data-item>
+	
+	<data-item code="02321016FF" parentCode="1004">
+		<data-item code="0232101600" parentCode="1F04" length="4" type="0102"  property="wgxl" unit="kWh" description="总无功需量" />
+		<data-item code="0232101601" parentCode="1F14" length="4" type="0102"  property="fl1wgxl" unit="kWh" description="当前费率1总无功需量" />
+		<data-item code="0232101602" parentCode="1F24" length="4" type="0102"  property="fl2wgxl" unit="kWh" description="当前费率2总无功需量" />
+		<data-item code="0232101603" parentCode="1F34" length="4" type="0102"  property="fl3wgxl" unit="kWh" description="当前费率3总无功需量" />
+		<data-item code="0232101604" parentCode="1F44" length="4" type="0102"  property="fl4wgxl" unit="kWh" description="当前费率4总无功需量" />
+	</data-item>
+	
+	<data-item code="02321013FF" parentCode="1005">
+		<data-item code="0232101300" parentCode="1F05" length="4" type="0102"  property="yggl" unit="kWh" description="总有功功率" />
+		<data-item code="0232101301" parentCode="1F15" length="4" type="0102"  property="fl1yggl" unit="kWh" description="当前费率1总有功功率" />
+		<data-item code="0232101302" parentCode="1F25" length="4" type="0102"  property="fl2yggl" unit="kWh" description="当前费率2总有功功率" />
+		<data-item code="0232101303" parentCode="1F35" length="4" type="0102"  property="fl3yggl" unit="kWh" description="当前费率3总有功功率" />
+		<data-item code="0232101304" parentCode="1F45" length="4" type="0102"  property="fl4yggl" unit="kWh" description="当前费率4总有功功率" />
+	</data-item>
+	
+	<data-item code="02321014FF" parentCode="1006">
+		<data-item code="0232101400" parentCode="1F06" length="4" type="0102"  property="wggl" unit="kWh" description="总无功功率" />
+		<data-item code="0232101401" parentCode="1F16" length="4" type="0102"  property="fl1wggl" unit="kWh" description="当前费率1总无功功率" />
+		<data-item code="0232101402" parentCode="1F26" length="4" type="0102"  property="fl2wggl" unit="kWh" description="当前费率2总无功功率" />
+		<data-item code="0232101403" parentCode="1F36" length="4" type="0102"  property="fl3wggl" unit="kWh" description="当前费率3总无功功率" />
+		<data-item code="0232101404" parentCode="1F46" length="4" type="0102"  property="fl4wggl" unit="kWh" description="当前费率4总无功功率" />
+	</data-item>
+	
+	<data-item code="02001103FE" parentCode="1008">
+		<data-item code="0200110301" parentCode="B611" length="2" type="0101"  property="axdy" unit="V" description="A相电压" />
+		<data-item code="0200110302" parentCode="B612" length="2" type="0101"  property="bxdy" unit="V" description="B相电压" />
+		<data-item code="0200110303" parentCode="B613" length="2" type="0101"  property="cxdy" unit="V" description="C相电压" />	
+	</data-item>
+
+	<data-item code="02001104FE" parentCode="1009">
+		<data-item code="0200110401" parentCode="B621" length="3" type="0103"  property="axdl" unit="A" description="A相电流" />
+		<data-item code="0200110402" parentCode="B622" length="3" type="0103"  property="bxdl" unit="A" description="B相电流" />
+		<data-item code="0200110403" parentCode="B623" length="3" type="0103"  property="cxdl" unit="A" description="C相电流" />	
+	</data-item>
+	
+	<data-item code="02001102FE" parentCode="0005">
+		<data-item code="0200110200" parentCode="B650" length="2" type="0103"  property="zglys" unit="" description="总功率因数" />
+		<data-item code="0200110201" parentCode="B651" length="2" type="0103" unit="" description="A相功率因数" />
+		<data-item code="0200110202" parentCode="B652" length="2" type="0103" unit="" description="B相功率因数" />
+		<data-item code="0200110203" parentCode="B653" length="2" type="0103" unit="" description="C相功率因数" />		
+	</data-item>
+</protocol-data>

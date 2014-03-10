@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ami3.0/!svn/ver/19621/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/ansi/protocol
+END
+AnsiProtocolDecoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/ami3.0/!svn/ver/19621/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/ansi/protocol/AnsiProtocolDecoder.java
+END
+EncodeServerMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/ami3.0/!svn/ver/13593/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/ansi/protocol/EncodeServerMessage.java
+END
+AnsiProtocolEncoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/ami3.0/!svn/ver/18395/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/ansi/protocol/AnsiProtocolEncoder.java
+END

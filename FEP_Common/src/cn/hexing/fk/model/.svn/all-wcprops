@@ -1,0 +1,155 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ami3.0/!svn/ver/16540/trunk/fep/FEP_Common/src/cn/hexing/fk/model
+END
+Master2FeRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ami3.0/!svn/ver/20088/trunk/fep/FEP_Common/src/cn/hexing/fk/model/Master2FeRequest.java
+END
+RtuConnectItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/ami3.0/!svn/ver/15539/trunk/fep/FEP_Common/src/cn/hexing/fk/model/RtuConnectItem.java
+END
+UpgradeInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/ami3.0/!svn/ver/15540/trunk/fep/FEP_Common/src/cn/hexing/fk/model/UpgradeInfo.java
+END
+SysConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/model/SysConfig.java
+END
+ComRtu.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/ami3.0/!svn/ver/14755/trunk/fep/FEP_Common/src/cn/hexing/fk/model/ComRtu.java
+END
+RtuCmdItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/model/RtuCmdItem.java
+END
+TaskDbConfigItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/model/TaskDbConfigItem.java
+END
+TaskTemplateItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/model/TaskTemplateItem.java
+END
+RereadInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/model/RereadInfo.java
+END
+MeasuredPoint.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ami3.0/!svn/ver/17344/trunk/fep/FEP_Common/src/cn/hexing/fk/model/MeasuredPoint.java
+END
+DlmsItemRelated.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/ami3.0/!svn/ver/2370/trunk/fep/FEP_Common/src/cn/hexing/fk/model/DlmsItemRelated.java
+END
+BizRtu.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/ami3.0/!svn/ver/19833/trunk/fep/FEP_Common/src/cn/hexing/fk/model/BizRtu.java
+END
+RereadPolicy.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/model/RereadPolicy.java
+END
+RtuManage.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/ami3.0/!svn/ver/19517/trunk/fep/FEP_Common/src/cn/hexing/fk/model/RtuManage.java
+END
+RtuSetValue.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/model/RtuSetValue.java
+END
+RereadTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/model/RereadTask.java
+END
+RtuSynchronizeItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/model/RtuSynchronizeItem.java
+END
+RtuAlertCodeArg.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/model/RtuAlertCodeArg.java
+END
+DlmsMeterRtu.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ami3.0/!svn/ver/18332/trunk/fep/FEP_Common/src/cn/hexing/fk/model/DlmsMeterRtu.java
+END
+Operator.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/model/Operator.java
+END
+RtuAlertCode.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/model/RtuAlertCode.java
+END
+RereadRtu.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/model/RereadRtu.java
+END
+RtuTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/model/RtuTask.java
+END
+TaskDbConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ami3.0/!svn/ver/11216/trunk/fep/FEP_Common/src/cn/hexing/fk/model/TaskDbConfig.java
+END
+TaskTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/ami3.0/!svn/ver/7540/trunk/fep/FEP_Common/src/cn/hexing/fk/model/TaskTemplate.java
+END

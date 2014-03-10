@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ami3.0/!svn/ver/13156/trunk/fep/FEP_Common/src/com/hx/dlms/applayer
+END
+CosemAttributeDescriptorSelection.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/ami3.0/!svn/ver/1959/trunk/fep/FEP_Common/src/com/hx/dlms/applayer/CosemAttributeDescriptorSelection.java
+END
+CaptureObjectDefinition.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ami3.0/!svn/ver/2852/trunk/fep/FEP_Common/src/com/hx/dlms/applayer/CaptureObjectDefinition.java
+END
+CosemObis.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/ami3.0/!svn/ver/2538/trunk/fep/FEP_Common/src/com/hx/dlms/applayer/CosemObis.java
+END
+SelectiveAccessDescriptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ami3.0/!svn/ver/9089/trunk/fep/FEP_Common/src/com/hx/dlms/applayer/SelectiveAccessDescriptor.java
+END
+ObisCodeMap.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ami3.0/!svn/ver/2533/trunk/fep/FEP_Common/src/com/hx/dlms/applayer/ObisCodeMap.java
+END
+CosemMethodDescriptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ami3.0/!svn/ver/1959/trunk/fep/FEP_Common/src/com/hx/dlms/applayer/CosemMethodDescriptor.java
+END
+DataBlockSA.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ami3.0/!svn/ver/1959/trunk/fep/FEP_Common/src/com/hx/dlms/applayer/DataBlockSA.java
+END
+CosemAttributeDescriptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ami3.0/!svn/ver/2015/trunk/fep/FEP_Common/src/com/hx/dlms/applayer/CosemAttributeDescriptor.java
+END
+DataAccessResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/ami3.0/!svn/ver/1959/trunk/fep/FEP_Common/src/com/hx/dlms/applayer/DataAccessResult.java
+END
+InvokeIdPriority.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/ami3.0/!svn/ver/1959/trunk/fep/FEP_Common/src/com/hx/dlms/applayer/InvokeIdPriority.java
+END
+ActionResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ami3.0/!svn/ver/1959/trunk/fep/FEP_Common/src/com/hx/dlms/applayer/ActionResult.java
+END

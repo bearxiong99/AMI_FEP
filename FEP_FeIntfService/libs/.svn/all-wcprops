@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ami3.0/!svn/ver/996/trunk/fep/FEP_FeIntfService/libs
+END
+proxool-0.9.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/ami3.0/!svn/ver/19805/trunk/fep/FEP_FeIntfService/libs/proxool-0.9.1.jar
+END
+fep-protocol.jar
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ami3.0/!svn/ver/21073/trunk/fep/FEP_FeIntfService/libs/fep-protocol.jar
+END
+proxool-cglib.jar
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/ami3.0/!svn/ver/19805/trunk/fep/FEP_FeIntfService/libs/proxool-cglib.jar
+END
+commons-dbcp.jar
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ami3.0/!svn/ver/996/trunk/fep/FEP_FeIntfService/libs/commons-dbcp.jar
+END
+commons-pool.jar
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ami3.0/!svn/ver/996/trunk/fep/FEP_FeIntfService/libs/commons-pool.jar
+END
+spring-sources.jar
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ami3.0/!svn/ver/996/trunk/fep/FEP_FeIntfService/libs/spring-sources.jar
+END
+ojdbc14.jar
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ami3.0/!svn/ver/996/trunk/fep/FEP_FeIntfService/libs/ojdbc14.jar
+END
+commons-collections.jar
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/ami3.0/!svn/ver/996/trunk/fep/FEP_FeIntfService/libs/commons-collections.jar
+END
+fep-db-service.jar
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/ami3.0/!svn/ver/21073/trunk/fep/FEP_FeIntfService/libs/fep-db-service.jar
+END
+quartz-all-1.6.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/ami3.0/!svn/ver/996/trunk/fep/FEP_FeIntfService/libs/quartz-all-1.6.0.jar
+END
+commons-logging.jar
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/ami3.0/!svn/ver/996/trunk/fep/FEP_FeIntfService/libs/commons-logging.jar
+END
+log4j-1.2.14.jar
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ami3.0/!svn/ver/996/trunk/fep/FEP_FeIntfService/libs/log4j-1.2.14.jar
+END
+fep-socket.jar
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ami3.0/!svn/ver/21073/trunk/fep/FEP_FeIntfService/libs/fep-socket.jar
+END
+fep-common.jar
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ami3.0/!svn/ver/21073/trunk/fep/FEP_FeIntfService/libs/fep-common.jar
+END
+spring.jar
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ami3.0/!svn/ver/996/trunk/fep/FEP_FeIntfService/libs/spring.jar
+END

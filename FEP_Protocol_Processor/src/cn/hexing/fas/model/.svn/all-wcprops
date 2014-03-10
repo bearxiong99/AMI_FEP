@@ -1,0 +1,245 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/ami3.0/!svn/ver/13609/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model
+END
+FaalReadProgramLogRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalReadProgramLogRequest.java
+END
+RtuAlert.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ami3.0/!svn/ver/20535/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/RtuAlert.java
+END
+AnsiRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ami3.0/!svn/ver/17666/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/AnsiRequest.java
+END
+FaalSendSmsRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalSendSmsRequest.java
+END
+FaalRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ami3.0/!svn/ver/6118/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalRequest.java
+END
+FaalRealTimeWriteParamsRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalRealTimeWriteParamsRequest.java
+END
+FaalGWAFN0ARequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalGWAFN0ARequest.java
+END
+FaalGWAFN0DRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalGWAFN0DRequest.java
+END
+RtuDataItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/RtuDataItem.java
+END
+FaalGWAFN0ERequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalGWAFN0ERequest.java
+END
+FaalReadTaskDataRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalReadTaskDataRequest.java
+END
+FaalGWAFN0FRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ami3.0/!svn/ver/19633/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalGWAFN0FRequest.java
+END
+GWUserControlDataItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/ami3.0/!svn/ver/9467/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/GWUserControlDataItem.java
+END
+FaalGWupdateKeyRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/ami3.0/!svn/ver/8784/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalGWupdateKeyRequest.java
+END
+FaalRequestRtuParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalRequestRtuParam.java
+END
+FaalRereadTaskResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalRereadTaskResponse.java
+END
+FaalGWNoParamRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalGWNoParamRequest.java
+END
+FaalWriteParamsRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalWriteParamsRequest.java
+END
+FaalRequestResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalRequestResponse.java
+END
+FaalGWAFN10Request.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ami3.0/!svn/ver/20845/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalGWAFN10Request.java
+END
+FaalReadAlertRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalReadAlertRequest.java
+END
+RtuData.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/ami3.0/!svn/ver/10117/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/RtuData.java
+END
+FaalRequestResponseNew.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalRequestResponseNew.java
+END
+FaalReadCurrentDataRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalReadCurrentDataRequest.java
+END
+FaalHX645RelayRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/ami3.0/!svn/ver/9792/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalHX645RelayRequest.java
+END
+HostCommandResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ami3.0/!svn/ver/10472/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/HostCommandResult.java
+END
+UpdateCollectorKeyRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/ami3.0/!svn/ver/19252/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/UpdateCollectorKeyRequest.java
+END
+HostCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ami3.0/!svn/ver/9962/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/HostCommand.java
+END
+FaalGGKZM11Request.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ami3.0/!svn/ver/16682/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalGGKZM11Request.java
+END
+FaalRefreshCacheRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/ami3.0/!svn/ver/7273/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalRefreshCacheRequest.java
+END
+FaalGGKZM12Request.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ami3.0/!svn/ver/6375/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalGGKZM12Request.java
+END
+FaalGGKZM30Request.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ami3.0/!svn/ver/16538/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalGGKZM30Request.java
+END
+FaalGGKZM14Request.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ami3.0/!svn/ver/16626/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalGGKZM14Request.java
+END
+FaalGGKZM33Request.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ami3.0/!svn/ver/6119/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalGGKZM33Request.java
+END
+FaalGGKZM19Request.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ami3.0/!svn/ver/18357/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalGGKZM19Request.java
+END
+FaalReadForwardDataRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalReadForwardDataRequest.java
+END
+DataItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/DataItem.java
+END
+FaalDlmsRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalDlmsRequest.java
+END
+RtuAlertArg.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/RtuAlertArg.java
+END
+FaalRequestParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/FaalRequestParam.java
+END

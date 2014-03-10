@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ami3.0/!svn/ver/21170/trunk/fep/FEP_BusinessProcessor
+END
+bp_deploy.cmd
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/ami3.0/!svn/ver/8729/trunk/fep/FEP_BusinessProcessor/bp_deploy.cmd
+END
+stopbp.sh
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ami3.0/!svn/ver/8094/trunk/fep/FEP_BusinessProcessor/stopbp.sh
+END
+CommService.config
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ami3.0/!svn/ver/5659/trunk/fep/FEP_BusinessProcessor/CommService.config
+END
+monitor.vbs
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ami3.0/!svn/ver/5659/trunk/fep/FEP_BusinessProcessor/monitor.vbs
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ami3.0/!svn/ver/12815/trunk/fep/FEP_BusinessProcessor/.classpath
+END
+key.data
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ami3.0/!svn/ver/5659/trunk/fep/FEP_BusinessProcessor/key.data
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/.project
+END
+startbp.bat
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ami3.0/!svn/ver/20657/trunk/fep/FEP_BusinessProcessor/startbp.bat
+END
+bpdeploy.sh
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ami3.0/!svn/ver/8729/trunk/fep/FEP_BusinessProcessor/bpdeploy.sh
+END
+MANIFEST.MF
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/MANIFEST.MF
+END
+startbp.sh
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ami3.0/!svn/ver/20615/trunk/fep/FEP_BusinessProcessor/startbp.sh
+END
+build.properties
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ami3.0/!svn/ver/5183/trunk/fep/FEP_BusinessProcessor/build.properties
+END
+buildEmWsdl.xml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/ami3.0/!svn/ver/9510/trunk/fep/FEP_BusinessProcessor/buildEmWsdl.xml
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ami3.0/!svn/ver/8098/trunk/fep/FEP_BusinessProcessor/build.xml
+END

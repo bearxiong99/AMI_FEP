@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ami3.0/!svn/ver/13358/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/handheld
+END
+HandHeldMessageDecoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/ami3.0/!svn/ver/16913/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/handheld/HandHeldMessageDecoder.java
+END
+AbstractMessageEncoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/ami3.0/!svn/ver/13358/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/handheld/AbstractMessageEncoder.java
+END
+HandHeldItemConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/ami3.0/!svn/ver/15440/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/handheld/HandHeldItemConfig.java
+END
+HandHeldMessageEncoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/ami3.0/!svn/ver/13936/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/handheld/HandHeldMessageEncoder.java
+END
+AbstractMessageDecoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/ami3.0/!svn/ver/13358/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/handheld/AbstractMessageDecoder.java
+END

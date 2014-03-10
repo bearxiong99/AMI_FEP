@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/test/test/hzjbbis/fk/simulator
+END
+SimulatorTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/test/test/hzjbbis/fk/simulator/SimulatorTest.java
+END
+WebSideClientTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/test/test/hzjbbis/fk/simulator/WebSideClientTest.java
+END
+RtuClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/test/test/hzjbbis/fk/simulator/RtuClient.java
+END
+RtuClientEventHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/test/test/hzjbbis/fk/simulator/RtuClientEventHandler.java
+END

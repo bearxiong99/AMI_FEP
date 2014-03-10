@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ami3.0/!svn/ver/13411/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/dlms
+END
+SecurityKeyParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/ami3.0/!svn/ver/4735/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/dlms/SecurityKeyParam.java
+END
+DlmsRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/ami3.0/!svn/ver/20025/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/dlms/DlmsRequest.java
+END
+DlmsFrameCreator.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/ami3.0/!svn/ver/11430/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/dlms/DlmsFrameCreator.java
+END
+DlmsObisItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/ami3.0/!svn/ver/3673/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/dlms/DlmsObisItem.java
+END
+RelayParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ami3.0/!svn/ver/2899/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/dlms/RelayParam.java
+END
+DlmsRelayParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/ami3.0/!svn/ver/15074/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/model/dlms/DlmsRelayParam.java
+END

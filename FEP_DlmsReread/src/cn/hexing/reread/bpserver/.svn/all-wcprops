@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/ami3.0/!svn/ver/15975/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/bpserver
+END
+TaskRereadEventHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/ami3.0/!svn/ver/6881/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/bpserver/TaskRereadEventHandler.java
+END
+TaskRereadMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ami3.0/!svn/ver/6882/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/bpserver/TaskRereadMessage.java
+END
+TaskRereadMessageCreator.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/ami3.0/!svn/ver/6470/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/bpserver/TaskRereadMessageCreator.java
+END

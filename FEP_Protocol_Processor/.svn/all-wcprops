@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ami3.0/!svn/ver/10473/trunk/fep/FEP_Protocol_Processor
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ami3.0/!svn/ver/6575/trunk/fep/FEP_Protocol_Processor/.classpath
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/.project
+END
+MANIFEST.MF
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/MANIFEST.MF
+END
+build.properties
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ami3.0/!svn/ver/7725/trunk/fep/FEP_Protocol_Processor/build.properties
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ami3.0/!svn/ver/16902/trunk/fep/FEP_Protocol_Processor/build.xml
+END

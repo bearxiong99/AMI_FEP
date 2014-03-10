@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ami3.0/!svn/ver/9168/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/cipher
+END
+EsamCipher.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/ami3.0/!svn/ver/9168/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/cipher/EsamCipher.java
+END
+IDlmsCipher.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ami3.0/!svn/ver/4737/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/cipher/IDlmsCipher.java
+END
+CipherManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/ami3.0/!svn/ver/2077/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/cipher/CipherManager.java
+END
+Gcm128SoftCipher.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/ami3.0/!svn/ver/4737/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/cipher/Gcm128SoftCipher.java
+END

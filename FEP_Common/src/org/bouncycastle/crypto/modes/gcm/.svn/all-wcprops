@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/modes/gcm
+END
+BasicGCMMultiplier.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/modes/gcm/BasicGCMMultiplier.java
+END
+GCMUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/modes/gcm/GCMUtil.java
+END
+GCMExponentiator.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/modes/gcm/GCMExponentiator.java
+END
+BasicGCMExponentiator.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/modes/gcm/BasicGCMExponentiator.java
+END
+Tables8kGCMMultiplier.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/modes/gcm/Tables8kGCMMultiplier.java
+END
+GCMMultiplier.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/modes/gcm/GCMMultiplier.java
+END
+Tables1kGCMExponentiator.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/modes/gcm/Tables1kGCMExponentiator.java
+END
+Tables64kGCMMultiplier.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/crypto/modes/gcm/Tables64kGCMMultiplier.java
+END

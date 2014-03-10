@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/FEP_Common"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/FEP_db_service"/>
+	<classpathentry kind="lib" path="libs/fep-common.jar"/>
+	<classpathentry kind="lib" path="libs/fep-db-service.jar"/>
+	<classpathentry kind="lib" path="libs/miglayout-4.0.jar"/>
+	<classpathentry kind="lib" path="libs/ojdbc14.jar"/>
+	<classpathentry kind="lib" path="libs/proxool-0.9.1.jar"/>
+	<classpathentry kind="lib" path="libs/proxool-cglib.jar"/>
+	<classpathentry kind="lib" path="libs/spring.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

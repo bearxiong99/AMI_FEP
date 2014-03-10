@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/ami3.0/!svn/ver/11427/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/model
+END
+RereadStrategy.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ami3.0/!svn/ver/8128/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/model/RereadStrategy.java
+END
+ReadTimeModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/ami3.0/!svn/ver/8614/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/model/ReadTimeModel.java
+END
+TimeSynTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ami3.0/!svn/ver/7406/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/model/TimeSynTask.java
+END
+TimeSynStrategy.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ami3.0/!svn/ver/11427/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/model/TimeSynStrategy.java
+END
+RereadPoint.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ami3.0/!svn/ver/15949/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/model/RereadPoint.java
+END
+MasterReread.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ami3.0/!svn/ver/8128/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/model/MasterReread.java
+END

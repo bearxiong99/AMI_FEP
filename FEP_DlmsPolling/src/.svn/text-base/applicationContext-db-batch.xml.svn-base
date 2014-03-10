@@ -1,0 +1,2198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Application context definition for PetClinic on JDBC.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:p="http://www.springframework.org/schema/p" xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:context="http://www.springframework.org/schema/context" xmlns:jee="http://www.springframework.org/schema/jee"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>jdbc.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!--
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName"><value>${master.jdbc.driver}</value></property>
+		<property name="url"><value>${master.jdbc.url}</value></property>
+		<property name="username"><value>${master.jdbc.username}</value></property>
+		<property name="password"><value>${master.jdbc.password}</value></property>
+		<property name="maxActive"><value>${master.jdbc.maxActive}</value></property> 
+		<property name="maxIdle"><value>${master.jdbc.maxIdle}</value></property> 
+		<property name="maxWait"><value>${master.jdbc.maxWait}</value></property> 
+	</bean>
+	
+	<bean id="dataSource.mysql" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName"><value>${mysql.jdbc.driver}</value></property>
+		<property name="url"><value>${mysql.jdbc.url}</value></property>
+		<property name="username"><value>${mysql.jdbc.username}</value></property>
+		<property name="password"><value>${mysql.jdbc.password}</value></property>
+		<property name="maxActive"><value>${mysql.jdbc.maxActive}</value></property> 
+		<property name="maxIdle"><value>${mysql.jdbc.maxIdle}</value></property> 
+		<property name="maxWait"><value>3000</value></property> 
+	</bean>
+	-->
+	
+	
+	<bean id="dataSource"
+    	class="org.logicalcobwebs.proxool.ProxoolDataSource">
+	    <property name="driver"><value>${master.jdbc.driver}</value></property>
+	    <property name="driverUrl"><value>${master.jdbc.url}</value></property>
+	    <property name="user"><value>${master.jdbc.username}</value></property>
+	    <property name="password"><value>${master.jdbc.password}</value></property>
+	    <property name="prototypeCount"><value>2</value></property>
+	    <property name="maximumConnectionCount"><value>${master.jdbc.maxActive}</value></property>
+	    <property name="minimumConnectionCount"><value>${master.jdbc.maxIdle}</value></property>
+	    <property name="maximumActiveTime"><value>${master.jdbc.maximumActiveTime}</value></property>
+	    <property name="trace"><value>true</value></property>
+	    <property name="verbose"><value>true</value></property>
+	    <property name="houseKeepingTestSql" value="select sysdate from dual"/>
+	    <property name="alias" value="mainDb"/>
+	</bean>		
+	
+	<bean id="dataSourceRz"
+    	class="org.logicalcobwebs.proxool.ProxoolDataSource">
+	    <property name="driver"><value>${rz.jdbc.driver}</value></property>
+	    <property name="driverUrl"><value>${rz.jdbc.url}</value></property>
+	    <property name="user"><value>${rz.jdbc.username}</value></property>
+	    <property name="password"><value>${rz.jdbc.password}</value></property>
+	    <property name="prototypeCount"><value>1</value></property>
+	    <property name="maximumConnectionCount"><value>${rz.jdbc.maxActive}</value></property>
+	    <property name="minimumConnectionCount"><value>${rz.jdbc.maxIdle}</value></property>
+	    <property name="trace"><value>false</value></property>
+	    <property name="verbose"><value>false</value></property>
+	    <property name="houseKeepingTestSql" value="select sysdate from dual"/>
+	    <property name="alias" value="logDb"/>
+	</bean>	
+	
+	<bean id="master.dbState" class="cn.hexing.db.DbState">
+		<property name="name" value="masterDb"/>
+		<property name="dataSource" ref="dataSource"/>
+		<property name="testSql"><value>select * from dual</value></property>		
+	</bean>
+	
+	<bean id="rz.dbState" class="cn.hexing.db.DbState">
+		<property name="name" value="rzDb"/>
+		<property name="dataSource" ref="dataSourceRz"/>
+		<property name="testSql"><value>select * from dual</value></property>		
+	</bean>
+	
+	<bean id="dbMonitor" class="cn.hexing.db.DbMonitor" 
+		factory-method="getInstance" init-method="initialize">
+		<property name="testInterval" value="60"/>
+		<property name="dbStates">
+			<list>
+				<ref bean="master.dbState" />
+				<ref bean="rz.dbState" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- Transaction manager for a single JDBC DataSource -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+	<!-- Activates @Transactional for DefaultImageDatabase -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+		
+	<bean id="event.handle.readTask" class="cn.hexing.db.batch.event.adapt.BaseReadTaskHandler">
+		<property name="key" value="4"/>
+	</bean>
+	<bean id="event.handle.expAlarm" class="cn.hexing.db.batch.event.adapt.BaseExpAlarmHandler">
+		<property name="key" value="3"/>
+	</bean>
+	<bean id="event.handle.log2Db" class="cn.hexing.db.batch.event.adapt.BaseLog2DbHandler">
+		<property name="key" value="2"/>
+	</bean>
+	<bean id="event.handle.updateRtu" class="cn.hexing.db.batch.event.adapt.BaseUpdateRtuStatus">
+		<property name="key" value="1"/>
+	</bean>
+
+	<bean id="asyncService" class="cn.hexing.db.batch.AsyncService" abstract="true">
+		<property name="daoList">
+			<list>
+				<ref bean="batchDao.updateRtu" />
+			</list>
+		</property>
+		<property name="bpHandlerMap">
+			<map>
+				<entry>
+					<key><ref bean="EventType.BP_READ_TASK" /></key>
+					<ref bean="event.handle.readTask" />
+				</entry>
+				<entry>
+					<key><ref bean="EventType.BP_EXP_ALARM" /></key>
+					<ref bean="event.handle.expAlarm" />
+				</entry>
+				<entry>
+					<key><ref bean="EventType.BP_LOG_DB" /></key>
+					<ref bean="event.handle.log2Db" />
+				</entry>
+				<entry>
+					<key><ref bean="EventType.FE_RTU_CHANNEL" /></key>
+					<ref bean="event.handle.updateRtu" />
+				</entry>
+			</map>
+		</property>
+		<property name="dataSource" ref="dataSource"/>
+		<property name="dataSourceRz" ref="dataSourceRz"/>
+	</bean>
+
+	<!--通讯前置机转变、公变、低压终端档案加载-->
+	<bean id="dao.initComRtu" class="cn.hexing.db.initrtu.dao.jdbc.JdbcComRtuDao">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="sqlLoadRtu">
+			<value>
+				<![CDATA[
+				SELECT  a.ZDJH AS ID,
+						SUBSTR(a.DWDM, 4, 2) AS DEPT_CODE,
+						a.ZDGYLX AS RTU_PROTOCOL,
+						a.ZDLJDZ AS LOGIC_ADDRESS,
+						a.SIMKH AS SIM_NUM,						
+						SUBSTR(a.ZDZTXDZ, 1, 2) AS COMM_TYPE,
+						SUBSTR(a.ZDZTXDZ, 4) AS COMM_ADDRESS,
+						SUBSTR(a.ZDTXDZB1, 1, 2) AS B1_COMM_TYPE,
+						SUBSTR(a.ZDTXDZB1, 4) AS B1_COMM_ADDRESS,
+						ZDLX AS TERMINALTYPE,
+						TXFS AS COMMUNICATION_MODE
+				FROM    DA_ZD a	
+				]]>
+			</value>
+		</property>
+		<property name="mapperLoadRtu">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.ComRtu"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rtuId"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="deptCode"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rtuProtocol"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="logicAddress"/>
+							<property name="index" value="4"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="simNum"/>
+							<property name="index" value="5"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="commType"/>
+							<property name="index" value="6"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="commAddress"/>
+							<property name="index" value="7"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="b1CommType"/>
+							<property name="index" value="8"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="b1CommAddress"/>
+							<property name="index" value="9"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="terminalType"/>
+							<property name="index" value="10"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="communicationMode"/>
+							<property name="index" value="11"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	
+	<bean id="dao.initDlmsMeterRtu" class="cn.hexing.db.initrtu.dao.jdbc.JdbcDlmsMeterRtuDao">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="sqlLoadRtuTask">
+			<value>
+				<![CDATA[
+				SELECT  ZDJH AS RTU_ID,
+						MBID AS TASK_TEMPLATE_ID,
+						RWSX AS TASK_TEMPLATE_PROPERTY,
+						RWH AS RTU_TASK_NUM,
+						CLDH AS TN
+						FROM RW_ZDRW
+				WHERE   SFYX = '1' 
+				]]>
+			</value>
+		</property>
+		<property name="sqlLoadMasterTask">
+			<value>
+				<![CDATA[
+				SELECT  ZDJH AS RTU_ID,
+						MBID AS TASK_TEMPLATE_ID,
+						RWSX AS TASK_TEMPLATE_PROPERTY,
+						RWH AS RTU_TASK_NUM,
+						CLDH AS TN
+						FROM RW_ZZRW
+				WHERE   SFYX = '1' 
+				]]>
+			</value>
+		</property>
+		<property name="mapperLoadRtuTask">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.RtuTask"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rtuId"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskTemplateID"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskTemplateProperty"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rtuTaskNum"/>
+							<property name="index" value="4"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="tn"/>
+							<property name="index" value="5"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+		<property name="sqlLoadMeasurePoints">
+			<value>
+				<![CDATA[
+	        		SELECT  c.ZDJH AS RTU_ID,
+							c.CLDH AS TN,
+							c.CLDJH AS STATION_NO,
+							c.CT AS CT,
+							c.PT AS PT,
+	                		b.hh AS CUSTOMER_NO,
+	                		a.sjid AS DATE_SAVE_ID,
+	                		d.txdz AS TN_ADDR,
+	                		d.GQXMM as HIPASS
+					FROM  SB_SJZB a,DA_ZD b, DA_CLD c,DA_BJ d
+					WHERE   a.zdjh=c.zdjh AND a.dwdm=c.dwdm AND a.cldjh=c.cldjh AND c.cldjh = d.bjjh(+)
+						    AND a.zdjh=b.zdjh  AND a.SFYX='1'  AND d.txgy='03'
+					]]>
+			</value>
+		</property>
+		<property name="mapperLoadMeasurePoints">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.MeasuredPoint"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rtuId"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="tn"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="stationNo"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="ctStr"/>
+							<property name="index" value="4"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="ptStr"/>
+							<property name="index" value="5"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="customerNo"/>
+							<property name="index" value="6"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="dataSaveID"/>
+							<property name="index" value="7"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="tnAddr"/>
+							<property name="index" value="8"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="hiPassword"/>
+							<property name="index" value="9"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+		<property name="sqlLoadDlmsMeterRtu">
+			<value>
+				<![CDATA[
+				select a.bjjh as meterId,
+	             a.txdz as logicAddress,
+	             a.gmm as rootPassword,
+	             a.gqxmm as highPassword,
+	             a.dqxmm as lowPassword,
+	             a.dwdm as deptCode,
+	             a.JXFS as wiringMode,
+	             a.MYBB as keyVersion,
+	             a.MYLX as keyType,
+	             a.zgy as subProtocol,
+	             a.txdkh as port,
+				 a.bxh as meterMode,
+				 b.simkh as phoneNum, 
+				 b.txfs as txfs,
+				 b.csdzt as csdStatus,
+				 ( select ip from da_sim c where c.SIMKH = b.SIMKH) as ip
+          		 from da_bj a ,da_zd b
+                 where a.bjjh = b.ZDLJDZ(+) and txgy ='03'
+				]]>
+			</value>
+		</property>
+		<property name="mapperLoadDlmsMeterRtu">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.DlmsMeterRtu"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="meterId"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="logicAddress"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rootPassword"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="highPassword"/>
+							<property name="index" value="4"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="lowPassword"/>
+							<property name="index" value="5"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="deptCode"/>
+							<property name="index" value="6"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="wiringMode"/>
+							<property name="index" value="7"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="keyVersion"/>
+							<property name="index" value="8"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="keyType"/>
+							<property name="index" value="9"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="subProtocol"/>
+							<property name="index" value="10"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="port"/>
+							<property name="index" value="11"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="meterMode"/>
+							<property name="index" value="12"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="phoneNum"/>
+							<property name="index" value="13"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="linkMode"/>
+							<property name="index" value="14"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="csdStatus"/>
+							<property name="index" value="15"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="IPandPort"/>
+							<property name="index" value="16"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+		<!--	AnsiMeter档案-->
+	<bean id="dao.initAnsiMeterRtu" class="cn.hexing.db.initrtu.dao.jdbc.JdbcAnsiMeterRtuDao">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="sqlLoadRtuTask">
+			<value>
+				<![CDATA[
+				SELECT  ZDJH AS RTU_ID,
+						MBID AS TASK_TEMPLATE_ID,
+						RWSX AS TASK_TEMPLATE_PROPERTY,
+						RWH AS RTU_TASK_NUM,
+						CLDH AS TN
+						FROM RW_ZDRW
+				WHERE   SFYX = '1' 
+				]]>
+			</value>
+		</property>
+		<property name="sqlLoadMasterTask">
+			<value>
+				<![CDATA[
+				SELECT  ZDJH AS RTU_ID,
+						MBID AS TASK_TEMPLATE_ID,
+						RWSX AS TASK_TEMPLATE_PROPERTY,
+						RWH AS RTU_TASK_NUM,
+						CLDH AS TN
+						FROM RW_ZZRW
+				WHERE   SFYX = '1' 
+				]]>
+			</value>
+		</property>
+		<property name="mapperLoadRtuTask">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.RtuTask"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rtuId"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskTemplateID"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskTemplateProperty"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rtuTaskNum"/>
+							<property name="index" value="4"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="tn"/>
+							<property name="index" value="5"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+		<property name="sqlLoadMeasurePoints">
+			<value>
+				<![CDATA[
+	        		SELECT  c.ZDJH AS RTU_ID,
+							c.CLDH AS TN,
+							c.CLDJH AS STATION_NO,
+							c.CT AS CT,
+							c.PT AS PT,
+	                		b.hh AS CUSTOMER_NO,
+	                		a.sjid AS DATE_SAVE_ID,
+	                		d.txdz AS TN_ADDR,
+	                		d.GQXMM AS HIPASSWORD
+					FROM  SB_SJZB a,DA_ZD b, DA_CLD c,DA_BJ d
+					WHERE   a.zdjh=c.zdjh AND a.dwdm=c.dwdm AND a.cldjh=c.cldjh AND c.cldjh = d.bjjh(+)
+						    AND a.zdjh=b.zdjh  AND a.SFYX='1'  AND d.txgy='07'
+					]]>
+			</value>
+		</property>
+		<property name="mapperLoadMeasurePoints">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.MeasuredPoint"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rtuId"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="tn"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="stationNo"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="ctStr"/>
+							<property name="index" value="4"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="ptStr"/>
+							<property name="index" value="5"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="customerNo"/>
+							<property name="index" value="6"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="dataSaveID"/>
+							<property name="index" value="7"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="tnAddr"/>
+							<property name="index" value="8"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="hiPassword"/>
+							<property name="index" value="9"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+		<property name="sqlLoadAnsiMeterRtu">
+			<value>
+				<![CDATA[
+				select a.bjjh as meterId,
+	             a.txdz as logicAddress,
+	             a.gmm as rootPassword,
+	             a.gqxmm as highPassword,
+	             a.dqxmm as lowPassword,
+	             a.dwdm as deptCode,
+	             a.JXFS as wiringMode,
+	             a.MYBB as keyVersion,
+	             a.MYLX as keyType,
+	             a.zgy as subProtocol,
+	             a.txdkh as port,
+				 a.bxh as meterMode,
+				 b.simkh as phoneNum, 
+				 b.txfs as txfs
+          		 from da_bj a ,da_zd b
+                 where a.bjjh = b.ZDLJDZ(+) and txgy ='07'
+				]]>
+			</value>
+		</property>
+		<property name="mapperLoadAnsiMeterRtu">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="com.hx.ansi.model.AnsiMeterRtu"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="meterId"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="logicAddress"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rootPassword"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="highPassword"/>
+							<property name="index" value="4"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="lowPassword"/>
+							<property name="index" value="5"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="deptCode"/>
+							<property name="index" value="6"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="wiringMode"/>
+							<property name="index" value="7"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="keyVersion"/>
+							<property name="index" value="8"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="keyType"/>
+							<property name="index" value="9"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="subProtocol"/>
+							<property name="index" value="10"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="port"/>
+							<property name="index" value="11"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="meterMode"/>
+							<property name="index" value="12"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="phoneNum"/>
+							<property name="index" value="13"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="linkMode"/>
+							<property name="index" value="14"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<!--业务处理器转变、公变、低压终端档案加载-->	
+	<bean id="dao.initBizRtu" class="cn.hexing.db.initrtu.dao.jdbc.JdbcBizRtuDao">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="sqlLoadRtu">
+			<value>
+				<![CDATA[
+				SELECT  a.ZDJH AS RTU_ID,
+						a.DWDM AS DEPT_CODE,			
+						a.ZDGYLX AS RTU_PROTOCOL,
+						a.ZDLJDZ AS LOGIC_ADDRESS,
+						a.ZDLX AS RTU_ClASS,
+						a.ZZCJBM AS MANUFACTURER,
+						a.GQXMM AS HI_AUTH_PASSWORD,
+						a.DQXMM AS LO_AUTH_PASSWORD,
+						a.GY AS PUBKEY,
+						a.DCMYBB ,
+						a.FDCMYBB
+				FROM    DA_ZD a	
+				]]>
+			</value>
+		</property>
+		<property name="mapperLoadRtu">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.BizRtu"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rtuId"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="deptCode"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rtuProtocol"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="logicAddress"/>
+							<property name="index" value="4"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rtuClass"/>
+							<property name="index" value="5"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="manufacturer"/>
+							<property name="index" value="6"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="hiAuthPassword"/>
+							<property name="index" value="7"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="loAuthPassword"/>
+							<property name="index" value="8"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="pubKey"/>
+							<property name="index" value="9"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="symmetricKeyVersion"/>
+							<property name="index" value="10"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="asymmetricKeyVersion"/>
+							<property name="index" value="11"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+		<property name="sqlLoadMeasurePoints">
+			<value>
+				<![CDATA[
+        	SELECT  c.ZDJH AS RTU_ID,
+						c.CLDH AS TN,
+						c.CLDJH AS STATION_NO,
+						c.CT AS CT,
+						c.PT AS PT,
+                		b.hh AS CUSTOMER_NO,
+                		a.sjid AS DATE_SAVE_ID,
+                		d.txdz AS TN_ADDR,
+                		d.GQXMM AS HIPASSWORD
+				FROM  SB_SJZB a,DA_ZD b, DA_CLD c,DA_BJ d
+				WHERE   (a.zdjh=c.zdjh or a.zdjh=c.cjqjh) AND a.dwdm=c.dwdm AND a.cldjh=c.cldjh AND c.cldjh = d.bjjh(+)
+					    AND a.zdjh=b.zdjh  AND a.SFYX='1' 
+				]]>
+			</value>
+		</property>
+		<property name="mapperLoadMeasurePoints">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.MeasuredPoint"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rtuId"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="tn"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="stationNo"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="ctStr"/>
+							<property name="index" value="4"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="ptStr"/>
+							<property name="index" value="5"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="customerNo"/>
+							<property name="index" value="6"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="dataSaveID"/>
+							<property name="index" value="7"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="tnAddr"/>
+							<property name="index" value="8"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="hiPassword"/>
+							<property name="index" value="9"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+		<property name="sqlLoadAlertCode">
+			<value>
+				<![CDATA[
+				SELECT  GJBM AS CODE
+				FROM    P_GJBM		
+				]]>
+			</value>
+		</property>
+		<property name="mapperLoadAlertCode">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.RtuAlertCode"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="code"/>
+							<property name="index" value="1"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+		<property name="sqlLoadAlertCodeArgs">
+			<value>
+				<![CDATA[
+				SELECT GJBM,SJXBM,XH FROM P_GJMRCS ORDER BY XH
+				]]>
+			</value>
+		</property>
+		<property name="mapperLoadAlertCodeArgs">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.RtuAlertCodeArg"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="code"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="sjx"/>
+							<property name="index" value="2"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>		
+		<property name="sqlLoadRtuTask">
+			<value>
+				<![CDATA[
+				SELECT  ZDJH AS RTU_ID,
+						MBID AS TASK_TEMPLATE_ID,
+						RWSX AS TASK_TEMPLATE_PROPERTY,
+						RWH AS RTU_TASK_NUM,
+						CLDH AS TN
+						FROM RW_ZDRW
+				WHERE   SFYX = '1' 
+				]]>
+			</value>
+		</property>	
+		<property name="sqlLoadMasterTask">
+			<value>
+				<![CDATA[
+				SELECT  ZDJH AS RTU_ID,
+						MBID AS TASK_TEMPLATE_ID,
+						RWSX AS TASK_TEMPLATE_PROPERTY,
+						RWH AS RTU_TASK_NUM,
+						CLDH AS TN
+						FROM RW_ZZRW
+				WHERE   SFYX = '1' 
+				]]>
+			</value>
+		</property>		
+		<property name="mapperLoadRtuTask">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.RtuTask"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rtuId"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskTemplateID"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskTemplateProperty"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rtuTaskNum"/>
+							<property name="index" value="4"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="tn"/>
+							<property name="index" value="5"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+		<property name="sqlLoadTaskDbConfig">
+			<value>
+				<![CDATA[
+				select sjxbm,path from table(pkg_fep_services.get_SjxMap)
+				]]>
+			</value>
+		</property>
+		<property name="mapperLoadTaskDbConfig">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.TaskDbConfig"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="code"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="dbConfigStr"/>
+							<property name="index" value="2"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+		<property name="sqlLoadTaskTemplate">
+			<value>
+				<![CDATA[
+				SELECT  MBID AS TASK_TEMPLATE_ID,
+						RWFL AS TASK_TYPE,
+						CYKSJZSJDW AS SAMPLE_START_TIME_UNIT,
+						CYKSJZSJ AS SAMPLE_START_TIME,
+						CYJGSJDW AS SAMPLE_INTERVAL_UNIT,
+						CYJGSJ AS SAMPLE_INTERVAL,
+						SBJGSJDW AS UPLOAD_INTERVAL_UNIT,
+						SBJGSJ AS UPLOAD_INTERVAL,
+						SBJZSJDW AS UPLOAD_START_TIME_UNIT,
+						SBJZSJ AS UPLOAD_START_TIME,
+						SBSJPL AS FREQUENCE,
+						RWSX AS TASK_PROPERTY
+						FROM MB_ZDRW
+				]]>
+			</value>
+		</property>
+		<property name="sqlLoadMasterTemplate">
+			<value>
+				<![CDATA[
+				SELECT  MBID AS TASK_TEMPLATE_ID,
+						RWFL AS TASK_TYPE,
+						CYKSJZSJDW AS SAMPLE_START_TIME_UNIT,
+						CYKSJZSJ AS SAMPLE_START_TIME,
+						CYJGSJDW AS SAMPLE_INTERVAL_UNIT,
+						CYJGSJ AS SAMPLE_INTERVAL,
+						RWSX AS TASK_PROPERTY
+						FROM MB_ZZRW
+				]]>
+			</value>
+		</property>
+		<property name="mapperLoadMasterTaskTemplate">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.TaskTemplate"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskTemplateID"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskType"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="sampleStartTimeUnit"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="sampleStartTime"/>
+							<property name="index" value="4"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="sampleIntervalUnit"/>
+							<property name="index" value="5"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="sampleInterval"/>
+							<property name="index" value="6"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskProperty"/>
+							<property name="index" value="7"></property>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>	
+		<property name="mapperLoadTaskTemplate">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.TaskTemplate"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskTemplateID"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskType"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="sampleStartTimeUnit"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="sampleStartTime"/>
+							<property name="index" value="4"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="sampleIntervalUnit"/>
+							<property name="index" value="5"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="sampleInterval"/>
+							<property name="index" value="6"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="uploadIntervalUnit"/>
+							<property name="index" value="7"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="uploadInterval"/>
+							<property name="index" value="8"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="uploadStartTimeUnit"/>
+							<property name="index" value="9"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="uploadStartTime"/>
+							<property name="index" value="10"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="frequence"/>
+							<property name="index" value="11"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskProperty"/>
+							<property name="index" value="12"></property>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>	
+		<property name="sqlLoadTaskTemplateItem">
+			<value>
+				<![CDATA[
+         	 SELECT MB.MBID AS TASK_TEMPLATE_ID,
+                              CASE
+                               WHEN T.DXSJXBM IS NOT NULL THEN
+                                T.XXSJXBM
+                               ELSE
+                                MB.SJXBM
+                             END SJXBM
+                        FROM MB_RWSJX MB, P_DBSJXMX T
+                       WHERE MB.SJXBM = T.DXSJXBM(+)
+                       ORDER BY MB.XH,T.XH
+				]]>
+			</value>
+		</property>
+		<property name="sqlLoadMasterTemplateItem">
+			<value>
+				<![CDATA[
+				     SELECT MBID AS TASK_TEMPLATE_ID,SJXBM AS CODE FROM MB_ZZRWSJX ORDER BY XH 
+				]]>
+			</value>
+		</property>
+		<property name="mapperLoadTaskTemplateItem">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.TaskTemplateItem"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskTemplateID"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="code"/>
+							<property name="index" value="2"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+	</bean>	
+	
+	<bean id="dao.refreshRtu" class="cn.hexing.db.rtu.jdbc.JdbcRtuRefreshDao">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="sqlGetDlmsRtuByLogicAddr">
+			<value>
+				<![CDATA[
+				select a.bjjh as meterId,
+	             a.txdz as logicAddress,
+	             a.gmm as rootPassword,
+	             a.gqxmm as highPassword,
+	             a.dqxmm as lowPassword,
+	             a.dwdm as deptCode,
+	             a.JXFS as wiringMode,
+	             a.MYBB as keyVersion,
+	             a.MYLX as keyType,
+	             a.zgy as subProtocol,
+	             a.txdkh as port,
+	             a.bxh as meterMode,
+	             b.simkh as phoneNum,
+	             b.txfs as txfs,
+	             b.csdzt as csdStatus,
+	            ( select ip from da_sim c where c.SIMKH = b.SIMKH) as ip
+          		 from da_bj a,da_zd b
+                 where a.bjjh = b.ZDLJDZ(+) and txgy ='03'
+          		 and a.txdz=?
+				]]>
+			</value>
+		</property>
+		<property name="mapperGetDlmsRtu">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.DlmsMeterRtu"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="meterId"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="logicAddress"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rootPassword"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="highPassword"/>
+							<property name="index" value="4"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="lowPassword"/>
+							<property name="index" value="5"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="deptCode"/>
+							<property name="index" value="6"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="wiringMode"/>
+							<property name="index" value="7"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="keyVersion"/>
+							<property name="index" value="8"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="keyType"/>
+							<property name="index" value="9"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="subProtocol"/>
+							<property name="index" value="10"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="port"/>
+							<property name="index" value="11"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="meterMode"/>
+							<property name="index" value="12"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="phoneNum"/>
+							<property name="index" value="13"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="linkMode"/>
+							<property name="index" value="14"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="csdStatus"/>
+							<property name="index" value="15"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="IPandPort"/>
+							<property name="index" value="16"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+		<property name="sqlGetAnsiRtuByLogicAddr">
+			<value>
+				<![CDATA[
+				select a.bjjh as meterId,
+	             a.txdz as logicAddress,
+	             a.gmm as rootPassword,
+	             a.gqxmm as highPassword,
+	             a.dqxmm as lowPassword,
+	             a.dwdm as deptCode,
+	             a.JXFS as wiringMode,
+	             a.MYBB as keyVersion,
+	             a.MYLX as keyType,
+	             a.zgy as subProtocol,
+	             a.txdkh as port,
+	             a.bxh as meterMode,
+	             b.simkh as phoneNum,
+	             b.txfs as txfs
+          		 from da_bj a,da_zd b
+                 where a.bjjh = b.ZDLJDZ(+) and txgy ='07'
+          		 and a.txdz=?
+				]]>
+			</value>
+		</property>
+		<property name="mapperGetAnsiRtu">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="com.hx.ansi.model.AnsiMeterRtu"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="meterId"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="logicAddress"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rootPassword"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="highPassword"/>
+							<property name="index" value="4"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="lowPassword"/>
+							<property name="index" value="5"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="deptCode"/>
+							<property name="index" value="6"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="wiringMode"/>
+							<property name="index" value="7"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="keyVersion"/>
+							<property name="index" value="8"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="keyType"/>
+							<property name="index" value="9"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="subProtocol"/>
+							<property name="index" value="10"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="port"/>
+							<property name="index" value="11"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="meterMode"/>
+							<property name="index" value="12"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="phoneNum"/>
+							<property name="index" value="13"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="linkMode"/>
+							<property name="index" value="14"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+		<property name="sqlGetRtuByRtuId">
+			<value>
+				<![CDATA[	
+				SELECT  a.ZDJH AS RTU_ID,
+						a.DWDM AS DEPT_CODE,					
+						a.ZDGYLX AS RTU_PROTOCOL,
+						a.ZDLJDZ AS LOGIC_ADDRESS,
+						a.ZDLX AS RTU_ClASS,
+						a.ZZCJBM AS MANUFACTURER,
+						a.GQXMM AS HI_AUTH_PASSWORD,
+						a.DQXMM AS LO_AUTH_PASSWORD,
+						a.GY AS PUBKEY,
+						a.DCMYBB ,
+						a.FDCMYBB
+				FROM    DA_ZD a  WHERE a.ZDJH = ?
+				]]>
+			</value>
+		</property>
+		<property name="sqlGetRtuByRtua">
+			<value>
+				<![CDATA[
+				SELECT  a.ZDJH AS RTU_ID,
+						a.DWDM AS DEPT_CODE,					
+						a.ZDGYLX AS RTU_PROTOCOL,
+						a.ZDLJDZ AS LOGIC_ADDRESS,
+						a.ZDLX AS RTU_ClASS,
+						a.ZZCJBM AS MANUFACTURER,
+						a.GQXMM AS HI_AUTH_PASSWORD,
+						a.DQXMM AS LO_AUTH_PASSWORD
+						a.GY AS PUBKEY,
+						a.DCMYBB ,
+						a.FDCMYBB
+				FROM    DA_ZD a  WHERE a.ZDLJDZ = ?
+				]]>
+			</value>
+		</property>
+		<property name="mapperGetRtu">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.BizRtu"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rtuId"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="deptCode"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rtuProtocol"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="logicAddress"/>
+							<property name="index" value="4"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rtuClass"/>
+							<property name="index" value="5"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="manufacturer"/>
+							<property name="index" value="6"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="hiAuthPassword"/>
+							<property name="index" value="7"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="loAuthPassword"/>
+							<property name="index" value="8"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="pubKey"/>
+							<property name="index" value="9"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="symmetricKeyVersion"/>
+							<property name="index" value="10"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="asymmetricKeyVersion"/>
+							<property name="index" value="11"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+		<property name="sqlGetComRtuByRtua">
+			<value>
+				<![CDATA[
+				SELECT  a.ZDJH AS ID,
+						SUBSTR(a.DWDM, 4, 2) AS DEPT_CODE,
+						a.ZDGYLX AS RTU_PROTOCOL,
+						a.ZDLJDZ AS LOGIC_ADDRESS,
+						a.SIMKH AS SIM_NUM,						
+						SUBSTR(a.ZDZTXDZ, 1, 2) AS COMM_TYPE,
+						SUBSTR(a.ZDZTXDZ, 4) AS COMM_ADDRESS,
+						SUBSTR(a.ZDTXDZB1, 1, 2) AS B1_COMM_TYPE,
+						SUBSTR(a.ZDTXDZB1, 4) AS B1_COMM_ADDRESS,
+						ZDLX AS TERMINALTYPE,
+						TXFS AS COMM_MODE
+				FROM    DA_ZD a		
+				WHERE a.ZDLJDZ = ?
+				]]>
+			</value>
+		</property>
+		<property name="mapperGetComRtu">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.ComRtu"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rtuId"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="deptCode"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rtuProtocol"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="logicAddress"/>
+							<property name="index" value="4"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="simNum"/>
+							<property name="index" value="5"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="commType"/>
+							<property name="index" value="6"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="commAddress"/>
+							<property name="index" value="7"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="b1CommType"/>
+							<property name="index" value="8"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="b1CommAddress"/>
+							<property name="index" value="9"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="terminalType"/>
+							<property name="index" value="10"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="communicationMode"/>
+							<property name="index" value="11"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+		<property name="sqlGetMeasurePoints">
+			<value>
+				<![CDATA[
+				SELECT  c.ZDJH AS RTU_ID,
+						c.CLDH AS TN,
+						c.CLDJH AS STATION_NO,
+						c.CT AS CT,
+						c.PT AS PT,
+            			b.hh AS CUSTOMER_NO,
+            			a.sjid AS DATE_SAVE_ID,
+            			d.txdz AS TN_ADDR,
+            			d.GQXMM AS HIPASSWORD
+				FROM  SB_SJZB a,DA_ZD b, DA_CLD c,DA_BJ d
+				WHERE   (a.zdjh=c.zdjh or a.zdjh=c.cjqjh) AND a.dwdm=c.dwdm AND a.cldjh=c.cldjh AND c.cldjh = d.bjjh(+)
+					    AND a.zdjh=b.zdjh  AND a.SFYX='1'  AND c.ZDJH = ?	
+				]]>
+			</value>
+		</property>
+		<property name="mapperGetMeasurePoints">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.MeasuredPoint"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rtuId"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="tn"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="stationNo"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="ctStr"/>
+							<property name="index" value="4"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="ptStr"/>
+							<property name="index" value="5"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="customerNo"/>
+							<property name="index" value="6"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="dataSaveID"/>
+							<property name="index" value="7"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="tnAddr"/>
+							<property name="index" value="8"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="hiPassword"/>
+							<property name="index" value="9"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+		<property name="sqlGetMasterTask">
+			<value>
+				<![CDATA[
+				SELECT  ZDJH AS RTU_ID,
+						MBID AS TASK_TEMPLATE_ID,
+						RWSX AS TASK_TEMPLATE_PROPERTY,
+						RWH AS RTU_TASK_NUM,
+						CLDH AS TN
+						FROM RW_ZZRW
+				WHERE   SFYX = '1' 
+				AND ZDJH = ?
+				]]>
+			</value>
+		</property>
+		<property name="sqlGetRtuTask">
+			<value>
+				<![CDATA[
+				SELECT  ZDJH AS RTU_ID,
+						MBID AS TASK_TEMPLATE_ID,
+						RWSX AS TASK_TEMPLATE_PROPERTY,
+						RWH AS RTU_TASK_NUM,
+						CLDH AS TN
+						FROM RW_ZDRW
+				WHERE   SFYX = '1' AND ZDJH = ?
+				]]>
+			</value>
+		</property>
+		<property name="mapperGetRtuTask">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.RtuTask"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rtuId"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskTemplateID"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskTemplateProperty"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rtuTaskNum"/>
+							<property name="index" value="4"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="tn"/>
+							<property name="index" value="5"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>		
+		
+		<property name="sqlGetMasterTaskTemplate">
+			<value>
+				<![CDATA[
+				SELECT  MBID AS TASK_TEMPLATE_ID,
+						RWFL AS TASK_TYPE,
+						CYKSJZSJDW AS SAMPLE_START_TIME_UNIT,
+						CYKSJZSJ AS SAMPLE_START_TIME,
+						CYJGSJDW AS SAMPLE_INTERVAL_UNIT,
+						CYJGSJ AS SAMPLE_INTERVAL,
+						RWSX AS TASK_PROPERTY
+						FROM MB_ZZRW
+				WHERE MBID = ?
+				]]>
+			</value>
+		</property>
+		<property name="mapperGetMasterTaskTemplate">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.TaskTemplate"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskTemplateID"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskType"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="sampleStartTimeUnit"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="sampleStartTime"/>
+							<property name="index" value="4"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="sampleIntervalUnit"/>
+							<property name="index" value="5"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="sampleInterval"/>
+							<property name="index" value="6"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskProperty"/>
+							<property name="index" value="7"></property>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+		<!--获取DLMS的GPRS表档案	-->
+		<property name="sqlGetDLMSGPRSMeter">
+			<value>
+				<![CDATA[
+					select a.ZDLJDZ 
+					from DA_ZD a,TX_ZXQK b 
+					where a.ZDGYLX=? 
+					and a.zdljdz=b.zdljdz 
+					and (b.zjxtsj + 1 > to_date(?, 'yyyy-MM-dd HH24:mi:ss')) 
+				]]>
+			</value>
+		</property>
+		<property name="mapperGprsMeter">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.DlmsMeterRtu"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="logicAddress"/>
+							<property name="index" value="1"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>				
+		<property name="sqlGetTaskTemplate">
+			<value>
+				<![CDATA[
+				SELECT  MBID AS TASK_TEMPLATE_ID,
+						RWFL AS TASK_TYPE,
+						CYKSJZSJDW AS SAMPLE_START_TIME_UNIT,
+						CYKSJZSJ AS SAMPLE_START_TIME,
+						CYJGSJDW AS SAMPLE_INTERVAL_UNIT,
+						CYJGSJ AS SAMPLE_INTERVAL,
+						SBJGSJDW AS UPLOAD_INTERVAL_UNIT,
+						SBJGSJ AS UPLOAD_INTERVAL,
+						SBJZSJDW AS UPLOAD_START_TIME_UNIT,
+						SBJZSJ AS UPLOAD_START_TIME,
+						SBSJPL AS FREQUENCE
+						FROM MB_ZDRW
+				WHERE MBID = ?
+				]]>
+			</value>
+		</property>
+		<property name="mapperGetTaskTemplate">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.TaskTemplate"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskTemplateID"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskType"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="sampleStartTimeUnit"/>
+							<property name="index" value="3"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="sampleStartTime"/>
+							<property name="index" value="4"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="sampleIntervalUnit"/>
+							<property name="index" value="5"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="sampleInterval"/>
+							<property name="index" value="6"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="uploadIntervalUnit"/>
+							<property name="index" value="7"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="uploadInterval"/>
+							<property name="index" value="8"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="uploadStartTimeUnit"/>
+							<property name="index" value="9"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="uploadStartTime"/>
+							<property name="index" value="10"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="frequence"/>
+							<property name="index" value="11"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+		<property name="sqlGetMasterTaskTemplateItem">
+			<value>
+				<![CDATA[
+				SELECT MBID AS TASK_TEMPLATE_ID,SJXBM AS CODE FROM MB_ZZRWSJX WHERE MBID= ? ORDER BY XH  
+				]]>
+			</value>
+		</property>
+		<property name="sqlGetTaskTemplateItem">
+			<value>
+				<![CDATA[
+				 SELECT MB.MBID AS TASK_TEMPLATE_ID,
+                              CASE
+                               WHEN T.DXSJXBM IS NOT NULL THEN
+                                T.XXSJXBM
+                               ELSE
+                                MB.SJXBM
+                             END SJXBM
+                        FROM MB_RWSJX MB, P_DBSJXMX T
+                       WHERE MB.SJXBM = T.DXSJXBM(+) AND MBID=?
+                       ORDER BY MB.XH,T.XH
+				]]>
+			</value>
+		</property>
+		<property name="mapperGetTaskTemplateItem">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.TaskTemplateItem"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="taskTemplateID"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="code"/>
+							<property name="index" value="2"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="master.dbservice" class="cn.hexing.db.bizprocess.MasterDbService">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="sqlupdateGwTerminalPubKey">
+			<value>
+			UPDATE DA_ZD SET GY = ? ,FDCMYBB =? WHERE ZDLJDZ = ?
+			</value>
+		</property>
+		<property name="updateConcentratorPro">
+			<value>
+			update GJ_SJJL
+			set sjsj = ? , gxzt = ?
+			where sjwjmc = ?  and zdjh = ?  and cldh = ?  and sjlx = ?
+			</value>
+		</property>
+		<property name="updateSoftUpgrade">
+			<value>
+			update GJ_SJJL
+			set gxzt = ?
+			where  zdjh = ?  and cldh = ?  and rjbbh = ?
+			</value>
+		</property>
+		
+		<property name="updateSoftUpgradeByRjsjId">
+			<value>
+			update GJ_SJJL
+			set gxzt = ?
+			where   rjsjid = ?
+			</value>
+		</property>	
+		<property name="updateTaskStatus">
+			<value>
+				update cz_rw
+				set zt = ?
+				where czrwid = (select t.czrwid from cz_mllb t where t.mlid=?)
+			</value>
+		</property>
+		<property name="getTaskIDByComID">
+			<value>
+				select t.czrwid from cz_mllb t where t.mlid=?		
+			</value>
+		</property>
+		<property name="sqlGetANSIDimension">
+			<value>
+				select distinct  t.lg from p_ansi t where t.sjxbm=?
+			</value>
+		</property>
+		<property name="updateTaskSet">
+			<value>
+			   		  UPDATE RW_ZDRW T
+                      SET T.SFYX = 1, T.RWBJ = 1, T.ZT = '04',T.RWQYSJ=SYSDATE
+                      WHERE ZDJH = ?
+                      AND RWH = ?
+			</value>
+		</property>			
+		<property name="getTaskStatus">
+			<value>
+			SELECT mlsl FROM CZ_RW where czrwid = (select t.czrwid from cz_mllb t where t.mlid=?)
+			</value>
+		</property>		
+		<property name = "sqlQueryRelatedCode">
+			<value>
+				<![CDATA[
+				select item_id
+				 from DLMS_PARAMS t
+				where t.obis = ?
+				  and class_id = ?
+				  and attribute_id = ?
+		     	]]>
+			</value>
+		</property>
+		<property name="updateCommandStatus">
+			<value>
+				update cz_mllb
+				set mlzt = ?,hysj=sysdate,zdjh=?
+				where mlid=?
+			</value>
+		</property>
+		<property name="insertCommandCallResult">
+			<value>
+			INSERT INTO CZ_ZCJG(MLID, CLDH, SJX, SJZ, SJSJ,BJJH)
+			VALUES( :commandId,:tn,:code,:value,:time,:logicAddress )
+			</value>
+		</property>
+		<property name="insertCommandSetResult">
+			<value>
+			INSERT INTO CZ_SZJG(MLID, CLDH, SJSJ, SJXZT ,BJJH)
+			VALUES( :commandId,:tn,:time,:value,:logicAddress)
+			</value>
+		</property>
+		<property name="saveAutoTimeResult">
+			<value>
+			UPDATE   TJ_ZDDSSJ
+   				SET  XTSJ = :time,
+      				 ZDSJ = :terminalTime,
+      				 SJC =:timedifference,
+      				 ZCZT =:status
+ 			   where BJJH=:logicAddress  AND CLDH=:tn
+			</value>
+		</property>
+		<property name="updateAutoTimeResult">
+			<value>
+			UPDATE   TJ_ZDDSSJ
+   				SET  ZCZT =:status
+ 			   where BJJH=:logicAddress  AND CLDH=:tn
+			</value>
+		</property>
+		<property name="deleteAutoTimeResult">
+			<value>
+			DELETE TJ_ZDDSSJ
+			WHERE BJJH=?
+			</value>
+		</property>
+		<property name="insertGwAmmeterIdentification">
+			<value>
+			MERGE INTO R_ZNDBRZ a
+		    USING (SELECT :zdjh as zdjh,:txdz as txdz,:rzxx as rzxx FROM dual) b
+		    ON (a.zdjh = b.zdjh AND a.txdz = b.txdz)
+		    WHEN MATCHED THEN
+		      UPDATE SET rzxx = b.rzxx
+		    WHEN NOT MATCHED THEN
+		      INSERT (zdjh, txdz, rzxx)
+		      VALUES (b.zdjh,b.txdz,b.rzxx)   
+			</value>
+		</property>
+		<property name="insertRtuComdMag">
+			<value>
+			MERGE INTO cz_mlgl a
+		    USING (SELECT :logicAddress as zdljdz,:zxh as zxh,:cmdId as mlid,:bwsl as bwsl,:zdzjbz as sjly FROM dual) b
+		    ON (a.zdljdz = b.zdljdz AND a.zxh = b.zxh)
+		    WHEN MATCHED THEN
+		      UPDATE SET mlid = b.mlid,bwsl = b.bwsl,czsj=sysdate,sjly=b.sjly
+		    WHEN NOT MATCHED THEN
+		      INSERT (zdljdz,zxh,mlid,bwsl,sjly)
+		      VALUES (b.zdljdz,b.zxh,b.mlid,b.bwsl,b.sjly)    
+			</value>
+		</property>
+		<property name="insertDlmsRtuComdMag">
+			<value>
+			MERGE INTO CZ_DLMS a
+		    USING (SELECT :logicAddress as ZDLJDZ,:bpAddr as BPDZ,:freeTag as KXBJ FROM dual) b
+		    ON (a.ZDLJDZ = b.ZDLJDZ )
+		    WHEN MATCHED THEN
+		      UPDATE SET BPDZ = b.BPDZ,KXBJ = b.KXBJ
+		    WHEN NOT MATCHED THEN
+		      INSERT (ZDLJDZ,BPDZ,KXBJ)
+		      VALUES (b.ZDLJDZ,b.BPDZ,b.KXBJ)
+			</value>
+		</property>
+		<property name="sqlGetGwAmmeterIdentification">
+			<value>
+				<![CDATA[
+				SELECT RZXX FROM R_ZNDBRZ WHERE ZDJH=? AND TXDZ=?
+				]]>
+			</value>
+		</property>
+		<property name="sqlGetDlmsRtuFreeTag">
+			<value>
+				<![CDATA[
+				SELECT KXBJ FROM CZ_DLMS WHERE ZDLJDZ=?
+				]]>
+			</value>
+		</property>
+		<property name="sqlGetDlmsRtuBpAddr">
+			<value>
+				<![CDATA[
+				SELECT BPDZ FROM CZ_DLMS WHERE ZDLJDZ=?
+				]]>
+			</value>
+		</property>	
+		<!-- 软件升级 -->
+		<property name="sqlGetUpgradeInfo">
+				<value>
+				<![CDATA[
+				SELECT ZDLJDZ,CLDH,SJWJM,WJTXX,ZZS,DQDJZ,LDZ,SJZT,SXSJ,FTP_IP,FTP_PORT,FTP_USERNAME,FTP_PASSWORD,DIR,ZCD,RJSJID
+  				FROM GJ_RJSJ
+  				WHERE RJSJID=?
+				]]>
+			</value>
+		</property>
+	<property name="mapperGetUpgradeInfo">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.UpgradeInfo"/>
+				<property name="columnMapper">
+					<list>
+				    <bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="logicAddr"/>
+						<property name="index" value="1"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="tn"/>
+						<property name="index" value="2"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="fileName"/>
+						<property name="index" value="3"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="fileHead"/>
+						<property name="index" value="4"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="blockCount"/>
+						<property name="index" value="5"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="curBlockNum"/>
+						<property name="index" value="6"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="reissueBlock"/>
+						<property name="index" value="7"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="status"/>
+						<property name="index" value="8"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="effectDate"/>
+						<property name="index" value="9"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ftpIp"/>
+						<property name="index" value="10"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ftpPort"/>
+						<property name="index" value="11"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ftpUserName"/>
+						<property name="index" value="12"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ftpPassword"/>
+						<property name="index" value="13"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="ftpDir"/>
+						<property name="index" value="14"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="maxSize"/>
+						<property name="index" value="15"/>
+					</bean>
+					<bean class="cn.hexing.db.resultmap.ColumnMapper">
+						<property name="property" value="softUpgradeID"/>
+						<property name="index" value="16"/>
+					</bean>
+					</list>
+				</property>
+			</bean>
+		</property>
+			<!--		获取软件版本信息-->
+			<property name="sqlGetSoftVersion">
+			<value>
+				<![CDATA[
+				SELECT RJBBH FROM GJ_SJWJ WHERE BBXX=?	
+				]]>
+			</value>
+		</property>
+		<property name="sqlGetCommandSetResult">
+			<value>
+				<![CDATA[
+				SELECT MLID,CLDH,SJXZT FROM CZ_SZJG WHERE MLID=?	
+				]]>
+			</value>
+		</property>
+		<property name="mapperGetRtuSetValue">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.RtuSetValue"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="cmdId"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="cldh"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="sjxzt"/>
+							<property name="index" value="3"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>	
+		<property name="updateGwRtuSetValue">
+			<value>
+				<![CDATA[
+				UPDATE CZ_SZJG SET SJXZT=?  WHERE MLID=? AND CLDH=?
+				]]>
+			</value>
+		</property>
+		<property name="updateDlmsRtuFreeTag">
+			<value>
+				<![CDATA[
+				UPDATE CZ_DLMS SET KXBJ=0 WHERE KXBJ=1 AND BPDZ=?
+				]]>
+			</value>
+		</property>
+		<property name="sqlGetRtuComdItem">
+			<value>
+				<![CDATA[
+				SELECT MLID,BWSL,SJLY FROM CZ_MLGL
+				WHERE ZDLJDZ=? AND ZXH=?	
+				]]>
+			</value>
+		</property>
+		<property name="mapperGetRtuComdItem">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.RtuCmdItem"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="cmdId"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="bwsl"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="zdzjbz"/>
+							<property name="index" value="3"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>	
+		<property name="sqlGetRtuSycItem">
+			<value>
+				<![CDATA[
+				SELECT ZDJH,TBLB,TBSJ FROM ZD_CSTB
+				WHERE TBSJ>? 
+				ORDER BY TBSJ
+				]]>
+			</value>
+		</property>
+		<property name="mapperGetRtuSycItem">
+			<bean class="cn.hexing.db.resultmap.ResultMapper">
+				<property name="resultClass" value="cn.hexing.fk.model.RtuSynchronizeItem"/>
+				<property name="columnMapper">
+					<list>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="rtuId"/>
+							<property name="index" value="1"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="SycType"/>
+							<property name="index" value="2"/>
+						</bean>
+						<bean class="cn.hexing.db.resultmap.ColumnMapper">
+							<property name="property" value="SycTime"/>
+							<property name="index" value="3"/>
+						</bean>
+					</list>
+				</property>
+			</bean>
+		</property>		
+		<property name="funcGetRtuCommandSeq">
+			<bean class="cn.hexing.db.procedure.DbProcedure">
+				<property name="dataSource" ref="dataSource"/>
+				<property name="callString">
+					<value>{?INTEGER = call pkg_fep_services.get_zdzxh(#p_zdljdz,jdbcType=VARCHAR,mode=IN#,#p_zdgylx,jdbcType=VARCHAR,mode=IN#)}</value>
+				</property>
+			</bean>
+		</property>
+		<property name="procUpdateCommandStatus">
+			<bean class="cn.hexing.db.procedure.DbProcedure">
+				<property name="dataSource" ref="dataSource"/>
+				<property name="callString">
+					<value>{call pkg_fep_services.update_command_status(#id,jdbcType=NUMERIC,mode=IN#,#status,jdbcType=VARCHAR,mode=IN#,#errcode,jdbcType=VARCHAR,mode=IN#,#messageCount,jdbcType=NUMERIC,mode=IN#)}</value>
+				</property>
+			</bean>
+		</property>
+		<property name="procUpdateParamResult">
+			<bean class="cn.hexing.db.procedure.DbProcedure">
+				<property name="dataSource" ref="dataSource"/>
+				<property name="callString">
+					<value>{call pkg_fep_services.update_param_result_value(#rtuId,jdbcType=VARCHAR,mode=IN#,#rtuType,jdbcType=VARCHAR,mode=IN#,#rtuProtocol,jdbcType=VARCHAR,mode=IN#,#tn,jdbcType=VARCHAR,mode=IN#,#code,jdbcType=VARCHAR,mode=IN#,#status,jdbcType=NUMERIC,mode=IN#,#sbyy,jdbcType=VARCHAR,mode=IN#)}</value>
+				</property>
+			</bean>
+		</property>
+		<property name="procPostCreateRtuData">
+			<bean class="cn.hexing.db.procedure.DbProcedure">
+				<property name="dataSource" ref="dataSource"/>
+				<property name="callString">
+					<value>{call pkg_fep_services.sbsjmxb_ins(#deptCode,jdbcType=VARCHAR,mode=IN#,#customerNo,jdbcType=VARCHAR,mode=IN#,#rtuId,jdbcType=VARCHAR,mode=IN#,#stationNo,jdbcType=VARCHAR,mode=IN#,#code,jdbcType=VARCHAR,mode=IN#,#value,jdbcType=VARCHAR,mode=IN#,#time,jdbcType=TIMESTAMP,mode=IN#,#txfs,jdbcType=VARCHAR,mode=IN#,#ct,jdbcType=NUMERIC,mode=IN#,#pt,jdbcType=NUMERIC,mode=IN#)}</value>
+				</property>
+			</bean>
+		</property>
+		<property name="procPostCreateRtuAlert">
+			<bean class="cn.hexing.db.procedure.DbProcedure">
+				<property name="dataSource" ref="dataSource"/>
+				<property name="callString">
+					<value>{call pkg_fep_services.sb_gj_ins(#dataSaveID,jdbcType=NUMERIC,mode=IN#,#deptCode,jdbcType=VARCHAR,mode=IN#,#customerNo,jdbcType=VARCHAR,mode=IN#,#rtuId,jdbcType=VARCHAR,mode=IN#,#stationNo,jdbcType=VARCHAR,mode=IN#,#alertCodeHex,jdbcType=VARCHAR,mode=IN#,#alertTime,jdbcType=TIMESTAMP,mode=IN#,#sbcs,jdbcType=VARCHAR,mode=IN#,#txfs,jdbcType=VARCHAR,mode=IN#)}</value>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="dao.updateRtuCommInfo" class="cn.hexing.db.batch.dao.jdbc.JdbcBatchDao">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="batchSize" value="6000"/>
+		<property name="delaySecond" value="10"/>
+		<property name="sql">
+			<value>
+				<![CDATA[
+				MERGE INTO tj_zdlljs a
+				USING (SELECT :logicAddress AS zdljdz, TO_DATE(:dateString,'YYYY-MM-DD') AS rq, :downGprsFlowmeter AS xxgprs, :downSmsCount AS xxsms, :upGprsFlowmeter AS sxgprs, :upSmsCount AS sxsms, 
+				              :rtuIpAddr AS gprsip, :upMobile AS simkh, :lastGprsRecvTime AS gprssxsj, :lastSmsRecvTime AS smssxsj, :hasTask AS sfyrw, :upGprsCount AS sxgprsbws, 
+				              :downGprsCount AS xxgprsbws, null AS sxyxjbh, null AS xxyxjbh, :activeGprs AS zdztxdz, :activeUms AS dxyyh FROM dual) b
+				ON (a.zdljdz = b.zdljdz AND a.rq = b.rq)
+				WHEN MATCHED then 
+				  UPDATE SET xxgprs = b.xxgprs, xxsms = b.xxsms, sxgprs = b.sxgprs, sxsms = b.sxsms, gprsip = b.gprsip,
+				             simkh = b.simkh, gprssxsj = b.gprssxsj, smssxsj = b.smssxsj, sfyrw = b.sfyrw, sxgprsbws = b.sxgprsbws,
+				             xxgprsbws = b.xxgprsbws, sxyxjbh = b.sxyxjbh, xxyxjbh = b.xxyxjbh, zdztxdz = b.zdztxdz, dxyyh = b.dxyyh
+				WHEN NOT MATCHED then
+				  INSERT (zdljdz, rq, xxgprs, xxsms, sxgprs, sxsms, gprsip, simkh, gprssxsj, smssxsj, sfyrw, sxgprsbws, xxgprsbws, sxyxjbh, xxyxjbh, zdztxdz, dxyyh)
+				  VALUES
+				    (b.zdljdz, b.rq, b.xxgprs, b.xxsms, b.sxgprs, b.sxsms, b.gprsip, b.simkh, b.gprssxsj, b.smssxsj, b.sfyrw, b.sxgprsbws, b.xxgprsbws, b.sxyxjbh, b.xxyxjbh, b.zdztxdz, b.dxyyh)				]]>
+			</value>
+		</property>
+	</bean>	
+	
+	<bean id="manageRtu" class="cn.hexing.db.managertu.ManageRtu">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="comRtuDaoList">
+			<list>
+				<ref bean="dao.initComRtu" />
+			</list>	
+		</property>
+		<property name="bizRtuDaoList">
+			<list>
+				<ref bean="dao.initBizRtu" />
+			</list>	
+		</property>
+		<property name="dlmsMeterRtuDaoList">
+			<list>
+				<ref bean="dao.initDlmsMeterRtu"/>
+			</list>
+		</property>
+		<property name="ansiMeterRtuDaoList">
+			<list>
+				<ref bean="dao.initAnsiMeterRtu"/>
+			</list>
+		</property>		
+		<property name="rtuRefreshDao" ref="dao.refreshRtu"/>
+	</bean>
+	
+</beans>

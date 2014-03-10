@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="libs/commons-dbcp.jar"/>
+	<classpathentry kind="lib" path="libs/commons-logging.jar"/>
+	<classpathentry kind="lib" path="libs/commons-pool.jar"/>
+	<classpathentry kind="lib" path="libs/ojdbc14.jar"/>
+	<classpathentry kind="lib" path="libs/spring.jar" sourcepath="libs/spring-sources.jar"/>
+	<classpathentry kind="lib" path="libs/log4j.jar"/>
+	<classpathentry kind="lib" path="libs/commons-cli-1.2.jar" sourcepath="libs/commons-cli-1.2-sources.jar"/>
+	<classpathentry kind="lib" path="libs/commons-beanutils-1.8.3.jar" sourcepath="libs/commons-beanutils-1.8.3-sources.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/FEP_Common"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

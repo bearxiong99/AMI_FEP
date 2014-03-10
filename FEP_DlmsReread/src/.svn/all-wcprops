@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ami3.0/!svn/ver/11078/trunk/fep/FEP_DlmsReread/src
+END
+applicationContext-reread.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/ami3.0/!svn/ver/18855/trunk/fep/FEP_DlmsReread/src/applicationContext-reread.xml
+END
+applicationContext-db-batch.xml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/ami3.0/!svn/ver/21071/trunk/fep/FEP_DlmsReread/src/applicationContext-db-batch.xml
+END
+applicationContext-mysql-reread.xml
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/ami3.0/!svn/ver/18855/trunk/fep/FEP_DlmsReread/src/applicationContext-mysql-reread.xml
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ami3.0/!svn/ver/11247/trunk/fep/FEP_DlmsReread/src/log4j.properties
+END
+traceLog.properties
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ami3.0/!svn/ver/3897/trunk/fep/FEP_DlmsReread/src/traceLog.properties
+END
+applicationContext-mysql-db-batch.xml
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/ami3.0/!svn/ver/21071/trunk/fep/FEP_DlmsReread/src/applicationContext-mysql-db-batch.xml
+END
+applicationContext-common.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ami3.0/!svn/ver/7756/trunk/fep/FEP_DlmsReread/src/applicationContext-common.xml
+END
+applicationContext-socket.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ami3.0/!svn/ver/7756/trunk/fep/FEP_DlmsReread/src/applicationContext-socket.xml
+END
+jdbc.properties
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ami3.0/!svn/ver/8156/trunk/fep/FEP_DlmsReread/src/jdbc.properties
+END
+application.properties
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/ami3.0/!svn/ver/18478/trunk/fep/FEP_DlmsReread/src/application.properties
+END

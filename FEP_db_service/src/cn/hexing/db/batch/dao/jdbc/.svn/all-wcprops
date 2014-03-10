@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/ami3.0/!svn/ver/9423/trunk/fep/FEP_db_service/src/cn/hexing/db/batch/dao/jdbc
+END
+BatchJdbcTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/src/cn/hexing/db/batch/dao/jdbc/BatchJdbcTemplate.java
+END
+JdbcBatchDao4Mysql.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ami3.0/!svn/ver/18259/trunk/fep/FEP_db_service/src/cn/hexing/db/batch/dao/jdbc/JdbcBatchDao4Mysql.java
+END
+BatchNamedParameterJdbcTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/src/cn/hexing/db/batch/dao/jdbc/BatchNamedParameterJdbcTemplate.java
+END
+JdbcBatchDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ami3.0/!svn/ver/15778/trunk/fep/FEP_db_service/src/cn/hexing/db/batch/dao/jdbc/JdbcBatchDao.java
+END
+BatchSimpleJdbcTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/src/cn/hexing/db/batch/dao/jdbc/BatchSimpleJdbcTemplate.java
+END
+JdbcBatchDao2.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ami3.0/!svn/ver/15778/trunk/fep/FEP_db_service/src/cn/hexing/db/batch/dao/jdbc/JdbcBatchDao2.java
+END

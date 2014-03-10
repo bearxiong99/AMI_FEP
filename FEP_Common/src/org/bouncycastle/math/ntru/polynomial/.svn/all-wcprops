@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/math/ntru/polynomial
+END
+BigIntPolynomial.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/math/ntru/polynomial/BigIntPolynomial.java
+END
+IntegerPolynomial.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/math/ntru/polynomial/IntegerPolynomial.java
+END
+Resultant.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/math/ntru/polynomial/Resultant.java
+END
+Polynomial.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/math/ntru/polynomial/Polynomial.java
+END
+BigDecimalPolynomial.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/math/ntru/polynomial/BigDecimalPolynomial.java
+END
+LongPolynomial2.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/math/ntru/polynomial/LongPolynomial2.java
+END
+ModularResultant.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/math/ntru/polynomial/ModularResultant.java
+END
+SparseTernaryPolynomial.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/math/ntru/polynomial/SparseTernaryPolynomial.java
+END
+DenseTernaryPolynomial.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/math/ntru/polynomial/DenseTernaryPolynomial.java
+END
+LongPolynomial5.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/math/ntru/polynomial/LongPolynomial5.java
+END
+ProductFormPolynomial.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/math/ntru/polynomial/ProductFormPolynomial.java
+END
+TernaryPolynomial.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/math/ntru/polynomial/TernaryPolynomial.java
+END
+Constants.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/src/org/bouncycastle/math/ntru/polynomial/Constants.java
+END

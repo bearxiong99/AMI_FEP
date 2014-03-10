@@ -1,0 +1,191 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ami3.0/!svn/ver/19884/trunk/fep/FEP_DlmsReread/libs
+END
+commons-beanutils-1.8.3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/ami3.0/!svn/ver/7762/trunk/fep/FEP_DlmsReread/libs/commons-beanutils-1.8.3.jar
+END
+proxool-0.9.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/ami3.0/!svn/ver/7762/trunk/fep/FEP_DlmsReread/libs/proxool-0.9.1.jar
+END
+ojdbc6.jar
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ami3.0/!svn/ver/10422/trunk/fep/FEP_DlmsReread/libs/ojdbc6.jar
+END
+c3p0-0.9.1.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ami3.0/!svn/ver/9324/trunk/fep/FEP_DlmsReread/libs/c3p0-0.9.1.2.jar
+END
+fep-protocol.jar
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/ami3.0/!svn/ver/21070/trunk/fep/FEP_DlmsReread/libs/fep-protocol.jar
+END
+jta.jar
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ami3.0/!svn/ver/3897/trunk/fep/FEP_DlmsReread/libs/jta.jar
+END
+log4j.jar
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ami3.0/!svn/ver/7762/trunk/fep/FEP_DlmsReread/libs/log4j.jar
+END
+proxool-cglib.jar
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/ami3.0/!svn/ver/7762/trunk/fep/FEP_DlmsReread/libs/proxool-cglib.jar
+END
+commons-pool.jar
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ami3.0/!svn/ver/3897/trunk/fep/FEP_DlmsReread/libs/commons-pool.jar
+END
+spring-sources.jar
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ami3.0/!svn/ver/3897/trunk/fep/FEP_DlmsReread/libs/spring-sources.jar
+END
+commons-collections.jar
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ami3.0/!svn/ver/3897/trunk/fep/FEP_DlmsReread/libs/commons-collections.jar
+END
+commons-lang.jar
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ami3.0/!svn/ver/7762/trunk/fep/FEP_DlmsReread/libs/commons-lang.jar
+END
+ibatis-2.3.0.677.jar
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ami3.0/!svn/ver/7762/trunk/fep/FEP_DlmsReread/libs/ibatis-2.3.0.677.jar
+END
+commons-net-3.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ami3.0/!svn/ver/9924/trunk/fep/FEP_DlmsReread/libs/commons-net-3.1.jar
+END
+ttjdbc5.jar
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ami3.0/!svn/ver/7762/trunk/fep/FEP_DlmsReread/libs/ttjdbc5.jar
+END
+log4j-1.2.14.jar
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ami3.0/!svn/ver/3897/trunk/fep/FEP_DlmsReread/libs/log4j-1.2.14.jar
+END
+fep-socket.jar
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/ami3.0/!svn/ver/21070/trunk/fep/FEP_DlmsReread/libs/fep-socket.jar
+END
+fep-common.jar
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/ami3.0/!svn/ver/21070/trunk/fep/FEP_DlmsReread/libs/fep-common.jar
+END
+castor-0.9.9.1-xml.jar
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/ami3.0/!svn/ver/7762/trunk/fep/FEP_DlmsReread/libs/castor-0.9.9.1-xml.jar
+END
+xercesImpl.jar
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ami3.0/!svn/ver/7762/trunk/fep/FEP_DlmsReread/libs/xercesImpl.jar
+END
+commons-cli-1.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ami3.0/!svn/ver/7762/trunk/fep/FEP_DlmsReread/libs/commons-cli-1.2.jar
+END
+orai18n.jar
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ami3.0/!svn/ver/10422/trunk/fep/FEP_DlmsReread/libs/orai18n.jar
+END
+mysql-connector-java-5.1.0-bin.jar
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/ami3.0/!svn/ver/7762/trunk/fep/FEP_DlmsReread/libs/mysql-connector-java-5.1.0-bin.jar
+END
+commons-dbcp.jar
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ami3.0/!svn/ver/3897/trunk/fep/FEP_DlmsReread/libs/commons-dbcp.jar
+END
+esam.jar
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ami3.0/!svn/ver/8020/trunk/fep/FEP_DlmsReread/libs/esam.jar
+END
+fep-db-service.jar
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ami3.0/!svn/ver/21334/trunk/fep/FEP_DlmsReread/libs/fep-db-service.jar
+END
+quartz-all-1.6.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ami3.0/!svn/ver/3897/trunk/fep/FEP_DlmsReread/libs/quartz-all-1.6.0.jar
+END
+commons-logging-1.0.4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/ami3.0/!svn/ver/7762/trunk/fep/FEP_DlmsReread/libs/commons-logging-1.0.4.jar
+END
+commons-beanutils.jar
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/ami3.0/!svn/ver/3897/trunk/fep/FEP_DlmsReread/libs/commons-beanutils.jar
+END
+commons-logging.jar
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ami3.0/!svn/ver/3897/trunk/fep/FEP_DlmsReread/libs/commons-logging.jar
+END
+spring.jar
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ami3.0/!svn/ver/3897/trunk/fep/FEP_DlmsReread/libs/spring.jar
+END

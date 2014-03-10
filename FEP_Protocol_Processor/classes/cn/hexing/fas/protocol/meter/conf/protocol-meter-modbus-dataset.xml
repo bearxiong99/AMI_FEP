@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<protocol-meter-data>
+	<!-- 表规约名称 -->
+	<proto-name>Modbus</proto-name>
+	<data-item startPos="4B" endPos="6B" sumLength="32" length="1" format="HTB1" description="第X台智能电容器数据状态1" />
+	<data-item startPos="8B" endPos="AB" sumLength="32" length="1" format="HTB1" description="第X台智能电容器数据状态2" />
+	<data-item startPos="29" endPos="2B" sumLength="2" length="2" format="HTB1#HTB1"  description="分补电容器数量,共补电容器数量" />
+	<data-item startPos="2B" endPos="2D" sumLength="2" length="2" format="HTB2" fraction="3" description="切除门限功率因数(0.97~1)"/>
+	<data-item startPos="2D" endPos="2F" sumLength="2" length="2" format="HTB2" fraction="3" description="投入门限功率因数(0.85~0.96)"/>
+	<data-item startPos="3B" endPos="3D" sumLength="2" length="2" format="HTB1#HTB1" description="欠流设置(40~200)、投切延时设置：10S~180S"/>
+	<data-item startPos="3D" endPos="3F" sumLength="2" length="2" format="HTB2" description="一次CT变比设置"/>
+	<data-item startPos="AB" endPos="EC" sumLength="64" length="2" format="HTB1#HTB1" description="第X台智能电容器容量"/>
+	<data-item startPos="EC" endPos="01AD" sumLength="96" length="6" format="HTB2#HTB2#HTB2" description="第X台智能电容器投切次数"/>
+	<data-item startPos="01AD" endPos="020D" sumLength="96" length="6" format="HTB2#HTB2#HTB2" description="第X台智能电容器投切次数"/>
+	
+</protocol-meter-data>

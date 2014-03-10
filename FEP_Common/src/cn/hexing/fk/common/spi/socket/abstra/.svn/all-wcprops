@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ami3.0/!svn/ver/11790/trunk/fep/FEP_Common/src/cn/hexing/fk/common/spi/socket/abstra
+END
+BaseClientChannel.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/common/spi/socket/abstra/BaseClientChannel.java
+END
+BaseSocketServer.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/ami3.0/!svn/ver/20040/trunk/fep/FEP_Common/src/cn/hexing/fk/common/spi/socket/abstra/BaseSocketServer.java
+END

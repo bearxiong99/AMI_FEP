@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<project name="FK_gate_zj" default="build-gate-jar" basedir=".">
+	<property file="build.properties"></property>
+	<property name="fk.version" value="2.0" />
+	<property name="src.dir" value="${basedir}/src" />
+	<property name="classes.dir" value="${basedir}/bin" />
+	<property name="lib.dir" value="${basedir}/libs" />
+	<property name="gate.jar.name" value="fep-gate.jar" />
+	<property name="build.encoding" value="GBK" />
+	
+	<path id="project.classpath">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+		<pathelement path="${classes.dir}" />
+	</path>
+
+    <!-- =================================================================== -->
+    <!-- Clean generated class files                                         -->
+    <!-- =================================================================== -->
+    <target name="clean" description="Clean generated class files">
+        <delete dir="${classes.dir}" />
+        <delete dir="${app.gate.path}" />
+    </target>
+	
+	<!-- =================================================================== -->
+    <!-- Compile java source file                                            -->
+    <!-- =================================================================== -->
+    <target name="compile" description="Compile java file">
+    	<mkdir dir="${classes.dir}" />
+		<copy todir="${classes.dir}">
+			<fileset dir="${src.dir}">			  
+			  <exclude name="**/*.java"/>
+			  <exclude name="**/CVS/**/*.*"/>
+			</fileset>
+		</copy>
+    	<javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="project.classpath"
+    	    source="1.5" target="1.5" debug="true" encoding="${build.encoding}" includeantruntime="on">
+    		<include name="**/*.java"/>
+    	</javac>
+    </target>
+
+    <!-- =================================================================== -->
+    <!-- Run ZJGATE Server                                         			 -->
+    <!-- =================================================================== -->
+    <target name="run" depends="compile" description="Run ZJGATE server">
+        <java classname="cn.hexing.fk.gate.Gate" classpathref="project.classpath" fork="true">
+        	<jvmarg value="-Xms256m" />
+        	<jvmarg value="-Xmx960m" />
+        </java>
+    </target>
+
+	<!-- =================================================================== -->
+    <!-- Build distributed .jar file of zjgate.jar                           -->
+    <!-- =================================================================== -->
+	<target name="build-gate-jar" depends="compile" description="Build fep_gate jar">
+        <mkdir dir="${app.gate.path}" />
+		<delete file="${app.gate.path}/${gate.jar.name}" />
+		<jar destfile="${app.gate.path}/${gate.jar.name}" basedir="${classes.dir}" compress="false"
+			manifest="${basedir}/META-INF/MANIFEST.MF">
+			<include name="cn/**" />
+		</jar>
+		<copy todir="${app.gate.path}" >
+			<fileset dir="${src.dir}" defaultexcludes="true">			  
+				<include name="*.xml" />
+				<include name="*.properties" />
+			</fileset>
+			<fileset dir="${basedir}" defaultexcludes="true">			  
+				<include name="*.bat" />
+				<include name="*.sh"/>
+			</fileset>
+		</copy>
+		<copydir dest="${app.gate.path}/libs" src="${basedir}/libs">
+			<include name="*.jar"/>
+			<exclude name="*-sources.jar"/>
+		</copydir>
+	</target>
+
+</project>

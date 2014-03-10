@@ -1,0 +1,40 @@
+package auto;
+
+/**
+ * 
+ * @author gaoll
+ *
+ * @time 2013-5-9 ÉÏÎç10:44:39
+ *
+ * @info use for mysql . create select sql and insert sql.
+ */
+public class AutoCreateTaskSql4Mysql {
+	public static void main(String[] args) {
+		String col = "FXYGZ2,FXYGZ3,FXYGZ4,ZXWGZ,ZXWGZ1,ZXWGZ2,ZXWGZ3,ZXWGZ4,FXWGZ,FXWGZ1,FXWGZ2,FXWGZ3,FXWGZ4,ZXYGZDXL,ZXYGZDXLFSSJ,ZXYGZDXL1,ZXYGZDXL1FSSJ,ZXYGZDXL2,ZXYGZDXL2FSSJ,ZXYGZDXL3,ZXYGZDXL3FSSJ,ZXYGZDXL4,ZXYGZDXL4FSSJ,FXYGZDXL,FXYGZDXLFSSJ,ZXWGZDXL,ZXWGZDXLFSSJ,ZXWGZDXL1,ZXWGZDXL1FSSJ,ZXWGZDXL2,ZXWGZDXL2FSSJ,ZXWGZDXL3,ZXWGZDXL3FSSJ,ZXWGZDXL4,ZXWGZDXL4FSSJ,FXWGZDXL,FXWGZDXLFSSJ,WGZXX1,WGZXX2,WGZXX3,WGZXX4,FXWGZXX1,FXWGZXX2,FXWGZXX3,FXWGZXX4,ZXYGZXL,ZXYGZXLFSSJ,ZXYGZXL1,ZXYGZXL1FSSJ,ZXYGZXL2,ZXYGZXL2FSSJ,ZXYGZXL3,ZXYGZXL3FSSJ,ZXYGZXL4,ZXYGZXL4FSSJ,ZXYGSZZXL,ZXYGSZZXLFSSJ,ZXYGSZZXL1,ZXYGSZZXL1FSSJ,ZXYGSZZXL2,ZXYGSZZXL2FSSJ,ZXYGSZZXL3,ZXYGSZZXL3FSSJ,ZXYGSZZXL4,ZXYGSZZXL4FSSJ,SYXLJGSJ,XLZQS,ZXYGLJZDXL,ZXYGLJZDXL1,ZXYGLJZDXL2,ZXYGLJZDXL3,ZXYGLJZDXL4,ZJYCXLFWSJ,XLFWCS,ZJHGS,ZXYGZ,ZXYGZ1,ZXYGZ2,ZXYGZ3,ZXYGZ4,FXYGZ,FXYGZ1";
+		String table="SB_DLSJ_YDJ";
+		String[] cols = col.split(",");
+		
+		String selectSql = "SELECT SJID,SJSJ,JSSJ,CT,PT,ZHBL,BQBJ,XGBJ";
+		for(String str: cols){
+			selectSql+=","+str;
+		}
+		selectSql+="\n FROM "+table +"\nWHERE SJID=? AND SJSJ =?";
+		String additiveSql = "INSERT INTO"+table+" \n(SJID,SJSJ,JSSJ,CT,PT,ZHBL,BQBJ";
+		
+		for(String str: cols){
+			additiveSql+=","+str;
+		}
+		additiveSql+=")\n";
+		additiveSql+="VALUES \n(:SJID, :SJSJ, :JSSJ, :CT, :PT, :ZHBL, :BQBJ ";
+		for(String str: cols){
+			additiveSql+=",:"+str;
+		}
+		additiveSql+="ON DUPLICATE KEY UPDATE\nJSSJ=now()";
+		for(String str: cols){
+			additiveSql+=","+str+"=:"+str;
+		}
+		System.out.println(selectSql);
+		System.out.println("=========================================");
+		System.out.println(additiveSql);
+	}
+}

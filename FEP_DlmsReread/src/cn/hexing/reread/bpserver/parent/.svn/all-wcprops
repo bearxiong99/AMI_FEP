@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ami3.0/!svn/ver/19884/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/bpserver/parent
+END
+MasterRereadTaskProcessor.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/ami3.0/!svn/ver/19884/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/bpserver/parent/MasterRereadTaskProcessor.java
+END
+RereadMainParent.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/ami3.0/!svn/ver/19153/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/bpserver/parent/RereadMainParent.java
+END
+RereadWorkThreadParent.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/ami3.0/!svn/ver/19153/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/bpserver/parent/RereadWorkThreadParent.java
+END
+Rereader.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ami3.0/!svn/ver/19884/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/bpserver/parent/Rereader.java
+END
+RereadProcessorParent.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/ami3.0/!svn/ver/19884/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/bpserver/parent/RereadProcessorParent.java
+END

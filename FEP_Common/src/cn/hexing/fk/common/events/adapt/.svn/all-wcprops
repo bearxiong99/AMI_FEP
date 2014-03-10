@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/ami3.0/!svn/ver/7963/trunk/fep/FEP_Common/src/cn/hexing/fk/common/events/adapt
+END
+MessageParseErrorEventAdapt.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/ami3.0/!svn/ver/990/trunk/fep/FEP_Common/src/cn/hexing/fk/common/events/adapt/MessageParseErrorEventAdapt.java
+END
+EventHandleTimeoutAdapt.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/ami3.0/!svn/ver/7963/trunk/fep/FEP_Common/src/cn/hexing/fk/common/events/adapt/EventHandleTimeoutAdapt.java
+END

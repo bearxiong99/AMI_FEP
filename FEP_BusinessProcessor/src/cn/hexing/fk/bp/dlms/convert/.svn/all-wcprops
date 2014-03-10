@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/ami3.0/!svn/ver/16347/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/convert
+END
+DlmsBillingDateConvert.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/ami3.0/!svn/ver/7313/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/convert/DlmsBillingDateConvert.java
+END
+DlmsSeasonTariffDataConvert.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/ami3.0/!svn/ver/10854/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/convert/DlmsSeasonTariffDataConvert.java
+END
+DlmsWeekTariffDataConvert.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/ami3.0/!svn/ver/10854/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/convert/DlmsWeekTariffDataConvert.java
+END
+DlmsChannelDataConvert.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/ami3.0/!svn/ver/7358/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/convert/DlmsChannelDataConvert.java
+END
+DlmsRCPTDataConvert.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/ami3.0/!svn/ver/10836/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/convert/DlmsRCPTDataConvert.java
+END
+DlmsAbstractConvert.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/ami3.0/!svn/ver/16347/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/convert/DlmsAbstractConvert.java
+END
+DlmsDayTariffDataConvert.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/ami3.0/!svn/ver/7359/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/convert/DlmsDayTariffDataConvert.java
+END
+DlmsDemandOfMonthConvert.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/ami3.0/!svn/ver/15050/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/convert/DlmsDemandOfMonthConvert.java
+END
+DlmsU32StructureDataConvert.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/ami3.0/!svn/ver/14430/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/convert/DlmsU32StructureDataConvert.java
+END
+DlmsSpecialTariffDataConvert.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/ami3.0/!svn/ver/10854/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/convert/DlmsSpecialTariffDataConvert.java
+END
+DlmsChannelItemConvert.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/ami3.0/!svn/ver/12812/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/convert/DlmsChannelItemConvert.java
+END
+DlmsRelayThresholdConvert.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/ami3.0/!svn/ver/12181/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/convert/DlmsRelayThresholdConvert.java
+END
+DlmsFreezeDataConvert.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/ami3.0/!svn/ver/11028/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/convert/DlmsFreezeDataConvert.java
+END
+DlmsHarmonicDataConvert.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/ami3.0/!svn/ver/11720/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/convert/DlmsHarmonicDataConvert.java
+END

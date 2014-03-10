@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/ami3.0/!svn/ver/13607/trunk/fep/FEP_db_service/src/cn/hexing/db/initrtu/dao/jdbc
+END
+JdbcComRtuDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/src/cn/hexing/db/initrtu/dao/jdbc/JdbcComRtuDao.java
+END
+JdbcBizRtuDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ami3.0/!svn/ver/3816/trunk/fep/FEP_db_service/src/cn/hexing/db/initrtu/dao/jdbc/JdbcBizRtuDao.java
+END
+JdbcAnsiMeterRtuDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/ami3.0/!svn/ver/13607/trunk/fep/FEP_db_service/src/cn/hexing/db/initrtu/dao/jdbc/JdbcAnsiMeterRtuDao.java
+END
+JdbcDlmsMeterRtuDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/ami3.0/!svn/ver/3727/trunk/fep/FEP_db_service/src/cn/hexing/db/initrtu/dao/jdbc/JdbcDlmsMeterRtuDao.java
+END

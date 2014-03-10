@@ -1,0 +1,51 @@
+#encryption.service.url=http://192.168.2.175/jmjcall/Service1.asmx
+#encryption.em.host=192.168.2.159
+#encryption.em.port=6666
+#通讯前置机地址列表
+bp.fe.client.url=127.0.0.1:10011
+
+#web主站服务端口
+bp.web.server.port=7778
+
+#漏点补招IP
+#bp.rereadTask.client.hostIp=10.136.34.171
+#漏点补招端口
+#bp.rereadTask.client.hostPort=10045
+
+#监控服务端口
+monitor.server.port=10021
+
+#批量保存的量
+bp.batchSize=2000
+#保存延迟(秒)
+bp.delaySecond=100
+
+#文件传输报文延时(秒)
+bp.waitTime=2
+
+#bp.ws.server=http://zzjm.zj.sgcc.com.cn
+#bp.ws.server=http://jcjm.zj.sgcc.com.cn
+#定时取终端同步表中的同步记录刷新内存档案job,每小时保存一次。
+bp.refreshRtu.cronExpression=0 0 0/1 * * ?
+#系统日志打印job
+sys.showprofile.cronExpression=0 0/10 * * * ?
+
+#是否是伊朗历
+bp.isIranTime=false
+
+#读事件根据当前时间发生的时间，向前x分钟，向后x分钟的一个区间读
+bp.alarm.offsetTime=3
+
+#这里的添加的是读通道数据需要特殊处理的规约号
+bp.protocol.old = 101,103
+
+#不需要认证的子规约
+bp.protocol.withNoAuth=103
+
+#如果上报的任务找不到模板，对同一个终端刷新的时间间隔，单位是分钟
+bp.task.refreshInterval=15
+
+#bp.database.name=mysql
+
+#if G3 MeterBox Project ,set true.
+isG3MeterBox=false

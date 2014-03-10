@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ami3.0/!svn/ver/18066/trunk/fep/FEP_DlmsPolling/src
+END
+applicationContext-tp.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/ami3.0/!svn/ver/18808/trunk/fep/FEP_DlmsPolling/src/applicationContext-tp.xml
+END
+applicationContext-db-batch.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ami3.0/!svn/ver/18498/trunk/fep/FEP_DlmsPolling/src/applicationContext-db-batch.xml
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ami3.0/!svn/ver/9732/trunk/fep/FEP_DlmsPolling/src/log4j.properties
+END
+applicationContext-mysql-tp.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ami3.0/!svn/ver/18808/trunk/fep/FEP_DlmsPolling/src/applicationContext-mysql-tp.xml
+END
+traceLog.properties
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ami3.0/!svn/ver/2398/trunk/fep/FEP_DlmsPolling/src/traceLog.properties
+END
+applicationContext-mysql-db-batch.xml
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ami3.0/!svn/ver/18498/trunk/fep/FEP_DlmsPolling/src/applicationContext-mysql-db-batch.xml
+END
+applicationContext-common.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/ami3.0/!svn/ver/7918/trunk/fep/FEP_DlmsPolling/src/applicationContext-common.xml
+END
+applicationContext-socket.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/ami3.0/!svn/ver/7918/trunk/fep/FEP_DlmsPolling/src/applicationContext-socket.xml
+END
+jdbc.properties
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/ami3.0/!svn/ver/7753/trunk/fep/FEP_DlmsPolling/src/jdbc.properties
+END
+application.properties
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ami3.0/!svn/ver/22431/trunk/fep/FEP_DlmsPolling/src/application.properties
+END

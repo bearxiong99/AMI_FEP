@@ -1,0 +1,89 @@
+package cn.hexing.fas.startup;
+
+import java.nio.ByteBuffer;
+
+import org.apache.log4j.Logger;
+
+import cn.hexing.fas.model.FaalDlmsRequest;
+import cn.hexing.fas.protocol.gw.codec.C02MessageDecoder;
+import cn.hexing.fas.protocol.gw.parse.DataSwitch;
+import cn.hexing.fas.protocol.handler.ProtocolHandler;
+import cn.hexing.fas.protocol.handler.ProtocolHandlerFactory;
+import cn.hexing.fk.exception.MessageParseException;
+import cn.hexing.fk.message.MessageConst;
+import cn.hexing.fk.message.gw.MessageGw;
+import cn.hexing.fk.message.zj.MessageZj;
+import cn.hexing.util.HexDump;
+
+public class ProtocolDecoder {
+	private static final Logger log = Logger.getLogger(ProtocolDecoder.class);
+	
+	public Object zjMessageDecoder(String input) throws MessageParseException{
+		Object value = "";
+		MessageZj msg= new MessageZj();
+		msg.read(HexDump.toByteBuffer(input.trim()));
+		
+		ProtocolHandlerFactory factory = ProtocolHandlerFactory.getInstance();        
+	    ProtocolHandler handler = factory.getProtocolHandler(MessageZj.class);
+	    boolean dirUp = msg.head.c_dir == MessageConst.DIR_UP;
+	    if (dirUp)
+	    	value = handler.process(msg); 
+		return value;
+	}
+	
+	
+	public Object messageDecoder(String input){
+		Object value="";
+		try{
+			MessageGw msg = new MessageGw();
+			msg.read(HexDump.toByteBuffer(input.trim()));
+			ProtocolHandlerFactory factory = ProtocolHandlerFactory.getInstance();        
+		    ProtocolHandler handler = factory.getProtocolHandler(MessageGw.class);  
+		    boolean dirUp = msg.head.c_dir == MessageConst.DIR_UP;
+		    if (dirUp)
+		    	value = handler.process(msg); 
+		    else{//下行报文
+		    	String sAFN=Integer.toString(msg.getAFN()& 0xff,16);
+				sAFN=DataSwitch.StrStuff("0", 2, sAFN, "left");		
+				if (sAFN.equals("04")||sAFN.equals("05")){
+					value = handler.process(msg);	
+				}else{				    
+				    C02MessageDecoder cd=new C02MessageDecoder();
+				    value=cd.decode(msg);
+				}
+		    }
+		    
+		    
+		}catch(Exception ex){
+			log.error("input is error:input="+input+","+ex);
+		}		
+        return value;
+	}
+	
+	public static void main(String[] args) throws MessageParseException {
+		FaalDlmsRequest fr=new FaalDlmsRequest();
+    	String data="1234567890";  	
+    	fr.setData(HexDump.toByteBuffer(data));	
+    	ByteBuffer buffer=FaalDlmsRequest.encode(fr);
+    	System.out.println(HexDump.hexDumpCompact(buffer));
+    	fr=(FaalDlmsRequest)FaalDlmsRequest.decode(buffer);
+		
+		
+    	
+		/*String str="C96167882600027A00000400";
+		int ps=0;
+		for(int i=0;i<str.length()/2;i++){
+			ps=ps+Integer.parseInt(str.substring(i*2,i*2+2),16);
+		}
+		ps=ps % 256;
+		String ss=Integer.toHexString(ps);*/
+		ProtocolDecoder pd=new ProtocolDecoder();
+		pd.messageDecoder("68260F260F68C466994455000D6C020101140903130100100313040098230000508703000000940400005016150000000000000002010214090313010010031304170000000300000003000000110000000000000004010114090313010010031304505105000000150200000037010000509901000000000000000401021409031301001003130440000000160000000900000014000000000000000801011409031302001003130400080000000006000000000200000000000000000000000000080102140903130200100313040000000000000000000000000000000000000000100101140903130200100313040005000000000500000000000000000000000000000000000010010214090313020010031304000000000000000000000000000000000000000020010114090313020010031304500500000050050000000000000000000000000000000000002001021409031302001003130400000000000000000000000000000000000000004001011409031302001003130450050000005005000000000000000000000000000000000000400102140903130200100313040000000000000000000000000000000000000000800101140903130200100313040011230000009902000000621300000050060000000000000080010214090313020010031304190600000200000016060000000000000000000001020114090313020010031304500500000050050000000000000000000000000000000000000102021409031302001003130400000000000000000000000000000000000000000202011409031303001003130400050000000005000000000000000000000000000000000000020202140903130300100313040000000000000000000000000000000000000000040201140903130300100313045005000000500500000000000000000000000000000000000004020214090313030010031304000000000000000000000000000000000000000008020114090313010010031304501201000050520000005019000000504000000000000000000802021409031301001003130400000000000000000000000000000000000000001002011409031301001003130400010500000000020000002701000000740100000000000000100202140903130100100313040400000002000000010000000100000000000000200201140903130100100313048050250000309205000050851200007093050000307900000020020214090313010010031304240000000600000011000000060000000000000040020114090313010010031304103808000070400300005010020000908602000000000000006516");
+	
+		
+		Object o =pd.zjMessageDecoder("6812148620801268890900010012112714253D800116");
+		System.out.println(o);
+	
+	}
+	
+}

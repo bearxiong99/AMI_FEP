@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/ami3.0/!svn/ver/19953/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/webapi
+END
+MessageWeb.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/webapi/MessageWeb.java
+END
+MessageWebCreator.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/webapi/MessageWebCreator.java
+END
+WebMessageEncoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/webapi/WebMessageEncoder.java
+END
+WebMessageFileTransfer.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/ami3.0/!svn/ver/19953/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/webapi/WebMessageFileTransfer.java
+END
+WebMessageDecoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/webapi/WebMessageDecoder.java
+END
+WebAPIServerEventHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/ami3.0/!svn/ver/19634/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/webapi/WebAPIServerEventHandler.java
+END

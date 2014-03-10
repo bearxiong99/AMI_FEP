@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/ami3.0/!svn/ver/7336/trunk/fep/FEP_FeIntfService
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ami3.0/!svn/ver/5650/trunk/fep/FEP_FeIntfService/.classpath
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ami3.0/!svn/ver/996/trunk/fep/FEP_FeIntfService/.project
+END
+stopfeInf.sh
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ami3.0/!svn/ver/19803/trunk/fep/FEP_FeIntfService/stopfeInf.sh
+END
+MANIFEST.MF
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ami3.0/!svn/ver/996/trunk/fep/FEP_FeIntfService/MANIFEST.MF
+END
+build.properties
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/ami3.0/!svn/ver/19794/trunk/fep/FEP_FeIntfService/build.properties
+END
+startfeInf.bat
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ami3.0/!svn/ver/19803/trunk/fep/FEP_FeIntfService/startfeInf.bat
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ami3.0/!svn/ver/19794/trunk/fep/FEP_FeIntfService/build.xml
+END
+startfeInf.sh
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ami3.0/!svn/ver/19803/trunk/fep/FEP_FeIntfService/startfeInf.sh
+END

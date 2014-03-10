@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/src/cn/hexing/db/batch/event/adapt
+END
+BaseExpAlarmHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/src/cn/hexing/db/batch/event/adapt/BaseExpAlarmHandler.java
+END
+BaseLog2DbHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/src/cn/hexing/db/batch/event/adapt/BaseLog2DbHandler.java
+END
+BaseReadTaskHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/src/cn/hexing/db/batch/event/adapt/BaseReadTaskHandler.java
+END
+BaseUpdateRtuStatus.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/src/cn/hexing/db/batch/event/adapt/BaseUpdateRtuStatus.java
+END
+BatchDelayHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ami3.0/!svn/ver/994/trunk/fep/FEP_db_service/src/cn/hexing/db/batch/event/adapt/BatchDelayHandler.java
+END

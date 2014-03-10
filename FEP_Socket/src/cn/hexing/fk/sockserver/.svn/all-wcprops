@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ami3.0/!svn/ver/8853/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockserver
+END
+SyncSocketClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ami3.0/!svn/ver/20214/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockserver/SyncSocketClient.java
+END
+AsyncSocketClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ami3.0/!svn/ver/8061/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockserver/AsyncSocketClient.java
+END
+TcpSocketServer.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/ami3.0/!svn/ver/20387/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockserver/TcpSocketServer.java
+END
+UdpClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockserver/UdpClient.java
+END
+AsyncPosSocketClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ami3.0/!svn/ver/14368/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockserver/AsyncPosSocketClient.java
+END
+SyncTcpServer.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ami3.0/!svn/ver/20387/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockserver/SyncTcpServer.java
+END
+SyncUdpServer.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockserver/SyncUdpServer.java
+END
+AsyncExHdlcDlmsSocketClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/ami3.0/!svn/ver/12925/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockserver/AsyncExHdlcDlmsSocketClient.java
+END
+AsyncHandheldSocketClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ami3.0/!svn/ver/14370/trunk/fep/FEP_Socket/src/cn/hexing/fk/sockserver/AsyncHandheldSocketClient.java
+END

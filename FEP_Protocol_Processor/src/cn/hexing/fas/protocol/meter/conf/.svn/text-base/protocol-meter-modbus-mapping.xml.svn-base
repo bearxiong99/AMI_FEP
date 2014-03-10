@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Object Mapping DTD Version 1.0//EN"
+                         "http://castor.exolab.org/mapping.dtd">
+
+<mapping>
+    <description>Modbus规约解析配置</description>
+    
+    <class name="cn.hexing.fas.protocol.meter.conf.MeterProtocolDataSet">
+        <map-to xml="protocol-meter-data"/>
+        <!-- handler="cn.hexing.fas.protocol.meter.conf.CollectionFieldHandler" -->
+        <field name="dataarray"  type="cn.hexing.fas.protocol.meter.conf.MeterProtocolDataItem" collection="arraylist">
+            <bind-xml name="data-item" node="element"/>
+        </field>
+        <field name="name" type="string">
+			<bind-xml name="proto-name" node="element"/>
+		</field>
+    </class>
+	
+	<class name="cn.hexing.fas.protocol.meter.conf.MeterProtocolDataItem">
+		<field name="startPos" type="string">
+			<bind-xml name="startPos" node="attribute"/>
+		</field>
+		<field name="endPos" type="string">
+			<bind-xml name="endPos" node="attribute"/>
+		</field>
+		<field name="sumLength" type="int">
+			<bind-xml name="sumLength" node="attribute"/>
+		</field>
+		<field name="length" type="int">
+			<bind-xml name="length" node="attribute"/>
+		</field>
+		<field name="format" type="string">
+			<bind-xml name="format" node="attribute"/>
+		</field>
+		<field name="fraction" type="int">
+			<bind-xml name="fraction" node="attribute"/>
+		</field>
+		
+		<field name="description" type="string">
+			<bind-xml name="description" node="attribute"/>
+		</field>
+        <field name="childarray"  type="cn.hexing.fas.protocol.meter.conf.MeterProtocolDataItem" collection="arraylist">
+            <bind-xml name="data-item" node="element"/>
+        </field>
+	</class>
+</mapping>

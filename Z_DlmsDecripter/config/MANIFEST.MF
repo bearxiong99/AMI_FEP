@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Main-Class: testswing.Decriptor
+Class-Path: .lib/fep-common.jar
+Created-By: gaoll
+

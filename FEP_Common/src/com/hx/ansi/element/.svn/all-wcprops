@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/ami3.0/!svn/ver/13600/trunk/fep/FEP_Common/src/com/hx/ansi/element
+END
+CallingAuthenticationValueElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/ami3.0/!svn/ver/13600/trunk/fep/FEP_Common/src/com/hx/ansi/element/CallingAuthenticationValueElement.java
+END
+AsoContextElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ami3.0/!svn/ver/13600/trunk/fep/FEP_Common/src/com/hx/ansi/element/AsoContextElement.java
+END
+CalledAPTitleElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/ami3.0/!svn/ver/13600/trunk/fep/FEP_Common/src/com/hx/ansi/element/CalledAPTitleElement.java
+END
+CalledAPInvocationIdElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/ami3.0/!svn/ver/13762/trunk/fep/FEP_Common/src/com/hx/ansi/element/CalledAPInvocationIdElement.java
+END
+CallingAPTitleElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ami3.0/!svn/ver/13600/trunk/fep/FEP_Common/src/com/hx/ansi/element/CallingAPTitleElement.java
+END
+Element.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ami3.0/!svn/ver/13600/trunk/fep/FEP_Common/src/com/hx/ansi/element/Element.java
+END
+CallingAEQualifierElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ami3.0/!svn/ver/13600/trunk/fep/FEP_Common/src/com/hx/ansi/element/CallingAEQualifierElement.java
+END
+CallingAPInvocationIdElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/ami3.0/!svn/ver/13600/trunk/fep/FEP_Common/src/com/hx/ansi/element/CallingAPInvocationIdElement.java
+END
+UserInformationElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ami3.0/!svn/ver/13600/trunk/fep/FEP_Common/src/com/hx/ansi/element/UserInformationElement.java
+END

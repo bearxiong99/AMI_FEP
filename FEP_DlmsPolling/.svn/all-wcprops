@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ami3.0/!svn/ver/18069/trunk/fep/FEP_DlmsPolling
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/ami3.0/!svn/ver/7908/trunk/fep/FEP_DlmsPolling/.classpath
+END
+key.data
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/ami3.0/!svn/ver/5649/trunk/fep/FEP_DlmsPolling/key.data
+END
+dp_deploy.cmd
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ami3.0/!svn/ver/8731/trunk/fep/FEP_DlmsPolling/dp_deploy.cmd
+END
+stopdp.sh
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ami3.0/!svn/ver/8096/trunk/fep/FEP_DlmsPolling/stopdp.sh
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/ami3.0/!svn/ver/6553/trunk/fep/FEP_DlmsPolling/.project
+END
+startdp.bat
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ami3.0/!svn/ver/20659/trunk/fep/FEP_DlmsPolling/startdp.bat
+END
+MANIFEST.MF
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ami3.0/!svn/ver/2398/trunk/fep/FEP_DlmsPolling/MANIFEST.MF
+END
+dpdeploy.sh
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ami3.0/!svn/ver/8731/trunk/fep/FEP_DlmsPolling/dpdeploy.sh
+END
+build.properties
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ami3.0/!svn/ver/5179/trunk/fep/FEP_DlmsPolling/build.properties
+END
+startdp.sh
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ami3.0/!svn/ver/16603/trunk/fep/FEP_DlmsPolling/startdp.sh
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ami3.0/!svn/ver/8100/trunk/fep/FEP_DlmsPolling/build.xml
+END

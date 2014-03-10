@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/cn/hexing/fk/telnetserver
+END
+TelnetSession.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/cn/hexing/fk/telnetserver/TelnetSession.java
+END
+TelnetServer.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/cn/hexing/fk/telnetserver/TelnetServer.java
+END
+TelnetServerEventHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/cn/hexing/fk/telnetserver/TelnetServerEventHandler.java
+END
+TelnetOption.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/cn/hexing/fk/telnetserver/TelnetOption.java
+END
+TelnetCommandHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/src/cn/hexing/fk/telnetserver/TelnetCommandHandler.java
+END

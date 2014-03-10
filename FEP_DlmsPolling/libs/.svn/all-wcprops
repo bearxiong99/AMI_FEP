@@ -1,0 +1,185 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ami3.0/!svn/ver/18069/trunk/fep/FEP_DlmsPolling/libs
+END
+commons-beanutils-1.8.3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ami3.0/!svn/ver/5647/trunk/fep/FEP_DlmsPolling/libs/commons-beanutils-1.8.3.jar
+END
+proxool-0.9.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ami3.0/!svn/ver/7919/trunk/fep/FEP_DlmsPolling/libs/proxool-0.9.1.jar
+END
+c3p0-0.9.1.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/ami3.0/!svn/ver/9323/trunk/fep/FEP_DlmsPolling/libs/c3p0-0.9.1.2.jar
+END
+fep-protocol.jar
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ami3.0/!svn/ver/19972/trunk/fep/FEP_DlmsPolling/libs/fep-protocol.jar
+END
+xercesImpl.jar
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/ami3.0/!svn/ver/7919/trunk/fep/FEP_DlmsPolling/libs/xercesImpl.jar
+END
+commons-cli-1.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ami3.0/!svn/ver/7919/trunk/fep/FEP_DlmsPolling/libs/commons-cli-1.2.jar
+END
+jta.jar
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ami3.0/!svn/ver/2398/trunk/fep/FEP_DlmsPolling/libs/jta.jar
+END
+log4j.jar
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ami3.0/!svn/ver/7919/trunk/fep/FEP_DlmsPolling/libs/log4j.jar
+END
+proxool-cglib.jar
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ami3.0/!svn/ver/7919/trunk/fep/FEP_DlmsPolling/libs/proxool-cglib.jar
+END
+commons-dbcp.jar
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/ami3.0/!svn/ver/2398/trunk/fep/FEP_DlmsPolling/libs/commons-dbcp.jar
+END
+mysql-connector-java-5.1.0-bin.jar
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/ami3.0/!svn/ver/6552/trunk/fep/FEP_DlmsPolling/libs/mysql-connector-java-5.1.0-bin.jar
+END
+commons-pool.jar
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/ami3.0/!svn/ver/2398/trunk/fep/FEP_DlmsPolling/libs/commons-pool.jar
+END
+spring-sources.jar
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ami3.0/!svn/ver/2398/trunk/fep/FEP_DlmsPolling/libs/spring-sources.jar
+END
+esam.jar
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ami3.0/!svn/ver/8021/trunk/fep/FEP_DlmsPolling/libs/esam.jar
+END
+ojdbc14.jar
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ami3.0/!svn/ver/2398/trunk/fep/FEP_DlmsPolling/libs/ojdbc14.jar
+END
+commons-collections.jar
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/ami3.0/!svn/ver/2398/trunk/fep/FEP_DlmsPolling/libs/commons-collections.jar
+END
+commons-lang.jar
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/ami3.0/!svn/ver/7919/trunk/fep/FEP_DlmsPolling/libs/commons-lang.jar
+END
+fep-db-service.jar
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ami3.0/!svn/ver/19972/trunk/fep/FEP_DlmsPolling/libs/fep-db-service.jar
+END
+ibatis-2.3.0.677.jar
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/ami3.0/!svn/ver/7919/trunk/fep/FEP_DlmsPolling/libs/ibatis-2.3.0.677.jar
+END
+quartz-all-1.6.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/ami3.0/!svn/ver/2398/trunk/fep/FEP_DlmsPolling/libs/quartz-all-1.6.0.jar
+END
+commons-logging-1.0.4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/ami3.0/!svn/ver/7919/trunk/fep/FEP_DlmsPolling/libs/commons-logging-1.0.4.jar
+END
+commons-net-3.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ami3.0/!svn/ver/9925/trunk/fep/FEP_DlmsPolling/libs/commons-net-3.1.jar
+END
+commons-logging.jar
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ami3.0/!svn/ver/2398/trunk/fep/FEP_DlmsPolling/libs/commons-logging.jar
+END
+ttjdbc5.jar
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ami3.0/!svn/ver/7919/trunk/fep/FEP_DlmsPolling/libs/ttjdbc5.jar
+END
+fep-common.jar
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ami3.0/!svn/ver/19972/trunk/fep/FEP_DlmsPolling/libs/fep-common.jar
+END
+commons-beanutils-1.6.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ami3.0/!svn/ver/7919/trunk/fep/FEP_DlmsPolling/libs/commons-beanutils-1.6.1.jar
+END
+fep-socket.jar
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ami3.0/!svn/ver/19972/trunk/fep/FEP_DlmsPolling/libs/fep-socket.jar
+END
+log4j-1.2.14.jar
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/ami3.0/!svn/ver/2398/trunk/fep/FEP_DlmsPolling/libs/log4j-1.2.14.jar
+END
+spring.jar
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ami3.0/!svn/ver/2398/trunk/fep/FEP_DlmsPolling/libs/spring.jar
+END
+castor-0.9.9.1-xml.jar
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ami3.0/!svn/ver/7919/trunk/fep/FEP_DlmsPolling/libs/castor-0.9.9.1-xml.jar
+END

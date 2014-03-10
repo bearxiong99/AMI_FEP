@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/ami3.0/!svn/ver/17971/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/processor/gg
+END
+GgContext.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ami3.0/!svn/ver/16543/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/processor/gg/GgContext.java
+END
+GgMessageProcessor.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/ami3.0/!svn/ver/16543/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/processor/gg/GgMessageProcessor.java
+END
+GgUpgradeProcessor.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/ami3.0/!svn/ver/17971/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/processor/gg/GgUpgradeProcessor.java
+END
+IGgContextManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/ami3.0/!svn/ver/16543/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/processor/gg/IGgContextManager.java
+END
+LocalGgContextManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/ami3.0/!svn/ver/16543/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/processor/gg/LocalGgContextManager.java
+END
+info.txt
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ami3.0/!svn/ver/16543/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/processor/gg/info.txt
+END

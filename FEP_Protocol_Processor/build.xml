@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="fep-protocol" default="build" basedir=".">
+	<taskdef resource="net/sf/antcontrib/antlib.xml"></taskdef>
+	<property file ="build.properties"></property>
+	<property name="src.dir" value="${basedir}/src" />
+	<property name="classes.dir" value="${basedir}/classes" />
+	<property name="lib.dir" value="${basedir}/libs" />
+	<property name="jar.name" value="fep-protocol.jar" />
+	<property name="build.encoding" value="UTF-8" />
+	<property name="build.src.encoding" value="UTF-8" />
+	
+	<path id="project.classpath">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+		<pathelement path="${classes.dir}" />
+	</path>
+	
+	<!-- =================================================================== -->
+    <!-- Clean generated class files                                         -->
+    <!-- =================================================================== -->
+    <target name="clean" description="Clean generated class files">
+        <delete dir="${classes.dir}" />
+    </target>
+    
+    <!-- =================================================================== -->
+    <!-- Compile java source file                                            -->
+    <!-- =================================================================== -->
+    <target name="compile" description="Compile java file">
+    	<mkdir dir="${classes.dir}" />
+		<copy todir="${classes.dir}">
+			<fileset dir="${src.dir}">			  
+			  <exclude name="**/*.java"/>
+			  <exclude name="**/CVS/**/*.*"/>			  		
+			</fileset>
+		</copy>
+    	<javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="project.classpath"
+    	    source="1.5" target="1.5" debug="true" includeantruntime="on">
+    		<include name="**/*.java"/>
+    		<exclude name="**/test/**/*.*"/>
+    	</javac>
+    </target>
+    
+	<!-- =================================================================== -->
+    <!-- Run JBExchanger                                    			 -->
+    <!-- =================================================================== -->
+    <target name="run"  description="Run Ws Server">
+        <java classname="cn.hexing.fas.startup.Application" classpathref="project.classpath" fork="true">
+        	<jvmarg value="-Xms128m" />
+        	<jvmarg value="-Xmx256m" />
+        </java>
+    </target>
+	
+	<!-- =================================================================== -->
+    <!-- Build distributed .jar file                                         -->
+    <!-- =================================================================== -->
+	<target name="build" depends="compile">
+		<foreach target="build-protocol-jar" param="project.name" list="${app.name}" delimiter=";">
+		</foreach>
+	</target>
+	
+	
+	
+	<target name="build-protocol-jar" depends="compile" description="Build distributed jar">
+        <mkdir dir="${app.path}/${project.name}/libs" />
+		<delete file="${app.path}/${project.name}/libs/${jar.name}" />
+
+		<jar destfile="${app.path}/${project.name}/libs/${jar.name}" basedir="${classes.dir}" compress="false" manifest="MANIFEST.MF">
+			<include name="cn/**" />			
+			<exclude name="**/CVS/**/*.*"/>
+			<exclude name="**/**Test.class" />
+			<exclude name="**/**Fixture.class" />
+		</jar>
+		<copydir dest="${app.path}/${project.name}/libs" src="${basedir}/libs">
+				<include name="*.jar"/>
+				<exclude name="*-sources.jar"/>
+				<exclude name="fep*.jar"/>
+		</copydir>
+	</target>
+	
+</project>

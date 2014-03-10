@@ -1,0 +1,40 @@
+10
+
+dir
+10477
+https://172.16.241.21:8443/svn/ami3.0/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/gw
+https://172.16.241.21:8443/svn/ami3.0
+
+
+
+2013-03-01T08:50:40.244695Z
+10473
+luolb
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+70da11ef-7eda-504a-98ec-84a21d930d83
+
+conf
+dir
+
+parse
+dir
+
+codec
+dir
+
+handler
+dir
+

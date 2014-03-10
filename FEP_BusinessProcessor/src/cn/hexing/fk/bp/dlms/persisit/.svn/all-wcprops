@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ami3.0/!svn/ver/20920/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/persisit
+END
+DlmsAlarmMessageService.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/ami3.0/!svn/ver/19965/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/persisit/DlmsAlarmMessageService.java
+END
+JdbcDlmsDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/ami3.0/!svn/ver/10959/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/persisit/JdbcDlmsDao.java
+END
+TaskMessageService.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/ami3.0/!svn/ver/21911/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/persisit/TaskMessageService.java
+END
+MasterDbServiceAssistant.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/ami3.0/!svn/ver/20920/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/dlms/persisit/MasterDbServiceAssistant.java
+END

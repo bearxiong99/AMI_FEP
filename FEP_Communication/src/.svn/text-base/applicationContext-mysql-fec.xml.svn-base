@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Application context definition for ...
+-->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:p="http://www.springframework.org/schema/p" xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:context="http://www.springframework.org/schema/context" xmlns:jee="http://www.springframework.org/schema/jee"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+	<!-- ========================= 通信前置机对象定义 ========================= -->
+	<!-- 
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>application.properties</value>
+				<value>jdbc.properties</value>
+			</list>
+		</property>
+	</bean>
+	 -->
+	<bean id="propertyConfigurer" class="cn.hexing.fk.utils.EncryptPlaceholderConfigurer">
+		<property name="encryptFileName" value="jdbc.properties"/>
+		<property name="encryptPropNames">
+			<list>
+				<value>master.jdbc.username</value>
+				<value>master.jdbc.password</value>
+				<value>rz.jdbc.username</value>
+				<value>rz.jdbc.password</value>
+			</list>
+		</property>
+		<property name="locations">
+			<list>
+				<value>application.properties</value>
+				<value>jdbc.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- ========================= 通信前置机的消息队列 ========================= -->
+	<bean id="fe.msgqueue.cachequeue" class="cn.hexing.fk.common.queue.CacheQueue">
+		<property name="maxSize" value="20480"/>
+		<property name="minSize" value="10240"/>
+		<property name="maxFileSize" value="100"/>
+		<property name="key" value="fe.msgqueue"/>
+		<property name="messageLoader" ref="messageLoader.MultiProtoMessageLoader"/>
+	</bean>
+	
+	<!-- ==== 通信前置机在漏点补召完成之前，提供任务报文缓存队列。漏点补召完成后，允许取消 ====== -->
+	<bean id="fe.msgqueue.taskCacheQueue" class="cn.hexing.fk.common.queue.CacheQueue">
+		<property name="maxSize" value="500"/>
+		<property name="minSize" value="2"/>
+		<property name="maxFileSize" value="100"/>
+		<property name="fileCount" value="20"/>
+		<property name="key" value="fe.taskcache"/>
+		<property name="messageLoader" ref="messageLoader.MultiProtoMessageLoader"/>
+	</bean>
+	
+	<!-- ============= 通信前置机集群：实时同步对象 =============== -->
+	<bean id="fe.cluster.sysConfig" class="cn.hexing.fk.fe.cluster.JGroupSystemConfig"
+		factory-method="getInstance" init-method="init">
+		<property name="bindAddr" value="" />
+		<property name="preferIPv4Stack" value="true" />
+	</bean>
+	
+	<bean id="fe.cluster.realtime" class="cn.hexing.fk.fe.cluster.RealtimeSynchronizer"
+		factory-method="getInstance" init-method="start" >
+		<property name="jchannelConfig" value="tcp.xml" />
+		<property name="dbService" ref="fe.asyncService"/>
+		<property name="addressName" value="FE1" />
+		<property name="groupName" value="fe.sync.realtime." />
+		<property name="masterDbService" ref="master.dbservice"/>
+	</bean>
+	
+	<bean id="fe.cluster.workstate" class="cn.hexing.fk.fe.cluster.BatchSynchronizer"
+		factory-method="getInstance" init-method="start" >
+		<property name="groupName" value="FE.sync.work-state." />
+		<property name="addressName" value="FE1" />
+		<property name="jchannelConfig" value="tcp2.xml" />
+		<property name="batchSize" value="1000" />
+		<property name="interval" value="10" />
+	</bean>
+
+	<bean id="fe.cluster.PMtest" class="cn.hexing.fk.fe.cluster.PMTest"
+		factory-method="getInstance" init-method="init" >
+		<property name="batchSize" value="1000" />
+		<property name="interval" value="0" />
+		<property name="rtuaBase" value="0x10100001" />
+	</bean>
+
+	<bean id="fe.msgqueue" class="cn.hexing.fk.fe.msgqueue.FEMessageQueue">
+		<property name="cacheQueue" ref="fe.msgqueue.cachequeue"/>
+		<!-- 下面属性临时使用，缓存任务报文 -->
+		<property name="taskCacheQueue" ref="fe.msgqueue.taskCacheQueue"/>
+		<property name="rtuHeartbeatInterval" value="${rtu.heartbeat.interval}"/>
+	</bean>
+
+	<!-- ========================= 厂家解析模块消息队列 ========================= -->
+	<bean id="fe.udefQueue" class="cn.hexing.fk.fe.userdefine.UserDefineMessageQueue" factory-method="getInstance"/>
+
+	<!-- ========================= 网关客户端收发消息事件处理器 ========================= -->
+	<bean id="fe.event.handle.gprs" class="cn.hexing.fk.fe.gprs.GateMessageEventHandler">
+		<property name="msgQueue" ref="fe.msgqueue"/>
+		<property name="intfClient" ref="fe.client.feintf"/>
+		<property name="asyncDbService" ref="fe.asyncService"/>	
+		<property name="masterDbService" ref="master.dbservice"/>	
+	</bean>
+	<!-- ========================= UMS gate client message event handler ========================= -->
+	<bean id="fe.event.handle.umsgate" class="cn.hexing.fk.fe.ums.UmsGateEventHandler">
+		<property name="msgQueue" ref="fe.msgqueue"/>
+		<property name="asyncDbService" ref="fe.asyncService"/>		
+	</bean>
+
+	<!-- ========================= 网关客户端对象 ========================= -->
+
+	<bean id="fe.channel.manage" class="cn.hexing.fk.fe.ChannelManage"
+		factory-method="getInstance">
+		<property name="rtuHeartbeatInterval" value="${rtu.heartbeat.interval}"/>
+		<property name="rtuTransferInterval" value="${rtu.transfer.interval}"/>
+	</bean>
+	
+	<!-- ========================= 业务处理器服务器对象 ========================= -->
+	<bean id="bpserver.event.hook"
+		class="cn.hexing.fk.fe.bpserver.BPServerEventHandler"
+		parent="SimpleEventHandler" >
+		<property name="name" value="Bp.EventHook" />
+		<property name="msgQueue" ref="fe.msgqueue"/>
+		<property name="timeoutAlarm"><value>1</value></property>
+		<property name="minSize"><value>4</value></property>
+		<property name="maxSize"><value>4</value></property>
+		<property name="dispatchRandom" value="false"/>
+	</bean>
+
+	<bean id="heartBeat.manage" class="cn.hexing.fk.fe.filecache.HeartbeatPersist"
+		factory-method="getInstance">
+		<property name="batchSize" value="3000" />
+	</bean>	
+	<bean id="fe.initialize" class="cn.hexing.fk.fe.init.Initialize"
+		init-method="initRtus">
+	</bean>
+
+	<bean id="fe.bpCitysAssigner" class="cn.hexing.fk.fe.msgqueue.MessageDispatch2Bp"
+		factory-method="getInstance">
+	</bean>
+	
+	
+	<!-- 上行原始报文插入 -->
+	<bean id="fe.batchDao.insertUpLog" class="cn.hexing.db.batch.dao.jdbc.JdbcBatchDao">
+		<property name="key" value="5000"/>
+		<property name="batchSize"><value>2000</value></property>
+		<property name="delaySecond"><value>10</value></property>
+		<property name="dataSource" ref="dataSourceRz"/>
+		<property name="sql">
+			<value>
+				<![CDATA[
+				INSERT INTO ${uplog.table}( ZDLJDZ,KZM,LYDZ,MBDZ,TXFS,TXSJ,BWDX,TXNR)
+								VALUES( :logicAddress,:kzm,:srcAddr,:destAddr,:txfs,:time,:size,:body)
+				]]>
+			</value>
+		</property>
+	</bean>
+	
+	<!-- 下行原始报文插入 -->	
+	<bean id="fe.batchDao.insertDownLog" class="cn.hexing.db.batch.dao.jdbc.JdbcBatchDao">
+		<property name="key" value="5001"/>
+		<property name="batchSize"><value>2000</value></property>
+		<property name="delaySecond"><value>10</value></property>
+		<property name="dataSource" ref="dataSourceRz"/>
+		<property name="sql">
+			<value>
+				<![CDATA[
+				INSERT INTO ${downlog.table}( ZDLJDZ,KZM,LYDZ,MBDZ,TXFS,TXSJ,BWDX,TXNR,CLJG)
+								VALUES( :logicAddress,:kzm,:srcAddr,:destAddr,:txfs,:time,:size,:body,:result)
+				]]>
+			</value>
+		</property>
+	</bean>
+	
+	<bean id="fe.batchDao.insertUpLogWZ" class="cn.hexing.db.batch.dao.jdbc.JdbcBatchDao">
+		<property name="key" value="5020"/>
+		<property name="batchSize"><value>2000</value></property>
+		<property name="delaySecond"><value>10</value></property>
+		<property name="dataSource" ref="dataSourceRz"/>
+		<property name="sql">
+			<value>
+				<![CDATA[
+				INSERT INTO ${wz.uplog.table}( ZDLJDZ,KZM,LYDZ,MBDZ,TXFS,TXSJ,BWDX,TXNR)
+								VALUES( :logicAddress,:kzm,:srcAddr,:destAddr,:txfs,:time,:size,:body)
+				]]>
+			</value>
+		</property>
+	</bean>
+	<bean id="fe.batchDao.rtu.commstate" class="cn.hexing.db.batch.dao.jdbc.JdbcBatchDao">
+		<property name="key" value="6003"></property>
+		<property name="batchSize"><value>2000</value></property>
+		<property name="delaySecond"><value>10</value></property>
+		<property name="dataSource" ref="dataSourceRz"/>
+		<property name="sql">
+			<value>
+				<![CDATA[
+				INSERT INTO TX_ZDZXQK( ZDLJDZ,IP,ZT,FSSJ)
+								VALUES( :logicAddress,:peerAddress,:status,sysdate)
+				]]>
+			</value>
+		</property>
+	</bean>
+	<bean id="fe.batchDao.comm.state" class="cn.hexing.db.batch.dao.jdbc.JdbcBatchDao">
+		<property name="key" value="6001"/>
+		<property name="dataSource" ref="dataSource"/>
+		<property name="batchSize" value="10000"/>
+		<property name="delaySecond" value="10"/>
+		<property name="sql">
+			<value>
+				<![CDATA[
+				
+				INSERT INTO tx_zxqk
+				VALUES('',:logicalAddress , :simNum  , :activeUms, :lastGprsRecvTime, :lastSmsRecvTime ,:lastHeartbeatTime )
+				ON DUPLICATE KEY UPDATE 
+				sblx='',zdljdz=:logicalAddress, simkh=:simNum, dxyyh=:activeUms, zjgprssxsj=:lastGprsRecvTime, zjsmssxsj=:lastSmsRecvTime, zjxtsj=:lastHeartbeatTime
+				]]>
+			</value>
+		</property>
+	</bean>	
+	<bean id="fe.batchDao.comm.flowmeter" class="cn.hexing.db.batch.dao.jdbc.JdbcBatchDao">
+		<property name="key" value="6002"/>
+		<property name="dataSource" ref="dataSource"/>
+		<property name="batchSize" value="10000"/>
+		<property name="delaySecond" value="10"/>
+		<property name="sql">
+			<value>
+				<![CDATA[
+				INSERT INTO tx_ll_r
+				VALUES
+				  (:terminalType,
+				   :logicalAddress,
+				   str_to_date(:dateString, '%Y-%m-%d'),
+				   :downGprsCount,
+				   :downGprsFlowmeter,
+				   :downSmsCount,
+				   :upGprsCount,
+				   :upGprsFlowmeter,
+				   :upSmsCount,
+				   :heartGprsFlowmeter,
+				   :loginGprsFlowmeter)
+				    ON DUPLICATE KEY UPDATE sblx = :terminalType, zdljdz = :logicalAddress,
+				     rq = str_to_date(:dateString, '%Y-%m-%d'), xxgprsbws = :downGprsCount, 
+				     xxgprs = :downGprsFlowmeter, xxsms = :downSmsCount,
+				     sxgprsbws = :upGprsCount, sxgprs = :upGprsFlowmeter, sxsms = :upSmsCount,
+				     xtll=:heartGprsFlowmeter,dldcll=:loginGprsFlowmeter
+				    ]]>
+			</value>
+		</property>
+	</bean>	
+	
+	<bean id="fe.event.handle.log2Db" class="cn.hexing.fk.fe.rawmsg2db.RawMessage2DbHandler">
+		<property name="key" value="2"/>
+		<property name="defaultLogKey" value="5000"/>
+	</bean>
+	
+	<bean id="fe.asyncService" class="cn.hexing.db.batch.AsyncService">
+		<property name="daoList">
+			<list>
+				<ref bean="fe.batchDao.insertUpLog" />
+				<ref bean="fe.batchDao.insertDownLog" />									
+				<ref bean="fe.batchDao.comm.state" />
+				<ref bean="fe.batchDao.comm.flowmeter" />
+				<ref bean="fe.batchDao.insertUpLogWZ" />
+				<ref bean="fe.batchDao.rtu.commstate"/>
+			</list>
+		</property>
+		<property name="bpHandlerMap">
+			<map>
+				<entry>
+					<key><ref bean="EventType.BP_LOG_DB" /></key>
+					<ref bean="fe.event.handle.log2Db" />
+				</entry>
+			</map>
+		</property>
+		<property name="dataSource" ref="dataSource"/>
+		<property name="dataSourceRz" ref="dataSourceRz"/>
+	</bean>
+	
+	<!-- ========================= 前置机接口服务客户端收发消息事件处理器 ========================= -->
+	<bean id="fe.event.handle.feintf" class="cn.hexing.fk.fe.feintf.IntfClientEventHandler">
+	</bean>
+	<!-- ========================= 前置机接口服务客户端 ========================= -->			
+	<bean id="fe.client.feintf" class="cn.hexing.fk.clientmod.ClientModule"
+		parent="JSocket">
+		<property name="moduleType" value="feIntfClient"/>
+		<property name="name" value="feIntfClient"/>
+		<property name="hostIp"><value>${fe.feintf.server.ip}</value></property>
+		<property name="hostPort"><value>${fe.feintf.server.port}</value></property>
+		<property name="bufLength" value="10240"/>
+		<property name="messageCreator" ref="messageCreator.Gate"/>
+		<property name="timeout" value="2"/>
+		<property name="heartInterval" value="10"/>
+		<property name="eventHandler" ref="fe.event.handle.feintf"/>
+	</bean>
+
+	<bean id="fasSystem" class="cn.hexing.fk.FasSystem" factory-method="getFasSystem"
+		init-method="initialize">
+		<!-- 对于简化方式配置模块，下面属性列表可以不定义或者列表为空。 -->
+		<property name="eventHooks">
+			<list>
+			</list>
+		</property>
+		<!-- 对于简化方式配置模块，下面属性列表可以不定义或者列表为空。 -->
+		<property name="modules">
+			<list>
+				<ref bean="fe.client.feintf" />
+			</list>
+		</property>
+		<!-- 特殊的Module，不被监控管理组件管理，但是有FasSystem进行启动和停止 -->
+		<property name="unMonitoredModules">
+			<list>
+				<ref bean="fe.asyncService" />	
+				<ref bean="fe.cluster.workstate" />	
+				<ref bean="fe.cluster.realtime" />	
+			</list>
+		</property>
+		<!-- 处理Module、EventHook之外，需要监控profile的对象 -->
+		<property name="profileObjects">
+			<list>
+				<ref bean="fe.msgqueue" />
+				<ref bean="fe.bpCitysAssigner" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="applicationPropertiesConfig" class="cn.hexing.fk.fe.config.ApplicationPropertiesConfig"
+		factory-method="getInstance">
+		<!-- GPRS clients 客户端定义 -->
+		<property name="requestNum"><value>${fe.gprs.channel.requestNum}</value></property>
+		<property name="gprsGateClients"><value>${fe.gprs.clients}</value></property>
+
+		<!-- UMS clients 客户端定义 -->
+<!--		<property name="umsGateEventHandler" ref="fe.event.handle.umsgate"/>-->
+<!--		<property name="umsServerAddr"><value>${fe.ums.server}</value></property>-->
+		
+		<property name="bpServer"><value>${bp.server}</value></property>
+		<property name="monitorServer"><value>${monitor.server.port}</value></property>
+		<property name="bpMessageEventHandler" ref="bpserver.event.hook"/>
+		<property name="monitorEventHandler" ref="monitor.event.handler"/>
+	</bean>
+	<!-- 实时读取配置文件信息 -->
+	<bean id="fe.realtime.propertyloader" class="cn.hexing.fk.utils.RealTimePropertiesLoader">
+		<property name="proFiles">
+			<list>
+				<value>realtime.properties</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 定义定时Job -->
+	<bean id="job.realtime.reloadProperties" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="fe.realtime.propertyloader" />
+		<property name="targetMethod" value="reloadProperties" />
+	</bean>
+	<!--触发器 -->
+	<bean id="cronTrigger.realtime.reloadProperties" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="job.realtime.reloadProperties" />
+		<property name="cronExpression"><value>${fe.realtime.reloadproperties.cronExpression}</value></property>
+	</bean>
+	<bean id="job.showProfile" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="fasSystem" />
+		<property name="targetMethod" value="showProfile" />
+	</bean>
+	<bean id="cronTrigger.showProfile" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="job.showProfile" />
+		<property name="cronExpression"><value>${sys.showprofile.cronExpression}</value></property>
+	</bean>
+	<bean id="job.saveRtuCommState2Db" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="fe.cluster.realtime" />
+		<property name="targetMethod" value="saveCommState" />
+	</bean>
+	<bean id="cronTrigger.saveRtuCommState2Db" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="job.saveRtuCommState2Db" />
+		<property name="cronExpression"><value>${fe.updatertu2db.cronExpression}</value></property>
+	</bean>
+	
+	<bean id="job.saveRtuFlowmeter2Db" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="fe.cluster.realtime" />
+		<property name="targetMethod" value="saveCommFlowmeter" />
+	</bean>
+	<bean id="cronTrigger.saveRtuFlowmeter2Db" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="job.saveRtuFlowmeter2Db" />
+		<property name="cronExpression"><value>${fe.updatertuflw2db.cronExpression}</value></property>
+	</bean>
+	
+	<bean id="job.refreshComRtu" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="fe.cluster.realtime"/>
+		<property name="targetMethod" value="refreshComRtuCache"/>
+	</bean>
+	
+	<bean id="job.clearRtuFlowmeter" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="fe.cluster.realtime" />
+		<property name="targetMethod" value="resetCommFlowmeter" />
+	</bean>
+	<bean id="cronTrigger.clearRtuFlowmeter" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="job.clearRtuFlowmeter" />
+		<property name="cronExpression"><value>${fe.clearRtuFlowmeter.cronExpression}</value></property>
+	</bean>
+	<!-- 终端状态保存本地文件 -->
+	<bean id="job.saveRtuState2File" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="fe.cluster.realtime" />
+		<property name="targetMethod" value="save2File" />
+	</bean>
+	<!-- refreshComRtu触发器 -->
+	<bean id="cronTrigger.refreshComRtu" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="job.refreshComRtu"/>
+		<property name="cronExpression"><value>${fe.refreshComRtu.cronExpression}</value></property>
+	
+	</bean>
+	<bean id="cronTrigger.saveRtuState2File" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="job.saveRtuState2File" />
+		<property name="cronExpression"><value>${fe.updatertustate2file.cronExpression}</value></property>
+	</bean>
+	<!-- reloadUnDocRtu -->
+	<bean id="job.reloadUnDocRtu" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="fe.cluster.realtime" />
+		<property name="targetMethod" value="reloadUnDocRtu" />
+	</bean>
+	<bean id="cronTrigger.reloadUnDocRtu" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="job.reloadUnDocRtu" />
+		<property name="cronExpression"><value>${fe.reloadUnDocRtu.cronExpression}</value></property>
+	</bean>
+	<bean id="cronTrigger.saveRtuFlowmeter2DbAtMidnight" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="job.saveRtuFlowmeter2Db" />
+		<property name="cronExpression"><value>55 58 23 * * ?</value></property>
+	</bean>
+    <!-- save to text 
+    <bean id="job.saveTextFile" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+            <property name="targetObject" ref="fe.cluster.workstate" />
+            <property name="targetMethod" value="saveTextFile" />
+    </bean>
+    <bean id="cronTrigger.saveTextFile" class="org.springframework.scheduling.quartz.CronTriggerBean">
+            <property name="jobDetail" ref="job.saveTextFile" />
+            <property name="cronExpression"><value>${fe.saveTextFile.cronExpression}</value></property>
+    </bean>
+    -->
+	
+	<bean id="job.heartBeatInitPerDay" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="heartBeat.manage" />
+		<property name="targetMethod" value="initPerDay" />
+	</bean>
+	<bean id="cronTrigger.heartBeatInitPerDay" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="job.heartBeatInitPerDay" />
+		<property name="cronExpression"><value>${fe.heartBeatInitPerDay.cronExpression}</value></property>
+	</bean>
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="cronTrigger.showProfile" />
+				<ref bean="cronTrigger.heartBeatInitPerDay"/>
+				<ref bean="cronTrigger.saveRtuCommState2Db"/>
+				<ref bean="cronTrigger.saveRtuState2File"/>
+				<ref bean="cronTrigger.clearRtuFlowmeter"/>
+				<ref bean="cronTrigger.reloadUnDocRtu"/>
+				<ref bean="cronTrigger.saveRtuFlowmeter2Db"/>
+				<ref bean="cronTrigger.refreshComRtu"/>
+				<ref bean="cronTrigger.realtime.reloadProperties"/>
+				<ref bean="cronTrigger.saveRtuFlowmeter2DbAtMidnight"/>
+				<!-- <ref bean="cronTrigger.saveTextFile"/>-->
+			</list>
+		</property>
+	</bean>
+
+</beans>

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ami3.0/!svn/ver/8469/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/test
+END
+LoadDatasDaoImplTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ami3.0/!svn/ver/19884/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/test/LoadDatasDaoImplTest.java
+END
+TimePointUtilsTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ami3.0/!svn/ver/7708/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/test/TimePointUtilsTest.java
+END
+TimeSynReaderTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ami3.0/!svn/ver/7406/trunk/fep/FEP_DlmsReread/src/cn/hexing/reread/test/TimeSynReaderTest.java
+END

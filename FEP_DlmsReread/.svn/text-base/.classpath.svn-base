@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/FEP_Common"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/FEP_db_service"/>
+	<classpathentry kind="lib" path="libs/commons-beanutils.jar"/>
+	<classpathentry kind="lib" path="libs/commons-collections.jar"/>
+	<classpathentry kind="lib" path="libs/commons-dbcp.jar"/>
+	<classpathentry kind="lib" path="libs/commons-logging.jar"/>
+	<classpathentry kind="lib" path="libs/commons-pool.jar"/>
+	<classpathentry kind="lib" path="libs/jta.jar"/>
+	<classpathentry kind="lib" path="libs/log4j-1.2.14.jar"/>
+	<classpathentry kind="lib" path="libs/ojdbc14.jar"/>
+	<classpathentry kind="lib" path="libs/quartz-all-1.6.0.jar"/>
+	<classpathentry kind="lib" path="libs/spring-sources.jar"/>
+	<classpathentry kind="lib" path="libs/spring.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/FEP_Protocol_Processor"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/FEP_Socket"/>
+	<classpathentry kind="lib" path="libs/fep-common.jar"/>
+	<classpathentry kind="lib" path="libs/fep-db-service.jar"/>
+	<classpathentry kind="lib" path="libs/fep-protocol.jar"/>
+	<classpathentry kind="lib" path="libs/fep-socket.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

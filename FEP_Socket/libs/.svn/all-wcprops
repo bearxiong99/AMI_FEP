@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ami3.0/!svn/ver/7787/trunk/fep/FEP_Socket/libs
+END
+commons-beanutils-1.8.3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/libs/commons-beanutils-1.8.3.jar
+END
+commons-beanutils-1.8.3-sources.jar
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/libs/commons-beanutils-1.8.3-sources.jar
+END
+ojdbc14.jar
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/libs/ojdbc14.jar
+END
+commons-cli-1.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/libs/commons-cli-1.2.jar
+END
+commons-cli-1.2-sources.jar
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/libs/commons-cli-1.2-sources.jar
+END
+commons-logging.jar
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/libs/commons-logging.jar
+END
+log4j.jar
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/libs/log4j.jar
+END
+fep-common.jar
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ami3.0/!svn/ver/15375/trunk/fep/FEP_Socket/libs/fep-common.jar
+END
+commons-dbcp.jar
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/libs/commons-dbcp.jar
+END
+commons-pool.jar
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/libs/commons-pool.jar
+END
+spring.jar
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/libs/spring.jar
+END
+spring-sources.jar
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ami3.0/!svn/ver/1006/trunk/fep/FEP_Socket/libs/spring-sources.jar
+END

@@ -1,0 +1,32 @@
+#bp.clients.url=192.168.2.165:7778
+bp.clients.url=192.168.2.170:7778
+#下发时间格式是否转为伊朗历（是-true或空，否-false）
+dlms.task.isIranTime = false
+#发送补召请求到BP，连续发送多少条间隔一次
+dlms.reread.callBP.intervalReqCnt = 100
+#发送补召请求到BP的间隔时间（毫秒）
+dlms.reread.callBP.interval = 100
+#尝试发送最大次数（1—10）
+dlms.reread.callBP.trytimes = 1
+#Dlms支持的子规约号，以逗号分隔。
+dlms.reread.protocol.old = 103,101
+#空、oracle、mysql
+reread.database.name=
+
+#自动对时-是否要求BP自动对时（0-否，1-是）
+dlms.timeSyn.bpAutoTimeSyn = 1
+#自动对时-BP自动对时时间差阀值（秒）
+dlms.timeSyn.timeDiffThreshold = 20
+#对同一个终端下不同的测量点发送对时请求到BP的间隔时间（毫秒）
+dlms.timeSyn.callBP.interval = 10000
+#是否表箱项目 
+#isMeterBox=true
+
+#自动刷新内存中档案的频率（corn表达式）
+reread.refresh.corn=0 */5 * * * ?
+
+#是否启用夏令时判断:1-启用，0-不启用
+dlms.dst.flag = 0
+#夏令时起止时间判断规则
+#1-阿塞拜疆规则（起始时间：每年3月最后1个星期日04:00:00 ，结束时间：每年10月最后1个星期日05:00:00）
+dlms.dst.rule = 1

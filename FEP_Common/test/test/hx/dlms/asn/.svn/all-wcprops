@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ami3.0/!svn/ver/2177/trunk/fep/FEP_Common/test/test/hx/dlms/asn
+END
+BigIntegerTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/test/test/hx/dlms/asn/BigIntegerTest.java
+END
+DlmsFloatTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/ami3.0/!svn/ver/2160/trunk/fep/FEP_Common/test/test/hx/dlms/asn/DlmsFloatTest.java
+END
+StringTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/test/test/hx/dlms/asn/StringTest.java
+END
+CalendarTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/ami3.0/!svn/ver/1306/trunk/fep/FEP_Common/test/test/hx/dlms/asn/CalendarTest.java
+END
+SetResponseTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ami3.0/!svn/ver/2177/trunk/fep/FEP_Common/test/test/hx/dlms/asn/SetResponseTest.java
+END

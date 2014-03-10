@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/exception
+END
+MessageEncodeException.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/exception/MessageEncodeException.java
+END
+ConfigException.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/exception/ConfigException.java
+END
+MessageDecodeException.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/exception/MessageDecodeException.java
+END
+CopyException.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/exception/CopyException.java
+END
+MessageRecognizeException.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/exception/MessageRecognizeException.java
+END
+CastorException.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/exception/CastorException.java
+END
+ProtocolHandleException.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/exception/ProtocolHandleException.java
+END
+MessageParseException.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/exception/MessageParseException.java
+END

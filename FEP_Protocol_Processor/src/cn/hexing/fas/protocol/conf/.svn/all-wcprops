@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/ami3.0/!svn/ver/7929/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/conf
+END
+ProtocolDataItemConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/ami3.0/!svn/ver/14995/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/conf/ProtocolDataItemConfig.java
+END
+IDataItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/conf/IDataItem.java
+END
+IDataSets.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/conf/IDataSets.java
+END
+ProtocolDataConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/conf/ProtocolDataConfig.java
+END
+MeterConf.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/conf/MeterConf.java
+END
+ProtocolProviderConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/conf/ProtocolProviderConfig.java
+END
+CodecConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/conf/CodecConfig.java
+END
+IItemParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/conf/IItemParser.java
+END
+protocol-provider-config-mapping.xml
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/conf/protocol-provider-config-mapping.xml
+END
+ProtocolHandlerConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/conf/ProtocolHandlerConfig.java
+END
+CodecFactoryConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/ami3.0/!svn/ver/1004/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/conf/CodecFactoryConfig.java
+END
+protocol-provider-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/ami3.0/!svn/ver/16568/trunk/fep/FEP_Protocol_Processor/src/cn/hexing/fas/protocol/conf/protocol-provider-config.xml
+END
