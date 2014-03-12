@@ -28,65 +28,124 @@ public class TaskFHSJ implements Serializable{
     /** ²¹È«±êÖ¾ */
     private int BQBJ;
     /** B611 */
-    private String AXDYXWJ         ;
-    private String BXDYXWJ         ;
-    private String CXDYXWJ         ;
-    private String AXDLXWJ         ;
-    private String BXDLXWJ         ;
-    private String CXDLXWJ         ;
-    private String NBWD            ;
-    private String AXSZGL          ;
-    private String BXSZGL          ;
-    private String CXSZGL          ;
-    private String DCDY            ;
-    private String SYXLZQXL        ;
-    private String DQXLZQSYSJ      ;
-    private String YPJGLYS         ;
-    private String YPJGLYS1        ;
-    private String YPJGLYS2        ;
-    private String YPJGLYS3        ;
-    private String YPJGLYS4        ;
-    private String DQYZDXL         ;
-    private String DQYZDXL1        ;
-    private String DQYZDXL2        ;
-    private String DQYZDXL3        ;
-    private String DQYZDXL4        ;
-    private String AXDY            ;
-    private String BXDY            ;
-    private String CXDY            ;
-    private String AXDL            ;
-    private String BXDL            ;
-    private String CXDL            ;
-    private String SZGL            ;
-    private String GLYS            ;
-    private String SSYG            ;
-    private String SSWG            ;
-    private String FXYGGL          ;
-    private String FXWGGL          ;
-    private String ZXYGZ           ;
-    private String ZXWGZ           ;
-    private String FXYGZ           ;
-    private String FXWGZ           ;
-    private String WGZ1            ;
-    private String WGZ2            ;
-    private String WGZ3            ;
-    private String WGZ4            ;
-    private String AXGLYS          ;
-    private String BXGLYS          ;
-    private String CXGLYS          ;
-    private String AXSSYG          ;
-    private String BXSSYG          ;
-    private String CXSSYG          ;
-    private String AXSSWG          ;
-    private String BXSSWG          ;
-    private String CXSSWG          ;
-    private String AXZXYGZ         ;
-    private String BXZXYGZ         ;
-    private String CXZXYGZ         ;
-    private String AXZXWGZ         ;
-    private String BXZXWGZ         ;
-    private String CXZXWGZ         ;
-    private String DWPL            ;
+    private String AXDY	;
+    private String BXDY	;
+    private String CXDY	;
+    private String AXDL	;
+    private String BXDL	;
+    private String CXDL	;
+    private String SZGL	;
+    private String GLYS	;
+    private String SSYG	;
+    private String SSWG	;
+    private String FXYGGL	;
+    private String FXWGGL	;
+    private String ZXYGZ	;
+    private String ZXWGZ	;
+    private String FXYGZ	;
+    private String FXWGZ	;
+    private String WGZ1	;
+    private String WGZ2	;
+    private String WGZ3	;
+    private String WGZ4	;
+    private String AXGLYS	;
+    private String BXGLYS	;
+    private String CXGLYS	;
+    private String AXSSYG	;
+    private String BXSSYG	;
+    private String CXSSYG	;
+    private String AXSSWG	;
+    private String BXSSWG	;
+    private String CXSSWG	;
+    private String AXZXYGZ	;
+    private String BXZXYGZ	;
+    private String CXZXYGZ	;
+    private String AXZXWGZ	;
+    private String BXZXWGZ	;
+    private String CXZXWGZ	;
+    private String DWPL	;
+    private String AXSZGL	;
+    private String BXSZGL	;
+    private String CXSZGL	;
+    private String DCDY	;
+    private String SYXLZQXL	;
+    private String DQXLZQSYSJ	;
+    private String YPJGLYS	;
+    private String YPJGLYS1	;
+    private String YPJGLYS2	;
+    private String YPJGLYS3	;
+    private String YPJGLYS4	;
+    private String DQYZDXL	;
+    private String DQYZDXL1	;
+    private String DQYZDXL2	;
+    private String DQYZDXL3	;
+    private String DQYZDXL4	;
+    private String AXDYXWJ	;
+    private String BXDYXWJ	;
+    private String CXDYXWJ	;
+    private String AXDLXWJ	;
+    private String BXDLXWJ	;
+    private String CXDLXWJ	;
+    private String NBWD	;
+    private String VEE_STATE	;
+    private String VEE_RULE_MASK	;
+    private String VEE_ENERGY_TYPE_MASK	;
+    private String AXDLZDZ	;
+    private String AXDLZXZ	;
+    private String BXDLZDZ	;
+    private String BXDLZXZ	;
+    private String CXDLZDZ	;
+    private String CXDLZXZ	;
+    private String AXDYZDZ	;
+    private String AXDYZXZ	;
+    private String BXDYZDZ	;
+    private String BXDYZXZ	;
+    private String CXDYZDZ	;
+    private String CXDYZXZ	;
+    private String AXGLYSZDZ	;
+    private String AXGLYSZXZ	;
+    private String BXGLYSZDZ	;
+    private String BXGLYSZXZ	;
+    private String CXGLYSZDZ	;
+    private String CXGLYSZXZ	;
+    private String GLYSZDZ	;
+    private String GLYSZXZ	;
+    private String DWPLZDZ	;
+    private String DWPLZXZ	;
+    private String ZXYGGLZDZ	;
+    private String ZXYGGLZXZ	;
+    private String FXYGGLZDZ	;
+    private String FXYGGLZXZ	;
+    private String AXZXYGGLZDZ	;
+    private String AXZXYGGLZXZ	;
+    private String AXZXWGGLZDZ	;
+    private String AXZXWGGLZXZ	;
+    private String BXZXYGGLZDZ	;
+    private String BXZXYGGLZXZ	;
+    private String BXZXWGGLZDZ	;
+    private String BXZXWGGLZXZ	;
+    private String CXZXYGGLZDZ	;
+    private String CXZXYGGLZXZ	;
+    private String CXZXWGGLZDZ	;
+    private String CXZXWGGLZXZ	;
+    private String DBYE	;
+    private String VEE_ESTIMATED_COLUMNS	;
+    private String ZXWGGLZDZ	;
+    private String ZXWGGLZXZ	;
+    private String FXWGGLZDZ	;
+    private String FXWGGLZXZ	;
+    private String AXFXYGGLZDZ	;
+    private String AXFXYGGLZXZ	;
+    private String AXFXWGGLZDZ	;
+    private String AXFXWGGLZXZ	;
+    private String BXFXYGGLZDZ	;
+    private String BXFXYGGLZXZ	;
+    private String BXFXWGGLZDZ	;
+    private String BXFXWGGLZXZ	;
+    private String CXFXYGGLZDZ	;
+    private String CXFXYGGLZXZ	;
+    private String CXFXWGGLZDZ	;
+    private String CXFXWGGLZXZ	;
 
     
 	public String getAXDL() {
@@ -499,6 +558,360 @@ public class TaskFHSJ implements Serializable{
 	}
 	public void setDQYZDXL4(String dQYZDXL4) {
 		DQYZDXL4 = dQYZDXL4;
+	}
+	public String getVEE_STATE() {
+		return VEE_STATE;
+	}
+	public void setVEE_STATE(String vEE_STATE) {
+		VEE_STATE = vEE_STATE;
+	}
+	public String getVEE_RULE_MASK() {
+		return VEE_RULE_MASK;
+	}
+	public void setVEE_RULE_MASK(String vEE_RULE_MASK) {
+		VEE_RULE_MASK = vEE_RULE_MASK;
+	}
+	public String getVEE_ENERGY_TYPE_MASK() {
+		return VEE_ENERGY_TYPE_MASK;
+	}
+	public void setVEE_ENERGY_TYPE_MASK(String vEE_ENERGY_TYPE_MASK) {
+		VEE_ENERGY_TYPE_MASK = vEE_ENERGY_TYPE_MASK;
+	}
+	public String getAXDLZDZ() {
+		return AXDLZDZ;
+	}
+	public void setAXDLZDZ(String aXDLZDZ) {
+		AXDLZDZ = aXDLZDZ;
+	}
+	public String getAXDLZXZ() {
+		return AXDLZXZ;
+	}
+	public void setAXDLZXZ(String aXDLZXZ) {
+		AXDLZXZ = aXDLZXZ;
+	}
+	public String getBXDLZDZ() {
+		return BXDLZDZ;
+	}
+	public void setBXDLZDZ(String bXDLZDZ) {
+		BXDLZDZ = bXDLZDZ;
+	}
+	public String getBXDLZXZ() {
+		return BXDLZXZ;
+	}
+	public void setBXDLZXZ(String bXDLZXZ) {
+		BXDLZXZ = bXDLZXZ;
+	}
+	public String getCXDLZDZ() {
+		return CXDLZDZ;
+	}
+	public void setCXDLZDZ(String cXDLZDZ) {
+		CXDLZDZ = cXDLZDZ;
+	}
+	public String getCXDLZXZ() {
+		return CXDLZXZ;
+	}
+	public void setCXDLZXZ(String cXDLZXZ) {
+		CXDLZXZ = cXDLZXZ;
+	}
+	public String getAXDYZDZ() {
+		return AXDYZDZ;
+	}
+	public void setAXDYZDZ(String aXDYZDZ) {
+		AXDYZDZ = aXDYZDZ;
+	}
+	public String getAXDYZXZ() {
+		return AXDYZXZ;
+	}
+	public void setAXDYZXZ(String aXDYZXZ) {
+		AXDYZXZ = aXDYZXZ;
+	}
+	public String getBXDYZDZ() {
+		return BXDYZDZ;
+	}
+	public void setBXDYZDZ(String bXDYZDZ) {
+		BXDYZDZ = bXDYZDZ;
+	}
+	public String getBXDYZXZ() {
+		return BXDYZXZ;
+	}
+	public void setBXDYZXZ(String bXDYZXZ) {
+		BXDYZXZ = bXDYZXZ;
+	}
+	public String getCXDYZDZ() {
+		return CXDYZDZ;
+	}
+	public void setCXDYZDZ(String cXDYZDZ) {
+		CXDYZDZ = cXDYZDZ;
+	}
+	public String getCXDYZXZ() {
+		return CXDYZXZ;
+	}
+	public void setCXDYZXZ(String cXDYZXZ) {
+		CXDYZXZ = cXDYZXZ;
+	}
+	public String getAXGLYSZDZ() {
+		return AXGLYSZDZ;
+	}
+	public void setAXGLYSZDZ(String aXGLYSZDZ) {
+		AXGLYSZDZ = aXGLYSZDZ;
+	}
+	public String getAXGLYSZXZ() {
+		return AXGLYSZXZ;
+	}
+	public void setAXGLYSZXZ(String aXGLYSZXZ) {
+		AXGLYSZXZ = aXGLYSZXZ;
+	}
+	public String getBXGLYSZDZ() {
+		return BXGLYSZDZ;
+	}
+	public void setBXGLYSZDZ(String bXGLYSZDZ) {
+		BXGLYSZDZ = bXGLYSZDZ;
+	}
+	public String getBXGLYSZXZ() {
+		return BXGLYSZXZ;
+	}
+	public void setBXGLYSZXZ(String bXGLYSZXZ) {
+		BXGLYSZXZ = bXGLYSZXZ;
+	}
+	public String getCXGLYSZDZ() {
+		return CXGLYSZDZ;
+	}
+	public void setCXGLYSZDZ(String cXGLYSZDZ) {
+		CXGLYSZDZ = cXGLYSZDZ;
+	}
+	public String getCXGLYSZXZ() {
+		return CXGLYSZXZ;
+	}
+	public void setCXGLYSZXZ(String cXGLYSZXZ) {
+		CXGLYSZXZ = cXGLYSZXZ;
+	}
+	public String getGLYSZDZ() {
+		return GLYSZDZ;
+	}
+	public void setGLYSZDZ(String gLYSZDZ) {
+		GLYSZDZ = gLYSZDZ;
+	}
+	public String getGLYSZXZ() {
+		return GLYSZXZ;
+	}
+	public void setGLYSZXZ(String gLYSZXZ) {
+		GLYSZXZ = gLYSZXZ;
+	}
+	public String getDWPLZDZ() {
+		return DWPLZDZ;
+	}
+	public void setDWPLZDZ(String dWPLZDZ) {
+		DWPLZDZ = dWPLZDZ;
+	}
+	public String getDWPLZXZ() {
+		return DWPLZXZ;
+	}
+	public void setDWPLZXZ(String dWPLZXZ) {
+		DWPLZXZ = dWPLZXZ;
+	}
+	public String getZXYGGLZDZ() {
+		return ZXYGGLZDZ;
+	}
+	public void setZXYGGLZDZ(String zXYGGLZDZ) {
+		ZXYGGLZDZ = zXYGGLZDZ;
+	}
+	public String getZXYGGLZXZ() {
+		return ZXYGGLZXZ;
+	}
+	public void setZXYGGLZXZ(String zXYGGLZXZ) {
+		ZXYGGLZXZ = zXYGGLZXZ;
+	}
+	public String getFXYGGLZDZ() {
+		return FXYGGLZDZ;
+	}
+	public void setFXYGGLZDZ(String fXYGGLZDZ) {
+		FXYGGLZDZ = fXYGGLZDZ;
+	}
+	public String getFXYGGLZXZ() {
+		return FXYGGLZXZ;
+	}
+	public void setFXYGGLZXZ(String fXYGGLZXZ) {
+		FXYGGLZXZ = fXYGGLZXZ;
+	}
+	public String getAXZXYGGLZDZ() {
+		return AXZXYGGLZDZ;
+	}
+	public void setAXZXYGGLZDZ(String aXZXYGGLZDZ) {
+		AXZXYGGLZDZ = aXZXYGGLZDZ;
+	}
+	public String getAXZXYGGLZXZ() {
+		return AXZXYGGLZXZ;
+	}
+	public void setAXZXYGGLZXZ(String aXZXYGGLZXZ) {
+		AXZXYGGLZXZ = aXZXYGGLZXZ;
+	}
+	public String getAXZXWGGLZDZ() {
+		return AXZXWGGLZDZ;
+	}
+	public void setAXZXWGGLZDZ(String aXZXWGGLZDZ) {
+		AXZXWGGLZDZ = aXZXWGGLZDZ;
+	}
+	public String getAXZXWGGLZXZ() {
+		return AXZXWGGLZXZ;
+	}
+	public void setAXZXWGGLZXZ(String aXZXWGGLZXZ) {
+		AXZXWGGLZXZ = aXZXWGGLZXZ;
+	}
+	public String getBXZXYGGLZDZ() {
+		return BXZXYGGLZDZ;
+	}
+	public void setBXZXYGGLZDZ(String bXZXYGGLZDZ) {
+		BXZXYGGLZDZ = bXZXYGGLZDZ;
+	}
+	public String getBXZXYGGLZXZ() {
+		return BXZXYGGLZXZ;
+	}
+	public void setBXZXYGGLZXZ(String bXZXYGGLZXZ) {
+		BXZXYGGLZXZ = bXZXYGGLZXZ;
+	}
+	public String getBXZXWGGLZDZ() {
+		return BXZXWGGLZDZ;
+	}
+	public void setBXZXWGGLZDZ(String bXZXWGGLZDZ) {
+		BXZXWGGLZDZ = bXZXWGGLZDZ;
+	}
+	public String getBXZXWGGLZXZ() {
+		return BXZXWGGLZXZ;
+	}
+	public void setBXZXWGGLZXZ(String bXZXWGGLZXZ) {
+		BXZXWGGLZXZ = bXZXWGGLZXZ;
+	}
+	public String getCXZXYGGLZDZ() {
+		return CXZXYGGLZDZ;
+	}
+	public void setCXZXYGGLZDZ(String cXZXYGGLZDZ) {
+		CXZXYGGLZDZ = cXZXYGGLZDZ;
+	}
+	public String getCXZXYGGLZXZ() {
+		return CXZXYGGLZXZ;
+	}
+	public void setCXZXYGGLZXZ(String cXZXYGGLZXZ) {
+		CXZXYGGLZXZ = cXZXYGGLZXZ;
+	}
+	public String getCXZXWGGLZDZ() {
+		return CXZXWGGLZDZ;
+	}
+	public void setCXZXWGGLZDZ(String cXZXWGGLZDZ) {
+		CXZXWGGLZDZ = cXZXWGGLZDZ;
+	}
+	public String getCXZXWGGLZXZ() {
+		return CXZXWGGLZXZ;
+	}
+	public void setCXZXWGGLZXZ(String cXZXWGGLZXZ) {
+		CXZXWGGLZXZ = cXZXWGGLZXZ;
+	}
+	public String getDBYE() {
+		return DBYE;
+	}
+	public void setDBYE(String dBYE) {
+		DBYE = dBYE;
+	}
+	public String getVEE_ESTIMATED_COLUMNS() {
+		return VEE_ESTIMATED_COLUMNS;
+	}
+	public void setVEE_ESTIMATED_COLUMNS(String vEE_ESTIMATED_COLUMNS) {
+		VEE_ESTIMATED_COLUMNS = vEE_ESTIMATED_COLUMNS;
+	}
+	public String getZXWGGLZDZ() {
+		return ZXWGGLZDZ;
+	}
+	public void setZXWGGLZDZ(String zXWGGLZDZ) {
+		ZXWGGLZDZ = zXWGGLZDZ;
+	}
+	public String getZXWGGLZXZ() {
+		return ZXWGGLZXZ;
+	}
+	public void setZXWGGLZXZ(String zXWGGLZXZ) {
+		ZXWGGLZXZ = zXWGGLZXZ;
+	}
+	public String getFXWGGLZDZ() {
+		return FXWGGLZDZ;
+	}
+	public void setFXWGGLZDZ(String fXWGGLZDZ) {
+		FXWGGLZDZ = fXWGGLZDZ;
+	}
+	public String getFXWGGLZXZ() {
+		return FXWGGLZXZ;
+	}
+	public void setFXWGGLZXZ(String fXWGGLZXZ) {
+		FXWGGLZXZ = fXWGGLZXZ;
+	}
+	public String getAXFXYGGLZDZ() {
+		return AXFXYGGLZDZ;
+	}
+	public void setAXFXYGGLZDZ(String aXFXYGGLZDZ) {
+		AXFXYGGLZDZ = aXFXYGGLZDZ;
+	}
+	public String getAXFXYGGLZXZ() {
+		return AXFXYGGLZXZ;
+	}
+	public void setAXFXYGGLZXZ(String aXFXYGGLZXZ) {
+		AXFXYGGLZXZ = aXFXYGGLZXZ;
+	}
+	public String getAXFXWGGLZDZ() {
+		return AXFXWGGLZDZ;
+	}
+	public void setAXFXWGGLZDZ(String aXFXWGGLZDZ) {
+		AXFXWGGLZDZ = aXFXWGGLZDZ;
+	}
+	public String getAXFXWGGLZXZ() {
+		return AXFXWGGLZXZ;
+	}
+	public void setAXFXWGGLZXZ(String aXFXWGGLZXZ) {
+		AXFXWGGLZXZ = aXFXWGGLZXZ;
+	}
+	public String getBXFXYGGLZDZ() {
+		return BXFXYGGLZDZ;
+	}
+	public void setBXFXYGGLZDZ(String bXFXYGGLZDZ) {
+		BXFXYGGLZDZ = bXFXYGGLZDZ;
+	}
+	public String getBXFXYGGLZXZ() {
+		return BXFXYGGLZXZ;
+	}
+	public void setBXFXYGGLZXZ(String bXFXYGGLZXZ) {
+		BXFXYGGLZXZ = bXFXYGGLZXZ;
+	}
+	public String getBXFXWGGLZDZ() {
+		return BXFXWGGLZDZ;
+	}
+	public void setBXFXWGGLZDZ(String bXFXWGGLZDZ) {
+		BXFXWGGLZDZ = bXFXWGGLZDZ;
+	}
+	public String getBXFXWGGLZXZ() {
+		return BXFXWGGLZXZ;
+	}
+	public void setBXFXWGGLZXZ(String bXFXWGGLZXZ) {
+		BXFXWGGLZXZ = bXFXWGGLZXZ;
+	}
+	public String getCXFXYGGLZDZ() {
+		return CXFXYGGLZDZ;
+	}
+	public void setCXFXYGGLZDZ(String cXFXYGGLZDZ) {
+		CXFXYGGLZDZ = cXFXYGGLZDZ;
+	}
+	public String getCXFXYGGLZXZ() {
+		return CXFXYGGLZXZ;
+	}
+	public void setCXFXYGGLZXZ(String cXFXYGGLZXZ) {
+		CXFXYGGLZXZ = cXFXYGGLZXZ;
+	}
+	public String getCXFXWGGLZDZ() {
+		return CXFXWGGLZDZ;
+	}
+	public void setCXFXWGGLZDZ(String cXFXWGGLZDZ) {
+		CXFXWGGLZDZ = cXFXWGGLZDZ;
+	}
+	public String getCXFXWGGLZXZ() {
+		return CXFXWGGLZXZ;
+	}
+	public void setCXFXWGGLZXZ(String cXFXWGGLZXZ) {
+		CXFXWGGLZXZ = cXFXWGGLZXZ;
 	}
 	
 	

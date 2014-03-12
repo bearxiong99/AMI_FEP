@@ -158,7 +158,7 @@ public class ManageRtu {
 	 * @param zdjh
 	 * @return
 	 */
-	public  synchronized boolean refreshBizRtu(String zdjh){
+	public boolean refreshBizRtu(String zdjh){
 		//数据库不可用，则直接退出
 		DbState ds = DbMonitor.getInstance().getMonitor(dataSource);
 		if( null == ds || !ds.isAvailable() ){
@@ -169,7 +169,6 @@ public class ManageRtu {
 			log.debug("RefreshBizRtu. zdjh="+zdjh);
 			BizRtu bizRtu=rtuRefreshDao.getRtu(zdjh);
 			if (bizRtu!=null){
-				System.out.println("size"+bizRtu.getMeasuredPoints().size()+"--"+bizRtu.getMeasuredPoints());
 				bizRtu.setLastRefreshTime(new Date());
 				BizRtu tmpRtu = rtuManage.getBizRtuInCache(zdjh);
 				bizRtu.copy(tmpRtu);

@@ -417,7 +417,20 @@ public class DlmsProcessor extends BaseModule implements StatefulJob{
 					ArrayList<RtuTask> list=DlmsReqestQueue.getInstance().getRtuTaskRequestList(System.currentTimeMillis());
 					if (list!=null&&list.size()>0){//组request,并发送
 						List<DlmsRequest> requests = new ArrayList<DlmsRequest>();
+						
+						//----暂时这么处理，未来对于表多的情况再另外处理。
+						List<DlmsMeterRtu> onlineMeters = loadDatasDao.get24HourOnlineMeter();
+						List<String> onlineAddress = new ArrayList<String>();
+						for(DlmsMeterRtu dmr:onlineMeters){
+							onlineAddress.add(dmr.getLogicAddress());
+						}
+						
 						for(RtuTask rt:list){
+							//查询最近在线的表，如果不在线，不发送请求
+							if(!onlineAddress.contains(rt.getRtuId())){
+								log.info(rt.getRtuId()+"not online,so don't send request");
+								continue;
+							}
 							DlmsRequest dlmsReq=getDlmsRequest(rt);
 							if(dlmsReq == null) continue;
 							requests.add(dlmsReq);

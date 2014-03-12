@@ -27,7 +27,7 @@ public class Client {
 	public void init(){
 		//
 //		ccmm.setClientsUrl("192.168.2.167:7778");
-		ccmm.setClientsUrl("192.168.2.168:8000");
+		ccmm.setClientsUrl("127.0.0.1:7778");
 //		ccmm.setClientsUrl("192.168.2.172:7778;192.168.2.166:7778");
 		ccmm.setName("bpClinets");
 		ccmm.setBufLength(10240);

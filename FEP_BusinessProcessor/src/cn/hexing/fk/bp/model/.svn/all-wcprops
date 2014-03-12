@@ -21,17 +21,17 @@ svn:wc:ra_dav:version-url
 V 104
 /svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/model/RtuCommandIdInfo.java
 END
-TaskYFFSJ.java
-K 25
-svn:wc:ra_dav:version-url
-V 99
-/svn/ami3.0/!svn/ver/16359/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/model/TaskYFFSJ.java
-END
 AmmeterIdentification.java
 K 25
 svn:wc:ra_dav:version-url
 V 109
 /svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/model/AmmeterIdentification.java
+END
+TaskYFFSJ.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ami3.0/!svn/ver/16359/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/model/TaskYFFSJ.java
 END
 DlmsRtuComInfo.java
 K 25
@@ -45,23 +45,17 @@ svn:wc:ra_dav:version-url
 V 101
 /svn/ami3.0/!svn/ver/16359/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/model/TaskDLSJCBR.java
 END
-dlmsRtuTemporaryInfo.java
-K 25
-svn:wc:ra_dav:version-url
-V 108
-/svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/model/dlmsRtuTemporaryInfo.java
-END
 TaskBYQWD.java
 K 25
 svn:wc:ra_dav:version-url
 V 99
 /svn/ami3.0/!svn/ver/16359/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/model/TaskBYQWD.java
 END
-TaskYFFSJYDJ.java
+dlmsRtuTemporaryInfo.java
 K 25
 svn:wc:ra_dav:version-url
-V 102
-/svn/ami3.0/!svn/ver/16359/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/model/TaskYFFSJYDJ.java
+V 108
+/svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/model/dlmsRtuTemporaryInfo.java
 END
 TaskItemData.java
 K 25
@@ -69,11 +63,11 @@ svn:wc:ra_dav:version-url
 V 100
 /svn/ami3.0/!svn/ver/988/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/model/TaskItemData.java
 END
-TaskFHSJ.java
+TaskYFFSJYDJ.java
 K 25
 svn:wc:ra_dav:version-url
-V 98
-/svn/ami3.0/!svn/ver/16359/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/model/TaskFHSJ.java
+V 102
+/svn/ami3.0/!svn/ver/16359/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/model/TaskYFFSJYDJ.java
 END
 AutoRegister.java
 K 25
@@ -81,17 +75,23 @@ svn:wc:ra_dav:version-url
 V 102
 /svn/ami3.0/!svn/ver/15529/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/model/AutoRegister.java
 END
-TaskDLSJ.java
+TaskFHSJ.java
 K 25
 svn:wc:ra_dav:version-url
 V 98
-/svn/ami3.0/!svn/ver/18067/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/model/TaskDLSJ.java
+/svn/ami3.0/!svn/ver/22514/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/model/TaskFHSJ.java
 END
 TaskDLSJRDJ.java
 K 25
 svn:wc:ra_dav:version-url
 V 101
 /svn/ami3.0/!svn/ver/15529/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/model/TaskDLSJRDJ.java
+END
+TaskDLSJ.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ami3.0/!svn/ver/18067/trunk/fep/FEP_BusinessProcessor/src/cn/hexing/fk/bp/model/TaskDLSJ.java
 END
 DlmsAlarmStatus.java
 K 25

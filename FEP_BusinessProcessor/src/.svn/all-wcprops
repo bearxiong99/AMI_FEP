@@ -7,7 +7,7 @@ applicationContext-bp.xml
 K 25
 svn:wc:ra_dav:version-url
 V 88
-/svn/ami3.0/!svn/ver/20595/trunk/fep/FEP_BusinessProcessor/src/applicationContext-bp.xml
+/svn/ami3.0/!svn/ver/22514/trunk/fep/FEP_BusinessProcessor/src/applicationContext-bp.xml
 END
 applicationContext-db-batch.xml
 K 25

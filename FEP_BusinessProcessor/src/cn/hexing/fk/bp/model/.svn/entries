@@ -128,40 +128,6 @@ yj
 
 1106
 
-AmmeterIdentification.java
-file
-
-
-
-
-2013-02-23T05:47:26.375919Z
-a08bc525f63749740996c8cb2227237f
-2012-06-09T02:19:45.088626Z
-988
-yj
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-535
-
 TaskYFFSJ.java
 file
 
@@ -195,6 +161,40 @@ has-props
 
 
 2763
+
+AmmeterIdentification.java
+file
+
+
+
+
+2013-02-23T05:47:26.375919Z
+a08bc525f63749740996c8cb2227237f
+2012-06-09T02:19:45.088626Z
+988
+yj
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+535
 
 DlmsRtuComInfo.java
 file
@@ -264,40 +264,6 @@ has-props
 
 6734
 
-TaskBYQWD.java
-file
-
-
-
-
-2013-08-14T08:52:06.631713Z
-b5bef939d65076d970af864bb8b729bb
-2013-08-14T09:08:11.861877Z
-16359
-huangj
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1634
-
 dlmsRtuTemporaryInfo.java
 file
 
@@ -332,17 +298,17 @@ yj
 
 1152
 
-TaskItemData.java
+TaskBYQWD.java
 file
 
 
 
 
-2013-02-23T05:47:26.385920Z
-da9b33df78ebfb7e12440ceaaeff5fc0
-2012-06-09T02:19:45.088626Z
-988
-yj
+2013-08-14T08:52:06.631713Z
+b5bef939d65076d970af864bb8b729bb
+2013-08-14T09:08:11.861877Z
+16359
+huangj
 
 
 
@@ -364,7 +330,7 @@ yj
 
 
 
-1776
+1634
 
 TaskYFFSJYDJ.java
 file
@@ -400,6 +366,74 @@ has-props
 
 2770
 
+TaskItemData.java
+file
+
+
+
+
+2013-02-23T05:47:26.385920Z
+da9b33df78ebfb7e12440ceaaeff5fc0
+2012-06-09T02:19:45.088626Z
+988
+yj
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1776
+
+TaskFHSJ.java
+file
+22514
+
+
+
+2014-03-10T11:29:14.181426Z
+8eb632493a66ac693930f5df6855573f
+2014-03-10T11:49:14.215817Z
+22514
+gaoll
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+20467
+
 AutoRegister.java
 file
 
@@ -434,17 +468,17 @@ has-props
 
 1529
 
-TaskFHSJ.java
+TaskDLSJ.java
 file
 
 
 
 
-2013-08-14T08:50:44.279318Z
-df3662408032cc1564ba4f6ac9196031
-2013-08-14T09:08:11.861877Z
-16359
-huangj
+2013-10-15T00:48:51.682810Z
+7275f205072d01caeca6bfa5850c670a
+2013-10-14T09:06:37.841018Z
+18067
+fjm
 
 
 
@@ -466,7 +500,7 @@ huangj
 
 
 
-10881
+16800
 
 TaskDLSJRDJ.java
 file
@@ -501,40 +535,6 @@ has-props
 
 
 3520
-
-TaskDLSJ.java
-file
-
-
-
-
-2013-10-15T00:48:51.682810Z
-7275f205072d01caeca6bfa5850c670a
-2013-10-14T09:06:37.841018Z
-18067
-fjm
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-16800
 
 DlmsAlarmStatus.java
 file
