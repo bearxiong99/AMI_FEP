@@ -29,14 +29,14 @@ public class ChannelReadEncode {
 		
 		DlmsRequest dlmsRequest = new DlmsRequest();
 		dlmsRequest = new DlmsRequest();
-		dlmsRequest.setMeterId("000010850002");
+		dlmsRequest.setMeterId("000000010005");
 		dlmsRequest.setProtocol("03");
 		dlmsRequest.setOpType(DlmsRequest.DLMS_OP_TYPE.OP_GET);
 		dlmsRequest.setOperator("MasterTask");
 		dlmsRequest.setParams(params);
 		dlmsRequest.addAppendParam("taskDate", "2012-11-11 00:00:00");
 		dlmsRequest.setSubprotocol("101");
-		dlmsRequest.addAppendParam("taskNo", "106");
+		dlmsRequest.addAppendParam("taskNo", "111");
 //		DlmsData dd = dlmsRequest.getParams()[0].data;
 //		ASN1SequenceOf struct = dd.getStructure();
 //		DlmsData[] members = (DlmsData[]) struct.getMembers();
@@ -80,8 +80,8 @@ public class ChannelReadEncode {
 		params[0] = new DlmsObisItem();
 		params[0].attributeId= 2;
 		params[0].classId = 7;
-		params[0].obisString="0.13.24.3.0.255";
-//		params[0].obisString="0.0.98.2.0.255";
+//		params[0].obisString="0.13.24.3.0.255";
+		params[0].obisString="0.0.98.6.128.255";
 		DlmsData [] array = new DlmsData[4];
 		array[0] = new DlmsData();
 				DlmsData[] array2= new DlmsData[4];

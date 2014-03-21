@@ -425,7 +425,6 @@ public class TaskMessageService {
 			}
 		}
 		List<String> codes = taskTemp.getDataCodes();
-		RtuData data = new RtuData();
 		for(int i=0;i<params.length;i++){
 			DlmsData resultData=params[i].resultData;
 			if(resultData==null ||resultData.type()==DlmsDataType.NULL||resultData.type()==DlmsDataType.ARRAY){
@@ -440,6 +439,7 @@ public class TaskMessageService {
 			//获得当前大项所有小项编码
 			List<String> smallCodes=blockRelatedSmall.get(bigCode);
 			if(smallCodes==null){
+				RtuData data = new RtuData();
 				RtuDataItem dataItem = new RtuDataItem();
 				if(isDateTimeValue(stringValues)){
 					stringValues =  DlmsConstant.getInstance().isIranTime?stringValues=DateConvert.iranToGregorian(stringValues):stringValues;
@@ -451,6 +451,7 @@ public class TaskMessageService {
 			}
 			String[] values = stringValues.split(";");
 			for (String stringValue : values) {
+				RtuData data = new RtuData();
 				String[] paramValues = stringValue.split("#");
 				
 				//模板和value可能不对应,找到最小的长度

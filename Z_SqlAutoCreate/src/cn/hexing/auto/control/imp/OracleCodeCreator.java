@@ -37,11 +37,15 @@ public class OracleCodeCreator extends AbstractCodeCreator{
 		
 		StringBuilder mergeAppendNotMathedAppned = new StringBuilder("VALUES (s.sjid, s.sjsj, nvl(s.jssj, sysdate), s.ct, s.pt, s.zhbl, s.bqbj,0 ");
 		
+		StringBuilder javaBeanAppend = new StringBuilder();
 		
 		for(Map<String,Object> map:results){
 			String column=(String) map.get(Constant.COLUMN_NAME.toUpperCase());
 			if("SJID,SJSJ,JSSJ,CT,PT,ZHBL,BQBJ,XGBJ".contains(column.toUpperCase()))
 				continue;
+			if(column.toUpperCase().contains("VEE"))
+				continue;
+			
 			
 			insertTempSql.append(",").append(column);
 			String dataType=(String) map.get(Constant.COLUMN_TYPE.toUpperCase());
@@ -55,6 +59,7 @@ public class OracleCodeCreator extends AbstractCodeCreator{
 				mergeAppendNotMathedAppned.append(",s."+column);
 			}
 			mergeAppendNotMathed.append(",").append(column);
+			javaBeanAppend.append("private String "+column.toUpperCase()+";\n");
 		}
 		insertTempSql.append(")");
 		insertValues.append(")");
@@ -69,9 +74,11 @@ public class OracleCodeCreator extends AbstractCodeCreator{
 		FileUtils.writeTo(new File(destPath+File.separator+"insertTempSql.txt"), insertTempSql.toString());
 		
 		FileUtils.writeTo(new File(destPath+File.separator+"mergeSql.txt"), mergeInto.toString());
+		
+		FileUtils.writeTo(new File(destPath+File.separator+"javaBean.txt"), javaBeanAppend.toString());
 
 		
-		return 2;
+		return 3;
 	}
 
 	private boolean isTimeValue(String dataType) {
